@@ -3,6 +3,22 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
+      {/* Gnarly Ass News Ticker */}
+      <div className="border-b border-purple-900 bg-black/90">
+        <div className="flex items-center py-2">
+          <span className="px-4 text-purple-300 font-medium">Latest:</span>
+          <div className="flex-1 overflow-hidden">
+            <div className="animate-marquee whitespace-nowrap">
+              {/*}
+              <span className="text-purple-200">New artwork &quot;Follow The Notes&quot; now available in the gallery • </span> */}
+              <span className="text-purple-200">Website Still Under Construction • </span>
+              <span className="text-purple-200">Behind-the-scenes Work In Progress • </span>
+              <span className="text-purple-200">Thanks for being patient!! • </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Header with navigation */}
       <header className="border-b border-purple-900 p-4 bg-black">
         <div className="container mx-auto flex justify-between items-center">
@@ -51,23 +67,51 @@ export default function Home() {
               </div>
 
               <div className="bg-purple-900/30 border border-purple-900 p-3 rounded-lg">
-                <div className="flex justify-between text-sm text-purple-200">
-                  <p>👥 Members Online: 0</p>
-                  <p>📊 Total Posts: 0</p>
+                <div className="flex flex-col gap-3 text-sm">
+                  <div className="flex items-center gap-2 text-purple-200">
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span>0 Online</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-purple-200">
+                    <span>📊</span>
+                    <span>0 Posts</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Recent posts sidebar */}
-          <div className="border border-purple-900 p-4 bg-black/90">
-            <h3 className="text-xl mb-4 text-purple-300">Post Board</h3>
-            <ul className="space-y-2">
-              <li className="hover:text-purple-100 cursor-pointer"> Latest Posts</li>
-              <li className="hover:text-purple-100 cursor-pointer"> Logos</li>
-              <li className="hover:text-purple-100 cursor-pointer"> Wallpapers</li>
-              <li className="hover:text-purple-100 cursor-pointer"> Past Projects</li>
-            </ul>
+          {/* Post Board & Updates */}
+          <div className="space-y-4">
+            {/* Post Board */}
+            <div className="border border-purple-900 p-4 bg-black/90">
+              <h3 className="text-xl mb-4 text-purple-300">Post Board</h3>
+              <ul className="space-y-2">
+                <li className="hover:text-purple-100 cursor-pointer"> Latest Posts</li>
+                <li className="hover:text-purple-100 cursor-pointer"> Logos</li>
+                <li className="hover:text-purple-100 cursor-pointer"> Wallpapers</li>
+                <li className="hover:text-purple-100 cursor-pointer"> Past Projects</li>
+              </ul>
+            </div>
+
+            {/* Updates Bar */}
+            <div className="border border-purple-900 p-4 bg-black/90">
+              <h3 className="text-xl mb-4 text-purple-300">Updates</h3>
+              <div className="space-y-3">
+                <div className="flex items-start gap-2">
+                  <span className="text-purple-300">•</span>
+                  <p className="text-sm text-purple-200">New artwork added to gallery</p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-purple-300">•</span>
+                  <p className="text-sm text-purple-200">Upcoming exhibition details</p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-purple-300">•</span>
+                  <p className="text-sm text-purple-200">Latest blog post published</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Featured Artworks */}
