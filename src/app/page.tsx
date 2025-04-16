@@ -3,22 +3,6 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
-      {/* Gnarly Ass News Ticker */}
-      <div className="border-b border-purple-900 bg-black/90">
-        <div className="flex items-center py-2">
-          <span className="px-4 text-purple-300 font-medium">Latest:</span>
-          <div className="flex-1 overflow-hidden">
-            <div className="animate-marquee whitespace-nowrap">
-              {/*}
-              <span className="text-purple-200">New artwork &quot;Follow The Notes&quot; now available in the gallery • </span> */}
-              <span className="text-purple-200">Website Still Under Construction • </span>
-              <span className="text-purple-200">Behind-the-scenes Work In Progress • </span>
-              <span className="text-purple-200">Thanks for being patient!! • </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Header with navigation */}
       <header className="border-b border-purple-900 p-4 bg-black">
         <div className="container mx-auto flex justify-between items-center">
