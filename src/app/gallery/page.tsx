@@ -26,6 +26,7 @@ const allArtworks: Artwork[] = [
     createdAt: '2024',
     tags: ['surreal', 'digital', 'nature']
   },
+
   {
     id: '2',
     title: 'Ten',
@@ -44,6 +45,7 @@ const allArtworks: Artwork[] = [
     createdAt: '2024',
     tags: ['mixed-media', 'photography', 'nature']
   },
+
   {
     id: '3',
     title: '435 Hz',
@@ -62,10 +64,11 @@ const allArtworks: Artwork[] = [
         url: '/images/showcase/435-hz-process.jpg',
         alt: '435 Hz - Process'
       }
-    ],
+    ], 
     createdAt: '2025',
     tags: ['abstract', 'digital', 'experimental']
   },
+
   {
     id: '4',
     title: 'Recovery',
@@ -84,6 +87,24 @@ const allArtworks: Artwork[] = [
     createdAt: '2024',
     tags: ['nature', 'photography', 'surreal']
   },
+  {
+    id: '5',
+    title: 'Recovery',
+    description: 'This piece explores nature\'s quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.',
+    images: [
+      {
+        url: '/images/showcase/recovery.jpg',
+        alt: 'Recovery - Main View',
+        isPrimary: true
+      },
+      {
+        url: '/images/showcase/recovery-detail.jpg',
+        alt: 'Recovery - Detail View'
+      }
+    ],
+    createdAt: '2024',
+    tags: ['nature', 'photography', 'surreal']
+  }
   // Add more artworks here as you create them
 ];
 

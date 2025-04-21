@@ -9,7 +9,13 @@ const featuredArtworks: Artwork[] = [
     id: '1',
     title: 'Follow The Notes',
     description: 'This surreal, dreamlike piece on a mysterious woman in white entering a reflective river, her spine-like laced in a cursed Tattoo suggesting transformation of self. The lush environment blends natural elements with modern touches like glowing windows and graffiti on ancient stones.',
-    imageUrl: '/images/showcase/follow-the-notes.jpg',
+    images: [
+      {
+        url: '/images/showcase/follow-the-notes.jpg',
+        alt: 'Follow The Notes - Main View',
+        isPrimary: true
+      }
+    ],
     createdAt: '2024',
     tags: ['surreal', 'digital', 'nature']
   },
@@ -17,7 +23,13 @@ const featuredArtworks: Artwork[] = [
     id: '2',
     title: 'Ten',
     description: 'Mixed media piece curated orginally from a photograph i took of the waterside of a river in the woods with my partner.',
-    imageUrl: '/images/showcase/ten.jpg',
+    images: [
+      {
+        url: '/images/showcase/ten.jpg',
+        alt: 'Ten - Main View',
+        isPrimary: true
+      }
+    ],
     createdAt: '2024',
     tags: ['mixed-media', 'photography', 'nature']
   },
@@ -25,7 +37,13 @@ const featuredArtworks: Artwork[] = [
     id: '3',
     title: '435 Hz',
     description: 'This piece explores the intensity and distortion of sensory overload—especially sound. I wanted to capture what it feels like to be immersed in heavy bass, noise, and movement, rather than just show it. The image centers around abstracted figures and bursts of color that feel like they\'re both forming and dissolving at the same time.',
-    imageUrl: '/images/showcase/435-hz.jpg',
+    images: [
+      {
+        url: '/images/showcase/435-hz.jpg',
+        alt: '435 Hz - Main View',
+        isPrimary: true
+      }
+    ],
     createdAt: '2025',
     tags: ['abstract', 'digital', 'experimental']
   },
@@ -33,7 +51,13 @@ const featuredArtworks: Artwork[] = [
     id: '4',
     title: 'Recovery',
     description: 'This piece explores nature\'s quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.',
-    imageUrl: '/images/showcase/recovery.jpg',
+    images: [
+      {
+        url: '/images/showcase/recovery.jpg',
+        alt: 'Recovery - Main View',
+        isPrimary: true
+      }
+    ],
     createdAt: '2024',
     tags: ['nature', 'photography', 'surreal']
   }
@@ -64,14 +88,14 @@ export default function Home() {
                     <li>• Surreal Digital Art</li>
                     <li>• Nature Photography</li>
                     <li>• Mixed Media</li>
-                    <li>• Experimental Pieces</li>
+                    <li>• Client Work (Always)</li>
                   </ul>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2">
                 {/* little blobs and tags + badges */}
-                <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Raster & Vector</span>
+                <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Photoshop Raster & Vector</span>
                 <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Photography</span>
                 <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Mixed Media</span>
                 <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Surreallism</span>
@@ -80,6 +104,8 @@ export default function Home() {
               </div>
 
               <div className="bg-purple-900/30 border border-purple-900 p-3 rounded-lg">
+              <h3 className="text-purple-300 mb-2">Live Relay</h3>
+              {/* have chat and live users be posted here + link to fourm page  */}
                 <div className="flex flex-col gap-3 text-sm">
                   <div className="flex items-center gap-2 text-purple-200">
                     <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>

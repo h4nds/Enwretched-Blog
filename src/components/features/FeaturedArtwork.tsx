@@ -10,15 +10,16 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const primaryImage = artwork.images.find(img => img.isPrimary) || artwork.images[0];
-  const currentImage = artwork.images[currentImageIndex];
+  // Ensure images array exists and has at least one image
+  const images = artwork.images || [];
+  const currentImage = images[currentImageIndex] || { url: '', alt: '' };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % artwork.images.length);
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + artwork.images.length) % artwork.images.length);
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   return (
@@ -50,9 +51,9 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
                 setError(true);
               }}
             />
-            {artwork.images.length > 1 && (
+            {images.length > 1 && (
               <div className="absolute bottom-2 right-2 flex gap-2">
-                {artwork.images.map((_, index) => (
+                {images.map((_, index) => (
                   <button
                     key={index}
                     className={`w-2 h-2 rounded-full transition-colors ${
@@ -85,7 +86,7 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
               className="object-contain"
               sizes="100vw"
             />
-            {artwork.images.length > 1 && (
+            {images.length > 1 && (
               <>
                 <button 
                   className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-200 hover:text-purple-100 p-2 rounded-full bg-black/50"
