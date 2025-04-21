@@ -8,7 +8,7 @@ const featuredArtworks: Artwork[] = [
     id: '1',
     title: 'Follow The Notes',
     description: 'This surreal, dreamlike piece on a mysterious woman in white entering a reflective river, her spine-like laced in a cursed Tattoo suggesting transformation of self. The lush environment blends natural elements with modern touches like glowing windows and graffiti on ancient stones.',
-    imageUrl: '/images/follow-the-notes.jpg',
+    imageUrl: '/images/showcase/follow-the-notes.jpg',
     createdAt: '2024',
     tags: ['surreal', 'digital', 'nature']
   },
@@ -16,7 +16,7 @@ const featuredArtworks: Artwork[] = [
     id: '2',
     title: 'Ten',
     description: 'Mixed media piece curated orginally from a photograph i took of the waterside of a river in the woods.',
-    imageUrl: '/images/ten.jpg',
+    imageUrl: '/images/showcase/ten.jpg',
     createdAt: '2024',
     tags: ['mixed-media', 'photography', 'nature']
   },
@@ -24,7 +24,7 @@ const featuredArtworks: Artwork[] = [
     id: '3',
     title: '435 Hz',
     description: 'This piece explores the intensity and distortion of sensory overload—especially sound. I wanted to capture what it feels like to be immersed in heavy bass, noise, and movement, rather than just show it. The image centers around abstracted figures and bursts of color that feel like they\'re both forming and dissolving at the same time.',
-    imageUrl: '/images/435-hz.jpg',
+    imageUrl: '/images/showcase/435-hz.jpg',
     createdAt: '2025',
     tags: ['abstract', 'digital', 'experimental']
   },
@@ -32,7 +32,7 @@ const featuredArtworks: Artwork[] = [
     id: '4',
     title: 'Recovery',
     description: 'This piece explores nature\'s quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.',
-    imageUrl: '/images/recovery.jpg',
+    imageUrl: '/images/showcase/recovery.jpg',
     createdAt: '2024',
     tags: ['nature', 'photography', 'surreal']
   }
@@ -69,6 +69,7 @@ export default function Home() {
               </div>
 
               <div className="flex flex-wrap gap-2">
+                {/* little blobs and tags + badges */}
                 <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Raster & Vector</span>
                 <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Photography</span>
                 <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Mixed Media</span>
