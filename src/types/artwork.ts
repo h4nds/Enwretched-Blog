@@ -1,8 +1,14 @@
+export interface ArtworkImage {
+  url: string;
+  alt: string;
+  isPrimary?: boolean;
+}
+
 export interface Artwork {
   id: string;
   title: string;
   description: string;
-  imageUrl: string;
+  images: ArtworkImage[];
   createdAt: string;
   tags: string[];
 }
