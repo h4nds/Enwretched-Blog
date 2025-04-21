@@ -1,31 +1,49 @@
-import Link from "next/link";
+import Header from '@/components/layout/Header';
+import NewsTicker from '@/components/ui/NewsTicker';
+import FeaturedArtwork from '@/components/features/FeaturedArtwork';
+import { Artwork } from '@/types/artwork';
+
+const featuredArtworks: Artwork[] = [
+  {
+    id: '1',
+    title: 'Follow The Notes',
+    description: 'This surreal, dreamlike piece on a mysterious woman in white entering a reflective river, her spine-like laced in a cursed Tattoo suggesting transformation of self. The lush environment blends natural elements with modern touches like glowing windows and graffiti on ancient stones.',
+    imageUrl: '/images/follow-the-notes.jpg',
+    createdAt: '2024',
+    tags: ['surreal', 'digital', 'nature']
+  },
+  {
+    id: '2',
+    title: 'Ten',
+    description: 'Mixed media piece curated orginally from a photograph i took of the waterside of a river in the woods.',
+    imageUrl: '/images/ten.jpg',
+    createdAt: '2024',
+    tags: ['mixed-media', 'photography', 'nature']
+  },
+  {
+    id: '3',
+    title: '435 Hz',
+    description: 'This piece explores the intensity and distortion of sensory overload—especially sound. I wanted to capture what it feels like to be immersed in heavy bass, noise, and movement, rather than just show it. The image centers around abstracted figures and bursts of color that feel like they\'re both forming and dissolving at the same time.',
+    imageUrl: '/images/435-hz.jpg',
+    createdAt: '2025',
+    tags: ['abstract', 'digital', 'experimental']
+  },
+  {
+    id: '4',
+    title: 'Recovery',
+    description: 'This piece explores nature\'s quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.',
+    imageUrl: '/images/recovery.jpg',
+    createdAt: '2024',
+    tags: ['nature', 'photography', 'surreal']
+  }
+];
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
-      {/* Header with navigation */}
-      <header className="border-b border-purple-900 p-4 bg-black">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-3xl font-bold text-purple-300"> EnWretched </h1>
-          <nav className="space-x-4">
-            <Link href="/" className="hover:text-purple-100">Home</Link>
-            <Link href="/gallery" className="hover:text-purple-100">Gallery</Link>
-            <Link href="/forum" className="hover:text-purple-100">Forum</Link>
-            <Link href="/guestbook" className="hover:text-purple-100">About</Link>
-          </nav>
-        </div>
-      </header>
+      <Header />
+      <NewsTicker />
 
-      {/* News Ticker */}
-      <div className="bg-black/80 border-y border-purple-900/50 overflow-hidden">
-        <div className="animate-marquee whitespace-nowrap py-3">
-          <span className="mx-6 text-purple-100 font-medium">Cant wait to see what you all make of this</span>
-          <span className="text-purple-500">•</span>
-          <span className="mx-6 text-purple-100 font-medium">Website is under construction</span>
-        </div>
-      </div>
-
-      {/* Main content */}
       <main className="container mx-auto p-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Welcome section */}
@@ -80,10 +98,10 @@ export default function Home() {
             <div className="border border-purple-900 p-4 bg-black/90">
               <h3 className="text-xl mb-4 text-purple-300">Post Board</h3>
               <ul className="space-y-2">
-                <li className="hover:text-purple-100 cursor-pointer"> Latest Posts</li>
-                <li className="hover:text-purple-100 cursor-pointer"> Logos</li>
-                <li className="hover:text-purple-100 cursor-pointer"> Wallpapers</li>
-                <li className="hover:text-purple-100 cursor-pointer"> Past Projects</li>
+                <li className="hover:text-purple-100 cursor-pointer">Latest Posts</li>
+                <li className="hover:text-purple-100 cursor-pointer">Logos</li>
+                <li className="hover:text-purple-100 cursor-pointer">Wallpapers</li>
+                <li className="hover:text-purple-100 cursor-pointer">Past Projects</li>
               </ul>
             </div>
 
@@ -111,34 +129,9 @@ export default function Home() {
           <div className="md:col-span-3 border border-purple-900 p-4 mt-4 bg-black/90">
             <h3 className="text-xl mb-4 text-purple-300">Featured Artworks</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="border border-purple-900 p-4 bg-slate-900/20">
-                <div className="aspect-video bg-purple-900 mb-4"></div>
-                <h4 className="text-lg mb-2 text-purple-300">Follow The Notes</h4>
-                <p className="text-sm mb-2">This surreal, dreamlike piece on a mysterious woman in white entering a reflective river, her spine-like laced in a cursed Tattoo suggesting transformation of self. The lush environment blends natural elements with modern touches like glowing windows and graffiti on ancient stones.</p>
-                <div className="text-xs">Published: 2024</div>
-              </div>
-              
-              <div className="border border-purple-900 p-4 bg-slate-900/20">
-                <div className="aspect-video bg-purple-900 mb-4"></div>
-                <h4 className="text-lg mb-2 text-purple-300">Ten</h4>
-                <p className="text-sm mb-2">Mixed media piece curated orginally from a photograph i took of the waterside of a river in the woods.
-                </p>
-                <div className="text-xs">Created: 2024</div>
-              </div>
-
-              <div className="border border-purple-900 p-4 bg-slate-900/20">
-                <div className="aspect-video bg-purple-900 mb-4"></div>
-                <h4 className="text-lg mb-2 text-purple-300">435 Hz</h4>
-                <p className="text-sm mb-2">This piece explores the intensity and distortion of sensory overload—especially sound. I wanted to capture what it feels like to be immersed in heavy bass, noise, and movement, rather than just show it. The image centers around abstracted figures and bursts of color that feel like they&apos;re both forming and dissolving at the same time.</p>
-                <div className="text-xs">Created: 2025</div>
-              </div>
-
-              <div className="border border-purple-900 p-4 bg-slate-900/20">
-                <div className="aspect-video bg-purple-900 mb-4"></div>
-                <h4 className="text-lg mb-2 text-purple-300">Recovery</h4>
-                <p className="text-sm mb-2">This piece explores nature&apos;s quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream. </p>
-                <div className="text-xs">Created: 2024</div>
-              </div>
+              {featuredArtworks.map((artwork) => (
+                <FeaturedArtwork key={artwork.id} artwork={artwork} />
+              ))}
             </div>
           </div>
         </div>
