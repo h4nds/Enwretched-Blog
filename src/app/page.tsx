@@ -2,6 +2,7 @@ import Header from '@/components/layout/Header';
 import NewsTicker from '@/components/ui/NewsTicker';
 import FeaturedArtwork from '@/components/features/FeaturedArtwork';
 import { Artwork } from '@/types/artwork';
+import Link from 'next/link';
 
 const featuredArtworks: Artwork[] = [
   {
@@ -15,7 +16,7 @@ const featuredArtworks: Artwork[] = [
   {
     id: '2',
     title: 'Ten',
-    description: 'Mixed media piece curated orginally from a photograph i took of the waterside of a river in the woods.',
+    description: 'Mixed media piece curated orginally from a photograph i took of the waterside of a river in the woods with my partner.',
     imageUrl: '/images/showcase/ten.jpg',
     createdAt: '2024',
     tags: ['mixed-media', 'photography', 'nature']
@@ -128,7 +129,29 @@ export default function Home() {
 
           {/* Featured Artworks */}
           <div className="md:col-span-3 border border-purple-900 p-4 mt-4 bg-black/90">
-            <h3 className="text-xl mb-4 text-purple-300">Featured Artworks</h3>
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl text-purple-300">Featured Artworks</h3>
+              <Link 
+                href="/gallery"
+                className="text-purple-200 hover:text-purple-100 transition-colors duration-200 flex items-center gap-2"
+              >
+                See More
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="h-4 w-4" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M9 5l7 7-7 7" 
+                  />
+                </svg>
+              </Link>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {featuredArtworks.map((artwork) => (
                 <FeaturedArtwork key={artwork.id} artwork={artwork} />
