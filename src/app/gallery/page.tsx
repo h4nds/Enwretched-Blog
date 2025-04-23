@@ -14,14 +14,6 @@ const allArtworks: Artwork[] = [
         alt: 'Follow The Notes - Main View',
         isPrimary: true
       },
-      {
-        url: '/images/showcase/follow-the-notes-detail.jpg',
-        alt: 'Follow The Notes - Detail View'
-      },
-      {
-        url: '/images/showcase/follow-the-notes-process.jpg',
-        alt: 'Follow The Notes - Process'
-      }
     ],
     createdAt: '2024',
     tags: ['surreal', 'digital', 'nature']
@@ -30,7 +22,7 @@ const allArtworks: Artwork[] = [
   {
     id: '2',
     title: 'Ten',
-    description: 'Mixed media piece curated orginally from a photograph i took of the waterside of a river in the woods with my partner.',
+    description: 'A Mixed media piece carefully curated and artistically transformed from an original photograph that I originally captured during a peaceful afternoon walk with my partner. The transformation from photograph to mixed media allowed me to explore different artistic techniques while preserving the organic beauty of the natural setting...',
     images: [
       {
         url: '/images/showcase/ten.jpg',
@@ -38,7 +30,7 @@ const allArtworks: Artwork[] = [
         isPrimary: true
       },
       {
-        url: '/images/showcase/ten-detail.jpg',
+        url: '/images/showcase/ten process.jpg',
         alt: 'Ten - Detail View'
       }
     ],
@@ -57,11 +49,7 @@ const allArtworks: Artwork[] = [
         isPrimary: true
       },
       {
-        url: '/images/showcase/435-hz-detail.jpg',
-        alt: '435 Hz - Detail View'
-      },
-      {
-        url: '/images/showcase/435-hz-process.jpg',
+        url: '/images/showcase/435-hz process.jpg',
         alt: '435 Hz - Process'
       }
     ], 
@@ -79,31 +67,45 @@ const allArtworks: Artwork[] = [
         alt: 'Recovery - Main View',
         isPrimary: true
       },
-      {
-        url: '/images/showcase/recovery-detail.jpg',
-        alt: 'Recovery - Detail View'
-      }
     ],
     createdAt: '2024',
     tags: ['nature', 'photography', 'surreal']
   },
   {
     id: '5',
-    title: 'Recovery',
-    description: 'This piece explores nature\'s quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.',
+    title: 'Alone',
+    description: 'This piece was me trying to tap into a more abstract and surreal style. It captures a print of a window seen though a plastic sheet. During the process I used a lot of different techniques to create the effect I was going for, ranging from photoshop to photoshop brushes to printing and scanning. I tend to come back to the peice as an example of how i can use negitive space to create a more interesting image.',
     images: [
       {
-        url: '/images/showcase/recovery.jpg',
-        alt: 'Recovery - Main View',
+        url: '/images/showcase/alone.jpg',
+        alt: 'alone - Main View',
+        isPrimary: true
+      },
+    ],
+    createdAt: '2022',
+    tags: ['nature', 'photography', 'surreal']
+  },
+  {
+    id: '6',
+    title: 'Airbrushed Castle',
+    description: 'This piece was a fun experiment in airbrushing. I used a combination of photoshop and photoshop brushes to create a more abstract and surreal image. I tend to come back to the peice as an example of how i can use airbrushing to create a more interesting image.',
+    images: [
+      {
+        url: '/images/showcase/brushed castle.jpg',
+        alt: 'Airbrushed Castle - Main View',
         isPrimary: true
       },
       {
-        url: '/images/showcase/recovery-detail.jpg',
-        alt: 'Recovery - Detail View'
+        url: '/images/showcase/brushed castle process.jpg',
+        alt: 'Airbrushed Castle - Process'
+      },
+      {
+        url: '/images/showcase/CASTLES WALLPAPER.jpg',
+        alt: 'wallpaper'
       }
     ],
-    createdAt: '2024',
-    tags: ['nature', 'photography', 'surreal']
+    createdAt: '2022',
+    tags: ['Castle', 'photography', 'surreal']
   }
   // Add more artworks here as you create them
 ];
@@ -116,7 +118,7 @@ export default function Gallery() {
       <main className="container mx-auto p-4">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-purple-300 mb-4">Gallery</h1>
-          <p className="text-purple-200">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images.</p>
+          <p className="text-purple-200">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images, please feel free to contact me for more information.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -128,7 +130,7 @@ export default function Gallery() {
 
       <footer className="border-t border-purple-900 p-4 mt-8 bg-black/90">
         <div className="container mx-auto text-center">
-          <p>© EnWretched 2024 - All Rights Reserved</p>
+          <p>©Ray Wretch 2024 - All Rights Reserved</p>
         </div>
       </footer>
     </div>
