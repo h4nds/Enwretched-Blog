@@ -77,7 +77,7 @@ export default function Home() {
               <div>
                 <h2 className="text-2xl mb-2 text-purple-300">Welcome to My Art Space</h2>
                 <p className="text-purple-200 leading-relaxed">
-                  Exploring the intersection of digital art, photography, and mixed media. Each piece tells a story of transformation, nature, and the surreal.
+                  I'm Ray Wretch, a digital artist exploring the intersection of surrealism, nature, and experimental techniques. My work ranges from digital art to photography and mixed media, often incorporating elements of transformation and dreamlike qualities.
                 </p>
               </div>
               
@@ -91,10 +91,18 @@ export default function Home() {
                     <li>• Client Work (Always)</li>
                   </ul>
                 </div>
+
+                <div className="border border-purple-900 p-3 rounded-lg bg-purple-900/20">
+                  <h3 className="text-purple-300 mb-2">Connect</h3>
+                  <ul className="space-y-2 text-sm text-purple-200">
+                    <li>• Instagram: @raywretch</li>
+                    <li>• Email: contact@raywretch.com</li>
+                    <li>• Commissions: Open</li>
+                  </ul>
+                </div>
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {/* little blobs and tags + badges */}
                 <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Photoshop Raster & Vector</span>
                 <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Photography</span>
                 <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Mixed Media</span>
@@ -104,16 +112,15 @@ export default function Home() {
               </div>
 
               <div className="bg-purple-900/30 border border-purple-900 p-3 rounded-lg">
-              <h3 className="text-purple-300 mb-2">Live Relay</h3>
-              {/* have chat and live users be posted here + link to fourm page  */}
+                <h3 className="text-purple-300 mb-2">Latest Work</h3>
                 <div className="flex flex-col gap-3 text-sm">
                   <div className="flex items-center gap-2 text-purple-200">
                     <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    <span>0 Online</span>
+                    <span>New: "Follow The Notes" - Digital Surrealism</span>
                   </div>
                   <div className="flex items-center gap-2 text-purple-200">
                     <span>📊</span>
-                    <span>0 Posts</span>
+                    <span>Gallery Updated: 4 New Pieces</span>
                   </div>
                 </div>
               </div>
@@ -150,6 +157,17 @@ export default function Home() {
                   <p className="text-sm text-purple-200">Latest blog post published</p>
                 </div>
               </div>
+            </div>
+
+            {/* Contact Section */}
+            <div className="border border-purple-900 p-4 bg-black/90">
+              <h3 className="text-xl mb-4 text-purple-300">Get in Touch</h3>
+              <p className="text-sm text-purple-200 mb-4">
+                Interested in commissions or collaborations? I'd love to hear from you.
+              </p>
+              <button className="w-full bg-purple-900/50 hover:bg-purple-900/70 text-purple-200 py-2 px-4 rounded transition-colors duration-200">
+                Contact Me
+              </button>
             </div>
           </div>
 
