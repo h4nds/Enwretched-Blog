@@ -77,7 +77,7 @@ export default function Home() {
               <div>
                 <h2 className="text-2xl mb-2 text-purple-300">Welcome to My Art Space</h2>
                 <p className="text-purple-200 leading-relaxed">
-                  I'm Ray Wretch, a digital artist exploring the intersection of surrealism, nature, and experimental techniques. My work ranges from digital art to photography and mixed media, often incorporating elements of transformation and dreamlike qualities.
+                  I&apos;m Ray Wretch, a digital artist exploring the intersection of surrealism, nature, and experimental techniques. My work ranges from digital art to photography and mixed media, often incorporating elements of transformation and dreamlike qualities.
                 </p>
               </div>
               
@@ -116,7 +116,7 @@ export default function Home() {
                 <div className="flex flex-col gap-3 text-sm">
                   <div className="flex items-center gap-2 text-purple-200">
                     <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    <span>New: "Follow The Notes" - Digital Surrealism</span>
+                    <span>New: &quot;Follow The Notes&quot; - Digital Surrealism</span>
                   </div>
                   <div className="flex items-center gap-2 text-purple-200">
                     <span>📊</span>
@@ -163,7 +163,7 @@ export default function Home() {
             <div className="border border-purple-900 p-4 bg-black/90">
               <h3 className="text-xl mb-4 text-purple-300">Get in Touch</h3>
               <p className="text-sm text-purple-200 mb-4">
-                Interested in commissions or collaborations? I'd love to hear from you.
+                Interested in commissions or collaborations? I&apos;d love to hear from you.
               </p>
               <button className="w-full bg-purple-900/50 hover:bg-purple-900/70 text-purple-200 py-2 px-4 rounded transition-colors duration-200">
                 Contact Me
@@ -208,7 +208,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-purple-900 p-4 mt-8 bg-black/90">
         <div className="container mx-auto text-center">
-          <p>© EnWretched 2024 - All Rights Reserved</p>
+          <p>© EnWretched 2025 - All Rights Reserved</p>
           <div className="mt-2">
             <span className="inline-block bg-purple-900 text-purple-100 px-2 rounded">Visitors: 0</span>
           </div>
