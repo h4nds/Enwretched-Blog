@@ -30,7 +30,7 @@ const featuredArtworks: Artwork[] = [
         isPrimary: true
       }
     ],
-    createdAt: '2024',
+    createdAt: '2025',
     tags: ['mixed-media', 'photography', 'nature']
   },
   {
@@ -77,7 +77,7 @@ export default function Home() {
               <div>
                 <h2 className="text-2xl mb-2 text-purple-300">Welcome to My Art Space</h2>
                 <p className="text-purple-200 leading-relaxed">
-                  I&apos;m Ray Wretch, a digital artist exploring the intersection of surrealism, nature, and experimental techniques. My work ranges from digital art to photography and mixed media, often incorporating elements of transformation and dreamlike qualities.
+                  I&apos;m Ray Wretch, a Professional Graphic Designer, Digital Artist, exploring the intersection of surrealism, nature, and experimental techniques. My work ranges from digital art to photography and mixed media, often incorporating elements of transformation and dreamlike qualities.
                 </p>
               </div>
               
@@ -88,7 +88,7 @@ export default function Home() {
                     <li>• Surreal Digital Art</li>
                     <li>• Nature Photography</li>
                     <li>• Mixed Media</li>
-                    <li>• Client Work (Always)</li>
+                    <li>• Digital Illustration</li>
                   </ul>
                 </div>
 
@@ -96,8 +96,8 @@ export default function Home() {
                   <h3 className="text-purple-300 mb-2">Connect</h3>
                   <ul className="space-y-2 text-sm text-purple-200">
                     <li>• Instagram: @raywretch</li>
-                    <li>• Email: contact@raywretch.com</li>
-                    <li>• Commissions: Open</li>
+                    <li>• Email: wretchray@gmail.com</li>
+                    <li>• Commissions: <b>Open</b></li>
                   </ul>
                 </div>
               </div>

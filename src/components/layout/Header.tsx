@@ -1,10 +1,11 @@
 import Link from "next/link";
+import Logo from "./Logo";
 
 export default function Header() {
   return (
     <header className="border-b border-purple-900 p-4 bg-black">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-purple-300">EnWretched</h1>
+        <Logo />
         <nav className="space-x-4">
           <Link href="/" className="hover:text-purple-100">Home</Link>
           <Link href="/gallery" className="hover:text-purple-100">Gallery</Link>
