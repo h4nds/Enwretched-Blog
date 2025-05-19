@@ -141,27 +141,62 @@ const allArtworks: Artwork[] = [
     createdAt: '2023',
     tags: ['Music', 'photography', 'Digital Desgin', 'Photoshop']
   },
+
   {
     id: '8',
-    title: 'L',
-    description: 'l appel du vide',
+    title: 'l appel du vide',
+    description: 'Client Work ',
     images: [
       {
-        url: '/images/showcase/brushed castle.jpg',
-        alt: 'Airbrushed Castle - Main View',
+        url: '/images/showcase/tek_client.jpg',
+        alt: 'Tekari Client Work - Ep cover',
         isPrimary: true
       },
       {
-        url: '/images/showcase/brushed castle process.jpg',
-        alt: 'Airbrushed Castle - Process'
+        url: '/images/showcase/Flash.png ',
+        alt: 'Coverart - Process'
+      },
+    ],
+    createdAt: '2023',
+    tags: ['Client', 'photography', 'Illustration', 'Muisc']
+  },
+
+  {
+    id: '9',
+    title: 'TLC Remix',
+    description: '',
+    images: [
+      {
+        url: '/images/showcase/TLC_Remix.png',
+        alt: 'Hero image - Main View',
+        isPrimary: true
       },
       {
-        url: '/images/showcase/CASTLES WALLPAPER.jpg',
-        alt: 'wallpaper'
-      }
+        url: '/images/showcase/TLC_solo.png ',
+        alt: 'Straight Letter Appreciation - Process'
+      },
     ],
     createdAt: '2022',
-    tags: ['Castle', 'photography', 'surreal']
+    tags: ['Personal', 'photography', 'Photoshop', 'Muisc']
+  },
+
+  {
+    id: '10',
+    title: 'TLC Remix',
+    description: '',
+    images: [
+      {
+        url: '/images/showcase/TLC_Remix.png',
+        alt: 'Hero image - Main View',
+        isPrimary: true
+      },
+      {
+        url: '/images/showcase/TLC_solo.png ',
+        alt: 'Straight Letter Appreciation - Process'
+      },
+    ],
+    createdAt: '2022',
+    tags: ['Personal', '', 'Photoshop', 'Muisc']
   }
   // Add more artworks here as you create them
 ];
@@ -173,7 +208,7 @@ export default function Gallery() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isGridView, setIsGridView] = useState(true);
 
-  // Calculate pagination
+  // Calculate pagination add values to notion per page 
   const totalPages = Math.ceil(filteredArtworks.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
