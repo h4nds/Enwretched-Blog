@@ -202,6 +202,59 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          {/* Recent Projects */}
+          <div className="md:col-span-3 border border-purple-900 p-4 mt-4 bg-black/90">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl text-purple-300">Recent Projects</h3>
+              <Link 
+                href="/projects"
+                className="text-purple-200 hover:text-purple-100 transition-colors duration-200 flex items-center gap-2"
+              >
+                View All
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="h-4 w-4" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M9 5l7 7-7 7" 
+                  />
+                </svg>
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="border border-purple-900 p-4 rounded-lg hover:bg-purple-900/20 transition-colors duration-200">
+                <h4 className="text-purple-300 mb-2">Album Cover Design</h4>
+                <p className="text-sm text-purple-200">Experimental electronic music album artwork featuring abstract geometric patterns</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <span className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">Digital</span>
+                  <span className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">Typography</span>
+                </div>
+              </div>
+              <div className="border border-purple-900 p-4 rounded-lg hover:bg-purple-900/20 transition-colors duration-200">
+                <h4 className="text-purple-300 mb-2">Brand Identity</h4>
+                <p className="text-sm text-purple-200">Complete brand package for a sustainable fashion startup</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <span className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">Logo</span>
+                  <span className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">Branding</span>
+                </div>
+              </div>
+              <div className="border border-purple-900 p-4 rounded-lg hover:bg-purple-900/20 transition-colors duration-200">
+                <h4 className="text-purple-300 mb-2">Editorial Illustration</h4>
+                <p className="text-sm text-purple-200">Series of illustrations for a tech magazine's special feature</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <span className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">Digital</span>
+                  <span className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">Editorial</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 

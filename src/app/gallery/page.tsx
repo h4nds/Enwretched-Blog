@@ -12,7 +12,7 @@ const allArtworks: Artwork[] = [
   {
     id: '1',
     title: 'Follow The Notes',
-    description: 'This surreal, dreamlike piece on a mysterious woman in white entering a reflective river, her spine-like laced in a cursed Tattoo suggesting transformation of self. The lush environment blends natural elements with modern touches like glowing windows and graffiti on ancient stones.',
+    description: '',
     images: [
       {
         url: '/images/showcase/follow-the-notes.jpg',
@@ -27,7 +27,7 @@ const allArtworks: Artwork[] = [
   {
     id: '2',
     title: 'Ten',
-    description: 'A Mixed media piece carefully curated and artistically transformed from an original photograph that I originally captured during a peaceful afternoon walk with my partner. The transformation from photograph to mixed media allowed me to explore different artistic techniques while preserving the organic beauty of the natural setting...',
+    description: '',
     images: [
       {
         url: '/images/showcase/ten.jpg',
@@ -46,7 +46,7 @@ const allArtworks: Artwork[] = [
   {
     id: '3',
     title: '435 Hz',
-    description: 'This piece explores the intensity and distortion of sensory overload—especially sound. I wanted to capture what it feels like to be immersed in heavy bass, noise, and movement, rather than just show it. The image centers around abstracted figures and bursts of color that feel like they\'re both forming and dissolving at the same time.',
+    description: '',
     images: [
       {
         url: '/images/showcase/435-hz.jpg',
@@ -65,7 +65,7 @@ const allArtworks: Artwork[] = [
   {
     id: '4',
     title: 'Recovery',
-    description: 'This piece explores nature\'s quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.',
+    description: '',
     images: [
       {
         url: '/images/showcase/recovery.jpg',
@@ -76,10 +76,11 @@ const allArtworks: Artwork[] = [
     createdAt: '2024',
     tags: ['nature', 'photography', 'surreal']
   },
+
   {
     id: '5',
     title: 'Alone',
-    description: 'This piece was me trying to tap into a more abstract and surreal style. It captures a print of a window seen though a plastic sheet. During the process I used a lot of different techniques to create the effect I was going for, ranging from photoshop to photoshop brushes to printing and scanning. I tend to come back to the peice as an example of how i can use negitive space to create a more interesting image.',
+    description: '',
     images: [
       {
         url: '/images/showcase/alone.jpg',
@@ -90,10 +91,60 @@ const allArtworks: Artwork[] = [
     createdAt: '2022',
     tags: ['nature', 'photography', 'surreal']
   },
+
   {
     id: '6',
     title: 'Airbrushed Castle',
-    description: 'This piece was a fun experiment in airbrushing. I used a combination of photoshop and photoshop brushes to create a more abstract and surreal image. I tend to come back to the peice as an example of how i can use airbrushing to create a more interesting image.',
+    description: '',
+    images: [
+      {
+        url: '/images/showcase/brushed castle.jpg',
+        alt: 'Airbrushed Castle - Main View',
+        isPrimary: true
+      },
+      {
+        url: '/images/showcase/brushed castle process.jpg',
+        alt: 'Airbrushed Castle - Process'
+      },
+      {
+        url: '/images/showcase/CASTLES WALLPAPER.jpg',
+        alt: 'wallpaper'
+      }
+    ],
+    createdAt: '2022',
+    tags: ['Castle', 'photography', 'surreal']
+  },
+
+  {
+    id: '7',
+    title: 'Memory Collection',
+    description: '',
+    images: [
+      {
+        url: '/images/showcase/memory_gif.gif',
+        alt: 'Airbrushed Castle - Main View',
+        isPrimary: true
+      },
+      {
+        url: '/images/showcase/memory.jpg',
+        alt: 'Airbrushed Castle - Process'
+      },
+      {
+        url: '/images/showcase/memory_paper1.jpg',
+        alt: 'wallpaper'
+      },
+      {
+        url: '/images/showcase/memory_paper2.png',
+        alt: 'wallpaper'
+      }
+    ],
+    createdAt: '2023',
+    tags: ['Music', 'photography', 'Digital Desgin', 'Photoshop']
+  },
+  {
+    id: '8',
+    title: 'L',
+    description: 'l appel du vide',
     images: [
       {
         url: '/images/showcase/brushed castle.jpg',
