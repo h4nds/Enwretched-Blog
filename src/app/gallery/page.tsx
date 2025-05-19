@@ -180,25 +180,8 @@ const allArtworks: Artwork[] = [
     tags: ['Personal', 'photography', 'Photoshop', 'Muisc']
   },
 
-  {
-    id: '10',
-    title: 'TLC Remix',
-    description: '',
-    images: [
-      {
-        url: '/images/showcase/TLC_Remix.png',
-        alt: 'Hero image - Main View',
-        isPrimary: true
-      },
-      {
-        url: '/images/showcase/TLC_solo.png ',
-        alt: 'Straight Letter Appreciation - Process'
-      },
-    ],
-    createdAt: '2022',
-    tags: ['Personal', '', 'Photoshop', 'Muisc']
-  }
-  // Add more artworks here as you create them
+  
+  // Add more artworks here 
 ];
 
 const ITEMS_PER_PAGE = 6;
