@@ -236,7 +236,7 @@ export default function Home() {
                   <path 
                     strokeLinecap="round" 
                     strokeLinejoin="round" 
-                    strokeWidth={2} 
+                    strokeWidth={6} 
                     d="M9 5l7 7-7 7" 
                   />
                 </svg>

@@ -48,7 +48,7 @@ export default function Splash() {
           </video>
         ) : (
           <Image
-            src={splashConfig.media.url}
+            src={'/images/showcase/Splash_video.mp4'}
             alt="Splash background"
             fill
             priority
