@@ -3,7 +3,9 @@
 import Header from '@/components/layout/Header';
 import NewsTicker from '@/components/ui/NewsTicker';
 import FeaturedArtwork from '@/components/features/FeaturedArtwork';
+import BlogPost from '@/components/features/BlogPost';
 import { Artwork } from '@/types/artwork';
+import { BlogPost as BlogPostType } from '@/types/blog';
 import Link from 'next/link';
 
 const featuredArtworks: Artwork[] = [
@@ -62,6 +64,39 @@ const featuredArtworks: Artwork[] = [
     ],
     createdAt: '2024',
     tags: ['nature', 'photography', 'surreal']
+  }
+];
+
+const recentBlogPosts: BlogPostType[] = [
+  {
+    id: '1',
+    title: 'The Intersection of Digital Art and Nature',
+    content: 'Full blog post content here...',
+    excerpt: 'Exploring how digital tools can enhance our connection with natural elements in art...',
+    createdAt: '2024-03-15',
+    tags: ['Digital Art', 'Nature', 'Process'],
+    author: 'Ray Wretch',
+    imageUrl: '/images/showcase/follow-the-notes.jpg'
+  },
+  {
+    id: '2',
+    title: 'Behind the Scenes: Creating "435 Hz"',
+    content: 'Full blog post content here...',
+    excerpt: 'A deep dive into the creative process behind my latest experimental piece...',
+    createdAt: '2024-03-10',
+    tags: ['Process', 'Experimental', 'Digital'],
+    author: 'Ray Wretch',
+    imageUrl: '/images/showcase/435-hz.jpg'
+  },
+  {
+    id: '3',
+    title: 'The Evolution of Mixed Media Art',
+    content: 'Full blog post content here...',
+    excerpt: 'How combining traditional and digital techniques creates unique artistic expressions...',
+    createdAt: '2024-03-05',
+    tags: ['Mixed Media', 'Techniques', 'Art History'],
+    author: 'Ray Wretch',
+    imageUrl: '/images/showcase/ten.jpg'
   }
 ];
 
@@ -208,15 +243,15 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Recent Projects */}
+          {/* Blog Section */}
           <div className="md:col-span-3 border border-purple-900 p-4 mt-4 bg-black/90">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl text-purple-300">Recent Projects</h3>
+              <h3 className="text-xl text-purple-300">Latest Blog Posts</h3>
               <Link 
-                href="/projects"
+                href="/blog"
                 className="text-purple-200 hover:text-purple-100 transition-colors duration-200 flex items-center gap-2"
               >
-                View All
+                View All Posts
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   className="h-4 w-4" 
@@ -234,30 +269,9 @@ export default function Home() {
               </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="border border-purple-900 p-4 rounded-lg hover:bg-purple-900/20 transition-colors duration-200">
-                <h4 className="text-purple-300 mb-2">Album Cover Design</h4>
-                <p className="text-sm text-purple-200">Experimental electronic music album artwork featuring abstract geometric patterns</p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <span className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">Digital</span>
-                  <span className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">Typography</span>
-                </div>
-              </div>
-              <div className="border border-purple-900 p-4 rounded-lg hover:bg-purple-900/20 transition-colors duration-200">
-                <h4 className="text-purple-300 mb-2">Brand Identity</h4>
-                <p className="text-sm text-purple-200">Complete brand package for a sustainable fashion startup</p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <span className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">Logo</span>
-                  <span className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">Branding</span>
-                </div>
-              </div>
-              <div className="border border-purple-900 p-4 rounded-lg hover:bg-purple-900/20 transition-colors duration-200">
-                <h4 className="text-purple-300 mb-2">Editorial Illustration</h4>
-                <p className="text-sm text-purple-200">Series of illustrations for a tech magazine&apos;s special feature</p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <span className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">Digital</span>
-                  <span className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">Editorial</span>
-                </div>
-              </div>
+              {recentBlogPosts.map((post) => (
+                <BlogPost key={post.id} post={post} />
+              ))}
             </div>
           </div>
         </div>
