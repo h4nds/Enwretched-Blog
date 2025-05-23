@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import NewsTicker from '@/components/ui/NewsTicker';
 import FeaturedArtwork from '@/components/features/FeaturedArtwork';
 import BlogPost from '@/components/features/BlogPost';
+import Footer from '@/components/layout/Footer';
 import { Artwork } from '@/types/artwork';
 import { BlogPost as BlogPostType } from '@/types/blog';
 import Link from 'next/link';
@@ -78,26 +79,7 @@ const recentBlogPosts: BlogPostType[] = [
     author: 'Ray Wretch',
     imageUrl: '/images/showcase/follow-the-notes.jpg'
   },
-  {
-    id: '2',
-    title: 'Behind the Scenes: Creating "435 Hz"',
-    content: 'Full blog post content here...',
-    excerpt: 'A deep dive into the creative process behind my latest experimental piece...',
-    createdAt: '2024-03-10',
-    tags: ['Process', 'Experimental', 'Digital'],
-    author: 'Ray Wretch',
-    imageUrl: '/images/showcase/435-hz.jpg'
-  },
-  {
-    id: '3',
-    title: 'The Evolution of Mixed Media Art',
-    content: 'Full blog post content here...',
-    excerpt: 'How combining traditional and digital techniques creates unique artistic expressions...',
-    createdAt: '2024-03-05',
-    tags: ['Mixed Media', 'Techniques', 'Art History'],
-    author: 'Ray Wretch',
-    imageUrl: '/images/showcase/ten.jpg'
-  }
+ // update from blog section ( preview )
 ];
 
 export default function Home() {
@@ -277,15 +259,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-purple-900 p-4 mt-8 bg-black/90">
-        <div className="container mx-auto text-center">
-          <p>© EnWretched 2025 - All Rights Reserved</p>
-          <div className="mt-2">
-            <span className="inline-block bg-purple-900 text-purple-100 px-2 rounded">Visitors: 0</span>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 } 

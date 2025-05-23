@@ -2,6 +2,7 @@
 
 import Header from '@/components/layout/Header';
 import BlogPost from '@/components/features/BlogPost';
+import Footer from '@/components/layout/Footer';
 import { BlogPost as BlogPostType } from '@/types/blog';
 
 // This would eventually come from a database or API
@@ -36,11 +37,7 @@ export default function Blog() {
         </div>
       </main>
 
-      <footer className="border-t border-purple-900 p-4 mt-8 bg-black/90">
-        <div className="container mx-auto text-center">
-          <p>© EnWretched 2025 - All Rights Reserved</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 } 
