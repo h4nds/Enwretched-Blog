@@ -6,7 +6,7 @@ import FeaturedArtwork from '@/components/features/FeaturedArtwork';
 import BlogPost from '@/components/features/BlogPost';
 import Footer from '@/components/layout/Footer';
 import { Artwork } from '@/types/artwork';
-import { BlogPost as BlogPostType } from '@/types/blog';
+import { blogPosts } from '@/data/blogPosts';
 import Link from 'next/link';
 
 const featuredArtworks: Artwork[] = [
@@ -68,21 +68,10 @@ const featuredArtworks: Artwork[] = [
   }
 ];
 
-const recentBlogPosts: BlogPostType[] = [
-  {
-    id: '1',
-    title: 'The Intersection of Digital Art and Nature',
-    content: 'Full blog post content here...',
-    excerpt: 'Exploring how digital tools can enhance our connection with natural elements in art...',
-    createdAt: '2024-03-15',
-    tags: ['Digital Art', 'Nature', 'Process'],
-    author: 'Ray Wretch',
-    imageUrl: '/images/showcase/follow-the-notes.jpg'
-  },
- // update from blog section ( preview )
-];
-
 export default function Home() {
+  // Get the latest 3 blog posts for the preview
+  const recentBlogPosts = blogPosts.slice(0, 3);
+
   return (
     <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
       <Header />
@@ -152,10 +141,13 @@ export default function Home() {
             <div className="border border-purple-900 p-4 bg-black/90">
               <h3 className="text-xl mb-4 text-purple-300">Post Board</h3>
               <ul className="space-y-2">
-                <li className="hover:text-purple-100 cursor-pointer">Latest Posts</li>
-                <li className="hover:text-purple-100 cursor-pointer">Logos</li>
-                <li className="hover:text-purple-100 cursor-pointer">Wallpapers</li>
-                <li className="hover:text-purple-100 cursor-pointer">Past Projects</li>
+                {blogPosts.map(post => (
+                  <li key={post.id} className="hover:text-purple-100 cursor-pointer">
+                    <Link href={`/blog/${post.id}`} className="block">
+                      {post.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -165,11 +157,11 @@ export default function Home() {
               <div className="space-y-3">
                 <div className="flex items-start gap-2">
                   <span className="text-purple-300">•</span>
-                  <p className="text-sm text-purple-200">New artwork added to gallery</p>
+                  <p className="text-sm text-purple-200">New blog post: {blogPosts[0].title}</p>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-purple-300">•</span>
-                  <p className="text-sm text-purple-200">Upcoming exhibition details</p>
+                  <p className="text-sm text-purple-200">Gallery updated with new artwork</p>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-purple-300">•</span>

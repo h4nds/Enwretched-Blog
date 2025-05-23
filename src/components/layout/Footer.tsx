@@ -9,14 +9,14 @@ export default function Footer() {
     <>
       {/* Invisible trigger area */}
       <div 
-        className="fixed bottom-0 left-0 right-0 h-8 z-10"
+        className="fixed bottom-0 left-0 right-0 h-24 z-10"
         onMouseEnter={() => setIsVisible(true)}
         onMouseLeave={() => setIsVisible(false)}
       />
       
       {/* Footer */}
       <div 
-        className="fixed bottom-0 left-0 right-0 transition-all duration-300 ease-in-out z-20"
+        className="fixed bottom-0 left-0 right-0 transition-all duration-500 ease-in-out z-20"
         style={{ 
           transform: isVisible ? 'translateY(0)' : 'translateY(100%)',
           opacity: isVisible ? 1 : 0

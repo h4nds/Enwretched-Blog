@@ -3,22 +3,7 @@
 import Header from '@/components/layout/Header';
 import BlogPost from '@/components/features/BlogPost';
 import Footer from '@/components/layout/Footer';
-import { BlogPost as BlogPostType } from '@/types/blog';
-
-// This would eventually come from a database or API
-const allBlogPosts: BlogPostType[] = [
-  {
-    id: '1',
-    title: 'The Intersection of Digital Art and Nature',
-    content: 'Full blog post content here...',
-    excerpt: 'Exploring how digital tools can enhance our connection with natural elements in art...',
-    createdAt: '2024-03-15',
-    tags: ['Digital Art', 'Nature', 'Process'],
-    author: 'Ray Wretch',
-    imageUrl: '/images/showcase/follow-the-notes.jpg'
-  },
-  // Add more blog posts here
-];
+import { blogPosts } from '@/data/blogPosts';
 
 export default function Blog() {
   return (
@@ -30,7 +15,7 @@ export default function Blog() {
           <h1 className="text-3xl font-bold text-purple-300 mb-8">Blog</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {allBlogPosts.map((post) => (
+            {blogPosts.map((post) => (
               <BlogPost key={post.id} post={post} />
             ))}
           </div>
