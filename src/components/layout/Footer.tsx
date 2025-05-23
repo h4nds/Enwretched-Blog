@@ -6,17 +6,17 @@ export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
-    <>
+    <div 
+      className="fixed bottom-0 left-0 right-0 z-20"
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+    >
       {/* Invisible trigger area */}
-      <div 
-        className="fixed bottom-0 left-0 right-0 h-24 z-10"
-        onMouseEnter={() => setIsVisible(true)}
-        onMouseLeave={() => setIsVisible(false)}
-      />
+      <div className="h-24" />
       
       {/* Footer */}
       <div 
-        className="fixed bottom-0 left-0 right-0 transition-all duration-500 ease-in-out z-20"
+        className="transition-all duration-500 ease-in-out"
         style={{ 
           transform: isVisible ? 'translateY(0)' : 'translateY(100%)',
           opacity: isVisible ? 1 : 0
@@ -31,6 +31,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 } 
