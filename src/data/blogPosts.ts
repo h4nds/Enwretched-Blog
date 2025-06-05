@@ -11,7 +11,7 @@ const posts: BlogPost[] = [
 
     Currently its still a work in progress as of 6/4/25 and i plan to continue working on it until i feel it is genuenly complete. I think it's important to never finish things halfway, Commitment to things like this really builds you and your art.
     
-    Some of the few updates i still need to make include `,
+    Some of the few updates i still need to make include adding more functional components to the about me page,  `,
     
     excerpt: 'A deep dive into the creation process of my latest digital artwork...',
     createdAt: '2024-03-15',
@@ -49,4 +49,4 @@ export const getBlogPost = (id: string) => {
 };
 
 // Export all posts for direct access if needed
-export const blogPosts = getBlogPosts(); 
+export const blogPosts = getBlogPosts();  
