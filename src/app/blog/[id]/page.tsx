@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import { getBlogPost } from '@/data/blogPosts';
 import Image from 'next/image';
 import Link from 'next/link';
+import { JSX } from 'react';
 
 export default function BlogPost() {
   const params = useParams();
