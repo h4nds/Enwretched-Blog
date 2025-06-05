@@ -56,13 +56,14 @@ export default function BlogPost() {
                   alt={post.title}
                   fill
                   className="object-cover rounded-lg"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 768px, 1024px"
                 />
               </div>
             )}
 
             <div className="flex flex-wrap gap-2">
               {post.tags.map(tag => (
-                <span key={tag} className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">
+                <span key={tag} className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm"> 
                   {tag}
                 </span>
               ))}

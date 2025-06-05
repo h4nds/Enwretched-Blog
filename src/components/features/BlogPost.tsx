@@ -13,12 +13,13 @@ export default function BlogPost({ post }: BlogPostProps) {
     <Link href={`/blog/${post.id}`} className="block">
       <div className="border border-purple-900 p-4 rounded-lg hover:bg-purple-900/20 transition-colors duration-200">
         {post.imageUrl && (
-          <div className="relative w-full h-48 mb-4">
+          <div className="relative w-full aspect-video mb-4">
             <Image
               src={post.imageUrl}
               alt={post.title}
               fill
               className="object-cover rounded-lg"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         )}

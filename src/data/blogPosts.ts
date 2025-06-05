@@ -11,13 +11,17 @@ const posts: BlogPost[] = [
 
     Currently its still a work in progress as of 6/4/25 and i plan to continue working on it until i feel it is genuenly complete. I think it's important to never finish things halfway, Commitment to things like this really builds you and your art.
     
-    Some of the few updates i still need to make include adding more functional components to the about me page,  `,
+    Some of the few updates i still need to make include adding more functional components to the about me page and the blog page. I also need to add a contact section to the about me page. 
+    
+    id like to also include diffrent backgrounds for the pages on the website, as well as a background music player so users can listen to music while they browse.
+    
+    `,
     
     excerpt: 'A deep dive into the creation process of my latest digital artwork...',
     createdAt: '2024-03-15',
     tags: ['Digital Art', 'Process', 'Behind the Scenes'],
     author: 'Ray Wretch',
-    imageUrl: '/images/showcase/follow-the-notes.jpg'
+    imageUrl: '/images/showcase/feeling.png'
   },
   {
     id: '2024-03-12-digital-art-thoughts',
