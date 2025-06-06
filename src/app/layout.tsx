@@ -8,22 +8,22 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "EnWretched - Digital Artist & Photographer",
-  description: "Portfolio and blog of Ray Wretch, a digital artist and photographer exploring surrealism and experimental art.",
+  title: "EnWretched - Graphic Desgin & FullStack",
+  description: "Portfolio and blog of Ray Wretch, a digital artist and And Aspiring Web Developer exploring Fullstack and experimental art.",
   icons: {
     icon: [
       {
-        url: '/favicon.ico',
+        url: '/public/images/showcase/deamon.png',
         sizes: 'any',
       },
       {
-        url: '/icon.png',
+        url: '/public/images/showcase/deamon.png',
         type: 'image/png',
         sizes: '32x32',
       },
     ],
     apple: {
-      url: '/apple-icon.png',
+      url: '/public/images/showcase/deamon.pngg',
       sizes: '180x180',
     },
   },
