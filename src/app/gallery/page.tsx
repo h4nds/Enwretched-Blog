@@ -209,7 +209,7 @@ export default function Gallery() {
       <main className="container mx-auto p-4">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-purple-300 mb-4">Gallery</h1>
-          <p className="text-purple-200">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images, please feel free to contact me for more information.</p>
+          <p className="text-purple-200">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images, please feel free to contact me for any Work more information.</p>
         </div>
 
         <GalleryControls 

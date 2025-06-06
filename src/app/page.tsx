@@ -128,7 +128,7 @@ export default function Home() {
                 <div className="flex flex-col gap-3 text-sm">
                   <div className="flex items-center gap-2 text-purple-200">
                     <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    <span>New: &quot;Follow The Notes&quot; - Digital Surrealism</span>
+                    <span>New: {blogPosts[0].title}</span>
                   </div>
                   <div className="flex items-center gap-2 text-purple-200">
                     <span>📊</span>

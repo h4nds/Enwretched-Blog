@@ -14,28 +14,20 @@ const posts: BlogPost[] = [
     Some of the few updates i still need to make include adding more functional components to the about me page and the blog page. I also need to add a contact section to the about me page. 
     
     id like to also include diffrent backgrounds for the pages on the website, as well as a background music player so users can listen to music while they browse.
+
+    these are just some of the changes that ive had in mind i feel as though theyre also going to take some times into implementing, especially the music player. But im going to continue to build these projects one by one and integrate them into the site as time advances.
+
+    so yeah thanks for reading this huge yap, im very exited to deploy and finally go live on the web! rahhhh
+
+    - ray
     
     `,
     
     excerpt: 'A deep dive into the creation process of my latest digital artwork...',
     createdAt: '2024-03-15',
-    tags: ['Digital Art', 'Process', 'Behind the Scenes'],
+    tags: ['Web development', 'Process', 'Behind the Scenes'],
     author: 'Ray Wretch',
     imageUrl: '/images/showcase/feeling.png'
-  },
-  {
-    id: '2024-03-12-digital-art-thoughts',
-    title: 'Thoughts on Digital Art Creation',
-    content: `The process of creating digital art is both similar to and distinct from traditional art forms. 
-    While we still rely on fundamental artistic principles, the digital medium offers unique opportunities 
-    and challenges.
-
-    In this reflection, I share my thoughts on the philosophy behind digital art creation and how it 
-    continues to evolve as technology advances.`,
-    excerpt: 'A reflection on the process and philosophy behind digital art creation...',
-    createdAt: '2024-03-12',
-    tags: ['Digital Art', 'Philosophy', 'Process'],
-    author: 'Ray Wretch'
   },
   // Add more posts here
 ];

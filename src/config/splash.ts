@@ -1,10 +1,10 @@
 export const splashConfig = {
   media: {
     type: 'video', // or 'gif'
-    url: '/videos/splash.mp4', // or '/images/splash.gif'
-    fallbackUrl: '/images/splash-fallback.jpg', // Fallback image if video fails to load
+    url: '/videos/Splash_video.mp4.mp4', // or '/images/splash.gif'
+    fallbackUrl: '/images/follow-the-notes.jpg', // Fallback image if video fails to load
   },
   title: 'EnWretched',
-  subtitle: 'Enter the realm of digital art',
-  prompt: 'Click or press Enter to continue'
+  subtitle: 'My Personal Site',
+  prompt: 'Click or press Enter'
 }; 
