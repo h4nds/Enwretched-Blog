@@ -1,9 +1,24 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
+  const [visitorCount, setVisitorCount] = useState(0);
+
+  useEffect(() => {
+    const trackVisitor = async () => {
+      try {
+        const response = await fetch('/api/visitors');
+        const data = await response.json();
+        setVisitorCount(data.count);
+      } catch (error) {
+        console.error('Error tracking visitor:', error);
+      }
+    };
+
+    trackVisitor();
+  }, []);
 
   return (
     <div 
@@ -26,7 +41,9 @@ export default function Footer() {
           <div className="container mx-auto text-center">
             <p>© EnWretched 2025 - All Rights Reserved</p>
             <div className="mt-2">
-              <span className="inline-block bg-purple-900 text-purple-100 px-2 rounded">Visitors: 0</span>
+              <span className="inline-block bg-purple-900 text-purple-100 px-2 rounded">
+                Visitors: {visitorCount.toLocaleString()}
+              </span>
             </div>
           </div>
         </div>
