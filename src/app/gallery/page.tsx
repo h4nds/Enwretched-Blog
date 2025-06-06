@@ -12,7 +12,7 @@ const allArtworks: Artwork[] = [
   {
     id: '1',
     title: 'Follow The Notes',
-    description: '',
+    description: 'This surreal, dreamlike piece on a mysterious woman in white entering a reflective river, her spine-like laced in a cursed Tattoo suggesting transformation of self. The lush environment blends natural elements with modern touches like glowing windows and graffiti on ancient stones.',
     images: [
       {
         url: '/images/showcase/follow-the-notes.jpg',
@@ -21,13 +21,14 @@ const allArtworks: Artwork[] = [
       },
     ],
     createdAt: '2024',
-    tags: ['surreal', 'digital', 'nature']
+    tags: ['surreal', 'digital', 'nature'],
+    category: 'professional'
   },
 
   {
     id: '2',
     title: 'Ten',
-    description: '',
+    description: 'Mixed media piece curated orginally from a photograph i took of the waterside of a river in the woods with my partner.',
     images: [
       {
         url: '/images/showcase/ten.jpg',
@@ -40,13 +41,14 @@ const allArtworks: Artwork[] = [
       }
     ],
     createdAt: '2024',
-    tags: ['mixed-media', 'photography', 'nature']
+    tags: ['mixed-media', 'photography', 'nature'],
+    category: 'professional'
   },
 
   {
     id: '3',
     title: '435 Hz',
-    description: '',
+    description: 'This piece explores the intensity and distortion of sensory overload—especially sound. I wanted to capture what it feels like to be immersed in heavy bass, noise, and movement, rather than just show it.',
     images: [
       {
         url: '/images/showcase/435-hz.jpg',
@@ -59,13 +61,14 @@ const allArtworks: Artwork[] = [
       }
     ], 
     createdAt: '2025',
-    tags: ['abstract', 'digital', 'experimental']
+    tags: ['abstract', 'digital', 'experimental'],
+    category: 'professional'
   },
 
   {
     id: '4',
     title: 'Recovery',
-    description: '',
+    description: 'This piece explores nature\'s quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.',
     images: [
       {
         url: '/images/showcase/recovery.jpg',
@@ -74,13 +77,14 @@ const allArtworks: Artwork[] = [
       },
     ],
     createdAt: '2024',
-    tags: ['nature', 'photography', 'surreal']
+    tags: ['nature', 'photography', 'surreal'],
+    category: 'professional'
   },
 
   {
     id: '5',
     title: 'Alone',
-    description: '',
+    description: 'A study of solitude and introspection through nature photography.',
     images: [
       {
         url: '/images/showcase/alone.jpg',
@@ -89,13 +93,14 @@ const allArtworks: Artwork[] = [
       },
     ],
     createdAt: '2022',
-    tags: ['nature', 'photography', 'surreal']
+    tags: ['nature', 'photography', 'surreal'],
+    category: 'undergraduate'
   },
 
   {
     id: '6',
     title: 'Airbrushed Castle',
-    description: '',
+    description: 'An experimental piece combining traditional airbrushing techniques with digital manipulation.',
     images: [
       {
         url: '/images/showcase/brushed castle.jpg',
@@ -112,40 +117,42 @@ const allArtworks: Artwork[] = [
       }
     ],
     createdAt: '2022',
-    tags: ['Castle', 'photography', 'surreal']
+    tags: ['Castle', 'photography', 'surreal'],
+    category: 'undergraduate'
   },
 
   {
     id: '7',
     title: 'Memory Collection',
-    description: '',
+    description: 'A digital exploration of memory and nostalgia through layered imagery.',
     images: [
       {
         url: '/images/showcase/memory_gif.gif',
-        alt: 'Airbrushed Castle - Main View',
+        alt: 'Memory Collection - Main View',
         isPrimary: true
       },
       {
         url: '/images/showcase/memory.jpg',
-        alt: 'Airbrushed Castle - Process'
+        alt: 'Memory Collection - Process'
       },
       {
         url: '/images/showcase/memory_paper1.jpg',
-        alt: 'wallpaper'
+        alt: 'Memory Collection - Paper 1'
       },
       {
         url: '/images/showcase/memory_paper2.png',
-        alt: 'wallpaper'
+        alt: 'Memory Collection - Paper 2'
       }
     ],
     createdAt: '2023',
-    tags: ['Music', 'photography', 'Digital Desgin', 'Photoshop']
+    tags: ['Music', 'photography', 'Digital Design', 'Photoshop'],
+    category: 'undergraduate'
   },
 
   {
     id: '8',
     title: 'l appel du vide',
-    description: 'Client Work ',
+    description: 'Client work for a music artist, exploring themes of emptiness and longing.',
     images: [
       {
         url: '/images/showcase/tek_client.jpg',
@@ -153,35 +160,82 @@ const allArtworks: Artwork[] = [
         isPrimary: true
       },
       {
-        url: '/images/showcase/Flash.png ',
+        url: '/images/showcase/Flash.png',
         alt: 'Coverart - Process'
       },
     ],
     createdAt: '2023',
-    tags: ['Client', 'photography', 'Illustration', 'Muisc']
+    tags: ['Client', 'photography', 'Illustration', 'Music'],
+    category: 'professional'
   },
 
   {
     id: '9',
     title: 'TLC Remix',
-    description: '',
+    description: 'A personal project reimagining classic album artwork through a contemporary lens.',
     images: [
       {
         url: '/images/showcase/TLC_Remix.png',
-        alt: 'Hero image - Main View',
+        alt: 'TLC Remix - Main View',
         isPrimary: true
       },
       {
-        url: '/images/showcase/TLC_solo.png ',
-        alt: 'Straight Letter Appreciation - Process'
+        url: '/images/showcase/TLC_solo.png',
+        alt: 'TLC Remix - Solo View'
       },
     ],
     createdAt: '2022',
-    tags: ['Personal', 'photography', 'Photoshop', 'Muisc']
+    tags: ['Personal', 'photography', 'Photoshop', 'Music'],
+    category: 'personal'
   },
 
-  
-  // Add more artworks here 
+  {
+    id: '10',
+    title: 'Color Theory Study',
+    description: 'An undergraduate exploration of color relationships and their emotional impact.',
+    images: [
+      {
+        url: '/images/showcase/color-theory.jpg',
+        alt: 'Color Theory Study - Main View',
+        isPrimary: true
+      }
+    ],
+    createdAt: '2021',
+    tags: ['color', 'study', 'undergraduate'],
+    category: 'undergraduate'
+  },
+
+  {
+    id: '11',
+    title: 'Form and Space',
+    description: 'A study of negative space and geometric forms in architectural photography.',
+    images: [
+      {
+        url: '/images/showcase/form-space.jpg',
+        alt: 'Form and Space - Main View',
+        isPrimary: true
+      }
+    ],
+    createdAt: '2021',
+    tags: ['architecture', 'photography', 'undergraduate'],
+    category: 'undergraduate'
+  },
+
+  {
+    id: '12',
+    title: 'Digital Collage Series',
+    description: 'A series of digital collages exploring the relationship between organic and geometric forms.',
+    images: [
+      {
+        url: '/images/showcase/digital-collage.jpg',
+        alt: 'Digital Collage Series - Main View',
+        isPrimary: true
+      }
+    ],
+    createdAt: '2021',
+    tags: ['digital', 'collage', 'undergraduate'],
+    category: 'undergraduate'
+  }
 ];
 
 const ITEMS_PER_PAGE = 6;
@@ -209,7 +263,7 @@ export default function Gallery() {
       <main className="container mx-auto p-4">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-purple-300 mb-4">Gallery</h1>
-          <p className="text-purple-200">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images, please feel free to contact me for any Work more information.</p>
+          <p className="text-purple-200">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images, please feel free to contact me for any Work more information. *Still Adding*</p>
         </div>
 
         <GalleryControls 

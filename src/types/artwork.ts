@@ -11,6 +11,7 @@ export interface Artwork {
   images: ArtworkImage[];
   createdAt: string;
   tags: string[];
+  category?: 'undergraduate' | 'professional' | 'personal';
 }
 
 export interface FeaturedArtworkProps {

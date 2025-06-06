@@ -13,31 +13,14 @@ interface GalleryControlsProps {
 export default function GalleryControls({ artworks, onFilterChange, isGridView, onViewChange }: GalleryControlsProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   // Get all unique tags from artworks
   const allTags = Array.from(new Set(artworks.flatMap(artwork => artwork.tags)));
 
-  // Filter artworks based on search and selected tags
-  useEffect(() => {
-    setIsLoading(true);
-    
-    const filtered = artworks.filter(artwork => {
-      const matchesSearch = artwork.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          artwork.description.toLowerCase().includes(searchQuery.toLowerCase());
-      
-      const matchesTags = selectedTags.length === 0 || 
-                         selectedTags.some(tag => artwork.tags.includes(tag));
-      
-      return matchesSearch && matchesTags;
-    });
-
-    // Simulate loading delay for better UX
-    setTimeout(() => {
-      onFilterChange(filtered);
-      setIsLoading(false);
-    }, 300);
-  }, [searchQuery, selectedTags, artworks, onFilterChange]);
+  // Get all unique categories from artworks
+  const categories = ['All', 'Undergraduate', 'Professional', 'Personal'];
 
   const toggleTag = (tag: string) => {
     setSelectedTags(prev => 
@@ -46,6 +29,31 @@ export default function GalleryControls({ artworks, onFilterChange, isGridView, 
         : [...prev, tag]
     );
   };
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category === 'All' ? null : category.toLowerCase());
+  };
+
+  useEffect(() => {
+    setIsLoading(true);
+    
+    // Filter artworks based on search query, tags, and category
+    const filtered = artworks.filter(artwork => {
+      const matchesSearch = artwork.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          artwork.description.toLowerCase().includes(searchQuery.toLowerCase());
+      
+      const matchesTags = selectedTags.length === 0 || 
+                         selectedTags.some(tag => artwork.tags.includes(tag));
+      
+      const matchesCategory = !selectedCategory || 
+                            artwork.category?.toLowerCase() === selectedCategory.toLowerCase();
+
+      return matchesSearch && matchesTags && matchesCategory;
+    });
+
+    onFilterChange(filtered);
+    setIsLoading(false);
+  }, [searchQuery, selectedTags, selectedCategory, artworks, onFilterChange]);
 
   return (
     <div className="space-y-4 mb-8">
@@ -63,6 +71,24 @@ export default function GalleryControls({ artworks, onFilterChange, isGridView, 
             <div className="w-4 h-4 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
           </div>
         )}
+      </div>
+
+      {/* Category Filter */}
+      <div className="flex flex-wrap gap-2">
+        {categories.map(category => (
+          <button
+            key={category}
+            onClick={() => handleCategoryChange(category)}
+            className={`px-3 py-1 rounded-full text-sm transition-colors ${
+              (category === 'All' && !selectedCategory) || 
+              (category.toLowerCase() === selectedCategory?.toLowerCase())
+                ? 'bg-purple-500 text-white'
+                : 'bg-purple-900/30 text-purple-200 hover:bg-purple-900/50'
+            }`}
+          >
+            {category}
+          </button>
+        ))}
       </div>
 
       {/* Tags Filter */}
