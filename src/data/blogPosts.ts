@@ -3,7 +3,7 @@ import { BlogPost } from '@/types/blog';
 // Blog posts organized by year and month
 const posts: BlogPost[] = [
   {
-    id: '2024-03-15-new-digital-piece',
+    id: '2025-06-06-new-digital-piece',
     title: 'Solo Ops: Creating "building it from scratch"',
     content: `So I belive i would be writing the first of many blog posts, that would come to grace this website. This Project took me about a year and 2 months to complete and being near the end of it all I gotta say, im tired coach.
 
