@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <header className="border-b border-purple-900 bg-black sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center relative">
           <Logo />
           
           {/* Mobile menu button */}
@@ -56,52 +56,52 @@ export default function Header() {
             <Link href="/forum" className="hover:text-purple-100 transition-colors duration-200">Forum</Link>
             <Link href="/about" className="hover:text-purple-100 transition-colors duration-200">About</Link>
           </nav>
-        </div>
 
-        {/* Mobile Navigation */}
-        <nav
-          className={`${
-            isMenuOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
-          } md:hidden overflow-hidden transition-all duration-300 ease-in-out`}
-        >
-          <div className="py-2 space-y-1">
-            <Link 
-              href="/" 
-              className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              href="/gallery" 
-              className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Gallery
-            </Link>
-            <Link 
-              href="/blog" 
-              className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Blog
-            </Link>
-            <Link 
-              href="/forum" 
-              className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Forum
-            </Link>
-            <Link 
-              href="/about" 
-              className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-          </div>
-        </nav>
+          {/* Mobile Navigation */}
+          <nav
+            className={`${
+              isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
+            } md:hidden absolute top-full right-0 mt-1 w-48 bg-black border border-purple-900 rounded-lg shadow-lg transition-all duration-200 ease-in-out`}
+          >
+            <div className="py-1">
+              <Link 
+                href="/" 
+                className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link 
+                href="/gallery" 
+                className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Gallery
+              </Link>
+              <Link 
+                href="/blog" 
+                className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Blog
+              </Link>
+              <Link 
+                href="/forum" 
+                className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Forum
+              </Link>
+              <Link 
+                href="/about" 
+                className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
+              </Link>
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
   );
