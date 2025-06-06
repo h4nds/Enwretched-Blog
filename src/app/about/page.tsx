@@ -2,8 +2,22 @@
 
 import Header from '@/components/layout/Header';
 import { FaInstagram, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { useState } from 'react';
 
 export default function About() {
+  const [showCopied, setShowCopied] = useState(false);
+
+  const handleEmailClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText('wretchray@gmail.com');
+      setShowCopied(true);
+      setTimeout(() => setShowCopied(false), 2000); // Hide tooltip after 2 seconds
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
       <Header />
@@ -35,10 +49,38 @@ export default function About() {
               </div>
               <div className="hover:bg-purple-900/20 p-4 rounded-lg transition-colors">
                 <h3 className="text-xl text-purple-300">Client Work</h3>
-                <p className="text-purple-200">
+                <p className="text-purple-200 mb-4">
                   Experience in creating album artwork, promotional materials, and custom digital art 
                   for musicians and creative projects.
                 </p>
+                <div className="space-y-3 text-sm">
+                  <div className="border-t border-purple-900/30 pt-3">
+                    <h4 className="text-purple-300 font-semibold mb-2">Services Offered:</h4>
+                    <ul className="space-y-2">
+                      <li>• Album Artwork & Cover Design</li>
+                      <li>• Social Media Graphics & Banners</li>
+                      <li>• Custom Digital Illustrations</li>
+                      <li>• Photography & Photo Manipulation</li>
+                      <li>• Brand Identity Design</li>
+                    </ul>
+                  </div>
+                  <div className="border-t border-purple-900/30 pt-3">
+                    <h4 className="text-purple-300 font-semibold mb-2">What to Expect:</h4>
+                    <ul className="space-y-2">
+                      <li>• Personalized Consultation</li>
+                      <li>• Multiple Design Revisions</li>
+                      <li>• High-Resolution Final Files</li>
+                      <li>• Quick Turnaround Times</li>
+                      <li>• Professional Communication</li>
+                    </ul>
+                  </div>
+                  <div className="border-t border-purple-900/30 pt-3">
+                    <h4 className="text-purple-300 font-semibold mb-2">Pricing:</h4>
+                    <p className="text-purple-200">
+                      Custom quotes based on project scope. Will be given upon Commision pitch.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -50,15 +92,18 @@ export default function About() {
               Feel free to reach out for commissions, exhibitions, or just to say hello.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <a 
-                href="mailto:wretchray@gmail.com" 
-                className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button 
+                onClick={handleEmailClick}
+                className="relative flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-colors"
               >
                 <FaEnvelope className="text-xl" />
                 <span>Email</span>
-              </a>
+                {showCopied && (
+                  <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-purple-900 text-purple-200 px-2 py-1 rounded text-sm whitespace-nowrap">
+                    Email copied!
+                  </span>
+                )}
+              </button>
               <a 
                 href="https://instagram.com/raywretch" 
                 className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-colors"
