@@ -16,7 +16,7 @@ export default function Forum() {
         
         {/* Content */}
         <div className="relative z-10 container mx-auto p-4 flex flex-col items-center justify-center min-h-[calc(100vh-4rem)]">
-          <h1 className="text-4xl font-bold text-purple-300 mb-4">Under Heavy Construction</h1>
+          <h1 className="text-4xl font-bold text-purple-300 mb-4">*Insert Extreme Construction Montage here*</h1>
           <p className="text-xl text-purple-200 text-center max-w-2xl">
             
           </p>
