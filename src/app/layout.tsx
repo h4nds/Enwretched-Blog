@@ -81,6 +81,16 @@ export const metadata: Metadata = {
   verification: {
     google: 'your-google-site-verification', // Add your Google Search Console verification code
   },
+  other: {
+    'Content-Security-Policy': `
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval';
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: https:;
+      font-src 'self';
+      connect-src 'self';
+    `.replace(/\s+/g, ' ').trim()
+  },
 };
 
 export default function RootLayout({
