@@ -9,11 +9,27 @@ export default function Footer() {
   useEffect(() => {
     const trackVisitor = async () => {
       try {
-        const response = await fetch('/api/visitors');
+        const response = await fetch('/api/visitors', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          cache: 'no-store'
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
-        setVisitorCount(data.count);
+        if (data && typeof data.count === 'number') {
+          setVisitorCount(data.count);
+        }
       } catch (error) {
         console.error('Error tracking visitor:', error);
+        // Set a default value or handle the error gracefully
+        setVisitorCount(0);
       }
     };
 
