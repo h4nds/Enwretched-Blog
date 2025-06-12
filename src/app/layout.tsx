@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/images/showcase/deamon.png',
+        url: 'favicon.ico',
         sizes: 'any',
       },
       {
@@ -71,12 +71,17 @@ export const metadata: Metadata = {
         type: 'image/png',
         sizes: '32x32',
       },
+      {
+        url: '/images/showcase/deamon.png',
+        type: 'image/png',
+        sizes: '16x16',
+      },
     ],
     apple: {
       url: '/images/showcase/deamon.png',
       sizes: '180x180',
     },
-    shortcut: '/images/showcase/deamon.png',
+    shortcut: '/favicon.ico',
   },
   verification: {
     google: 'your-google-site-verification', // Add your Google Search Console verification code
@@ -100,6 +105,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/showcase/deamon.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/images/showcase/deamon.png" />
+      </head>
       <body className={`${inter.variable} antialiased`}>
         {children}
       </body>
