@@ -187,10 +187,7 @@ const allArtworks: Artwork[] = [
     createdAt: '2022',
     tags: ['Personal', 'photography', 'Photoshop', 'Music'],
     category: 'personal'
-  },
-
-  ,
-
+  }
 ];
 
 const ITEMS_PER_PAGE = 6;

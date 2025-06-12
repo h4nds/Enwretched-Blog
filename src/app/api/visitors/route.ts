@@ -18,9 +18,12 @@ export async function GET() {
     if (requestData) {
       if (now - requestData.timestamp < RATE_LIMIT_WINDOW) {
         if (requestData.count >= MAX_REQUESTS) {
-          return NextResponse.json(
-            { error: 'Too many requests' },
-            { status: 429 }
+          return new NextResponse(
+            JSON.stringify({ error: 'Too many requests' }),
+            { 
+              status: 429,
+              headers: { 'Content-Type': 'application/json' }
+            }
           );
         }
         requestData.count++;
@@ -45,12 +48,21 @@ export async function GET() {
       ip: ip
     });
 
-    return NextResponse.json({ count: totalVisitors + 1 });
+    return new NextResponse(
+      JSON.stringify({ count: totalVisitors + 1 }),
+      { 
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
   } catch (error) {
     console.error('Error tracking visitor:', error);
-    return NextResponse.json(
-      { error: 'Failed to track visitor' },
-      { status: 500 }
+    return new NextResponse(
+      JSON.stringify({ error: 'Failed to track visitor' }),
+      { 
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      }
     );
   }
 } 
