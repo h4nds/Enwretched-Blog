@@ -87,7 +87,7 @@ const allArtworks: Artwork[] = [
     description: 'A study of solitude and introspection through nature photography.',
     images: [
       {
-        url: '/images/showcase/alone.jpg',
+        url: '/images/showcase/Alone.jpg',
         alt: 'alone - Main View',
         isPrimary: true
       },
@@ -189,53 +189,8 @@ const allArtworks: Artwork[] = [
     category: 'personal'
   },
 
-  {
-    id: '10',
-    title: 'Color Theory Study',
-    description: 'An undergraduate exploration of color relationships and their emotional impact.',
-    images: [
-      {
-        url: '/images/showcase/color-theory.jpg',
-        alt: 'Color Theory Study - Main View',
-        isPrimary: true
-      }
-    ],
-    createdAt: '2021',
-    tags: ['color', 'study', 'undergraduate'],
-    category: 'undergraduate'
-  },
+  ,
 
-  {
-    id: '11',
-    title: 'Form and Space',
-    description: 'A study of negative space and geometric forms in architectural photography.',
-    images: [
-      {
-        url: '/images/showcase/form-space.jpg',
-        alt: 'Form and Space - Main View',
-        isPrimary: true
-      }
-    ],
-    createdAt: '2021',
-    tags: ['architecture', 'photography', 'undergraduate'],
-    category: 'undergraduate'
-  },
-
-  {
-    id: '12',
-    title: 'Digital Collage Series',
-    description: 'A series of digital collages exploring the relationship between organic and geometric forms.',
-    images: [
-      {
-        url: '/images/showcase/digital-collage.jpg',
-        alt: 'Digital Collage Series - Main View',
-        isPrimary: true
-      }
-    ],
-    createdAt: '2021',
-    tags: ['digital', 'collage', 'undergraduate'],
-    category: 'undergraduate'
-  }
 ];
 
 const ITEMS_PER_PAGE = 6;

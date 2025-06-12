@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { headers } from 'next/headers';
 import clientPromise from '@/lib/mongodb';
 
 export async function GET() {
@@ -11,9 +12,10 @@ export async function GET() {
     const totalVisitors = await visitorsCollection.countDocuments();
 
     // Log new visitor
+    const headersList = await headers();
     await visitorsCollection.insertOne({
       timestamp: new Date(),
-      userAgent: headers().get('user-agent') || 'unknown'
+      userAgent: headersList.get('user-agent') || 'unknown'
     });
 
     return NextResponse.json({ count: totalVisitors + 1 });
