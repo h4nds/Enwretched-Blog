@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Close menu when clicking outside
+  // To Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
