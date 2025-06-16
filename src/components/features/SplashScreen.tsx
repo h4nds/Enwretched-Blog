@@ -52,6 +52,10 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
       className={`fixed inset-0 z-50 transition-opacity duration-500 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
+      onClick={handleProceed}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === 'Enter' && handleProceed()}
     >
       {/* Fallback background image */}
       <div className="absolute inset-0">
@@ -96,17 +100,9 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             <div className="w-4 h-4 bg-purple-300 rounded-full animate-bounce delay-200" />
           </div>
         ) : (
-          <>
-            <button
-              onClick={handleProceed}
-              className="px-8 py-3 bg-purple-900/50 hover:bg-purple-900/70 text-purple-200 rounded-lg transition-colors duration-200 border border-purple-700 text-lg"
-            >
-              Enter Site
-            </button>
-            <p className="mt-6 text-purple-200 text-base">
-              Press Enter or click to continue
-            </p>
-          </>
+          <p className="text-purple-200 text-lg animate-pulse">
+            Click anywhere to enter
+          </p>
         )}
       </div>
     </div>

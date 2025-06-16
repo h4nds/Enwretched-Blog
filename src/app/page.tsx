@@ -72,190 +72,202 @@ const featuredArtworks: Artwork[] = [
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
+  const [isContentVisible, setIsContentVisible] = useState(false);
   // Get the latest 3 blog posts for the preview
   const recentBlogPosts = blogPosts.slice(0, 3);
 
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+    // Add a small delay before showing content to ensure smooth transition
+    setTimeout(() => {
+      setIsContentVisible(true);
+    }, 100);
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
-      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
-      <Header />
-      <NewsTicker />
+      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+      
+      <div className={`transition-opacity duration-500 ${isContentVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <Header />
+        <NewsTicker />
 
-      <main className="container mx-auto p-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Welcome section */}
-          <div className="md:col-span-2 border border-purple-900 p-6 bg-black/90">
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl mb-2 text-purple-300">Welcome to My Art Space</h2>
-                <p className="text-purple-200 leading-relaxed">
-                  I&apos;m Ray Wretch, a Professional Graphic Designer, Digital Artist, exploring the intersection of surrealism, nature, and experimental techniques. My work ranges from digital art to photography and mixed media, often incorporating elements of transformation and dreamlike qualities.
+        <main className="container mx-auto p-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Welcome section */}
+            <div className="md:col-span-2 border border-purple-900 p-6 bg-black/90">
+              <div className="space-y-6">
+                <div>
+                  <h2 className="text-2xl mb-2 text-purple-300">Welcome to My Art Space</h2>
+                  <p className="text-purple-200 leading-relaxed">
+                    I&apos;m Ray Wretch, a Professional Graphic Designer, Digital Artist, exploring the intersection of surrealism, nature, and experimental techniques. My work ranges from digital art to photography and mixed media, often incorporating elements of transformation and dreamlike qualities.
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="border border-purple-900 p-3 rounded-lg bg-purple-900/20">
+                    <h3 className="text-purple-300 mb-2">Current Focus</h3>
+                    <ul className="space-y-2 text-sm text-purple-200">
+                      <li>• Surreal Digital Art</li>
+                      <li>• Nature Photography</li>
+                      <li>• Mixed Media</li>
+                      <li>• Digital Illustration</li>
+                    </ul>
+                  </div>
+
+                  <div className="border border-purple-900 p-3 rounded-lg bg-purple-900/20">
+                    <h3 className="text-purple-300 mb-2">Connect</h3>
+                    <ul className="space-y-2 text-sm text-purple-200">
+                      <li>• Instagram: @raywretch</li>
+                      <li>• Email: wretchray@gmail.com</li>
+                      <li>• Commissions: <b>Open</b></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Photoshop Raster & Vector</span>
+                  <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Photography</span>
+                  <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Mixed Media</span>
+                  <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Surreallism</span>
+                  <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Nature</span>
+                  <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Experimentalism</span>
+                </div>
+
+                <div className="bg-purple-900/30 border border-purple-900 p-3 rounded-lg">
+                  <h3 className="text-purple-300 mb-2">Latest Work</h3>
+                  <div className="flex flex-col gap-3 text-sm">
+                    <div className="flex items-center gap-2 text-purple-200">
+                      <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                      <span>New: {blogPosts[0].title}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-purple-200">
+                      <span>📊</span>
+                      <span>Gallery Updated: 4 New Pieces</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Post Board & Updates */}
+            <div className="space-y-4">
+              {/* Post Board */}
+              <div className="border border-purple-900 p-4 bg-black/90">
+                <h3 className="text-xl mb-4 text-purple-300">Post Board</h3>
+                <ul className="space-y-2">
+                  {blogPosts.map(post => (
+                    <li key={post.id} className="hover:text-purple-100 cursor-pointer">
+                      <Link href={`/blog/${post.id}`} className="block">
+                        {post.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Updates Bar */}
+              <div className="border border-purple-900 p-4 bg-black/90">
+                <h3 className="text-xl mb-4 text-purple-300">Updates</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-2">
+                    <span className="text-purple-300">•</span>
+                    <p className="text-sm text-purple-200">New blog post: {blogPosts[0].title}</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-purple-300">•</span>
+                    <p className="text-sm text-purple-200">Gallery updated with new artwork</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-purple-300">•</span>
+                    <p className="text-sm text-purple-200">Latest blog post published</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Section */}
+              <div className="border border-purple-900 p-4 bg-black/90">
+                <h3 className="text-xl mb-4 text-purple-300">Get in Touch</h3>
+                <p className="text-sm text-purple-200 mb-4">
+                  Interested in commissions or collaborations? I&apos;d love to hear from you.
                 </p>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div className="border border-purple-900 p-3 rounded-lg bg-purple-900/20">
-                  <h3 className="text-purple-300 mb-2">Current Focus</h3>
-                  <ul className="space-y-2 text-sm text-purple-200">
-                    <li>• Surreal Digital Art</li>
-                    <li>• Nature Photography</li>
-                    <li>• Mixed Media</li>
-                    <li>• Digital Illustration</li>
-                  </ul>
-                </div>
-
-                <div className="border border-purple-900 p-3 rounded-lg bg-purple-900/20">
-                  <h3 className="text-purple-300 mb-2">Connect</h3>
-                  <ul className="space-y-2 text-sm text-purple-200">
-                    <li>• Instagram: @raywretch</li>
-                    <li>• Email: wretchray@gmail.com</li>
-                    <li>• Commissions: <b>Open</b></li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Photoshop Raster & Vector</span>
-                <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Photography</span>
-                <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Mixed Media</span>
-                <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Surreallism</span>
-                <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Nature</span>
-                <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Experimentalism</span>
-              </div>
-
-              <div className="bg-purple-900/30 border border-purple-900 p-3 rounded-lg">
-                <h3 className="text-purple-300 mb-2">Latest Work</h3>
-                <div className="flex flex-col gap-3 text-sm">
-                  <div className="flex items-center gap-2 text-purple-200">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    <span>New: {blogPosts[0].title}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-purple-200">
-                    <span>📊</span>
-                    <span>Gallery Updated: 4 New Pieces</span>
-                  </div>
-                </div>
+                <Link 
+                  href="/about"
+                  className="block w-full bg-purple-900/50 hover:bg-purple-900/70 text-purple-200 py-2 px-4 rounded transition-colors duration-200 text-center"
+                >
+                  Contact Me
+                </Link>
               </div>
             </div>
-          </div>
 
-          {/* Post Board & Updates */}
-          <div className="space-y-4">
-            {/* Post Board */}
-            <div className="border border-purple-900 p-4 bg-black/90">
-              <h3 className="text-xl mb-4 text-purple-300">Post Board</h3>
-              <ul className="space-y-2">
-                {blogPosts.map(post => (
-                  <li key={post.id} className="hover:text-purple-100 cursor-pointer">
-                    <Link href={`/blog/${post.id}`} className="block">
-                      {post.title}
-                    </Link>
-                  </li>
+            {/* Featured Artworks */}
+            <div className="md:col-span-3 border border-purple-900 p-4 mt-4 bg-black/90">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl text-purple-300">Featured Artworks</h3>
+                <Link 
+                  href="/gallery"
+                  className="text-purple-200 hover:text-purple-100 transition-colors duration-200 flex items-center gap-2"
+                >
+                  See More
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-4 w-4" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M9 5l7 7-7 7" 
+                    />
+                  </svg>
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {featuredArtworks.map((artwork) => (
+                  <FeaturedArtwork key={artwork.id} artwork={artwork} />
                 ))}
-              </ul>
-            </div>
-
-            {/* Updates Bar */}
-            <div className="border border-purple-900 p-4 bg-black/90">
-              <h3 className="text-xl mb-4 text-purple-300">Updates</h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-2">
-                  <span className="text-purple-300">•</span>
-                  <p className="text-sm text-purple-200">New blog post: {blogPosts[0].title}</p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-purple-300">•</span>
-                  <p className="text-sm text-purple-200">Gallery updated with new artwork</p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-purple-300">•</span>
-                  <p className="text-sm text-purple-200">Latest blog post published</p>
-                </div>
               </div>
             </div>
 
-            {/* Contact Section */}
-            <div className="border border-purple-900 p-4 bg-black/90">
-              <h3 className="text-xl mb-4 text-purple-300">Get in Touch</h3>
-              <p className="text-sm text-purple-200 mb-4">
-                Interested in commissions or collaborations? I&apos;d love to hear from you.
-              </p>
-              <Link 
-                href="/about"
-                className="block w-full bg-purple-900/50 hover:bg-purple-900/70 text-purple-200 py-2 px-4 rounded transition-colors duration-200 text-center"
-              >
-                Contact Me
-              </Link>
-            </div>
-          </div>
-
-          {/* Featured Artworks */}
-          <div className="md:col-span-3 border border-purple-900 p-4 mt-4 bg-black/90">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl text-purple-300">Featured Artworks</h3>
-              <Link 
-                href="/gallery"
-                className="text-purple-200 hover:text-purple-100 transition-colors duration-200 flex items-center gap-2"
-              >
-                See More
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  className="h-4 w-4" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
+            {/* Blog Section */}
+            <div className="md:col-span-3 border border-purple-900 p-4 mt-4 bg-black/90">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl text-purple-300">Latest Blog Posts</h3>
+                <Link 
+                  href="/blog"
+                  className="text-purple-200 hover:text-purple-100 transition-colors duration-200 flex items-center gap-2"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M9 5l7 7-7 7" 
-                  />
-                </svg>
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {featuredArtworks.map((artwork) => (
-                <FeaturedArtwork key={artwork.id} artwork={artwork} />
-              ))}
-            </div>
-          </div>
-
-          {/* Blog Section */}
-          <div className="md:col-span-3 border border-purple-900 p-4 mt-4 bg-black/90">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl text-purple-300">Latest Blog Posts</h3>
-              <Link 
-                href="/blog"
-                className="text-purple-200 hover:text-purple-100 transition-colors duration-200 flex items-center gap-2"
-              >
-                View All Posts
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  className="h-4 w-4" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={6} 
-                    d="M9 5l7 7-7 7" 
-                  />
-                </svg>
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {recentBlogPosts.map((post) => (
-                <BlogPost key={post.id} post={post} />
-              ))}
+                  View All Posts
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-4 w-4" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={6} 
+                      d="M9 5l7 7-7 7" 
+                    />
+                  </svg>
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {recentBlogPosts.map((post) => (
+                  <BlogPost key={post.id} post={post} />
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </main>
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }
