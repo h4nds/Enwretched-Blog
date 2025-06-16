@@ -16,14 +16,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
     // Check if this is the first visit
     const hasVisited = localStorage.getItem('hasVisited');
     
-    if (hasVisited) {
-      // If not first visit, just show loading state
-      const timer = setTimeout(() => {
-        setIsVisible(false);
-        setTimeout(onComplete, 500);
-      }, 2000); // Show loading for 2 seconds
-      return () => clearTimeout(timer);
-    } else {
+    if (!hasVisited) {
       // If first visit, mark as visited
       localStorage.setItem('hasVisited', 'true');
     }
