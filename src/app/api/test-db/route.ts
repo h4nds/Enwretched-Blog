@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/mongodb';
 
-
 export async function GET() {
   try {
     console.log('Attempting to connect to MongoDB...');
