@@ -122,15 +122,6 @@ export default function About() {
                 <FaGithub className="text-xl" />
                 <span>GitHub</span>
               </a>
-              <a 
-                href="https://linkedin.com/in/raywretch" 
-                className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin className="text-xl" />
-                <span>LinkedIn</span>
-              </a>
             </div>
           </section>
         </div>
