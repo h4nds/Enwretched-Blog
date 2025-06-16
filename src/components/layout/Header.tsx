@@ -27,7 +27,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-purple-200 hover:text-purple-100 focus:outline-none"
+            className="md:hidden p-3 text-purple-200 hover:text-purple-100 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-lg"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
@@ -49,7 +49,7 @@ export default function Header() {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex items-center space-x-6">
             <Link href="/" className="hover:text-purple-100 transition-colors duration-200">Home</Link>
             <Link href="/gallery" className="hover:text-purple-100 transition-colors duration-200">Gallery</Link>
             <Link href="/blog" className="hover:text-purple-100 transition-colors duration-200">Blog</Link>
@@ -61,40 +61,40 @@ export default function Header() {
           <nav
             className={`${
               isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
-            } md:hidden absolute top-full right-0 mt-1 w-48 bg-black border border-purple-900 rounded-lg shadow-lg transition-all duration-200 ease-in-out`}
+            } md:hidden absolute top-full right-0 mt-2 w-56 bg-black border border-purple-900 rounded-lg shadow-lg transition-all duration-300 ease-in-out`}
           >
-            <div className="py-1">
+            <div className="py-2">
               <Link 
                 href="/" 
-                className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
+                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link 
                 href="/gallery" 
-                className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
+                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Gallery
               </Link>
               <Link 
                 href="/blog" 
-                className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
+                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Blog
               </Link>
               <Link 
                 href="/forum" 
-                className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
+                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Forum
               </Link>
               <Link 
                 href="/about" 
-                className="block py-2 px-4 hover:bg-purple-900/30 hover:text-purple-100 transition-colors duration-200"
+                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
