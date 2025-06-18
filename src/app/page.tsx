@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/layout/Header';
 import NewsTicker from '@/components/ui/NewsTicker';
 import FeaturedArtwork from '@/components/features/FeaturedArtwork';
@@ -71,15 +71,30 @@ const featuredArtworks: Artwork[] = [
 ];
 
 export default function Home() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(false);
   const [isContentVisible, setIsContentVisible] = useState(false);
   const recentBlogPosts = blogPosts.slice(0, 3);
+
+  useEffect(() => {
+    // Only show splash if not already shown this session
+    if (typeof window !== 'undefined') {
+      const splashShown = sessionStorage.getItem('splashShown');
+      if (!splashShown) {
+        setShowSplash(true);
+      } else {
+        setIsContentVisible(true);
+      }
+    }
+  }, []);
 
   const handleSplashComplete = () => {
     setShowSplash(false);
     setTimeout(() => {
       setIsContentVisible(true);
     }, 100);
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('splashShown', 'true');
+    }
   };
 
   return (

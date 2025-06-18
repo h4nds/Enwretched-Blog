@@ -61,7 +61,7 @@ const posts: BlogPost[] = [
     
     `,
     
-    excerpt: 'A deep dive into the creation process of my latest digital artwork...',
+    excerpt: 'Just some Updates...',
     createdAt: '06-18-2025',
     tags: ['hey guys', 'Process', 'Test Of Stregnth'],
     author: 'Ray Wretch',
