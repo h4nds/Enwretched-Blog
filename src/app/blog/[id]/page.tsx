@@ -30,11 +30,13 @@ export default function BlogPost() {
     );
   }
 
+  console.log('Blog post image URL:', post.imageUrl); // Debug log
+
   return (
     <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
       <Header />
       
-      <main className="container mx-auto p-4">
+      <main className="container mx-auto p-4 mb-16">
         <div className="max-w-3xl mx-auto">
           <Link href="/blog" className="text-purple-200 hover:text-purple-100 mb-8 inline-block">
             ← Back to Blog
@@ -51,13 +53,20 @@ export default function BlogPost() {
             </header>
 
             {post.imageUrl && (
-              <div className="relative w-full aspect-video">
+              <div className="relative w-full aspect-[4/3] p-4 rounded-lg">
                 <Image
                   src={post.imageUrl}
                   alt={post.title}
                   fill
-                  className="object-cover rounded-lg"
+                  className="object-contain rounded-lg"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 768px, 1024px"
+                  priority
+                  onError={(e) => {
+                    console.error('Error loading image:', e);
+                  }}
+                  onLoad={() => {
+                    console.log('Image loaded successfully');
+                  }}
                 />
               </div>
             )}

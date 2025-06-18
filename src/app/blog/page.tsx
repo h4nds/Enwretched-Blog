@@ -7,10 +7,10 @@ import { blogPosts } from '@/data/blogPosts';
 
 export default function Blog() {
   return (
-    <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
+    <div className="min-h-screen flex flex-col bg-slate-950 text-purple-200 font-mono">
       <Header />
       
-      <main className="container mx-auto p-4">
+      <main className="container mx-auto p-4 flex-grow">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-3xl font-bold text-purple-300 mb-8">Blog</h1>
           
