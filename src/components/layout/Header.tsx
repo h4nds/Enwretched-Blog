@@ -22,7 +22,15 @@ export default function Header() {
     <header className="border-b border-purple-900 bg-black sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center relative">
-          <Logo />
+          <div className="flex items-center">
+            <img
+              src="/images/android-chrome-512x512.png"
+              alt="Site Logo"
+              className="h-12 w-12 rounded mr-2"
+              style={{ display: 'inline-block' }}
+            />
+            <Logo />
+          </div>
           
           {/* Mobile menu button */}
           <button
