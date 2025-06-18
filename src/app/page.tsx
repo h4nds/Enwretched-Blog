@@ -130,7 +130,7 @@ export default function Home() {
 
                   <div className="border border-purple-900 p-3 rounded-lg bg-purple-900/20">
                     <h3 className="text-purple-300 mb-2">Connect</h3>
-                    <ul className="space-y-2 text-sm text-purple-200">
+                    <ul className="space-y-2 text-sm text-purple-200 break-words">
                       <li>• Instagram: @raywretch</li>
                       <li>• Email: wretchray@gmail.com</li>
                       <li>• Commissions: <b>Open</b></li>

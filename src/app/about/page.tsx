@@ -1,7 +1,7 @@
 "use client";
 
 import Header from '@/components/layout/Header';
-import { FaInstagram, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaInstagram, FaEnvelope, FaGithub } from 'react-icons/fa';
 import { useState } from 'react';
 
 export default function About() {
@@ -91,7 +91,7 @@ export default function About() {
               I&apos;m always interested in new collaborations and creative projects. 
               Feel free to reach out for commissions, exhibitions, or just to say hello.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 justify-items-center">
               <button 
                 onClick={handleEmailClick}
                 className="relative flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-colors"
@@ -121,15 +121,6 @@ export default function About() {
               >
                 <FaGithub className="text-xl" />
                 <span>GitHub</span>
-              </a>
-              <a 
-                href="https://linkedin.com/in/raywretch" 
-                className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin className="text-xl" />
-                <span>LinkedIn</span>
               </a>
             </div>
           </section>
