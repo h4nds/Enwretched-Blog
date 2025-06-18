@@ -7,7 +7,6 @@ import FeaturedArtwork from '@/components/features/FeaturedArtwork';
 import BlogPost from '@/components/features/BlogPost';
 import Footer from '@/components/layout/Footer';
 import SplashScreen from '@/components/features/SplashScreen';
-import VideoPlayer from '@/components/features/VideoPlayer';
 import { Artwork } from '@/types/artwork';
 import { blogPosts } from '@/data/blogPosts';
 import Link from 'next/link';
@@ -103,13 +102,6 @@ export default function Home() {
                   </p>
                 </div>
 
-                {/* Video Player */}
-                <VideoPlayer 
-                  src="/videos/showcase.mp4"
-                  title="Art Showcase Video"
-                  className="mb-4"
-                />
-                
                 <div className="grid grid-cols-2 gap-4">
                   <div className="border border-purple-900 p-3 rounded-lg bg-purple-900/20">
                     <h3 className="text-purple-300 mb-2">Current Focus</h3>

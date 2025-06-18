@@ -79,11 +79,12 @@ export default function BlogPost() {
             {/* Video Player - Only show for the Deployment post */}
             {post.id === '2025-16-06-new-digital-piece' && (
               <div className="mt-8">
-                <h2 className="text-2xl font-bold text-purple-300 mb-4">Deployment Process Video</h2>
+                <h2 className="text-2xl font-bold text-purple-300 mb-4">Some shred</h2>
                 <VideoPlayer 
-                  src="/videos/deployment.mp4"
-                  title="Deployment Process Video"
+                  src="/videos/shred1.mp4"
+                  title="heres some shred"
                 />
+                <p className="text-sm text-purple-400 mt-2 italic">song: xaviersobased - dancer</p>
               </div>
             )}
           </article>
