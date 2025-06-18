@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://enwretched.com/sitemap.xml', // Replace with your actual domain
+    sitemap: 'https://enwretched.com/', // Replace with your actual domain
   }
 } 

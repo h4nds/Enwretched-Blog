@@ -23,11 +23,31 @@ const posts: BlogPost[] = [
     
     `,
     
+    excerpt: 'A deep dive into the creation process of my latest work...',
+    createdAt: '2025-06-06',
+    tags: ['Web development', 'Process', 'Behind the Scenes'],
+    author: 'Ray Wretch',
+    imageUrl: '/images/showcase/feeling.png'
+  },
+
+  {
+    id: '2025-16-06-new-digital-piece',
+    title: 'Solo Ops: "Deployment"',
+    content: `yo so I knew developing a Site like this on my own would be really good challenge for me and I knew the stakes and how much ambition this project was going to take me. 
+
+    However I might have over estimated the actual legnth in time that this was going to take me -- updating 6/16/25 my bad .
+
+  
+
+    - ray
+    
+    `,
+    
     excerpt: 'A deep dive into the creation process of my latest digital artwork...',
     createdAt: '2024-03-15',
     tags: ['Web development', 'Process', 'Behind the Scenes'],
     author: 'Ray Wretch',
-    imageUrl: '/images/showcase/feeling.png'
+    imageUrl: '/images/showcase/breaker.jpg'
   },
   // Add more posts here
 ];

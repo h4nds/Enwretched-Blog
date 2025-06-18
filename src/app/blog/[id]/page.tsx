@@ -7,6 +7,7 @@ import { getBlogPost } from '@/data/blogPosts';
 import Image from 'next/image';
 import Link from 'next/link';
 import { JSX } from 'react';
+import VideoPlayer from '@/components/features/VideoPlayer';
 
 export default function BlogPost() {
   const params = useParams();
@@ -74,6 +75,17 @@ export default function BlogPost() {
                 {post.content}
               </p>
             </div>
+
+            {/* Video Player - Only show for the Deployment post */}
+            {post.id === '2025-16-06-new-digital-piece' && (
+              <div className="mt-8">
+                <h2 className="text-2xl font-bold text-purple-300 mb-4">Deployment Process Video</h2>
+                <VideoPlayer 
+                  src="/videos/deployment.mp4"
+                  title="Deployment Process Video"
+                />
+              </div>
+            )}
           </article>
         </div>
       </main>
