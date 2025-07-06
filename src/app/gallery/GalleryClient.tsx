@@ -12,7 +12,7 @@ const allArtworks: Artwork[] = [
   {
     id: '1',
     title: 'Follow The Notes',
-    description: '',
+    description: 'This surreal, dreamlike piece on a mysterious woman in white entering a reflective river, her spine-like laced in a cursed Tattoo suggesting transformation of self. The lush environment blends natural elements with modern touches like glowing windows and graffiti on ancient stones.',
     images: [
       {
         url: '/images/showcase/follow-the-notes.jpg',
@@ -21,13 +21,14 @@ const allArtworks: Artwork[] = [
       },
     ],
     createdAt: '2024',
-    tags: ['surreal', 'digital', 'nature']
+    tags: ['surreal', 'digital', 'nature'],
+    category: 'professional'
   },
 
   {
     id: '2',
     title: 'Ten',
-    description: '',
+    description: 'Mixed media piece curated orginally from a photograph i took of the waterside of a river in the woods with my partner.',
     images: [
       {
         url: '/images/showcase/ten.jpg',
@@ -40,13 +41,14 @@ const allArtworks: Artwork[] = [
       }
     ],
     createdAt: '2024',
-    tags: ['mixed-media', 'photography', 'nature']
+    tags: ['mixed-media', 'photography', 'nature'],
+    category: 'professional'
   },
 
   {
     id: '3',
     title: '435 Hz',
-    description: '',
+    description: 'This piece explores the intensity and distortion of sensory overload—especially sound. I wanted to capture what it feels like to be immersed in heavy bass, noise, and movement, rather than just show it.',
     images: [
       {
         url: '/images/showcase/435-hz.jpg',
@@ -59,13 +61,14 @@ const allArtworks: Artwork[] = [
       }
     ], 
     createdAt: '2025',
-    tags: ['abstract', 'digital', 'experimental']
+    tags: ['abstract', 'digital', 'experimental'],
+    category: 'professional'
   },
 
   {
     id: '4',
     title: 'Recovery',
-    description: '',
+    description: 'This piece explores nature\'s quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.',
     images: [
       {
         url: '/images/showcase/recovery.jpg',
@@ -74,28 +77,30 @@ const allArtworks: Artwork[] = [
       },
     ],
     createdAt: '2024',
-    tags: ['nature', 'photography', 'surreal']
+    tags: ['nature', 'photography', 'surreal'],
+    category: 'professional'
   },
 
   {
     id: '5',
     title: 'Alone',
-    description: '',
+    description: 'A study of solitude and introspection through nature photography.',
     images: [
       {
-        url: '/images/showcase/alone.jpg',
+        url: '/images/showcase/Alone.jpg',
         alt: 'alone - Main View',
         isPrimary: true
       },
     ],
     createdAt: '2022',
-    tags: ['nature', 'photography', 'surreal']
+    tags: ['nature', 'photography', 'surreal'],
+    category: 'undergraduate'
   },
 
   {
     id: '6',
     title: 'Airbrushed Castle',
-    description: '',
+    description: 'An experimental piece combining traditional airbrushing techniques with digital manipulation.',
     images: [
       {
         url: '/images/showcase/brushed castle.jpg',
@@ -112,40 +117,42 @@ const allArtworks: Artwork[] = [
       }
     ],
     createdAt: '2022',
-    tags: ['Castle', 'photography', 'surreal']
+    tags: ['Castle', 'photography', 'surreal'],
+    category: 'undergraduate'
   },
 
   {
     id: '7',
     title: 'Memory Collection',
-    description: '',
+    description: 'A digital exploration of memory and nostalgia through layered imagery.',
     images: [
       {
         url: '/images/showcase/memory_gif.gif',
-        alt: 'Airbrushed Castle - Main View',
+        alt: 'Memory Collection - Main View',
         isPrimary: true
       },
       {
         url: '/images/showcase/memory.jpg',
-        alt: 'Airbrushed Castle - Process'
+        alt: 'Memory Collection - Process'
       },
       {
         url: '/images/showcase/memory_paper1.jpg',
-        alt: 'wallpaper'
+        alt: 'Memory Collection - Paper 1'
       },
       {
         url: '/images/showcase/memory_paper2.png',
-        alt: 'wallpaper'
+        alt: 'Memory Collection - Paper 2'
       }
     ],
     createdAt: '2023',
-    tags: ['Music', 'photography', 'Digital Desgin', 'Photoshop']
+    tags: ['Music', 'photography', 'Digital Design', 'Photoshop'],
+    category: 'undergraduate'
   },
 
   {
     id: '8',
     title: 'l appel du vide',
-    description: 'Client Work ',
+    description: 'Client work for a music artist, exploring themes of emptiness and longing.',
     images: [
       {
         url: '/images/showcase/tek_client.jpg',
@@ -153,74 +160,39 @@ const allArtworks: Artwork[] = [
         isPrimary: true
       },
       {
-        url: '/images/showcase/Flash.png ',
+        url: '/images/showcase/Flash.png',
         alt: 'Coverart - Process'
       },
     ],
     createdAt: '2023',
-    tags: ['Client', 'photography', 'Illustration', 'Muisc']
+    tags: ['Client', 'photography', 'Illustration', 'Music'],
+    category: 'professional'
   },
 
   {
     id: '9',
     title: 'TLC Remix',
-    description: '',
+    description: 'A personal project reimagining classic album artwork through a contemporary lens.',
     images: [
       {
         url: '/images/showcase/TLC_Remix.png',
-        alt: 'Hero image - Main View',
+        alt: 'TLC Remix - Main View',
         isPrimary: true
       },
       {
-        url: '/images/showcase/TLC_solo.png ',
-        alt: 'Straight Letter Appreciation - Process'
+        url: '/images/showcase/TLC_solo.png',
+        alt: 'TLC Remix - Solo View'
       },
     ],
     createdAt: '2022',
-    tags: ['Personal', 'photography', 'Photoshop', 'Muisc']
-  },
-
-  {
-    id: '10',
-    title: '3rdperson Intrementals Cover',
-    description: 'Client work for 3rdperson Intrementals, a solo project composed of 5 personal Ambient tracks',
-    images: [
-      {
-        url: '/images/showcase/3 cover revised.png',
-        alt: 'Offical Cover Art',
-        isPrimary: true
-      },
-    ],
-    createdAt: '2023',
-    tags: ['Client', 'Mixtapes', 'Muisc']
-  },
-
-  {
-    id: '11',
-    title: 'TLC Remix',
-    description: '',
-    images: [
-      {
-        url: '/images/showcase/TLC_Remix.png',
-        alt: 'Hero image - Main View',
-        isPrimary: true
-      },
-      {
-        url: '/images/showcase/TLC_solo.png ',
-        alt: 'Straight Letter Appreciation - Process'
-      },
-    ],
-    createdAt: '2022',
-    tags: ['Personal', 'photography', 'Photoshop', 'Muisc']
+    tags: ['Personal', 'photography', 'Photoshop', 'Music'],
+    category: 'personal'
   }
-
-  
-  // Add more artworks here 
 ];
 
 const ITEMS_PER_PAGE = 6;
 
-export default function Gallery() {
+export default function GalleryClient() {
   const [filteredArtworks, setFilteredArtworks] = useState<Artwork[]>(allArtworks);
   const [currentPage, setCurrentPage] = useState(1);
   const [isGridView, setIsGridView] = useState(true);
@@ -237,13 +209,24 @@ export default function Gallery() {
   }, [filteredArtworks]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
-      <Header />
+    <div className="min-h-screen text-purple-200 font-mono relative">
+      {/* Background Image with Overlay */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
+        style={{
+          backgroundImage: 'url(/images/showcase/follow-the-notes.jpg)',
+        }}
+      />
+      {/* Color Overlay to maintain purple theme */}
+      <div className="fixed inset-0 bg-slate-950/80 bg-gradient-to-br from-slate-950/90 via-purple-950/70 to-slate-950/90 z-0" />
       
-      <main className="container mx-auto p-4">
+      <div className="relative z-10">
+        <Header />
+      
+      <main className="container mx-auto px-4 md:px-6 lg:px-8 py-6">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-purple-300 mb-4">Gallery</h1>
-          <p className="text-purple-200">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images, please feel free to contact me for any Work more information.</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-purple-300 mb-3 md:mb-4">Gallery</h1>
+          <p className="text-sm md:text-base text-purple-200">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images, please feel free to contact me for any Work more information. *Still Adding*</p>
         </div>
 
         <GalleryControls 
@@ -254,7 +237,7 @@ export default function Gallery() {
         />
 
         {isGridView ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {currentArtworks.map((artwork) => (
               <FeaturedArtwork key={artwork.id} artwork={artwork} />
             ))}
@@ -265,21 +248,21 @@ export default function Gallery() {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-2 mt-8">
+          <div className="flex justify-center items-center gap-2 mt-6 md:mt-8">
             <button
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="px-4 py-2 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 md:px-4 py-2 text-sm md:text-base rounded-lg bg-purple-900/30 hover:bg-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Previous
             </button>
-            <span className="text-purple-200">
+            <span className="text-sm md:text-base text-purple-200">
               Page {currentPage} of {totalPages}
             </span>
             <button
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="px-4 py-2 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 md:px-4 py-2 text-sm md:text-base rounded-lg bg-purple-900/30 hover:bg-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Next
             </button>
@@ -287,11 +270,12 @@ export default function Gallery() {
         )}
       </main>
 
-      <footer className="border-t border-purple-900 p-4 mt-8 bg-black/90">
-        <div className="container mx-auto text-center">
+      <footer className="border-t border-purple-900 p-4 mt-6 md:mt-8 bg-black/90">
+        <div className="container mx-auto text-center text-sm md:text-base">
           <p>©Ray Wretch 2024 - All Rights Reserved</p>
         </div>
       </footer>
+      </div>
     </div>
   );
 } 

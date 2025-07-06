@@ -1,28 +1,33 @@
-"use client";
+import { Metadata } from 'next';
+import BlogClient from './BlogClient';
 
-import Header from '@/components/layout/Header';
-import BlogPost from '@/components/features/BlogPost';
-import Footer from '@/components/layout/Footer';
-import { blogPosts } from '@/data/blogPosts';
+export const metadata: Metadata = {
+  title: 'Blog - Digital Art & Creative Process',
+  description: 'Read about Ray Wretch\'s creative process, digital art techniques, and thoughts on surrealism and experimental art. Behind-the-scenes insights into artwork creation.',
+  keywords: ['blog', 'digital art', 'creative process', 'surrealism', 'experimental art', 'art techniques', 'Ray Wretch'],
+  openGraph: {
+    title: 'Blog - Digital Art & Creative Process',
+    description: 'Read about Ray Wretch\'s creative process, digital art techniques, and thoughts on surrealism and experimental art.',
+    images: [
+      {
+        url: '/images/showcase/memory_gif.gif',
+        width: 1200,
+        height: 630,
+        alt: 'Memory Collection - Featured Blog Image',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog - Digital Art & Creative Process',
+    description: 'Read about Ray Wretch\'s creative process, digital art techniques, and thoughts on surrealism and experimental art.',
+    images: ['/images/showcase/memory_gif.gif'],
+  },
+  alternates: {
+    canonical: '/blog',
+  },
+};
 
 export default function Blog() {
-  return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-purple-200 font-mono">
-      <Header />
-      
-      <main className="container mx-auto p-4 flex-grow">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-3xl font-bold text-purple-300 mb-8">Blog</h1>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.map((post) => (
-              <BlogPost key={post.id} post={post} />
-            ))}
-          </div>
-        </div>
-      </main>
-
-      <Footer />
-    </div>
-  );
+  return <BlogClient />;
 } 
