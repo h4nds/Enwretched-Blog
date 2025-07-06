@@ -175,7 +175,7 @@ const allArtworks: Artwork[] = [
     description: 'A personal project reimagining classic album artwork through a contemporary lens.',
     images: [
       {
-        url: '/images/showcase/TLC_Remix.png',
+        url: '/images/showcase/TLC_remix.png',
         alt: 'TLC Remix - Main View',
         isPrimary: true
       },

@@ -46,7 +46,8 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
               } group-hover:scale-105`}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               onLoad={() => setIsLoading(false)}
-              onError={() => {
+              onError={(e) => {
+                console.error('Image failed to load:', currentImage.url, e);
                 setIsLoading(false);
                 setError(true);
               }}
