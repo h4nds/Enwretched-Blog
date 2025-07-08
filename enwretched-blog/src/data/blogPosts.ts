@@ -1,6 +1,6 @@
 import { BlogPost } from '@/types/blog';
 
-// Blog posts organized by year and month Try to add pictures per block page 4:4 px
+// Blog posts organized by year and month
 const posts: BlogPost[] = [
   {
     id: '2024-03-15-new-digital-piece',

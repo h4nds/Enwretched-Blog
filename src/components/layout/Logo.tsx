@@ -20,7 +20,7 @@ export default function Logo({ useImage = false, imageSrc, imageAlt = 'EnWretche
           priority
         />
       ) : (
-        <h1 className="text-3xl font-bold text-purple-300 hover:text-purple-100 transition-colors duration-200 -ml-2">
+        <h1 className="text-3xl font-bold text-purple-300 hover:text-purple-100 transition-colors duration-200">
           EnWretched
         </h1>
       )}

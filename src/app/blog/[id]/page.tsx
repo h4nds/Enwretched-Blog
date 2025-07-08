@@ -1,52 +1,106 @@
-import { Metadata } from 'next';
+"use client";
+
+import { useParams } from 'next/navigation';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import { getBlogPost } from '@/data/blogPosts';
-import BlogPostClient from './BlogPostClient';
+import Image from 'next/image';
+import Link from 'next/link';
+import { JSX } from 'react';
+import VideoPlayer from '@/components/features/VideoPlayer';
 
-interface Props {
-  params: { id: string };
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = getBlogPost(params.id);
+export default function BlogPost() {
+  const params = useParams();
+  const post = getBlogPost(params.id as string);
 
   if (!post) {
-    return {
-      title: 'Post Not Found',
-      description: 'The requested blog post could not be found.',
-    };
+    return (
+      <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
+        <Header />
+        <main className="container mx-auto p-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-3xl font-bold text-purple-300 mb-4">Post Not Found</h1>
+            <Link href="/blog" className="text-purple-200 hover:text-purple-100">
+              ← Back to Blog
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
   }
 
-  return {
-    title: `${post.title} - Blog`,
-    description: post.content.substring(0, 160) + '...',
-    keywords: [...post.tags, 'blog', 'digital art', 'Ray Wretch'],
-    openGraph: {
-      title: post.title,
-      description: post.content.substring(0, 160) + '...',
-      type: 'article',
-      publishedTime: post.createdAt,
-      authors: [post.author],
-      images: post.imageUrl ? [
-        {
-          url: post.imageUrl,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ] : [],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.content.substring(0, 160) + '...',
-      images: post.imageUrl ? [post.imageUrl] : [],
-    },
-    alternates: {
-      canonical: `/blog/${params.id}`,
-    },
-  };
-}
+  console.log('Blog post image URL:', post.imageUrl); // Debug log
 
-export default function BlogPost({ params }: Props) {
-  return <BlogPostClient id={params.id} />;
+  return (
+    <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
+      <Header />
+      
+      <main className="container mx-auto p-4 mb-16">
+        <div className="max-w-3xl mx-auto">
+          <Link href="/blog" className="text-purple-200 hover:text-purple-100 mb-8 inline-block">
+            ← Back to Blog
+          </Link>
+
+          <article className="space-y-6">
+            <header className="space-y-4">
+              <h1 className="text-4xl font-bold text-purple-300">{post.title}</h1>
+              <div className="flex items-center gap-4 text-sm text-purple-400">
+                <span>By {post.author}</span>
+                <span>•</span>
+                <span>{post.createdAt}</span>
+              </div>
+            </header>
+
+            {post.imageUrl && (
+              <div className="relative w-full aspect-[4/3] p-4 rounded-lg">
+                <Image
+                  src={post.imageUrl}
+                  alt={post.title}
+                  fill
+                  className="object-contain rounded-lg"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 768px, 1024px"
+                  priority
+                  onError={(e) => {
+                    console.error('Error loading image:', e);
+                  }}
+                  onLoad={() => {
+                    console.log('Image loaded successfully');
+                  }}
+                />
+              </div>
+            )}
+
+            <div className="flex flex-wrap gap-2">
+              {post.tags.map(tag => (
+                <span key={tag} className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm"> 
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <div className="prose prose-invert max-w-none">
+              <p className="text-lg text-purple-200 leading-relaxed whitespace-pre-line">
+                {post.content}
+              </p>
+            </div>
+
+            {/* Video Player - Only show for the Deployment post */}
+            {post.id === '2025-16-06-new-digital-piece' && (
+              <div className="mt-8">
+                <h2 className="text-2xl font-bold text-purple-300 mb-4">Some shred</h2>
+                <VideoPlayer 
+                  src="/videos/shred1.mp4"
+                  title="heres some shred"
+                />
+                <p className="text-sm text-purple-400 mt-2 italic">song: xaviersobased - dancer</p>
+              </div>
+            )}
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
 } 

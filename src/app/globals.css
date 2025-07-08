@@ -32,9 +32,3 @@ body {
 .animate-marquee {
   animation: marquee 20s linear infinite;
 }
-
-@media (min-width: 768px) {
-  .animate-marquee {
-    animation-duration: 23s;
-  }
-}

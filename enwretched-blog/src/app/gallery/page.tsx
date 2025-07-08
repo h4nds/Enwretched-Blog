@@ -180,40 +180,6 @@ const allArtworks: Artwork[] = [
     tags: ['Personal', 'photography', 'Photoshop', 'Muisc']
   },
 
-  {
-    id: '10',
-    title: '3rdperson Intrementals Cover',
-    description: 'Client work for 3rdperson Intrementals, a solo project composed of 5 personal Ambient tracks',
-    images: [
-      {
-        url: '/images/showcase/3 cover revised.png',
-        alt: 'Offical Cover Art',
-        isPrimary: true
-      },
-    ],
-    createdAt: '2023',
-    tags: ['Client', 'Mixtapes', 'Muisc']
-  },
-
-  {
-    id: '11',
-    title: 'TLC Remix',
-    description: '',
-    images: [
-      {
-        url: '/images/showcase/TLC_Remix.png',
-        alt: 'Hero image - Main View',
-        isPrimary: true
-      },
-      {
-        url: '/images/showcase/TLC_solo.png ',
-        alt: 'Straight Letter Appreciation - Process'
-      },
-    ],
-    createdAt: '2022',
-    tags: ['Personal', 'photography', 'Photoshop', 'Muisc']
-  }
-
   
   // Add more artworks here 
 ];

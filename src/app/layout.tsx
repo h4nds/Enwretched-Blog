@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -99,34 +98,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Structured data for the website
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "EnWretched",
-  "description": "Portfolio and blog of Ray Wretch, a digital artist and aspiring web developer exploring fullstack development and experimental art.",
-  "url": "https://enwretched.com",
-  "author": {
-    "@type": "Person",
-    "name": "Ray Wretch",
-    "jobTitle": "Digital Artist & Graphic Designer",
-    "url": "https://enwretched.com/about",
-    "sameAs": [
-      "https://instagram.com/raywretch",
-      "https://github.com/raywretch"
-    ]
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Ray Wretch"
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://enwretched.com/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -138,11 +109,6 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/images/showcase/deamon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/images/showcase/deamon.png" />
-        <Script
-          id="structured-data"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
       </head>
       <body className={`${inter.variable} antialiased`}>
         {children}
