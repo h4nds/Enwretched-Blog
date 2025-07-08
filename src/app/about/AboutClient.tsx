@@ -32,17 +32,8 @@ export default function AboutClient() {
   });
 
   return (
-    <div className="min-h-screen text-purple-200 font-mono relative">
-      {/* Background Image with Overlay */}
-      <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
-        style={{
-          backgroundImage: 'url(/images/showcase/deamon.png)',
-        }}
-      />
-      {/* Color Overlay to maintain purple theme */}
-      <div className="fixed inset-0 bg-slate-950/80 bg-gradient-to-br from-slate-950/90 via-purple-950/70 to-slate-950/90 z-0" />
-      
+    <div className="min-h-screen text-purple-200 font-mono relative bg-slate-950">
+      {/* Removed background image and overlay */}
       <div className="relative z-10">
         <StructuredData data={personSchema} />
         <Header />
