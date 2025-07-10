@@ -118,7 +118,7 @@ const allArtworks: Artwork[] = [
     ],
     createdAt: '2022',
     tags: ['Castle', 'photography', 'surreal'],
-    category: 'undergraduate'
+    category: 'personal'
   },
 
   {
@@ -152,7 +152,7 @@ const allArtworks: Artwork[] = [
   {
     id: '8',
     title: 'l appel du vide',
-    description: 'Client work for a music artist, exploring themes of emptiness and longing.',
+    description: 'Offical Coverart  for Tekari, exploring themes of emptiness and longing.',
     images: [
       {
         url: '/images/showcase/tek_client.jpg',
@@ -187,7 +187,53 @@ const allArtworks: Artwork[] = [
     createdAt: '2022',
     tags: ['Personal', 'photography', 'Photoshop', 'Music'],
     category: 'personal'
-  }
+  },
+
+  {
+    id: '10',
+    title: 'Promethefall',
+    description: 'A personal project',
+    images: [
+      {
+        url: '/images/showcase/Promfall.jpg',
+        alt: 'Main View',
+        isPrimary: true
+      },
+      {
+        url: '/images/showcase/Promfall2.png ',
+        alt: '2nd View'
+      },
+      {
+        url: '/images/showcase/Promfall3.png ',
+        alt: '3rd View'
+      }
+    ],
+    createdAt: '2025',
+    tags: ['Personal', 'scene', 'Photoshop', 'Muisc'],
+    category: 'personal'
+  },
+
+  {
+    id: '11',
+    title: 'Misery & Dior Official Coverart',
+    description: 'Client Work for a late friend, Coverart for the album "Misery & Dior" by Ter99r ',
+    images: [
+      {
+        url: '/images/showcase/misery and dior front cover.png',
+        alt: 'Official Coverart',
+        isPrimary: true
+      },
+      {
+        url: '/images/showcase/md tracklist.jpg ',
+        alt: 'Offical Tracklist'
+      },
+    ],
+    createdAt: '2022',
+    tags: ['Client', 'Illustration', 'Muisc'],
+    category: 'personal'
+  },
+
+
 ];
 
 const ITEMS_PER_PAGE = 6;
