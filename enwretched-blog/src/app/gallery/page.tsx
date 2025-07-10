@@ -180,36 +180,95 @@ const allArtworks: Artwork[] = [
     tags: ['Personal', 'photography', 'Photoshop', 'Muisc']
   },
 
+  {
+    id: '10',
+    title: 'Promethefall',
+    description: 'A personal project',
+    images: [
+      {
+        url: '/images/showcase/Promfall.jpg',
+        alt: 'Main View',
+        isPrimary: true
+      },
+      {
+        url: '/images/showcase/Promfall2.png ',
+        alt: '2nd View'
+      },
+      {
+        url: '/images/showcase/Promfall3.png ',
+        alt: '3rd View'
+      }
+    ],
+    createdAt: '2025',
+    tags: ['Personal', 'scene', 'Photoshop', 'Muisc']
+  },
+
+  {
+    id: '11',
+    title: 'Misery & Dior Official Coverart',
+    description: 'Client Work for a late friend, Coverart for the album "Misery & Dior" by Ter99r ',
+    images: [
+      {
+        url: '/images/showcase/mandd.png',
+        alt: 'Official Coverart',
+        isPrimary: true
+      },
+      {
+        url: '/images/showcase/md tracklist.png ',
+        alt: 'Offical Tracklist'
+      },
+    ],
+    createdAt: '2022',
+    tags: ['Client', 'Illustration', 'Muisc']
+  },
+
+
+
   
   // Add more artworks here 
 ];
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 100; // or a number larger than your total artworks
 
 export default function Gallery() {
   const [filteredArtworks, setFilteredArtworks] = useState<Artwork[]>(allArtworks);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentCategory, setCurrentCategory] = useState<'All' | 'Wallpapers'>('All');
   const [isGridView, setIsGridView] = useState(true);
 
-  // Calculate pagination add values to notion per page 
-  const totalPages = Math.ceil(filteredArtworks.length / ITEMS_PER_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentArtworks = filteredArtworks.slice(startIndex, endIndex);
-
-  // Reset to first page when filters change
+  // Filter artworks by category
   useEffect(() => {
-    setCurrentPage(1);
-  }, [filteredArtworks]);
+    if (currentCategory === 'All') {
+      setFilteredArtworks(allArtworks);
+    } else if (currentCategory === 'Wallpapers') {
+      setFilteredArtworks(allArtworks.filter(a => a.tags && a.tags.map(t => t.toLowerCase()).includes('wallpaper')));
+    }
+  }, [currentCategory]);
+
+  const currentArtworks = filteredArtworks; // show all
 
   return (
     <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
       <Header />
-      
       <main className="container mx-auto p-4">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-purple-300 mb-4">Gallery</h1>
           <p className="text-purple-200">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images, please feel free to contact me for any Work more information.</p>
+        </div>
+
+        {/* Category Switcher */}
+        <div className="flex gap-4 mb-6 justify-center">
+          <button
+            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${currentCategory === 'All' ? 'bg-purple-700 text-white' : 'bg-purple-900/30 hover:bg-purple-900/50'}`}
+            onClick={() => setCurrentCategory('All')}
+          >
+            All Artworks
+          </button>
+          <button
+            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${currentCategory === 'Wallpapers' ? 'bg-purple-700 text-white' : 'bg-purple-900/30 hover:bg-purple-900/50'}`}
+            onClick={() => setCurrentCategory('Wallpapers')}
+          >
+            Phone Wallpapers
+          </button>
         </div>
 
         <GalleryControls 
@@ -229,28 +288,7 @@ export default function Gallery() {
           <ArtworkList artworks={currentArtworks} />
         )}
 
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-2 mt-8">
-            <button
-              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-              className="px-4 py-2 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Previous
-            </button>
-            <span className="text-purple-200">
-              Page {currentPage} of {totalPages}
-            </span>
-            <button
-              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-              disabled={currentPage === totalPages}
-              className="px-4 py-2 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Next
-            </button>
-          </div>
-        )}
+        {/* Pagination removed */}
       </main>
 
       <footer className="border-t border-purple-900 p-4 mt-8 bg-black/90">

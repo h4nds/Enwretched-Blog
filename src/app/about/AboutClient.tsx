@@ -1,9 +1,11 @@
 "use client";
 
 import Header from '@/components/layout/Header';
-import { FaInstagram, FaEnvelope, FaGithub } from 'react-icons/fa';
+import { FaInstagram, FaEnvelope} from 'react-icons/fa';
 import { useState } from 'react';
 import StructuredData, { createPersonSchema } from '@/components/seo/StructuredData';
+import { FaReact, FaNodeJs, FaGitAlt, FaGithub, FaCss3Alt } from 'react-icons/fa';
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiMongodb, SiPostcss, SiVercel, SiJavascript } from 'react-icons/si';
 
 export default function AboutClient() {
   const [showCopied, setShowCopied] = useState(false);
@@ -105,21 +107,39 @@ export default function AboutClient() {
             <h2 className="text-2xl font-semibold text-purple-300 mb-4">Technical Skills & Tools</h2>
             <div className="space-y-4">
               <div className="hover:bg-purple-900/20 p-4 rounded-lg transition-colors">
-                <h3 className="text-xl text-purple-300">Web Development</h3>
+                <h3 className="text-xl text-purple-300 mb-3">Web Development</h3>
                 <p className="text-purple-200 mb-3">
                   Full-stack development with modern technologies
                 </p>
-                <div className="flex flex-wrap justify-center gap-2">
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">React</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">Next.js</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">TypeScript</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">Tailwind CSS</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">Node.js</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">JavaScript</span>
+                <div className="flex flex-wrap justify-center gap-6">
+                  <div className="flex flex-col items-center">
+                    <FaReact className="text-4xl text-cyan-400" />
+                    <span className="mt-1 text-sm">React</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <SiNextdotjs className="text-4xl text-white" />
+                    <span className="mt-1 text-sm">Next.js</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <SiTypescript className="text-4xl text-blue-400" />
+                    <span className="mt-1 text-sm">TypeScript</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <SiTailwindcss className="text-4xl text-sky-300" />
+                    <span className="mt-1 text-sm">Tailwind CSS</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <FaNodeJs className="text-4xl text-green-500" />
+                    <span className="mt-1 text-sm">Node.js</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <SiJavascript className="text-4xl text-yellow-300" />
+                    <span className="mt-1 text-sm">JavaScript</span>
+                  </div>
                 </div>
               </div>
               <div className="hover:bg-purple-900/20 p-4 rounded-lg transition-colors">
-                <h3 className="text-xl text-purple-300">Design & Creative Software</h3>
+                <h3 className="text-xl text-purple-300 mb-3">Design & Creative Software</h3>
                 <p className="text-purple-200 mb-3">
                   Professional tools for digital art and design
                 </p>
@@ -132,16 +152,31 @@ export default function AboutClient() {
                 </div>
               </div>
               <div className="hover:bg-purple-900/20 p-4 rounded-lg transition-colors">
-                <h3 className="text-xl text-purple-300">Other Tools & Technologies</h3>
+                <h3 className="text-xl text-purple-300 mb-3">Other Tools & Technologies</h3>
                 <p className="text-purple-200 mb-3">
                   Additional skills and platforms
                 </p>
-                <div className="flex flex-wrap justify-center gap-2">
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">Git</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">GitHub</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">Vercel</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">MongoDB</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">PostCSS</span>
+                <div className="flex flex-wrap justify-center gap-6">
+                  <div className="flex flex-col items-center">
+                    <FaGitAlt className="text-4xl text-orange-400" />
+                    <span className="mt-1 text-sm">Git</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <FaGithub className="text-4xl text-white" />
+                    <span className="mt-1 text-sm">GitHub</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <SiVercel className="text-4xl text-white" />
+                    <span className="mt-1 text-sm">Vercel</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <SiMongodb className="text-4xl text-green-400" />
+                    <span className="mt-1 text-sm">MongoDB</span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <SiPostcss className="text-4xl text-pink-400" />
+                    <span className="mt-1 text-sm">PostCSS</span>
+                  </div>
                 </div>
               </div>
             </div>
