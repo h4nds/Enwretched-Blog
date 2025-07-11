@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import clientPromise from '@/lib/mongodb';
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const headersList = await headers();

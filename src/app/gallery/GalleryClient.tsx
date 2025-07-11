@@ -22,7 +22,7 @@ const allArtworks: Artwork[] = [
     ],
     createdAt: '2024',
     tags: ['surreal', 'digital', 'nature'],
-    category: 'professional'
+    category: 'personal'
   },
 
   {
@@ -42,7 +42,7 @@ const allArtworks: Artwork[] = [
     ],
     createdAt: '2024',
     tags: ['mixed-media', 'photography', 'nature'],
-    category: 'professional'
+    category: 'personal'
   },
 
   {
@@ -62,7 +62,7 @@ const allArtworks: Artwork[] = [
     ], 
     createdAt: '2025',
     tags: ['abstract', 'digital', 'experimental'],
-    category: 'professional'
+    category: 'personal'
   },
 
   {
@@ -146,7 +146,7 @@ const allArtworks: Artwork[] = [
     ],
     createdAt: '2023',
     tags: ['Music', 'photography', 'Digital Design', 'Photoshop'],
-    category: 'undergraduate'
+    category: 'personal'
   },
 
   {
@@ -230,27 +230,27 @@ const allArtworks: Artwork[] = [
     ],
     createdAt: '2022',
     tags: ['Client', 'Illustration', 'Muisc'],
-    category: 'personal'
+    category: 'professional'
   },
 
   {
     id: '12',
-    title: '3rdPerson\'s instrementals',
-    description: 'Client Work for a late friend, Coverart for the album "Misery & Dior" by Ter99r',
+    title: 'Self Titled instrementals by 3rdPerson',
+    description: 'Client Work for a long time friend, the artwork and Tracks are a Hommage from the early works of Clams Casino ',
     images: [
       {
-        url: '/images/showcase/mandd.png',
+        url: '/images/showcase/3_cover_revised.png',
         alt: 'Official Coverart',
         isPrimary: true
       },
       {
-        url: '/images/showcase/md_tracklist.jpg',
-        alt: 'Offical Tracklist'
+        url: '/images/showcase/3_tape.png',
+        alt: 'ALternate Cover'
       },
     ],
-    createdAt: '2022',
+    createdAt: '2025',
     tags: ['Client', 'Illustration', 'Muisc'],
-    category: 'personal'
+    category: 'professional'
   },
 
 
