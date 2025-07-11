@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:performance": "node scripts/test-performance.js"
+    "test:performance": "node scripts/test-performance.js",
+    "build:perf-package": "npm run build && node scripts/build-perf-package.js",
+    "extract-package": "node scripts/extract-and-publish.js"
   },
   "dependencies": {
     "@prisma/client": "^5.10.2",
