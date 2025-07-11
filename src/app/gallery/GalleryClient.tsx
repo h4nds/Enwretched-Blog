@@ -200,11 +200,11 @@ const allArtworks: Artwork[] = [
         isPrimary: true
       },
       {
-        url: '/images/showcase/Promfall2.png ',
+        url: '/images/showcase/Promfall2.png',
         alt: '2nd View'
       },
       {
-        url: '/images/showcase/Promfall3.png ',
+        url: '/images/showcase/Promfall3.png',
         alt: '3rd View'
       }
     ],
@@ -219,12 +219,12 @@ const allArtworks: Artwork[] = [
     description: 'Client Work for a late friend, Coverart for the album "Misery & Dior" by Ter99r ',
     images: [
       {
-        url: '/images/showcase/misery and dior front cover.png',
+        url: '/images/showcase/mandd.png',
         alt: 'Official Coverart',
         isPrimary: true
       },
       {
-        url: '/images/showcase/md tracklist.jpg ',
+        url: '/images/showcase/md_tracklist.jpg',
         alt: 'Offical Tracklist'
       },
     ],
@@ -236,7 +236,7 @@ const allArtworks: Artwork[] = [
 
 ];
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 20; // respectfully 
 
 export default function GalleryClient() {
   const [filteredArtworks, setFilteredArtworks] = useState<Artwork[]>(allArtworks);

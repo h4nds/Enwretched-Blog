@@ -214,7 +214,7 @@ const allArtworks: Artwork[] = [
         isPrimary: true
       },
       {
-        url: '/images/showcase/md tracklist.png ',
+        url: '/images/showcase/md_tracklist.png ',
         alt: 'Offical Tracklist'
       },
     ],
