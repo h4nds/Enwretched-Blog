@@ -11,7 +11,7 @@ import { Artwork } from '@/types/artwork';
 const allArtworks: Artwork[] = [
   {
     id: '1',
-    title: 'Follow The Notes',
+    title: 'Following Notes',
     description: 'This surreal, dreamlike piece on a mysterious woman in white entering a reflective river, her spine-like laced in a cursed Tattoo suggesting transformation of self. The lush environment blends natural elements with modern touches like glowing windows and graffiti on ancient stones.',
     images: [
       {
@@ -192,7 +192,7 @@ const allArtworks: Artwork[] = [
   {
     id: '10',
     title: 'Promethefall',
-    description: 'A personal project',
+    description: 'A personal photoshop project meant to showcase my growth in raster and vectoring cut images placed together so that I can create something entirely new.  ',
     images: [
       {
         url: '/images/showcase/Promfall.jpg',
@@ -215,8 +215,28 @@ const allArtworks: Artwork[] = [
 
   {
     id: '11',
-    title: 'Misery & Dior Official Coverart',
-    description: 'Client Work for a late friend, Coverart for the album "Misery & Dior" by Ter99r ',
+    title: 'Misery & Dior',
+    description: 'Client Work for a late friend, Coverart for the album "Misery & Dior" by Ter99r',
+    images: [
+      {
+        url: '/images/showcase/mandd.png',
+        alt: 'Official Coverart',
+        isPrimary: true
+      },
+      {
+        url: '/images/showcase/md_tracklist.jpg',
+        alt: 'Offical Tracklist'
+      },
+    ],
+    createdAt: '2022',
+    tags: ['Client', 'Illustration', 'Muisc'],
+    category: 'personal'
+  },
+
+  {
+    id: '12',
+    title: '3rdPerson's instrementals',
+    description: 'Client Work for a late friend, Coverart for the album "Misery & Dior" by Ter99r',
     images: [
       {
         url: '/images/showcase/mandd.png',

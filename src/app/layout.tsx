@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import PerformanceOptimizer from "@/components/seo/PerformanceOptimizer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -111,7 +112,18 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/images/showcase/deamon.png" />
       </head>
       <body className={`${inter.variable} antialiased`}>
-        {children}
+        <PerformanceOptimizer
+          preloadImages={[
+            '/images/showcase/deamon.png',
+            '/images/showcase/memory_gif.gif',
+            '/images/showcase/435-hz.jpg',
+            '/images/showcase/Promfall.jpg',
+            '/images/showcase/Alone.jpg'
+          ]}
+          enableAnalytics={true}
+        >
+          {children}
+        </PerformanceOptimizer>
       </body>
     </html>
   );

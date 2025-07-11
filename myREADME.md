@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<!-- Evil README for Art Website -->
 
-## Getting Started
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=8B5CF6&center=true&vCenter=true&width=600&lines=Welcome+to+my+Personal+Website;Activly+Updating+the+Occult;Viewer+Discretion+Not+Needed+Share+Freely" alt="Evil Typing SVG" />
+</p>
 
-First, run the development server:
+<p align="center">
+  <img src="public/images/showcase/memory_gif.gif" width="200" alt="Evil Laugh" />
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<h1 align="center"><span style="color:#8B5CF6;">☠️ enWRETCHED ART WEBSITE ☠️</span></h1>
+
+---
+
+> ****  
+> <sub><sup>— Dante, probably reviewing this repo</sup></sub>
+
+---
+
+## 🦇 Features
+
+- 🕸️ **My Gallery**: Surreal, digital, and mixed media art
+- 🦴 **Personal Blog**: A digital diary for me to get my thoughts out there about current things im working on, or where im at in life at the momemt.
+- 🦾 **Performance Optimizer**: Because even evil needs to be fast
+- 🦉 **SEO Sorcery**: Summon Google’s attention
+
+---
+
+## 🩸 Tech Stack
+
+```txt
+Next.js • React • TailwindCSS • MongoDB • Occult Rituals • Adobe Suite • Typescript •  
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🕯️ Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+git clone https://github.com/h4nds/Enwretched-Blog.git
+cd art-website
+npm install
+npm run dev
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧛‍♂️ Gallery Preview
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<p align="center">
+  <img src="public/images/showcase/435-hz.jpg" width="400" alt="435 Hz Artwork" />
+  <img src="public/images/showcase/Promfall.jpg" width="400" alt="Promethefall Artwork" />
+  <img src="public/images/showcase/Alone.jpg" width="400" alt="Alone Artwork" />
+</p>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🕷️ Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 🦇 [Portfolio](https://your-evil-portfolio.com)
+- 🕸️ [Email](wretchray@gmail.com)
+- 🦉 [LinkedIn](https://linkedin.com/in/your-evil-profile)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=8B5CF6&center=true&vCenter=true&width=600&lines=Code+is+art.;Art+is+power.;Power+corrupts." alt="Evil Typing SVG" />
+</p>
+
+---
+
+<details>
+  <summary>🩸 <b>Click for a curse</b></summary>
+  
+  ```
+  You have been cursed with infinite creativity.
+  May your code always compile, and the art thrive.
+  ```
+</details>
