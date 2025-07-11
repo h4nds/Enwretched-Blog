@@ -214,7 +214,7 @@ const allArtworks: Artwork[] = [
         isPrimary: true
       },
       {
-        url: '/images/showcase/md_tracklist.png ',
+        url: '/images/showcase/md_tracklist.jpg ',
         alt: 'Offical Tracklist'
       },
     ],
@@ -224,7 +224,7 @@ const allArtworks: Artwork[] = [
   // Add more artworks here 
 ];
 
-const ITEMS_PER_PAGE = 100; // or a number larger than your total artworks
+const ITEMS_PER_PAGE = 20; // respectfully 
 
 export default function Gallery() {
   const [filteredArtworks, setFilteredArtworks] = useState<Artwork[]>(allArtworks);
