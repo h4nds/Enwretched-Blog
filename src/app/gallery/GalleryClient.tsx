@@ -235,7 +235,7 @@ const allArtworks: Artwork[] = [
 
   {
     id: '12',
-    title: '3rdPerson's instrementals',
+    title: '3rdPerson\'s instrementals',
     description: 'Client Work for a late friend, Coverart for the album "Misery & Dior" by Ter99r',
     images: [
       {
