@@ -221,10 +221,6 @@ const allArtworks: Artwork[] = [
     createdAt: '2022',
     tags: ['Client', 'Illustration', 'Muisc']
   },
-
-
-
-  
   // Add more artworks here 
 ];
 
