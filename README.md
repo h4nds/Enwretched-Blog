@@ -12,8 +12,16 @@
 
 ---
 
-> ****  
-> <sub><sup>— Dante, probably reviewing this repo</sup></sub>
+## 🎯 Professional Summary
+
+**Digital Artist & Full-Stack Developer** im a student in web development, creating web tools, visual experiences with the expertice of software that i've aquired. I combine technical proficiency with creative vision to build performant, user-centric applications. Specializes in:
+
+- **Frontend Development**: Modern React applications with TypeScript
+- **Performance Optimization**: Core Web Vitals, SEO, and user experience
+- **Creative Design**: Digital art, graphic design, and multimedia content
+- **Full-Stack Solutions**: End-to-end application development
+
+**Currently seeking opportunities** in frontend development, UI/UX design, or creative technology roles where I can leverage both technical and artistic skills.
 
 ---
 
@@ -136,19 +144,6 @@ npm run dev
 - 🦉 [LinkedIn](https://www.linkedin.com/in/ray-wretch-24b5432a7/)
 - 🎨 [Behance](https://www.behance.net/raywretch)
 - 📷 [Instagram](https://instagram.com/raywretch)
-
----
-
-## 🎯 Professional Summary
-
-**Digital Artist & Full-Stack Developer** im a student in web development, creating web tools, visual experiences with the expertice of software that i've aquired. I combine technical proficiency with creative vision to build performant, user-centric applications. Specializes in:
-
-- **Frontend Development**: Modern React applications with TypeScript
-- **Performance Optimization**: Core Web Vitals, SEO, and user experience
-- **Creative Design**: Digital art, graphic design, and multimedia content
-- **Full-Stack Solutions**: End-to-end application development
-
-**Currently seeking opportunities** in frontend development, UI/UX design, or creative technology roles where I can leverage both technical and artistic skills.
 
 ---
 
