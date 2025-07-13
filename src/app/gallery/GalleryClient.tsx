@@ -21,7 +21,7 @@ const allArtworks: Artwork[] = [
       },
     ],
     createdAt: '2024',
-    tags: ['surreal', 'digital', 'nature'],
+    tags: ['surreal', 'digital', 'nature','photoshop'],
     category: 'personal'
   },
 
@@ -41,7 +41,7 @@ const allArtworks: Artwork[] = [
       }
     ],
     createdAt: '2024',
-    tags: ['mixed-media', 'photography', 'nature'],
+    tags: ['mixed-media', 'photography', 'nature', 'photoshop'],
     category: 'personal'
   },
 
@@ -61,7 +61,7 @@ const allArtworks: Artwork[] = [
       }
     ], 
     createdAt: '2025',
-    tags: ['abstract', 'digital', 'experimental'],
+    tags: ['abstract', 'digital', 'experimental', 'photoshop'],
     category: 'personal'
   },
 
@@ -77,7 +77,7 @@ const allArtworks: Artwork[] = [
       },
     ],
     createdAt: '2024',
-    tags: ['nature', 'photography', 'surreal'],
+    tags: ['nature', 'photography', 'surreal', 'photoshop'],
     category: 'professional'
   },
 
@@ -93,7 +93,7 @@ const allArtworks: Artwork[] = [
       },
     ],
     createdAt: '2022',
-    tags: ['nature', 'photography', 'surreal'],
+    tags: ['nature', 'photography', 'surreal', 'photoshop'],
     category: 'undergraduate'
   },
 
@@ -117,7 +117,7 @@ const allArtworks: Artwork[] = [
       }
     ],
     createdAt: '2022',
-    tags: ['Castle', 'photography', 'surreal'],
+    tags: ['Castle', 'photography', 'surreal','photoshop'],
     category: 'personal'
   },
 
@@ -165,7 +165,7 @@ const allArtworks: Artwork[] = [
       },
     ],
     createdAt: '2023',
-    tags: ['Client', 'photography', 'Illustration', 'Music'],
+    tags: ['Client', 'photography', 'Illustration', 'Music', 'photoshop'],
     category: 'professional'
   },
 
@@ -229,7 +229,7 @@ const allArtworks: Artwork[] = [
       },
     ],
     createdAt: '2022',
-    tags: ['Client', 'Illustration', 'Muisc'],
+    tags: ['Client', 'Illustration', 'Muisc', 'photoshop'],
     category: 'professional'
   },
 
@@ -253,13 +253,40 @@ const allArtworks: Artwork[] = [
     category: 'professional'
   },
 
+  {
+    id: '13',
+    title: 'Madd Scientist by Pilot',
+    description: ' Another Client Work for a long time friend, These are Tracks produced by pilot with various artist amonghts the underground',
+    images: [
+      {
+        url: '/images/showcase/pilot_1.png',
+        alt: 'Official Coverart',
+        isPrimary: true
+      },
+      {
+        url: '/images/showcase/pilot_2.jpg',
+        alt: 'ALternate Cover'
+      },
+    ],
+    createdAt: '2024',
+    tags: ['Client', 'Photoshop', 'Muisc','photoshop'],
+    category: 'professional'
+  },
+
 
 ];
 
 const ITEMS_PER_PAGE = 20; // respectfully 
 
 export default function GalleryClient() {
-  const [filteredArtworks, setFilteredArtworks] = useState<Artwork[]>(allArtworks);
+  // Sort artworks by date (newest first)
+  const sortedArtworks = [...allArtworks].sort((a, b) => {
+    const dateA = new Date(a.createdAt);
+    const dateB = new Date(b.createdAt);
+    return dateB.getTime() - dateA.getTime(); // Newest first
+  });
+
+  const [filteredArtworks, setFilteredArtworks] = useState<Artwork[]>(sortedArtworks);
   const [currentPage, setCurrentPage] = useState(1);
   const [isGridView, setIsGridView] = useState(true);
 
@@ -329,7 +356,7 @@ export default function GalleryClient() {
 
       <footer className="border-t border-purple-900 p-4 mt-6 md:mt-8 bg-black/90">
         <div className="container mx-auto text-center text-sm md:text-base">
-          <p>©Ray Wretch 2024 - All Rights Reserved</p>
+          <p>©Ray Wretch 2025 - All Rights Reserved</p>
         </div>
       </footer>
       </div>
