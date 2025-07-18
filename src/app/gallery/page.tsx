@@ -1,7 +1,7 @@
-"use client";
-
 import GalleryClient from './GalleryClient';
+import { getWallpapers } from '@/utils/getWallpapers';
 
 export default function GalleryPage() {
-  return <GalleryClient />;
+  const wallpapers = getWallpapers();
+  return <GalleryClient wallpapers={wallpapers} />;
 } 

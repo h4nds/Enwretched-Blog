@@ -1,11 +1,11 @@
-"use client";
-
 import { useState, useEffect } from 'react';
 import Header from '@/components/layout/Header';
 import FeaturedArtwork from '@/components/features/FeaturedArtwork';
 import GalleryControls from '@/components/features/GalleryControls';
 import ArtworkList from '@/components/features/ArtworkList';
 import { Artwork } from '@/types/artwork';
+import Image from 'next/image';
+import WallpaperModalClient from './WallpaperModalClient';
 
 // This would eventually come from a database or API Maybe - 4/26/2025**
 const allArtworks: Artwork[] = [
@@ -278,7 +278,11 @@ const allArtworks: Artwork[] = [
 
 const ITEMS_PER_PAGE = 20; // respectfully 
 
-export default function GalleryClient() {
+interface GalleryClientProps {
+  wallpapers: string[];
+}
+
+export default function GalleryClient({ wallpapers }: GalleryClientProps) {
   // Sort artworks by date (newest first)
   const sortedArtworks = [...allArtworks].sort((a, b) => {
     const dateA = new Date(a.createdAt);
@@ -289,6 +293,7 @@ export default function GalleryClient() {
   const [filteredArtworks, setFilteredArtworks] = useState<Artwork[]>(sortedArtworks);
   const [currentPage, setCurrentPage] = useState(1);
   const [isGridView, setIsGridView] = useState(true);
+  const [selectedWallpaper, setSelectedWallpaper] = useState<string | null>(null); // REMOVE this line from here, will be in client component
 
   // Calculate pagination add values to notion per page 
   const totalPages = Math.ceil(filteredArtworks.length / ITEMS_PER_PAGE);
@@ -328,6 +333,18 @@ export default function GalleryClient() {
           </div>
         ) : (
           <ArtworkList artworks={currentArtworks} />
+        )}
+
+        {/* Wallpapers Download Section */}
+        {wallpapers && wallpapers.length > 0 && (
+          <section className="mt-12 mb-8">
+            <h2 className="text-xl md:text-2xl font-semibold text-purple-300 mb-4 text-center">Wallpaper Collection</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {wallpapers.map((filename) => (
+                <WallpaperModalClient key={filename} filename={filename} />
+              ))}
+            </div>
+          </section>
         )}
 
         {/* Pagination */}
