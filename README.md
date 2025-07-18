@@ -1,11 +1,11 @@
 <!-- Gothic README for Art Website -->
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=8B5CF6&center=true&vCenter=true&width=600&lines=Welcome+to+my+Personal+Website;Activly+Updating+the+Occult;Viewer+Discretion+Not+Needed+Share+Freely" alt="Evil Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=8B5CF6&center=true&vCenter=true&width=600&lines=Welcome+to+my+Personal+Website;Activly+Updating+the+Occult;viewer+Discretion+Not+Needed+Share+Freely" alt="Evil Typing SVG" />
 </p>
 
 <p align="center">
-  <img src="public/images/showcase/memory_gif.gif" width="200" alt="Evil Laugh" />
+  <img src="public/images/showcase/memory_gif.gif" width="200" alt="gif art" />
 </p>
 
 <h1 align="center"><span style="color:#8B5CF6;">☠️ enWRETCHED ART WEBSITE ☠️</span></h1>
@@ -14,7 +14,7 @@
 
 ## 🎯 Professional Summary
 
-**Digital Artist & Full-Stack Developer** im a student in web development, creating web tools, visual experiences with the expertice of software that i've aquired. I combine technical proficiency with creative vision to build performant, user-centric applications. Specializes in:
+**I am a Digital Artist & Full-Stack Developer** im a student in web development & Graphic Desgin, creating web tools, visual experiences with the expertice of software that i've aquired. I combine technical proficiency with creative vision to build performant, user-centric applications. Specializes in:
 
 - **Frontend Development**: Modern React applications with TypeScript
 - **Performance Optimization**: Core Web Vitals, SEO, and user experience

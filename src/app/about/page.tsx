@@ -85,6 +85,52 @@ export default function About() {
             </div>
           </section>
 
+          <section className="mb-8 border border-purple-900 p-6 rounded-lg bg-black/90 hover:bg-black/95 transition-colors text-center">
+            <h2 className="text-2xl font-semibold text-purple-300 mb-4">Technologies Used</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="flex flex-col items-center p-4 rounded-lg hover:bg-purple-900/20 transition-colors">
+                <span className="text-3xl mb-2"><FaGithub /></span>
+                <span className="font-semibold">Next.js</span>
+                <span className="text-xs text-purple-400 mt-1">React framework for SSR & SSG</span>
+              </div>
+              <div className="flex flex-col items-center p-4 rounded-lg hover:bg-purple-900/20 transition-colors">
+                <span className="text-3xl mb-2"><FaGithub /></span>
+                <span className="font-semibold">React</span>
+                <span className="text-xs text-purple-400 mt-1">UI library for building interfaces</span>
+              </div>
+              <div className="flex flex-col items-center p-4 rounded-lg hover:bg-purple-900/20 transition-colors">
+                <span className="text-3xl mb-2">TS</span>
+                <span className="font-semibold">TypeScript</span>
+                <span className="text-xs text-purple-400 mt-1">Typed JavaScript for safer code</span>
+              </div>
+              <div className="flex flex-col items-center p-4 rounded-lg hover:bg-purple-900/20 transition-colors">
+                <span className="text-3xl mb-2">🎨</span>
+                <span className="font-semibold">Tailwind CSS</span>
+                <span className="text-xs text-purple-400 mt-1">Utility-first CSS framework</span>
+              </div>
+              <div className="flex flex-col items-center p-4 rounded-lg hover:bg-purple-900/20 transition-colors">
+                <span className="text-3xl mb-2">🗄️</span>
+                <span className="font-semibold">MongoDB</span>
+                <span className="text-xs text-purple-400 mt-1">NoSQL database for content</span>
+              </div>
+              <div className="flex flex-col items-center p-4 rounded-lg hover:bg-purple-900/20 transition-colors">
+                <span className="text-3xl mb-2">▲</span>
+                <span className="font-semibold">Vercel</span>
+                <span className="text-xs text-purple-400 mt-1">Deployment & hosting platform</span>
+              </div>
+              <div className="flex flex-col items-center p-4 rounded-lg hover:bg-purple-900/20 transition-colors">
+                <span className="text-3xl mb-2">🛠️</span>
+                <span className="font-semibold">ESLint & Prettier</span>
+                <span className="text-xs text-purple-400 mt-1">Code quality & formatting tools</span>
+              </div>
+              <div className="flex flex-col items-center p-4 rounded-lg hover:bg-purple-900/20 transition-colors">
+                <span className="text-3xl mb-2">🔗</span>
+                <span className="font-semibold">Other Tools</span>
+                <span className="text-xs text-purple-400 mt-1">PostCSS, React Icons, more</span>
+              </div>
+            </div>
+          </section>
+
           <section id="contact" className="mb-8 border border-purple-900 p-6 rounded-lg bg-black/90 hover:bg-black/95 transition-colors text-center">
             <h2 className="text-2xl font-semibold text-purple-300 mb-4">Contact</h2>
             <p className="text-purple-200 mb-6">
