@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from 'react';
 import Header from '@/components/layout/Header';
 import FeaturedArtwork from '@/components/features/FeaturedArtwork';
@@ -5,7 +6,6 @@ import GalleryControls from '@/components/features/GalleryControls';
 import ArtworkList from '@/components/features/ArtworkList';
 import { Artwork } from '@/types/artwork';
 import Image from 'next/image';
-import WallpaperModalClient from './WallpaperModalClient';
 
 // This would eventually come from a database or API Maybe - 4/26/2025**
 const allArtworks: Artwork[] = [
@@ -276,7 +276,7 @@ const allArtworks: Artwork[] = [
 
 ];
 
-const ITEMS_PER_PAGE = 20; // respectfully 
+const ITEMS_PER_PAGE = 20;
 
 interface GalleryClientProps {
   wallpapers: string[];
@@ -293,9 +293,9 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
   const [filteredArtworks, setFilteredArtworks] = useState<Artwork[]>(sortedArtworks);
   const [currentPage, setCurrentPage] = useState(1);
   const [isGridView, setIsGridView] = useState(true);
-  const [selectedWallpaper, setSelectedWallpaper] = useState<string | null>(null); // REMOVE this line from here, will be in client component
+  const [preview, setPreview] = useState<string | null>(null);
 
-  // Calculate pagination add values to notion per page 
+  // Calculate pagination
   const totalPages = Math.ceil(filteredArtworks.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
@@ -308,74 +308,126 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
 
   return (
     <div className="min-h-screen text-purple-200 font-mono relative bg-slate-950">
-      {/* Removed background image and overlay */}
       <div className="relative z-10">
         <Header />
-      
-      <main className="container mx-auto px-4 md:px-6 lg:px-8 py-6">
-        <div className="mb-8">
-          <h1 className="text-2xl md:text-3xl font-bold text-purple-300 mb-3 md:mb-4">Gallery</h1>
-          <p className="text-sm md:text-base text-purple-200">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images, please feel free to contact me for any Work more information. *Still Adding*</p>
-        </div>
-
-        <GalleryControls 
-          artworks={allArtworks}
-          onFilterChange={setFilteredArtworks}
-          isGridView={isGridView}
-          onViewChange={setIsGridView}
-        />
-
-        {isGridView ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-            {currentArtworks.map((artwork) => (
-              <FeaturedArtwork key={artwork.id} artwork={artwork} />
-            ))}
+        <main className="container mx-auto px-4 md:px-6 lg:px-8 py-6">
+          <div className="mb-8">
+            <h1 className="text-2xl md:text-3xl font-bold text-purple-300 mb-3 md:mb-4">Gallery</h1>
+            <p className="text-sm md:text-base text-purple-200">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images, please feel free to contact me for any Work more information. *Still Adding*</p>
           </div>
-        ) : (
-          <ArtworkList artworks={currentArtworks} />
-        )}
-
-        {/* Wallpapers Download Section */}
-        {wallpapers && wallpapers.length > 0 && (
-          <section className="mt-12 mb-8">
-            <h2 className="text-xl md:text-2xl font-semibold text-purple-300 mb-4 text-center">Wallpaper Collection</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {wallpapers.map((filename) => (
-                <WallpaperModalClient key={filename} filename={filename} />
+          <GalleryControls 
+            artworks={allArtworks}
+            onFilterChange={setFilteredArtworks}
+            isGridView={isGridView}
+            onViewChange={setIsGridView}
+          />
+          {isGridView ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+              {currentArtworks.map((artwork) => (
+                <FeaturedArtwork key={artwork.id} artwork={artwork} />
               ))}
             </div>
-          </section>
-        )}
-
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-2 mt-6 md:mt-8">
-            <button
-              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-              className="px-3 md:px-4 py-2 text-sm md:text-base rounded-lg bg-purple-900/30 hover:bg-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Previous
-            </button>
-            <span className="text-sm md:text-base text-purple-200">
-              Page {currentPage} of {totalPages}
-            </span>
-            <button
-              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-              disabled={currentPage === totalPages}
-              className="px-3 md:px-4 py-2 text-sm md:text-base rounded-lg bg-purple-900/30 hover:bg-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Next
-            </button>
+          ) : (
+            <ArtworkList artworks={currentArtworks} />
+          )}
+          {/* Wallpapers Download Section */}
+          {wallpapers && wallpapers.length > 0 && (
+            <section className="mt-12 mb-8">
+              <h2 className="text-xl md:text-2xl font-semibold text-purple-300 mb-4 text-center">Wallpaper Collection</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {wallpapers.map((filename) => (
+                  <div
+                    key={filename}
+                    className="border border-purple-300 p-4 bg-slate-900/20 rounded-lg text-purple-200 flex flex-col items-center aspect-video"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => setPreview(filename)}
+                  >
+                    <div className="aspect-video w-full relative mb-4">
+                      <Image
+                        src={`/wallpapers/${filename}`}
+                        alt={filename}
+                        fill
+                        className="object-cover rounded"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
+                    <h4 className="text-lg mb-2 text-purple-300 truncate w-full text-center">{filename.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ')}</h4>
+                    <a
+                      href={`/wallpapers/${filename}`}
+                      download
+                      className="inline-block px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-600 transition"
+                      onClick={e => e.stopPropagation()}
+                    >
+                      Download
+                    </a>
+                  </div>
+                ))}
+              </div>
+              {/* Modal for preview */}
+              {preview && (
+                <div
+                  className="fixed inset-0 z-50 flex items-center justify-center"
+                  style={{ background: 'rgba(0,0,0,0.01)' }}
+                  onClick={() => setPreview(null)}
+                >
+                  <div
+                    className="relative w-full max-w-4xl aspect-video flex flex-col items-center"
+                    onClick={e => e.stopPropagation()}
+                  >
+                    <button
+                      className="absolute top-2 right-2 text-purple-300 hover:text-white text-2xl font-bold z-10"
+                      onClick={() => setPreview(null)}
+                      aria-label="Close preview"
+                    >
+                      ×
+                    </button>
+                    <Image
+                      src={`/wallpapers/${preview}`}
+                      alt={preview}
+                      fill
+                      className="object-contain rounded"
+                      sizes="100vw"
+                    />
+                    <a
+                      href={`/wallpapers/${preview}`}
+                      download
+                      className="inline-block px-6 py-2 bg-purple-700 text-white rounded hover:bg-purple-600 transition mt-4 z-10"
+                    >
+                      Download
+                    </a>
+                  </div>
+                </div>
+              )}
+            </section>
+          )}
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-2 mt-6 md:mt-8">
+              <button
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="px-3 md:px-4 py-2 text-sm md:text-base rounded-lg bg-purple-900/30 hover:bg-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Previous
+              </button>
+              <span className="text-sm md:text-base text-purple-200">
+                Page {currentPage} of {totalPages}
+              </span>
+              <button
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="px-3 md:px-4 py-2 text-sm md:text-base rounded-lg bg-purple-900/30 hover:bg-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Next
+              </button>
+            </div>
+          )}
+        </main>
+        <footer className="border-t border-purple-900 p-4 mt-6 md:mt-8 bg-black/90">
+          <div className="container mx-auto text-center text-sm md:text-base">
+            <p>©Ray Wretch 2025 - All Rights Reserved</p>
           </div>
-        )}
-      </main>
-
-      <footer className="border-t border-purple-900 p-4 mt-6 md:mt-8 bg-black/90">
-        <div className="container mx-auto text-center text-sm md:text-base">
-          <p>©Ray Wretch 2025 - All Rights Reserved</p>
-        </div>
-      </footer>
+        </footer>
       </div>
     </div>
   );
