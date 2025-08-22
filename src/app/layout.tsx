@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
   },
   verification: {
-    google: 'your-google-site-verification', // Add your Google Search Console verification code
+    google: 'cNcnRU_GseNmUZdbAes5DvHW-6BChIwAaJjmaxCBaKk',
   },
   other: {
     'Content-Security-Policy': `

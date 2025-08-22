@@ -367,7 +367,7 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
               {preview && (
                 <div
                   className="fixed inset-0 z-50 flex items-center justify-center"
-                  style={{ background: 'rgba(0,0,0,0.01)' }}
+                  style={{ background: 'rgba(0,0,0,0.7)' }}
                   onClick={() => setPreview(null)}
                 >
                   <div
@@ -388,14 +388,14 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
                       className="object-contain rounded"
                       sizes="100vw"
                     />
-                    <a
-                      href={`/wallpapers/${preview}`}
-                      download
-                      className="inline-block px-6 py-2 bg-purple-700 text-white rounded hover:bg-purple-600 transition mt-4 z-10"
-                    >
-                      Download
-                    </a>
                   </div>
+                  <a
+                    href={`/wallpapers/${preview}`}
+                    download
+                    className="inline-block px-6 py-2 bg-purple-700 text-white rounded hover:bg-purple-600 transition mt-8 z-10"
+                  >
+                    Download
+                  </a>
                 </div>
               )}
             </section>
