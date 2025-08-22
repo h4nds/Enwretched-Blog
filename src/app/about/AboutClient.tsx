@@ -6,6 +6,7 @@ import { useState } from 'react';
 import StructuredData, { createPersonSchema } from '@/components/seo/StructuredData';
 import { FaReact, FaNodeJs, FaGitAlt, FaGithub, FaCss3Alt } from 'react-icons/fa';
 import { SiNextdotjs, SiTypescript, SiTailwindcss, SiMongodb, SiPostcss, SiVercel, SiJavascript } from 'react-icons/si';
+import ContactForm from '@/components/features/ContactForm';
 
 export default function AboutClient() {
   const [showCopied, setShowCopied] = useState(false);
@@ -188,7 +189,7 @@ export default function AboutClient() {
               I&apos;m always interested in new collaborations and creative projects. 
               Feel free to reach out for commissions, exhibitions, or just to say hello.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 justify-items-center mb-8">
               <button 
                 onClick={handleEmailClick}
                 className="relative flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-colors"
@@ -220,6 +221,9 @@ export default function AboutClient() {
                 <span>GitHub</span>
               </a>
             </div>
+            
+            {/* Contact Form */}
+            <ContactForm />
           </section>
         </div>
       </main>

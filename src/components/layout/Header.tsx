@@ -55,6 +55,7 @@ export default function Header() {
             <Link href="/blog" className="hover:text-purple-100 transition-colors duration-200">Blog</Link>
             <Link href="/forum" className="hover:text-purple-100 transition-colors duration-200">Forum</Link>
             <Link href="/about" className="hover:text-purple-100 transition-colors duration-200">About</Link>
+            <Link href="/contact" className="hover:text-purple-100 transition-colors duration-200">Contact</Link>
           </nav>
 
           {/* Mobile Navigation */}
@@ -98,6 +99,13 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
+              </Link>
+              <Link 
+                href="/contact" 
+                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
               </Link>
             </div>
           </nav>

@@ -111,7 +111,7 @@ export default function Home() {
             <div className="md:col-span-2 border border-purple-900 p-4 sm:p-6 bg-black/90 rounded-lg">
               <div className="space-y-4">
                 <div>
-                  <h2 className="text-xl sm:text-2xl mb-3 text-purple-300">Welcome to My Art Space</h2>
+                  <h2 className="text-xl sm:text-2xl mb-3 text-purple-300">Welcome...</h2>
                   <p className="text-sm sm:text-base text-purple-200 leading-relaxed">
                     I&apos;m Ray Wretch, a Professional Graphic Designer, Digital Artist, exploring the intersection of surrealism, nature, and experimental techniques. My work ranges from digital art to photography and mixed media, often incorporating elements of transformation and dreamlike qualities.
                   </p>

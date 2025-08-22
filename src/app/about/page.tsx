@@ -86,7 +86,7 @@ export default function About() {
           </section>
 
           <section className="mb-8 border border-purple-900 p-6 rounded-lg bg-black/90 hover:bg-black/95 transition-colors text-center">
-            <h2 className="text-2xl font-semibold text-purple-300 mb-4">Technologies Used</h2>
+            <h2 className="text-2xl font-semibold text-purple-300 mb-4">I made this website with...</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="flex flex-col items-center p-4 rounded-lg hover:bg-purple-900/20 transition-colors">
                 <span className="text-3xl mb-2"><FaGithub /></span>

@@ -3,6 +3,7 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Link from 'next/link';
+import NewsletterSignup from '@/components/features/NewsletterSignup';
 
 export default function Forum() {
   return (
@@ -119,7 +120,7 @@ export default function Forum() {
                 View Gallery
               </Link>
               <Link 
-                href="/about"
+                href="/contact"
                 className="bg-purple-900/50 hover:bg-purple-900/70 text-purple-200 px-6 py-3 rounded-lg transition-colors duration-200"
               >
                 Contact Me
@@ -127,25 +128,9 @@ export default function Forum() {
             </div>
           </div>
 
-          {/* Newsletter Signup Placeholder */}
-          <div className="mt-12 border border-purple-900 p-6 bg-black/90 rounded-lg text-center">
-            <h3 className="text-xl font-bold text-purple-300 mb-4">Stay in the Loop</h3>
-            <p className="text-purple-200 mb-4">
-              Get notified when the forum launches and receive updates about new features.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input 
-                type="email" 
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-purple-900/30 border border-purple-900 rounded-lg text-purple-200 placeholder-purple-400 focus:outline-none focus:border-purple-400"
-              />
-              <button className="bg-purple-900/50 hover:bg-purple-900/70 text-purple-200 px-6 py-2 rounded-lg transition-colors duration-200">
-                Subscribe
-              </button>
-            </div>
-            <p className="text-xs text-purple-400 mt-2">
-               Unsubscribe at any time, its whatever.
-            </p>
+          {/* Newsletter Signup */}
+          <div className="mt-12">
+            <NewsletterSignup />
           </div>
         </div>
       </main>
