@@ -1,11 +1,29 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display, Cinzel, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import PerformanceOptimizer from "@/components/seo/PerformanceOptimizer";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
+});
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-cinzel",
+  weight: ["400", "500", "600", "700"],
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -111,7 +129,7 @@ export default function RootLayout({
         <link rel="icon" href="/images/showcase/deamon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/images/showcase/deamon.png" />
       </head>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${cormorant.variable} antialiased`}>
         <PerformanceOptimizer
           preloadImages={[
             '/images/showcase/deamon.png',

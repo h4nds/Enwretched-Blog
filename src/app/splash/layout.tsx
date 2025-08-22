@@ -9,7 +9,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "EnWretched - Welcome",
-  description: "A Creative Outlet",
+  description: "Fullstack Resarch & Desgin",
 };
 
 export default function SplashLayout({
