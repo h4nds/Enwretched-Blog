@@ -3,6 +3,34 @@ import { BlogPost } from '@/types/blog';
 // Blog posts organized by year and month
 const posts: BlogPost[] = [
   {
+    id: '2025-01-27-contact-features-implementation',
+    title: 'Building Contact Features: From Zero to Fully Functional',
+    content: 
+    
+    `Hey so i have had too much time to actually write a concrete blog post for the site these past few weeks, Today was a massive step forward for my website. I finally implemented comprehensive contact functionality that I've been planning for months. Let me walk you through what we accomplished and how we made it happen.
+
+
+
+This project reinforced several important development principles:
+- **Start with a solid foundation** - Good API design makes everything easier
+- **User experience matters** - Loading states and feedback are crucial
+- **Security first** - Always validate inputs and handle errors gracefully
+- **Modular components** - Reusable components save time and improve consistency
+
+The contact features are now live and ready to help you connect with potential clients and collaborators. It's amazing how much functionality we packed into one development session!
+
+- ray
+
+*P.S. - If you're reading this and want to test the contact features, head over to the Contact page and send me a message!*
+`,
+    excerpt: 'A comprehensive breakdown of implementing full contact functionality on my website, from API development to user experience design.',
+    createdAt: '2025-08-22',
+    tags: ['Web Development', 'Contact Features', 'API Development', 'MongoDB', 'Next.js', 'TypeScript'],
+    author: 'Ray Wretch',
+    imageUrl: '/images/showcase/memory_gif.gif'
+  },
+
+  {
     id: '2025-06-06-new-digital-piece',
     title: 'Solo Ops: Creating "building it from scratch"',
     content: `So I belive i would be writing the first of many blog posts, that would come to grace this website. This Project took me about a year and 2 months to complete and being near the end of it all I gotta say, im tired coach.

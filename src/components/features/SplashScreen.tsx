@@ -13,14 +13,6 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check if this is the first visit
-    const hasVisited = localStorage.getItem('hasVisited');
-    
-    if (!hasVisited) {
-      // If first visit, mark as visited
-      localStorage.setItem('hasVisited', 'true');
-    }
-
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
         handleProceed();
