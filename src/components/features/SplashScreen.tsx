@@ -10,6 +10,7 @@ interface SplashScreenProps {
 export default function SplashScreen({ onComplete }: SplashScreenProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [videoError, setVideoError] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -20,8 +21,19 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
     };
 
     window.addEventListener('keypress', handleKeyPress);
-    return () => window.removeEventListener('keypress', handleKeyPress);
-  }, [onComplete]);
+    
+    // Fallback: stop loading after 3 seconds if assets don't load
+    const loadingTimeout = setTimeout(() => {
+      if (isLoading) {
+        setIsLoading(false);
+      }
+    }, 3000);
+
+    return () => {
+      window.removeEventListener('keypress', handleKeyPress);
+      clearTimeout(loadingTimeout);
+    };
+  }, [onComplete, isLoading]);
 
   const handleProceed = () => {
     setIsVisible(false);
@@ -34,25 +46,35 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
 
   return (
     <div 
-      className={`fixed inset-0 z-50 transition-opacity duration-500 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
+      className="fixed inset-0 z-50 bg-slate-950 transition-opacity duration-500"
       onClick={handleProceed}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => e.key === 'Enter' && handleProceed()}
     >
       {/* Fallback background image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/recovery.jpg"
-          alt="Splash screen background"
-          fill
-          className="object-cover"
-          priority
-          onLoad={() => setIsLoading(false)}
-        />
-      </div>
+      {!imageError && (
+        <div className="absolute inset-0">
+          <Image
+            src="/images/showcase/recovery.jpg"
+            alt="Splash screen background"
+            fill
+            className="object-cover"
+            priority
+            onLoad={() => setIsLoading(false)}
+            onError={() => {
+              console.error('Background image failed to load');
+              setImageError(true);
+              setIsLoading(false);
+            }}
+          />
+        </div>
+      )}
+      
+      {/* Fallback gradient background when image fails */}
+      {imageError && (
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-950" />
+      )}
 
       {/* Video overlay - only shown if video loads successfully */}
       {!videoError && (
@@ -79,10 +101,13 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
           EnWretched
         </h1>
         {isLoading ? (
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-purple-300 rounded-full animate-bounce" />
-            <div className="w-4 h-4 bg-purple-300 rounded-full animate-bounce delay-100" />
-            <div className="w-4 h-4 bg-purple-300 rounded-full animate-bounce delay-200" />
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-purple-300 rounded-full animate-bounce" />
+              <div className="w-4 h-4 bg-purple-300 rounded-full animate-bounce delay-100" />
+              <div className="w-4 h-4 bg-purple-300 rounded-full animate-bounce delay-200" />
+            </div>
+            <p className="text-purple-200 text-sm">Loading...</p>
           </div>
         ) : (
           <p className="text-purple-200 text-lg animate-pulse">

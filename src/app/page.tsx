@@ -71,21 +71,35 @@ const featuredArtworks: Artwork[] = [
 ];
 
 export default function Home() {
-  const [showSplash, setShowSplash] = useState(false);
+  const [showSplash, setShowSplash] = useState(true); // Start with splash visible
   const [isContentVisible, setIsContentVisible] = useState(false);
   const recentBlogPosts = blogPosts.slice(0, 3);
 
   useEffect(() => {
-    // Only show splash if not already shown this session
+    // Check if splash has been shown this session
     if (typeof window !== 'undefined') {
       const splashShown = sessionStorage.getItem('splashShown');
-      if (!splashShown) {
-        setShowSplash(true);
-      } else {
+      if (splashShown) {
+        // If splash was already shown, hide it immediately and show content
+        setShowSplash(false);
         setIsContentVisible(true);
       }
+      // If splashShown is null, keep splash visible (default state)
     }
-  }, []);
+
+    // Fallback: ensure content is visible after 5 seconds even if splash fails
+    const fallbackTimer = setTimeout(() => {
+      if (showSplash) {
+        setShowSplash(false);
+        setIsContentVisible(true);
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('splashShown', 'true');
+        }
+      }
+    }, 5000);
+
+    return () => clearTimeout(fallbackTimer);
+  }, [showSplash]);
 
   const handleSplashComplete = () => {
     setShowSplash(false);

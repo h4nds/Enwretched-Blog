@@ -3,29 +3,24 @@ import { BlogPost } from '@/types/blog';
 // Blog posts organized by year and month
 const posts: BlogPost[] = [
   {
-    id: '2025-01-27-contact-features-implementation',
-    title: 'Building Contact Features: From Zero to Fully Functional',
-    content: 
-    
-    `Hey so i have had too much time to actually write a concrete blog post for the site these past few weeks, Today was a massive step forward for my website. I finally implemented comprehensive contact functionality that I've been planning for months. Let me walk you through what we accomplished and how we made it happen.
+    id: '2025-08-22-site-features-update',
+    title: 'Solo Ops: Site Updateee',
+    content: `Heyyyyyy so I havent had much time to actually write a concrete blog post for the site these past few weeks but today was a massive step forward for my website in terms of optimization and functionality ^_^ .
 
+    I had finally went over my codebase again (with a metal pick) to really try and see how I can make as many improvements as possible before my next big implentation. I feel though it would be best before begining to work on the forum page, at least with how im picturing this in my head.
 
+    Theres now a responisve contact form system, with a fully functional API that sends messages and commisions to my email. Wired with a nice UI and a nice animation when the user clicks the submit button too  (if its still working) and a mongoDB storage storage for submissions.
 
-This project reinforced several important development principles:
-- **Start with a solid foundation** - Good API design makes everything easier
-- **User experience matters** - Loading states and feedback are crucial
-- **Security first** - Always validate inputs and handle errors gracefully
-- **Modular components** - Reusable components save time and improve consistency
+    I also went ahead and started working on my API infrastructure, Backend endpoints for handling form submissions and newsletter handling- Did I mention I can sent newsletters now? anyway, Re-enforced the Backend architecture using Nex.JS routes and MongoDB, fixed a few social media links, the Services showcase in the about me page, and the contact page.
 
-The contact features are now live and ready to help you connect with potential clients and collaborators. It's amazing how much functionality we packed into one development session!
+    As I continue to make haste on the site, I thought about looking into more UI/UX improvements in the homescreen and gallery as I feel there could be a lot of room for improvement. Also my latest artwork/commisions that ive worked on over this summer, as well as all of the current undergrad work that ive been orgainizing quitely. Hopefull they make a good addition to what i have so far. But as for what ive pushed, the contact features are now live and ready for you to use, shoot me a email so we can work :3.
 
-- ray
-
-*P.S. - If you're reading this and want to test the contact features, head over to the Contact page and send me a message!*
-`,
-    excerpt: 'A comprehensive breakdown of implementing full contact functionality on my website, from API development to user experience design.',
+    Classes are starting up for me this week, I havent met any of my professors yet or anything like that, I like to raw dog my classes so I'm going to be busy with that. But I'm going to try to make some time to work on the site and get in tip top shape for the forum page to be integrated, 
+  
+- ray`,
+    excerpt: 'heyyy',
     createdAt: '2025-08-22',
-    tags: ['Web Development', 'Contact Features', 'API Development', 'MongoDB', 'Next.js', 'TypeScript'],
+    tags: ['Back from the dead', 'Contact Features', 'API Development', 'MongoDB', 'Next.js', 'TypeScript'],
     author: 'Ray Wretch',
     imageUrl: '/images/showcase/memory_gif.gif'
   },
