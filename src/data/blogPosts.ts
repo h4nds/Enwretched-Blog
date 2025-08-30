@@ -7,22 +7,24 @@ const posts: BlogPost[] = [
     title: 'Solo Ops: Site Updateee',
     content: `Heyyyyyy so I havent had much time to actually write a concrete blog post for the site these past few weeks but today was a massive step forward for my website in terms of optimization and functionality ^_^ .
 
-    I had finally went over my codebase again (with a metal pick) to really try and see how I can make as many improvements as possible before my next big implentation. I feel though it would be best before begining to work on the forum page, at least with how im picturing this in my head.
+    I had finally went over my codebase again (with a metal pick) to really try and see how I can make as many improvements as possible before my next big implentation. I felt like it would be best before begining to work on the forum page, at least with how im picturing this in my head.
 
     Theres now a responisve contact form system, with a fully functional API that sends messages and commisions to my email. Wired with a nice UI and a nice animation when the user clicks the submit button too  (if its still working) and a mongoDB storage storage for submissions.
 
     I also went ahead and started working on my API infrastructure, Backend endpoints for handling form submissions and newsletter handling- Did I mention I can sent newsletters now? anyway, Re-enforced the Backend architecture using Nex.JS routes and MongoDB, fixed a few social media links, the Services showcase in the about me page, and the contact page.
 
-    As I continue to make haste on the site, I thought about looking into more UI/UX improvements in the homescreen and gallery as I feel there could be a lot of room for improvement. Also my latest artwork/commisions that ive worked on over this summer, as well as all of the current undergrad work that ive been orgainizing quitely. Hopefull they make a good addition to what i have so far. But as for what ive pushed, the contact features are now live and ready for you to use, shoot me a email so we can work :3.
+    As I continue to work on the site, I thought about looking into more UI/UX improvements in the homescreen and gallery as I feel there could be a lot of room for improvement, as well as just more small creative bits of design that I can implement within each page. Also my latest artwork/commisions that ive worked on over this summer, as well as all of the current undergrad work that ive been orgainizing quitely. Hopefull they make a good addition to what i have so far. But as for what ive pushed, the contact features are now live and ready for you to use, shoot me a email so we can work :3.
 
-    Classes are starting up for me this week, I havent met any of my professors yet or anything like that, I like to raw dog my classes so I'm going to be busy with that. But I'm going to try to make some time to work on the site and get in tip top shape for the forum page to be integrated, 
+    Classes are starting up for me this week, I havent met any of my professors yet or anything like that, I like to raw dog my classes so I'm pretty sure im going to be busy with that. But I'll try to make some time to work on the site and get in tip top shape for the forum page to be integrated, 
   
+![DexCrazy Artwork](/images/showcase/dexcrazy.jpg)
+
 - ray`,
     excerpt: 'heyyy',
-    createdAt: '2025-08-22',
-    tags: ['Back from the dead', 'Contact Features', 'API Development', 'MongoDB', 'Next.js', 'TypeScript'],
+    createdAt: '2025-08-30',
+    tags: ['Back from the dead', ' New Contact Features', 'API Development', 'TypeScript'],
     author: 'Ray Wretch',
-    imageUrl: '/images/showcase/memory_gif.gif'
+    imageUrl: '/images/showcase/death remastered.jpg'
   },
 
   {

@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Link from 'next/link';
 import NewsletterSignup from '@/components/features/NewsletterSignup';
+//TODO: Add forum page - start wireframes and backend 
 
 export default function Forum() {
   return (

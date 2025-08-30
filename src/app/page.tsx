@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Header from '@/components/layout/Header';
 import NewsTicker from '@/components/ui/NewsTicker';
 import FeaturedArtwork from '@/components/features/FeaturedArtwork';
@@ -101,7 +101,7 @@ export default function Home() {
     return () => clearTimeout(fallbackTimer);
   }, [showSplash]);
 
-  const handleSplashComplete = () => {
+  const handleSplashComplete = useCallback(() => {
     setShowSplash(false);
     setTimeout(() => {
       setIsContentVisible(true);
@@ -109,7 +109,7 @@ export default function Home() {
     if (typeof window !== 'undefined') {
       sessionStorage.setItem('splashShown', 'true');
     }
-  };
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">

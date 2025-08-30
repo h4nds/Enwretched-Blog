@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 
 interface SplashScreenProps {
@@ -35,10 +35,10 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
     };
   }, [onComplete, isLoading]);
 
-  const handleProceed = () => {
+  const handleProceed = useCallback(() => {
     setIsVisible(false);
     setTimeout(onComplete, 500);
-  };
+  }, [onComplete]);
 
   if (!isVisible) {
     return null;
