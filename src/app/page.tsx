@@ -191,11 +191,11 @@ export default function Home() {
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="text-purple-300">•</span>
-                    <p className="text-sm text-purple-200">Gallery updated with new artwork</p>
+                    <p className="text-sm text-purple-200">New Flyer Work Added to the Gallery</p>
                   </div>
                   <div className="flex items-start gap-2">
                     <span className="text-purple-300">•</span>
-                    <p className="text-sm text-purple-200">Latest blog post published</p>
+                    <p className="text-sm text-purple-200">New Solo Project in the works</p>
                   </div>
                 </div>
               </div>

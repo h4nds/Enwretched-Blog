@@ -75,21 +75,26 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
       </div>
       {isExpanded && (
         <div 
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-4"
           onClick={() => setIsExpanded(false)}
+          style={{ zIndex: 9999 }}
         >
-          <div className="relative w-full max-w-4xl aspect-video">
+          <div 
+            className="relative w-full max-w-6xl h-full max-h-[90vh] flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
             <Image
               src={currentImage.url}
               alt={currentImage.alt}
-              fill
-              className="object-contain"
+              width={800}
+              height={600}
+              className="object-contain max-w-full max-h-full"
               sizes="100vw"
             />
             {images.length > 1 && (
               <>
                 <button 
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-200 hover:text-purple-100 p-2 rounded-full bg-black/50"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-200 hover:text-purple-100 p-3 rounded-full bg-black/70 text-2xl font-bold"
                   onClick={(e) => {
                     e.stopPropagation();
                     prevImage();
@@ -98,7 +103,7 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
                   ←
                 </button>
                 <button 
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-purple-200 hover:text-purple-100 p-2 rounded-full bg-black/50"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-purple-200 hover:text-purple-100 p-3 rounded-full bg-black/70 text-2xl font-bold"
                   onClick={(e) => {
                     e.stopPropagation();
                     nextImage();
@@ -109,7 +114,7 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
               </>
             )}
             <button 
-              className="absolute top-4 right-4 text-purple-200 hover:text-purple-100"
+              className="absolute top-4 right-4 text-purple-200 hover:text-purple-100 text-3xl font-bold p-2"
               onClick={(e) => {
                 e.stopPropagation();
                 setIsExpanded(false);
