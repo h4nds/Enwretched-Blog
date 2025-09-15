@@ -4,30 +4,30 @@ import { BlogPost } from '@/types/blog';
 const posts: BlogPost[] = [
   {
     id: '2025-09-15-hardcore-show-experience',
-    title: 'Feild Work: Brick Arms - Ep Release',
-    content: `The Show was absolutely insane. BRICKKK!!!!!!!!!!!!
+    title: 'Field Work: Brick Arms - Ep Release',
+    content: `The Show was absolutely insane, BRICKKK!!!!!!!!!!!!
 
 Hi blogggg, i finnaly got the chance to see a hardcore show this month at an underground venue in the heart of the city. The energy was absolutely captivating and rowdy from the moment I walked in, and I was stoked to see some of my favorite bands.
 
-![The flyer I designed for the show - BRICKARMS](/images/showcase/brickarms/brick far.jpg)
+![Brick Arms by me - BRICKARMS](/images/showcase/brickarms/brick far.jpg)
 
 I was lucky enough to create the flyer for this show, working with a very good friend of mine. The poster work represents BrickArms and the other two bands playing that night. There's something special about designing for a show you're actually going to attend - you're not just creating art, you're creating the visual identity for an experience you're about to live.
 
-![Alternative flyer design - coles](/images/showcase/brickarms/cole darkk.jpg)
+![heads moshing](/images/showcase/brickarms/cole darkk.jpg)
 
 The show itself was everything you'd want from a hardcore preformance. The volume was punishing in the best way possible. Each band brought their own energy, but they all shared that raw, unfiltered intensity that makes hardcore so special. I've been blessed to get a few good shots of the concert while I was there, capturing some of that chaotic energy.
 
 personally though what really struck me was how this scene operates. Like it's not about the mainstream venues or the polished performances. It's about finding these hidden spaces where the music can be as loud and as raw as it needs to be. Where the community comes together not because of marketing or promotion, but because they genuinely want to be there, to experience something real.
 
-![Another angle of the flyer design - my flyer](/images/showcase/brickarms/brickkyy.jpg)
+![Brick](/images/showcase/brickarms/brickkyy.jpg)
 
 The underground nature of it all - the secret location, the DIY flyers, the word-of-mouth promotion - it all adds to the authenticity. This is music in its purest form, stripped of all the industry bullshit, just raw energy and genuine passion.
 
 Shooting and Editing these shots took me about a Day and a half (i got fake lazy), but it was worth it. My favorite band was BrickArms(duh) and their 3rd to last song was sooooooooooooooooo sick. These are the shows that remind you why you fell in love with hardcore/skramz in the first place.
 
-![Concert photography - Coleeezzz](/images/showcase/brickarms/colleeee.jpg)
+![Coless](/images/showcase/brickarms/colleeee.jpg)
 
-![Another shot from the show - hunter close up](/images/showcase/brickarms/hunter clost.jpg)
+![last song - hunter close up](/images/showcase/brickarms/hunter clost.jpg)
 
 
 
