@@ -14,10 +14,6 @@ export default function BlogPost() {
   const post = getBlogPost(params.id as string);
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
   
-  // Debug logging
-  console.log('Blog post data:', post);
-  console.log('Post ID:', params.id);
-  console.log('Post createdAt:', post?.createdAt);
 
   if (!post) {
     return (
@@ -36,7 +32,6 @@ export default function BlogPost() {
     );
   }
 
-  console.log('Blog post image URL:', post.imageUrl); // Debug log
 
   return (
     <div key={post.id} className="min-h-screen bg-slate-950 text-purple-200 font-mono">
@@ -87,60 +82,48 @@ export default function BlogPost() {
 
             <div className="prose prose-invert max-w-none">
               <div className="text-lg text-purple-200 leading-relaxed">
-                {(() => {
-                  console.log('Processing blog content:', post.content);
-                  const lines = post.content.split('\n');
-                  console.log('Split lines:', lines);
-                  return lines.map((line, index) => {
-                    // Check if line contains markdown image syntax - more flexible regex
-                    const imageMatch = line.trim().match(/!\[([^\]]*)\]\(([^)]+)\)/);
-                    if (imageMatch) {
-                      const [, alt, src] = imageMatch;
-                      console.log('Found image:', { alt, src }); // Debug log
-                                             return (
-                         <div key={index} className="my-8 flex flex-col items-center">
-                           <div 
-                             className="cursor-pointer group relative"
-                             onClick={() => setExpandedImage(src)}
-                           >
-                             <Image
-                               src={src}
-                               alt={alt}
-                               width={800}
-                               height={600}
-                               className="w-full max-w-4xl h-auto rounded-lg object-contain shadow-lg transition-transform duration-300 group-hover:scale-105"
-                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                               onError={(e) => {
-                                 console.error('Error loading markdown image:', src, e);
-                               }}
-                               onLoad={() => {
-                                 console.log('Markdown image loaded successfully:', src);
-                               }}
-                             />
-                             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                               <span className="text-white text-sm bg-black/50 px-3 py-1 rounded">Click to expand</span>
-                             </div>
-                           </div>
-                           {alt && alt.trim() && (
-                             <p className="text-sm text-purple-300 mt-3 text-center max-w-2xl italic">
-                               {alt}
-                             </p>
-                           )}
-                         </div>
-                       );
-                    }
-                    // Regular text line - only render if not empty
-                    if (line.trim()) {
-                      return (
-                        <p key={index} className="mb-4">
-                          {line}
-                        </p>
-                      );
-                    }
-                    // Empty line - add spacing
-                    return <div key={index} className="h-4" />;
-                  });
-                })()}
+                {post.content.split('\n').map((line, index) => {
+                  // Check if line contains markdown image syntax
+                  const imageMatch = line.trim().match(/!\[([^\]]*)\]\(([^)]+)\)/);
+                  if (imageMatch) {
+                    const [, alt, src] = imageMatch;
+                    return (
+                      <div key={index} className="my-8 flex flex-col items-center">
+                        <div 
+                          className="cursor-pointer group relative"
+                          onClick={() => setExpandedImage(src)}
+                        >
+                          <Image
+                            src={src}
+                            alt={alt}
+                            width={800}
+                            height={600}
+                            className="w-full max-w-4xl h-auto rounded-lg object-contain shadow-lg transition-transform duration-300 group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                          />
+                          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                            <span className="text-white text-sm bg-black/50 px-3 py-1 rounded">Click to expand</span>
+                          </div>
+                        </div>
+                        {alt && alt.trim() && (
+                          <p className="text-sm text-purple-300 mt-3 text-center max-w-2xl italic">
+                            {alt}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  }
+                  // Regular text line - only render if not empty
+                  if (line.trim()) {
+                    return (
+                      <p key={index} className="mb-4">
+                        {line}
+                      </p>
+                    );
+                  }
+                  // Empty line - add spacing
+                  return <div key={index} className="h-4" />;
+                })}
               </div>
             </div>
 
