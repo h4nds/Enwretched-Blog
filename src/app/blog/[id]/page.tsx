@@ -12,6 +12,11 @@ import VideoPlayer from '@/components/features/VideoPlayer';
 export default function BlogPost() {
   const params = useParams();
   const post = getBlogPost(params.id as string);
+  
+  // Debug logging
+  console.log('Blog post data:', post);
+  console.log('Post ID:', params.id);
+  console.log('Post createdAt:', post?.createdAt);
 
   if (!post) {
     return (
@@ -33,7 +38,7 @@ export default function BlogPost() {
   console.log('Blog post image URL:', post.imageUrl); // Debug log
 
   return (
-    <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
+    <div key={post.id} className="min-h-screen bg-slate-950 text-purple-200 font-mono">
       <Header />
       
       <main className="container mx-auto p-4 mb-16">
@@ -80,9 +85,49 @@ export default function BlogPost() {
             </div>
 
             <div className="prose prose-invert max-w-none">
-              <p className="text-lg text-purple-200 leading-relaxed whitespace-pre-line">
-                {post.content}
-              </p>
+              <div className="text-lg text-purple-200 leading-relaxed">
+                {(() => {
+                  console.log('Processing blog content:', post.content);
+                  const lines = post.content.split('\n');
+                  console.log('Split lines:', lines);
+                  return lines.map((line, index) => {
+                    // Check if line contains markdown image syntax - more flexible regex
+                    const imageMatch = line.trim().match(/!\[([^\]]*)\]\(([^)]+)\)/);
+                    if (imageMatch) {
+                      const [, alt, src] = imageMatch;
+                      console.log('Found image:', { alt, src }); // Debug log
+                                             return (
+                         <div key={index} className="my-6 flex justify-center">
+                           <Image
+                             src={src}
+                             alt={alt}
+                             width={400}
+                             height={300}
+                             className="w-auto h-auto rounded-lg object-contain"
+                             sizes="(max-width: 768px) 400px, 400px"
+                             onError={(e) => {
+                               console.error('Error loading markdown image:', src, e);
+                             }}
+                             onLoad={() => {
+                               console.log('Markdown image loaded successfully:', src);
+                             }}
+                           />
+                         </div>
+                       );
+                    }
+                    // Regular text line - only render if not empty
+                    if (line.trim()) {
+                      return (
+                        <p key={index} className="mb-4">
+                          {line}
+                        </p>
+                      );
+                    }
+                    // Empty line - add spacing
+                    return <div key={index} className="h-4" />;
+                  });
+                })()}
+              </div>
             </div>
 
             {/* Video Player - Only show for the Deployment post */}

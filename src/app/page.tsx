@@ -86,20 +86,7 @@ export default function Home() {
       }
       // If splashShown is null, keep splash visible (default state)
     }
-
-    // Fallback: ensure content is visible after 5 seconds even if splash fails
-    const fallbackTimer = setTimeout(() => {
-      if (showSplash) {
-        setShowSplash(false);
-        setIsContentVisible(true);
-        if (typeof window !== 'undefined') {
-          sessionStorage.setItem('splashShown', 'true');
-        }
-      }
-    }, 5000);
-
-    return () => clearTimeout(fallbackTimer);
-  }, [showSplash]);
+  }, []);
 
   const handleSplashComplete = useCallback(() => {
     setShowSplash(false);
