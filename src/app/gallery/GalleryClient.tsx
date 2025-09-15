@@ -275,16 +275,16 @@ const allArtworks: Artwork[] = [
 
   {
     id: '14',
-    title: 'Brick Arms Studio Concert',
+    title: 'Brick Arms EP Release Flyer',
     description: 'Here we have some poster Work for a very good friend of mine. Art, Representing Brick Arms and 2 other bands playing for the show',
     images: [
       {
-        url: '/showcase/brickarms/nyhcflyer.jpg',
+        url: '/images/showcase/brickarms/nyhcflyer.jpg',
         alt: 'Official Flyer',
         isPrimary: true
       },
       {
-        url: '/showcase/brickarms/nyhcflyer2.jpg',
+        url: '/images/showcase/brickarms/nyhcflyer2.jpg',
         alt: 'Official Flyer',
         isPrimary: true
       }
