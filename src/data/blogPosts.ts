@@ -3,7 +3,7 @@ import { BlogPost } from '@/types/blog';
 // Blog posts organized by year and month
 const posts: BlogPost[] = [
   {
-    id: '2025-01-15-hardcore-show-experience',
+    id: '2025-09-15-hardcore-show-experience',
     title: 'Feild Work: Brick Arms - Ep Release',
     content: `The Show was absolutely insane. BRICKKK!!!!!!!!!!!!
 
