@@ -98,7 +98,7 @@ export default function BlogPost() {
                       const [, alt, src] = imageMatch;
                       console.log('Found image:', { alt, src }); // Debug log
                                              return (
-                         <div key={index} className="my-8 flex justify-center">
+                         <div key={index} className="my-8 flex flex-col items-center">
                            <div 
                              className="cursor-pointer group relative"
                              onClick={() => setExpandedImage(src)}
@@ -121,6 +121,11 @@ export default function BlogPost() {
                                <span className="text-white text-sm bg-black/50 px-3 py-1 rounded">Click to expand</span>
                              </div>
                            </div>
+                           {alt && alt.trim() && (
+                             <p className="text-sm text-purple-300 mt-3 text-center max-w-2xl italic">
+                               {alt}
+                             </p>
+                           )}
                          </div>
                        );
                     }
