@@ -6,12 +6,13 @@ import Footer from '@/components/layout/Footer';
 import { getBlogPost } from '@/data/blogPosts';
 import Image from 'next/image';
 import Link from 'next/link';
-import { JSX } from 'react';
+import { JSX, useState } from 'react';
 import VideoPlayer from '@/components/features/VideoPlayer';
 
 export default function BlogPost() {
   const params = useParams();
   const post = getBlogPost(params.id as string);
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
   
   // Debug logging
   console.log('Blog post data:', post);
@@ -97,21 +98,29 @@ export default function BlogPost() {
                       const [, alt, src] = imageMatch;
                       console.log('Found image:', { alt, src }); // Debug log
                                              return (
-                         <div key={index} className="my-6 flex justify-center">
-                           <Image
-                             src={src}
-                             alt={alt}
-                             width={400}
-                             height={300}
-                             className="w-auto h-auto rounded-lg object-contain"
-                             sizes="(max-width: 768px) 400px, 400px"
-                             onError={(e) => {
-                               console.error('Error loading markdown image:', src, e);
-                             }}
-                             onLoad={() => {
-                               console.log('Markdown image loaded successfully:', src);
-                             }}
-                           />
+                         <div key={index} className="my-8 flex justify-center">
+                           <div 
+                             className="cursor-pointer group relative"
+                             onClick={() => setExpandedImage(src)}
+                           >
+                             <Image
+                               src={src}
+                               alt={alt}
+                               width={800}
+                               height={600}
+                               className="w-full max-w-4xl h-auto rounded-lg object-contain shadow-lg transition-transform duration-300 group-hover:scale-105"
+                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                               onError={(e) => {
+                                 console.error('Error loading markdown image:', src, e);
+                               }}
+                               onLoad={() => {
+                                 console.log('Markdown image loaded successfully:', src);
+                               }}
+                             />
+                             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                               <span className="text-white text-sm bg-black/50 px-3 py-1 rounded">Click to expand</span>
+                             </div>
+                           </div>
                          </div>
                        );
                     }
@@ -144,6 +153,38 @@ export default function BlogPost() {
           </article>
         </div>
       </main>
+
+      {/* Image Expansion Modal */}
+      {expandedImage && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-4"
+          onClick={() => setExpandedImage(null)}
+          style={{ zIndex: 9999 }}
+        >
+          <div 
+            className="relative w-full max-w-6xl h-full max-h-[90vh] flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={expandedImage}
+              alt="Expanded view"
+              width={1200}
+              height={800}
+              className="object-contain max-w-full max-h-full rounded-lg"
+              sizes="100vw"
+            />
+            <button 
+              className="absolute top-4 right-4 text-white hover:text-gray-300 text-3xl font-bold p-2 bg-black/50 rounded-full"
+              onClick={(e) => {
+                e.stopPropagation();
+                setExpandedImage(null);
+              }}
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>

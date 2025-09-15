@@ -3,6 +3,44 @@ import { BlogPost } from '@/types/blog';
 // Blog posts organized by year and month
 const posts: BlogPost[] = [
   {
+    id: '2025-01-15-hardcore-show-experience',
+    title: 'Feild Work: Brick Arms - Ep Release',
+    content: `The Show was absolutely insane. BRICKKK!!!!!!!!!!!!
+
+The venue was tucked away near Times Square, one of those spots where if you know what's going on. The kind of place that exists in the shadows of the city, where the real music happens. The energy was absolutely captivating and rowdy from the moment I walked in.
+
+![NYHC Flyer](/images/showcase/brickarms/brick far.jpg)
+
+I was lucky enough to create the flyer for this show, working with a very good friend of mine. The poster work represents BrickArms and the other two bands playing that night. There's something special about designing for a show you're actually going to attend - you're not just creating art, you're creating the visual identity for an experience you're about to live.
+
+![NYHC Flyer Alt](/images/showcase/brickarms/cole darkk.jpg)
+
+The show itself was everything you'd want from a hardcore preformance. The volume was punishing in the best way possible. Each band brought their own energy, but they all shared that raw, unfiltered intensity that makes hardcore so special. I managed to get a few good shots of the concert while I was there, capturing some of that chaotic energy.
+
+personally though what really struck me was how this scene operates. Like it's not about the mainstream venues or the polished performances. It's about finding these hidden spaces where the music can be as loud and as raw as it needs to be. Where the community comes together not because of marketing or promotion, but because they genuinely want to be there, to experience something real.
+
+![NYHC Flyer Alt](/images/showcase/brickarms/brickkyy.jpg)
+
+The underground nature of it all - the secret location, the DIY flyers, the word-of-mouth promotion - it all adds to the authenticity. This is music in its purest form, stripped of all the industry bullshit, just raw energy and genuine passion.
+
+Shooting and Editing these shots took me about a Day and a half (i got fake lazy), but it was worth it. My favorite band was BrickArms(duh) and their 3rd to last song was sooooooooooooooooo sick. These are the shows that remind you why you fell in love with hardcore/skramz in the first place.
+
+![Concert Photo](/images/showcase/brickarms/colleeee.jpg)
+
+![Concert Photo](/images/showcase/brickarms/hunter clost.jpg)
+
+all Pictures by me u hurddddddddddd 
+
+- ray`,
+
+    excerpt: 'A night of raw energy, ear-blowing volume, and authentic hardcore at an underground venue near Times Square.',
+    createdAt: '2025-01-15',
+    tags: ['Hardcore', 'NYHC', 'Underground', 'Photography', 'Flyer Design'],
+    author: 'Ray Wretch',
+    imageUrl: '/images/showcase/brickarms/brickkk.jpg'
+  },
+
+  {
     id: '2025-08-22-site-features-update',
     title: 'Solo Ops: Site Updateee',
     content: `Heyyyyyy so I havent had much time to actually write a concrete blog post for the site these past few weeks but today was a massive step forward for my website in terms of optimization and functionality ^_^ .
