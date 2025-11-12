@@ -24,9 +24,7 @@ export async function GET() {
     return NextResponse.json({ count: totalVisitors + 1 });
   } catch (error) {
     console.error('Error tracking visitor:', error);
-    return NextResponse.json(
-      { error: 'Failed to track visitor' },
-      { status: 500 }
-    );
+    // Return a default count of 0 if MongoDB fails, so the site still works
+    return NextResponse.json({ count: 0 });
   }
 } 
