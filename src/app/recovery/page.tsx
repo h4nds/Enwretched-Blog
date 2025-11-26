@@ -17,10 +17,9 @@ export default function RecoveryPage() {
     imageUrl: '/images/showcase/recovery.jpg',
     description: 'This piece explores nature\'s quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.'
   };
-
-  // Placeholder story content - user will provide actual content
+  
   const storyContent = `
-    [Your story about Recovery will go here. This is a placeholder for the narrative about how the artwork was made and the story behind the work.]
+   This was a Special project based off my love for nature and abstration, I wanted to create a piece that would feel like a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.
   `.trim();
 
   return (

@@ -30,6 +30,31 @@ export async function POST(request: NextRequest) {
     const db = client.db('enwretched');
     const newsletterCollection = db.collection('newsletter');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
     // Check if email already exists
     const existingSubscriber = await newsletterCollection.findOne({ email });
     if (existingSubscriber) {
