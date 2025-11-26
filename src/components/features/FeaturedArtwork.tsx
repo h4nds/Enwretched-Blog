@@ -1,10 +1,13 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { FeaturedArtworkProps } from '@/types/artwork';
 import { useState } from 'react';
 
 export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -14,6 +17,10 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
   const images = artwork.images || [];
   const currentImage = images[currentImageIndex] || { url: '', alt: '' };
 
+  // Check if this artwork has a dedicated page - Recovery artwork has id '4'
+  const hasDedicatedPage = String(artwork.id) === '4';
+  const artworkLink = hasDedicatedPage ? '/recovery' : null;
+
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
@@ -22,12 +29,27 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
     setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
-  return (
-    <div className="border border-purple-900 p-4 bg-slate-900/20">
-      <div 
-        className="aspect-video relative mb-4 cursor-pointer group"
-        onClick={() => setIsExpanded(!isExpanded)}
-      >
+  const handleImageClick = (e: React.MouseEvent) => {
+    if (hasDedicatedPage && artworkLink) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (typeof window !== 'undefined') {
+        router.push(artworkLink);
+      }
+    } else {
+      setIsExpanded(!isExpanded);
+    }
+  };
+
+  const imageContent = (
+    <div 
+      className={`aspect-video relative mb-4 group ${
+        hasDedicatedPage ? 'cursor-pointer' : 'cursor-pointer'
+      }`}
+      onClick={handleImageClick}
+      role={hasDedicatedPage ? 'link' : 'button'}
+      aria-label={hasDedicatedPage ? `View ${artwork.title} story` : 'Expand image'}
+    >
         {isLoading && (
           <div className="absolute inset-0 bg-purple-900/20 animate-pulse" />
         )}
@@ -67,12 +89,23 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
                 ))}
               </div>
             )}
-            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <span className="text-purple-200 text-sm">Click to expand</span>
+            <div className={`absolute inset-0 transition-opacity duration-300 flex items-center justify-center ${
+              hasDedicatedPage 
+                ? 'bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 group-hover:opacity-100' 
+                : 'bg-black/50 opacity-0 group-hover:opacity-100'
+            }`}>
+              <span className="text-white text-sm font-medium bg-black/60 backdrop-blur-sm px-4 py-2 rounded-full">
+                {hasDedicatedPage ? 'View Story →' : 'Click to expand'}
+              </span>
             </div>
           </>
         )}
-      </div>
+    </div>
+  );
+
+  return (
+    <div className="border border-purple-900 p-4 bg-slate-900/20">
+      {imageContent}
       {isExpanded && (
         <div 
           className="fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-4"
@@ -125,9 +158,19 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
           </div>
         </div>
       )}
-      <h4 className="text-lg mb-2 text-purple-300">{artwork.title}</h4>
-      <p className="text-sm mb-2">{artwork.description}</p>
-      <div className="text-xs">Created: {artwork.createdAt}</div>
+      {hasDedicatedPage ? (
+        <Link href={artworkLink!}>
+          <h4 className="text-lg mb-2 text-purple-300 hover:text-purple-200 transition-colors">{artwork.title}</h4>
+          <p className="text-sm mb-2">{artwork.description}</p>
+          <div className="text-xs">Created: {artwork.createdAt}</div>
+        </Link>
+      ) : (
+        <>
+          <h4 className="text-lg mb-2 text-purple-300">{artwork.title}</h4>
+          <p className="text-sm mb-2">{artwork.description}</p>
+          <div className="text-xs">Created: {artwork.createdAt}</div>
+        </>
+      )}
     </div>
   );
 } 

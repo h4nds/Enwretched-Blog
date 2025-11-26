@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Logo from "./Logo";
 import { useState, useEffect } from "react";
@@ -5,8 +7,11 @@ import { useState, useEffect } from "react";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // To Close menu when clicking outside
+  
   useEffect(() => {
+
+    if (typeof window === 'undefined') return;
+
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
       if (!target.closest('nav') && !target.closest('button')) {
@@ -52,6 +57,7 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-6">
             <Link href="/" className="hover:text-purple-100 transition-colors duration-200">Home</Link>
             <Link href="/gallery" className="hover:text-purple-100 transition-colors duration-200">Gallery</Link>
+            <Link href="/recovery" className="hover:text-purple-100 transition-colors duration-500">Recovery</Link>
             <Link href="/blog" className="hover:text-purple-100 transition-colors duration-200">Blog</Link>
             <Link href="/forum" className="hover:text-purple-100 transition-colors duration-200">Forum</Link>
             <Link href="/about" className="hover:text-purple-100 transition-colors duration-200">About</Link>
@@ -78,6 +84,13 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Gallery
+              </Link>
+              <Link 
+                href="/recovery" 
+                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Recovery
               </Link>
               <Link 
                 href="/blog" 

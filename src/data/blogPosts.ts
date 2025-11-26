@@ -2,6 +2,46 @@ import { BlogPost } from '@/types/blog';
 
 // Blog posts organized by year and month
 const posts: BlogPost[] = [
+
+
+  {
+    id: '2025-11-19-site-update-recovery',
+    title: 'Solo Ops: Site Updateee',
+    content: `hiiiiiiii blog early adult life has been killing me softly. I recently celebrated my birthday in October and a lot of personal situations arose taking my time away from full stack and into other meaningless shit- but but in the sea of losses that I've been forced to sail in there's been nice Wins we've come across. Most of my current focus now is really just towards my classes, brainstorming for this upcoming project and as well as, finalizing the wireframe for the forum page(and actually entire site) that is soon to be added some time over the holidays, as well as some aesthetics upgrades. its really important to me that i keep this place looking sick
+
+Im trying to make a goal of *Mid Febuary of 2026* for the actual completion of that extension of the website, and while i do want to make sure i pace myself for this project specifically, putting my eyes in one lane for too long makes me drive slower. Thats just the way it is for me, Apart from that here are some recent changes to the site since the death of my pc— YOO I DEAD FORGOT TO WRITE ABOUT THIS LMAOAOA
+
+oo k kok ok so yo my home lab PC literally fucking killed itself earlier this month. I never though id have to deal with a messed up windows update, forcing all of my important application to not be provisioned. I diagnosed my pc myself after running into circles with Windows Recovery, and this would've never happend if I NEVER LEFT MY PC ON TO GO TO FUCKIGN WORK MAN lord god in heaven how do you buy all of the parts for your rig. Take time out of your life to sort our piece by piece on the market to then get them all, build your rig and unfortunately put windows on that thing just for the operating system to force AI into my rig and brick your apps LIKE WHAT. I had to crash when i got on windows support (which was also just a horrible experience for the amount of money that comany is actually worth) becuase none of them were even really understanding what my problem really was like even when literally having to RDP my shit and look though my whole computer like are you serious gang. Only for them to have them tell me that I'm just going to have the wipe my entire system regardless of how many restores or reinstallations we do of windows like they would just not work. So i ended up caving in and just starting from scratch again, currently it still feels really foreign to use so ive ported the latest version of the site to my laptop to work on using github. Hopefully it'll feel better to work off of over time. 
+
+But yeah my fault for the politic, this was just one of the many hurdles we have to jump over or somthing idek, 
+
+- improved optimization for the splash screen
+- Microsite inclusion for the Recovery artwork
+    - side project for class revolving around the process behind the creation
+    - metadata display with tags, and a description.
+    - Modern-Glass like aesthetic
+- UX Optimization
+- Made the title and the short desc. for the art work wrapped in a clickable link that takes you to the microsite (easy navigation)
+- improved click handling for links site wide
+
+I think that covers most of the changes I've made since the hiatus 
+
+its fine.
+
+im fine.
+
+So yeah sorry for not giving an update for so for a bit ima keep getting the site right :3 
+  
+
+
+- ray`,
+    excerpt: 'heyyy again',
+    createdAt: '2025-11-19',
+    tags: ['Back from the dead', 'Site Updates', 'myfault', 'updates'],
+    author: 'Ray Wretch',
+    imageUrl: '/images/showcase/dridlife.png'
+  },
+  
   {
     id: '2025-09-15-hardcore-show',
     title: 'Field Work: Brick Arms - Ep Release',

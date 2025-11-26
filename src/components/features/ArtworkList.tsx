@@ -2,6 +2,7 @@
 
 import { Artwork } from '@/types/artwork';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface ArtworkListProps {
   artworks: Artwork[];
@@ -10,30 +11,64 @@ interface ArtworkListProps {
 export default function ArtworkList({ artworks }: ArtworkListProps) {
   return (
     <div className="space-y-4">
-      {artworks.map((artwork) => (
-        <div key={artwork.id} className="border border-purple-900 p-4 bg-slate-900/20 flex gap-4">
-          <div className="relative w-32 h-32 flex-shrink-0">
-            <Image
-              src={artwork.images[0].url}
-              alt={artwork.images[0].alt}
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="flex-grow">
-            <h3 className="text-xl font-bold text-purple-300 mb-2">{artwork.title}</h3>
-            <p className="text-sm text-purple-200 mb-2 line-clamp-2">{artwork.description}</p>
-            <div className="flex flex-wrap gap-2">
-              {artwork.tags.map(tag => (
-                <span key={tag} className="px-2 py-1 bg-purple-900/30 text-purple-200 rounded-full text-xs">
-                  {tag}
-                </span>
-              ))}
+      {artworks.map((artwork) => {
+        // Check if this artwork has a dedicated page - Recovery artwork has id '4'
+        const hasDedicatedPage = String(artwork.id) === '4';
+        const artworkLink = hasDedicatedPage ? '/recovery' : null;
+
+        const content = (
+          <>
+            <div className={`relative w-32 h-32 flex-shrink-0 ${hasDedicatedPage ? 'group overflow-hidden rounded' : ''}`}>
+              <Image
+                src={artwork.images[0].url}
+                alt={artwork.images[0].alt}
+                fill
+                className={`object-cover ${hasDedicatedPage ? 'group-hover:scale-110 transition-transform duration-300' : ''}`}
+              />
+              {hasDedicatedPage && (
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                  <span className="text-white text-xs font-medium">View Story</span>
+                </div>
+              )}
             </div>
-            <div className="text-xs text-purple-400 mt-2">Created: {artwork.createdAt}</div>
+            <div className="flex-grow">
+              <h3 className={`text-xl font-bold text-purple-300 mb-2 ${hasDedicatedPage ? 'hover:text-purple-200 transition-colors' : ''}`}>
+                {artwork.title}
+              </h3>
+              <p className="text-sm text-purple-200 mb-2 line-clamp-2">{artwork.description}</p>
+              <div className="flex flex-wrap gap-2">
+                {artwork.tags.map(tag => (
+                  <span key={tag} className="px-2 py-1 bg-purple-900/30 text-purple-200 rounded-full text-xs">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="text-xs text-purple-400 mt-2">Created: {artwork.createdAt}</div>
+            </div>
+          </>
+        );
+
+        if (hasDedicatedPage && artworkLink) {
+          return (
+            <Link 
+              key={artwork.id}
+              href={artworkLink}
+              className="block border border-purple-900 p-4 bg-slate-900/20 flex gap-4 cursor-pointer hover:bg-slate-900/30 transition-all duration-200 no-underline"
+            >
+              {content}
+            </Link>
+          );
+        }
+
+        return (
+          <div 
+            key={artwork.id}
+            className="border border-purple-900 p-4 bg-slate-900/20 flex gap-4"
+          >
+            {content}
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 } 
