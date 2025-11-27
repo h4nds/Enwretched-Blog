@@ -19,7 +19,17 @@ export default function RecoveryPage() {
   };
   
   const storyContent = `
-   This was a Special project based off my love for nature and abstration, I wanted to create a piece that would feel like a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.
+This was a special project born from my deep love for nature and abstraction. I wanted to create something that felt like discovering a hidden spring deep in the forest—a place veiled in mist, with that softened focus that makes everything feel like a half-remembered dream.
+
+The concept came to me during a period when I was spending a lot of time exploring untouched natural spaces. There's something about those mossy, quiet corners of the world that feel like portals to somewhere else entirely. I wanted to capture that feeling—the way nature can feel both completely real and completely surreal at the same time.
+
+The process started with photography, capturing those raw moments in the forest where light filters through mist and everything takes on this otherworldly quality. But the real magic happened in post-processing, where I could push the abstraction further. I worked with layers of texture, softening edges, and playing with focus to create that dreamlike quality. The mist wasn't just captured—it was enhanced, layered, and manipulated until it felt like you were looking through a veil into another world.
+
+The name "Recovery" came later, after the piece was mostly complete. I realized that's what this image represented to me—not just recovery in the literal sense of nature reclaiming space, but recovery as a feeling. That moment when you find something beautiful and quiet after chaos. When you discover a hidden place that feels like it exists just for you, even if only for a moment.
+
+Technically, this piece pushed me to explore new ways of blending photography with digital manipulation. I wanted the final image to feel organic, like it could have been captured exactly as it appears, while still maintaining that surreal, almost painted quality. The color palette is intentionally muted—greens and blues softened with mist, creating that sense of distance and mystery.
+
+What I love most about this piece is how it invites interpretation. Some people see it as peaceful, others as slightly unsettling. Some see hope, others see melancholy. And I think that's exactly what makes it work—it's a mirror for whatever you bring to it, just like those hidden forest spaces themselves.
   `.trim();
 
   return (

@@ -168,7 +168,7 @@ All Pictures by me u hurddddddddddd
     `,
     
     excerpt: 'Just some Updates...',
-    createdAt: '06-18-2025',
+    createdAt: '2025-06-18',
     tags: ['hey guys', 'Process', 'Test Of Stregnth'],
     author: 'Ray Wretch',
     imageUrl: '/images/showcase/breaker2.jpg'
