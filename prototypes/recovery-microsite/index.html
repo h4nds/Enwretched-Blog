@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Recovery — EnWretched (Prototype)</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Recovery — a photographic piece exploring nature's quiet surrealism. Static HTML/CSS prototype." />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-row">
+        <a href="/" class="brand">EnWretched</a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="/gallery">← Back to Gallery</a>
+          <a href="/blog">Blog</a>
+          <a href="/about">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <article class="showcase container">
+        <h1 class="title">Recovery</h1>
+        <div class="meta">
+          <span class="year">2024</span>
+          <span class="tags">nature • photography • surreal</span>
+        </div>
+
+        <figure class="hero-image">
+          <img src="https://enwretched.com/images/showcase/recovery.jpg" alt="Recovery — mossy forest spring" id="heroImg">
+          <figcaption>Click image to expand</figcaption>
+        </figure>
+
+        <section class="card story">
+          <h2>The Story Behind Recovery</h2>
+          <p>This piece came from long walks in untouched natural spaces — mossy corners and misty springs that felt like portals. The photograph was pushed in post to blend texture, softened focus, and layered mist to create a dreamlike, slightly surreal look.</p>
+          <p>The name “Recovery” came later: it felt like that quiet moment after chaos, a hidden place that feels like yours for a moment. Technically, it meant exploring new ways of blending photography and digital manipulation while keeping an organic feel.</p>
+          <p class="muted"></p>
+        </section>
+
+        <nav class="card links">
+          <a href="/">EnWretched</a>
+          <a href="/gallery">Back to Gallery</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© EnWretched 2025 — Prototype</small>
+      </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+      <button class="close" aria-label="Close">✕</button>
+      <img src="" alt="Expanded image" id="lightboxImg">
+    </div>
+
+    <script>
+      // Small little modal so you can expand the image
+      (function(){
+        const hero = document.getElementById('heroImg');
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightboxImg');
+        const closeBtn = lb.querySelector('.close');
+
+        function open(url, alt){
+          lbImg.src = url;
+          lbImg.alt = alt || '';
+          lb.style.display = 'flex';
+          lb.setAttribute('aria-hidden','false');
+          document.body.style.overflow = 'hidden';
+          closeBtn.focus();
+        }
+        function close(){
+          lb.style.display = 'none';
+          lb.setAttribute('aria-hidden','true');
+          lbImg.src = '';
+          document.body.style.overflow = '';
+        }
+
+        hero.addEventListener('click', ()=> open(hero.src, hero.alt));
+        closeBtn.addEventListener('click', close);
+        lb.addEventListener('click', (e)=> { if(e.target===lb) close(); });
+        document.addEventListener('keydown', (e)=> { if(e.key==='Escape') close(); });
+      })();
+    </script>
+  </body>
+</html>

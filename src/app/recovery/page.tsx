@@ -159,4 +159,3 @@ What I love most about this piece is how it invites interpretation. Some people 
     </div>
   );
 }
-

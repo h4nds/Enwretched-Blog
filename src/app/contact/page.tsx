@@ -135,7 +135,7 @@ export default function Contact() {
                     <span>Follow on Instagram</span>
                   </a>
                   <a 
-                    href="https://github.com/raywretch" 
+                    href="https://github.com/h4nds" 
                     className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
