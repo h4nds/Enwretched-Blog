@@ -11,7 +11,7 @@ import Image from 'next/image';
 const allArtworks: Artwork[] = [
   {
     id: '1',
-    title: 'Following Notes',
+    title: 'Follow The Notes',
     description: 'This surreal, dreamlike piece on a mysterious woman in white entering a reflective river, her spine-like laced in a cursed Tattoo suggesting transformation of self. The lush environment blends natural elements with modern touches like glowing windows and graffiti on ancient stones.',
     images: [
       {
@@ -112,7 +112,7 @@ const allArtworks: Artwork[] = [
         alt: 'Airbrushed Castle - Process'
       },
       {
-        url: '/images/showcase/CASTLES WALLPAPER.jpg',
+        url: '/images/showcase/CASTLES WALLPAPER.png',
         alt: 'wallpaper'
       }
     ],

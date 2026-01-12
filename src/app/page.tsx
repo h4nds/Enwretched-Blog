@@ -37,7 +37,7 @@ const featuredArtworks: Artwork[] = [
         isPrimary: true
       }
     ],
-    createdAt: '2025',
+    createdAt: '2024',
     tags: ['mixed-media', 'photography', 'nature']
   },
   {
