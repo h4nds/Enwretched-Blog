@@ -73,7 +73,7 @@ export default function Contact() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        raywretch
+                        h4nds
                       </a>
                     </div>
                   </div>
