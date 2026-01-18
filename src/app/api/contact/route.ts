@@ -114,8 +114,27 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Check if MongoDB is configured
+    if (!process.env.MONGODB_URI) {
+      console.error('MONGODB_URI is not configured in environment variables');
+      return NextResponse.json(
+        { error: 'Server configuration error. Please contact the site administrator.' },
+        { status: 500 }
+      );
+    }
+
     // Store in MongoDB
-    const client = await clientPromise;
+    let client;
+    try {
+      client = await clientPromise;
+    } catch (dbError) {
+      console.error('MongoDB connection error:', dbError);
+      return NextResponse.json(
+        { error: 'Database connection failed. Please try again later.' },
+        { status: 500 }
+      );
+    }
+
     const db = client.db('enwretched');
     const contactsCollection = db.collection('contacts');
 

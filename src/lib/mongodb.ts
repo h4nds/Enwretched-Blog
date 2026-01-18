@@ -1,6 +1,22 @@
 import { MongoClient } from 'mongodb';
 
-const uri = process.env.MONGODB_URI;
+// Get MongoDB URI and ensure it's properly formatted
+// Note: If your password contains special characters like #, @, :, /, ?, [, ], etc.,
+// they should already be URL-encoded in the connection string
+let uri = process.env.MONGODB_URI;
+
+// If URI exists but appears to have unencoded special characters in password, log a warning
+if (uri && uri.includes('://') && uri.includes('@')) {
+  const match = uri.match(/:\/\/([^:]+):([^@]+)@/);
+  if (match) {
+    const password = match[2];
+    // Check for common unencoded special characters that could cause issues
+    if (password.includes('#') && !password.includes('%23')) {
+      console.warn('Warning: MongoDB password contains # character. Make sure it is URL-encoded as %23 in the connection string.');
+    }
+  }
+}
+
 const options = {
   maxPoolSize: 10,
   serverSelectionTimeoutMS: 5000,
