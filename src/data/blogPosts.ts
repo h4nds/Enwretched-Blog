@@ -6,32 +6,35 @@ const posts: BlogPost[] = [
   {
     id: '2026-01-15-new-year-updates',
     title: 'HAPPY NEW YEARZ!!!!',
-    content: `Heyyyyy Blog happy new year. I know other hand my holidays have been very…..
+    content: `Heyyyyy Blog this is my first post of the yearrrrrrr holyyyy shitttttt & im late AF so ima keep it short aii?
+ ![listen mannnn](/images/showcase/happynwar.jpg)
 
-yes...its been a while...
+2025 was full of advancements and set backs. I wont say much more than that fr. I've been busy preparing for the new year, and Ialready started dealing with mad personal bullshit, you cant make everything feel alright. Even so I'm still pretty hopefull for the new year and the new technologies that would come from web dev and desgin. 
 
-i guess i've been busy preparing for the new year, and I've kindaa maybe also had a personal setback of some sorts, you cant make everything feel alright. Even so I'm still pretty hopefull for the new year and the new technologies that would come from web dev and desgin. 
+ I'm genuinely hopeful about what this year has in store, especially with everything happening with our advnacements with my website and the forum site that ive been working on. Keeping the Momentum going, There area few important projects lined up for the first quarter of '26 that I am really excited to see through.
 
-Even so, I'm genuinely hopeful about what this year has in store, especially with everything happening in web development and design. I have a few important projects lined up for the first quarter of '26 that I am really excited to see through.
+Outside of work however, I'm looking forward to skating more, learning new tricks, and continuing to grow as a visual artist and designer overall. I also want to try to push myself into unfamiliar territory creatively. I'm going to try being more uncomfortable with the mediums I use to express what I'm feeling and thinking, as well as begin planning on taking time to start new projects and put more micriosites/websites into production.
 
-Outside of work, I'm looking forward to skating more, learning new tricks, and continuing to grow as a visual artist and designer overall. I also want to try to push myself into unfamiliar territory creatively. I'm going to try being more uncomfortable with the mediums I use to express what I'm feeling and thinking, I plan on taking time to plan out and put more micriosites/websites into production.
-
-Just a few Site Changes for this post btw:
+heres Just a few Site Changes for this post btw:
 
 - Admin things (/admin/messages) to view and manage contact submissions for the time being
 - Server-Side Secure authentication using HTTP-only cookies
 - Message management: view, mark as read/archived, delete, search, and also filter
 - API endpoints: GET messages, PATCH status updates, DELETE messages (all password-protected)
 - Rate limiting and a few other security measures
-
+  
 There's also really big things developing on the forum side of my site (on the backend anyway) im planning to have the wireframes posted up in a sepaerate post in a later date but i think thats about all i have for now, ty for readdinggggg ilyyyyyy b saffeeeeee u hurdd & workk harddddd
+
+*p.s: please feel free to reach out for any work or commisions you may need, i'll be more than happy to help you out!!*
+
+
 
 - ray`,
     excerpt: 'new years maintenenceeee yesssssss',
     createdAt: '2026-01-15',
     tags: ['Happy New Yearzzzz', 'Site Updates', 'myfault', 'updates'],
     author: 'Ray Wretch',
-    imageUrl: '/images/showcase/dridlife.png'
+    imageUrl: '/images/showcase/newwyrr.jpg'
   },
 
   {
