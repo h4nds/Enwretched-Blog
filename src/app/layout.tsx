@@ -6,24 +6,28 @@ import PerformanceOptimizer from "@/components/seo/PerformanceOptimizer";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const cinzel = Cinzel({
   subsets: ["latin"],
   variable: "--font-cinzel",
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-cormorant",
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -131,13 +135,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${cormorant.variable} antialiased`}>
         <PerformanceOptimizer
-          preloadImages={[
-            '/images/showcase/deamon.png',
-            '/images/showcase/memory_gif.gif',
-            '/images/showcase/435-hz.jpg',
-            '/images/showcase/Promfall.jpg',
-            '/images/showcase/Alone.jpg'
-          ]}
+          preloadImages={['/images/showcase/deamon.png']}
           enableAnalytics={true}
         >
           {children}

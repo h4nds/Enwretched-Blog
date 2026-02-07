@@ -124,7 +124,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Store in MongoDB
-    let client;
+     let client;
     try {
       client = await clientPromise;
     } catch (dbError) {

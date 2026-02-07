@@ -65,20 +65,6 @@ const nextConfig = {
       };
     }
 
-    // Optimize images
-    config.module.rules.push({
-      test: /\.(png|jpe?g|gif|svg)$/i,
-      use: [
-        {
-          loader: 'url-loader',
-          options: {
-            limit: 8192,
-            fallback: 'file-loader',
-          },
-        },
-      ],
-    });
-
     return config;
   },
 

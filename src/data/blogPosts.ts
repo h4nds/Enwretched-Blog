@@ -4,6 +4,28 @@ import { BlogPost } from '@/types/blog';
 const posts: BlogPost[] = [
 
   {
+    id: 'Side Project Time',
+    title: 'Side Project Time',
+    content: `Heyyyyyyy blog this is going to be a quick post about my side projects and what i've been working on lately.
+
+    So This is my Image Resizer Tool 'Siizer' thats been my main focus lately, I've been working on it for about  now and I've got it to a point where I'm pretty happy with it. its stack consists of Rust(yeah lol), typescript, and react. I was thinking of having this be a genuine app u can have of your desktop, but i decided to make it a web app instead. Its pretty basic for now, but I've got some ideas for some more features to add to it in the future.
+    ![Alpha build of Siizer](/images/showcase/siizer.png)
+    
+    I wanted a pretty minimalistic design for the app while still being able to have some functionality, so i made sure to include a light and dark mode switch. You can add presets for different image sizes, and you can also add custom sizes to the app, the codebase is pretty clean too from how i structured it the app is consists of a single global stylesheet with variables, no inline styles. its a pretty basic app, but I've got some ideas for some more features to add to it in the future, like fixing the site logo and adding a few more presets for different image sizes. Im thinking of hosting this on vercel as well, so i can have a nice URL for it. but till then you can check it out on my github repo [here](https://github.com/enwretched/Siizer)
+
+    Theres also 1 other project that been working on along side Siizer, its actually a wifi manager called MangoFitz, its a pretty basic app that allows you to manage your wifi connections and devices on your network. This was more of a personal project seeing as id like to configure my wifi on my linux machine more and im just getting tired of having to do it manually via the terminal. Im going to have a more lengthy post about this project, right now its looking pretty complex seeing as i need to integrate it with my OS and actually make it work, The tech stack for right now is really just Rust and Tauri, much like the wifi manager for windows its going to be really easy to use and configure.
+
+    Thats about all i have for now, Fullstack sickness is real and i hope i find no cure.......
+
+- ray`,
+    excerpt: 'Fullstack Sickness',
+    createdAt: '2026-02-07',
+    tags: ['Fullstack', 'Projcects', 'showcases', 'Frontend Development'],
+    author: 'Ray Wretch',
+    imageUrl: '/images/showcase/yeschef.png'
+  },
+
+  {
     id: '2026-01-15-new-year-updates',
     title: 'HAPPY NEW YEARZ!!!!',
     content: `Heyyyyy Blog this is my first post of the yearrrrrrr holyyyy shitttttt & im late AF so ima keep it short aii?
@@ -170,7 +192,7 @@ All Pictures by me u hurddddddddddd
   },
 
   {
-    id: '2025-16-06-new-digital-piece',
+    id: '2025-06-16-deployment',
     title: 'Solo Ops: "Deployment"',
     content: `yo so I knew developing a Site like this on my own would be really good challenge for me and I knew the stakes and how much ambition this project was going to take me. 
 
@@ -201,7 +223,7 @@ All Pictures by me u hurddddddddddd
     `,
     
     excerpt: 'Just some Updates...',
-    createdAt: '2025-06-18',
+    createdAt: '2025-06-16',
     tags: ['hey guys', 'Process', 'Test Of Stregnth'],
     author: 'Ray Wretch',
     imageUrl: '/images/showcase/breaker2.jpg'
@@ -216,7 +238,7 @@ export const getBlogPosts = () => {
   );
 };
 
-// Helper function a single post by ID
+// Helper to get a single post by ID
 export const getBlogPost = (id: string) => {
   return posts.find(post => post.id === id);
 };
