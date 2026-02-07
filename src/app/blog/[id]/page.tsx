@@ -113,11 +113,31 @@ export default function BlogPost() {
                       </div>
                     );
                   }
-                  // Regular text line - only render if not empty
+                  // Regular text line - parse markdown links [text](url)
                   if (line.trim()) {
+                    const linkRegex = /\[([^\]]*)\]\(([^)]+)\)/g;
+                    const parts: (string | JSX.Element)[] = [];
+                    let lastIndex = 0;
+                    let match;
+                    while ((match = linkRegex.exec(line)) !== null) {
+                      parts.push(line.slice(lastIndex, match.index));
+                      parts.push(
+                        <a
+                          key={`${index}-${match.index}`}
+                          href={match[2]}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-purple-300 underline hover:text-purple-100"
+                        >
+                          {match[1]}
+                        </a>
+                      );
+                      lastIndex = linkRegex.lastIndex;
+                    }
+                    parts.push(line.slice(lastIndex));
                     return (
                       <p key={index} className="mb-4">
-                        {line}
+                        {parts}
                       </p>
                     );
                   }
