@@ -7,7 +7,7 @@ const themePreview: Record<ThemeId, { bg: string; label: string }> = {
   enwretched: { bg: "bg-purple-900", label: "Enwretched" },
   mirrors: { bg: "bg-white/10 backdrop-blur", label: "Mirrors" },
   mono: { bg: "bg-stone-600", label: "Mono" },
-  ember: { bg: "bg-amber-700", label: "Ember" },
+  ember: { bg: "bg-emerald-600", label: "Green" },
 };
 
 export default function ThemeSwitcher() {

@@ -13,6 +13,7 @@
     "extract-package": "node scripts/extract-and-publish.js"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
     "@prisma/client": "^5.10.2",
     "critters": "^0.0.23",
     "mongodb": "^6.17.0",

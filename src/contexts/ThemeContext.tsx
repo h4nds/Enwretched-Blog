@@ -10,7 +10,7 @@ const THEMES: { id: ThemeId; label: string }[] = [
   { id: "enwretched", label: "Enwretched" },
   { id: "mirrors", label: "Mirrors" },
   { id: "mono", label: "Mono" },
-  { id: "ember", label: "Ember" },
+  { id: "ember", label: "Green" },
 ];
 
 type ThemeContextValue = {

@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import Header from '@/components/layout/Header';
 import NewsTicker from '@/components/ui/NewsTicker';
-import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
 import FeaturedArtwork from '@/components/features/FeaturedArtwork';
 import BlogPost from '@/components/features/BlogPost';
 import Footer from '@/components/layout/Footer';
@@ -164,8 +163,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Theme switcher – floating within Welcome */}
-                <ThemeSwitcher />
               </div>
             </div>
 
