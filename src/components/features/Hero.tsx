@@ -13,10 +13,10 @@ export default function Hero() {
       </video>
       <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-purple-300 mb-4">
+          <h1 className="text-5xl md:text-7xl font-bold text-theme-text-heading mb-4">
             EnWretched
           </h1>
-          <p className="text-xl md:text-2xl text-purple-200">
+          <p className="text-xl md:text-2xl text-theme-text">
             Digital Art & Creative Expression
           </p>
         </div>

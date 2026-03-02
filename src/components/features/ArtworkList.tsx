@@ -32,18 +32,18 @@ export default function ArtworkList({ artworks }: ArtworkListProps) {
               )}
             </div>
             <div className="flex-grow">
-              <h3 className={`text-xl font-bold text-purple-300 mb-2 ${hasDedicatedPage ? 'hover:text-purple-200 transition-colors' : ''}`}>
+              <h3 className={`text-xl font-bold text-theme-text-heading mb-2 ${hasDedicatedPage ? 'hover:text-theme-text transition-colors' : ''}`}>
                 {artwork.title}
               </h3>
-              <p className="text-sm text-purple-200 mb-2 line-clamp-2">{artwork.description}</p>
+              <p className="text-sm text-theme-text mb-2 line-clamp-2">{artwork.description}</p>
               <div className="flex flex-wrap gap-2">
                 {artwork.tags.map(tag => (
-                  <span key={tag} className="px-2 py-1 bg-purple-900/30 text-purple-200 rounded-full text-xs">
+                  <span key={tag} className="px-2 py-1 bg-theme-accent-muted text-theme-text rounded-full text-xs">
                     {tag}
                   </span>
                 ))}
               </div>
-              <div className="text-xs text-purple-400 mt-2">Created: {artwork.createdAt}</div>
+              <div className="text-xs text-theme-text-muted mt-2">Created: {artwork.createdAt}</div>
             </div>
           </>
         );
@@ -53,7 +53,7 @@ export default function ArtworkList({ artworks }: ArtworkListProps) {
             <Link 
               key={artwork.id}
               href={artworkLink}
-              className="block border border-purple-900 p-4 bg-slate-900/20 flex gap-4 cursor-pointer hover:bg-slate-900/30 transition-all duration-200 no-underline"
+              className="block border border-theme-border p-4 bg-theme-accent-muted flex gap-4 cursor-pointer hover:bg-theme-card-hover transition-all duration-200 no-underline"
             >
               {content}
             </Link>
@@ -63,7 +63,7 @@ export default function ArtworkList({ artworks }: ArtworkListProps) {
         return (
           <div 
             key={artwork.id}
-            className="border border-purple-900 p-4 bg-slate-900/20 flex gap-4"
+            className="border border-theme-border p-4 bg-theme-accent-muted flex gap-4"
           >
             {content}
           </div>

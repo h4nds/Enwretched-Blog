@@ -7,14 +7,14 @@ import { blogPosts } from '@/data/blogPosts';
 
 export default function BlogClient() {
   return (
-    <div className="min-h-screen flex flex-col text-purple-200 font-mono relative bg-slate-950">
+    <div className="min-h-screen flex flex-col text-theme-text font-mono relative bg-theme-page">
       {/* Removed background image and overlay */}
       <div className="relative z-10 flex flex-col flex-grow">
         <Header />
       
       <main className="container mx-auto p-4 flex-grow">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-3xl font-bold text-purple-300 mb-8">Blog</h1>
+          <h1 className="text-3xl font-bold text-theme-text-heading mb-8">Blog</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogPosts.map((post) => (

@@ -24,7 +24,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="border-b border-purple-900 bg-black sticky top-0 z-50">
+    <header className="border-b border-theme-border bg-theme-card sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center relative">
           <Logo />
@@ -32,7 +32,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-3 text-purple-200 hover:text-purple-100 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-lg"
+            className="md:hidden p-3 text-theme-text hover:text-theme-text-heading focus:outline-none focus:ring-2 focus:ring-theme-accent rounded-lg"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
@@ -55,59 +55,59 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="hover:text-purple-100 transition-colors duration-200">Home</Link>
-            <Link href="/gallery" className="hover:text-purple-100 transition-colors duration-200">Gallery</Link>
-            <Link href="/blog" className="hover:text-purple-100 transition-colors duration-200">Blog</Link>
-            <Link href="/forum" className="hover:text-purple-100 transition-colors duration-200">Forum</Link>
-            <Link href="/about" className="hover:text-purple-100 transition-colors duration-200">About</Link>
-            <Link href="/contact" className="hover:text-purple-100 transition-colors duration-200">Contact</Link>
+            <Link href="/" className="hover:text-theme-text-heading transition-colors duration-200">Home</Link>
+            <Link href="/gallery" className="hover:text-theme-text-heading transition-colors duration-200">Gallery</Link>
+            <Link href="/blog" className="hover:text-theme-text-heading transition-colors duration-200">Blog</Link>
+            <Link href="/forum" className="hover:text-theme-text-heading transition-colors duration-200">Forum</Link>
+            <Link href="/about" className="hover:text-theme-text-heading transition-colors duration-200">About</Link>
+            <Link href="/contact" className="hover:text-theme-text-heading transition-colors duration-200">Contact</Link>
           </nav>
 
           {/* Mobile Navigation */}
           <nav
             className={`${
               isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
-            } md:hidden absolute top-full right-0 mt-2 w-56 bg-black border border-purple-900 rounded-lg shadow-lg transition-all duration-300 ease-in-out`}
+            } md:hidden absolute top-full right-0 mt-2 w-56 bg-theme-card border border-theme-border rounded-lg shadow-lg transition-all duration-300 ease-in-out`}
           >
             <div className="py-2">
               <Link 
                 href="/" 
-                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
+                className="block px-4 py-3 text-theme-text hover:bg-theme-accent-muted hover:text-theme-text-heading transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link 
                 href="/gallery" 
-                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
+                className="block px-4 py-3 text-theme-text hover:bg-theme-accent-muted hover:text-theme-text-heading transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Gallery
               </Link>
               <Link 
                 href="/blog" 
-                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
+                className="block px-4 py-3 text-theme-text hover:bg-theme-accent-muted hover:text-theme-text-heading transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Blog
               </Link>
               <Link 
                 href="/forum" 
-                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
+                className="block px-4 py-3 text-theme-text hover:bg-theme-accent-muted hover:text-theme-text-heading transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Forum
               </Link>
               <Link 
                 href="/about" 
-                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
+                className="block px-4 py-3 text-theme-text hover:bg-theme-accent-muted hover:text-theme-text-heading transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link 
                 href="/contact" 
-                className="block px-4 py-3 text-purple-200 hover:bg-purple-900/30 hover:text-purple-100 transition-colors"
+                className="block px-4 py-3 text-theme-text hover:bg-theme-accent-muted hover:text-theme-text-heading transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact

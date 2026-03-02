@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display, Cinzel, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import PerformanceOptimizer from "@/components/seo/PerformanceOptimizer";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -129,17 +130,24 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem("enwretched_theme")||"enwretched";document.documentElement.setAttribute("data-theme",t);})();`,
+          }}
+        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/images/showcase/deamon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/images/showcase/deamon.png" />
       </head>
       <body className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${cormorant.variable} antialiased`}>
-        <PerformanceOptimizer
-          preloadImages={['/images/showcase/deamon.png']}
-          enableAnalytics={true}
-        >
-          {children}
-        </PerformanceOptimizer>
+        <ThemeProvider>
+          <PerformanceOptimizer
+            preloadImages={['/images/showcase/deamon.png']}
+            enableAnalytics={true}
+          >
+            {children}
+          </PerformanceOptimizer>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -17,12 +17,12 @@ export default function BlogPostClient({ id }: Props) {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
+      <div className="min-h-screen bg-theme-page text-theme-text font-mono">
         <Header />
         <main className="container mx-auto p-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl font-bold text-purple-300 mb-4">Post Not Found</h1>
-            <Link href="/blog" className="text-purple-200 hover:text-purple-100">
+            <h1 className="text-3xl font-bold text-theme-text-heading mb-4">Post Not Found</h1>
+            <Link href="/blog" className="text-theme-text hover:text-theme-text-heading">
               ← Back to Blog
             </Link>
           </div>
@@ -44,20 +44,20 @@ export default function BlogPostClient({ id }: Props) {
   });
 
   return (
-    <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
+    <div className="min-h-screen bg-theme-page text-theme-text font-mono">
       <StructuredData data={articleSchema} />
       <Header />
       
       <main className="container mx-auto p-4 mb-16">
         <div className="max-w-3xl mx-auto">
-          <Link href="/blog" className="text-purple-200 hover:text-purple-100 mb-8 inline-block">
+          <Link href="/blog" className="text-theme-text hover:text-theme-text-heading mb-8 inline-block">
             ← Back to Blog
           </Link>
 
           <article className="space-y-6">
             <header className="space-y-4">
-              <h1 className="text-4xl font-bold text-purple-300">{post.title}</h1>
-              <div className="flex items-center gap-4 text-sm text-purple-400">
+              <h1 className="text-4xl font-bold text-theme-text-heading">{post.title}</h1>
+              <div className="flex items-center gap-4 text-sm text-theme-text-muted">
                 <span>By {post.author}</span>
                 <span>•</span>
                 <span>{post.createdAt}</span>
@@ -79,14 +79,14 @@ export default function BlogPostClient({ id }: Props) {
 
             <div className="flex flex-wrap gap-2">
               {post.tags.map(tag => (
-                <span key={tag} className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm"> 
+                <span key={tag} className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm"> 
                   {tag}
                 </span>
               ))}
             </div>
 
             <div className="prose prose-invert max-w-none">
-              <p className="text-lg text-purple-200 leading-relaxed whitespace-pre-line">
+              <p className="text-lg text-theme-text leading-relaxed whitespace-pre-line">
                 {post.content}
               </p>
             </div>
@@ -94,12 +94,12 @@ export default function BlogPostClient({ id }: Props) {
             {/* Video Player - Only show for the Deployment post */}
             {post.id === '2025-16-06-new-digital-piece' && (
               <div className="mt-8">
-                <h2 className="text-2xl font-bold text-purple-300 mb-4">Some shred</h2>
+                <h2 className="text-2xl font-bold text-theme-text-heading mb-4">Some shred</h2>
                 <VideoPlayer 
                   src="/videos/shred1.mp4"
                   title="heres some shred"
                 />
-                <p className="text-sm text-purple-400 mt-2 italic">song: xaviersobased - dancer</p>
+                <p className="text-sm text-theme-text-muted mt-2 italic">song: xaviersobased - dancer</p>
               </div>
             )}
           </article>

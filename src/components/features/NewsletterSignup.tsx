@@ -50,9 +50,9 @@ export default function NewsletterSignup() {
   };
 
   return (
-    <div className="border border-purple-900 p-6 bg-black/90 rounded-lg text-center">
-      <h3 className="text-xl font-bold text-purple-300 mb-4">Stay in the Loop</h3>
-      <p className="text-purple-200 mb-4">
+    <div className="border border-theme-border p-6 bg-theme-card rounded-lg text-center">
+      <h3 className="text-xl font-bold text-theme-text-heading mb-4">Stay in the Loop</h3>
+      <p className="text-theme-text mb-4">
         Get notified when the forum launches and receive updates about new features.
       </p>
       
@@ -68,24 +68,24 @@ export default function NewsletterSignup() {
 
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
         <div className="relative flex-1">
-          <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400" />
+          <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-theme-text-muted" />
           <input 
             type="email" 
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
             required
-            className="w-full pl-10 pr-4 py-2 bg-purple-900/30 border border-purple-900 rounded-lg text-purple-200 placeholder-purple-400 focus:outline-none focus:border-purple-400"
+            className="w-full pl-10 pr-4 py-2 bg-theme-accent-muted border border-theme-border rounded-lg text-theme-text placeholder-theme-text-muted focus:outline-none focus:border-theme-accent"
           />
         </div>
         <button 
           type="submit"
           disabled={isSubmitting}
-          className="flex items-center justify-center gap-2 px-6 py-2 bg-purple-900/50 hover:bg-purple-900/70 disabled:bg-purple-900/30 disabled:cursor-not-allowed text-purple-200 rounded-lg transition-colors duration-200"
+          className="flex items-center justify-center gap-2 px-6 py-2 bg-theme-accent-muted hover:bg-theme-card-hover disabled:bg-theme-accent-muted disabled:cursor-not-allowed text-theme-text rounded-lg transition-colors duration-200"
         >
           {isSubmitting ? (
             <>
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-purple-200"></div>
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-theme-border"></div>
               Subscribing...
             </>
           ) : (
@@ -96,7 +96,7 @@ export default function NewsletterSignup() {
           )}
         </button>
       </form>
-      <p className="text-xs text-purple-400 mt-2">
+      <p className="text-xs text-theme-text-muted mt-2">
          Unsubscribe at any time, its whatever.
       </p>
     </div>

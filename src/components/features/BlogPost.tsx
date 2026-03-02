@@ -11,7 +11,7 @@ interface BlogPostProps {
 export default function BlogPost({ post }: BlogPostProps) {
   return (
     <Link href={`/blog/${post.id}`} className="block">
-      <div className="border border-purple-900 p-4 rounded-lg hover:bg-purple-900/20 transition-colors duration-200">
+      <div className="border border-theme-border p-4 rounded-lg hover:bg-theme-accent-muted transition-colors duration-200">
         {post.imageUrl && (
           <div className="relative w-full aspect-[4/3] p-4 rounded-lg mb-4">
             <Image
@@ -23,16 +23,16 @@ export default function BlogPost({ post }: BlogPostProps) {
             />
           </div>
         )}
-        <h4 className="text-purple-300 mb-2">{post.title}</h4>
-        <p className="text-sm text-purple-200 mb-4">{post.excerpt}</p>
+        <h4 className="text-theme-text-heading mb-2">{post.title}</h4>
+        <p className="text-sm text-theme-text mb-4">{post.excerpt}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {post.tags.map(tag => (
-            <span key={tag} className="bg-purple-900/30 text-purple-200 px-2 py-1 rounded-full text-xs">
+            <span key={tag} className="bg-theme-accent-muted text-theme-text px-2 py-1 rounded-full text-xs">
               {tag}
             </span>
           ))}
         </div>
-        <div className="flex justify-between items-center text-xs text-purple-400">
+        <div className="flex justify-between items-center text-xs text-theme-text-muted">
           <span>By {post.author}</span>
           <span>{post.createdAt}</span>
         </div>

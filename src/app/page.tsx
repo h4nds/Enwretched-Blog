@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Header from '@/components/layout/Header';
 import NewsTicker from '@/components/ui/NewsTicker';
+import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
 import FeaturedArtwork from '@/components/features/FeaturedArtwork';
 import BlogPost from '@/components/features/BlogPost';
 import Footer from '@/components/layout/Footer';
@@ -99,7 +100,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
+    <div className="min-h-screen bg-theme-page text-theme-text font-mono">
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
       
       <div className={`transition-opacity duration-500 ${isContentVisible ? 'opacity-100' : 'opacity-0'}`}>
@@ -109,19 +110,19 @@ export default function Home() {
         <main className="container mx-auto px-4 py-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Welcome section */}
-            <div className="md:col-span-2 border border-purple-900 p-4 sm:p-6 bg-black/90 rounded-lg">
+            <div className="md:col-span-2 border border-theme-border p-4 sm:p-6 bg-theme-card rounded-lg">
               <div className="space-y-4">
                 <div>
-                  <h2 className="text-xl sm:text-2xl mb-3 text-purple-300">Welcome...</h2>
-                  <p className="text-sm sm:text-base text-purple-200 leading-relaxed">
+                  <h2 className="text-xl sm:text-2xl mb-3 text-theme-text-heading">Welcome...</h2>
+                  <p className="text-sm sm:text-base text-theme-text leading-relaxed">
                     I&apos;m Ray Wretch, a Professional Graphic Designer, Digital Artist, exploring the intersection of surrealism, nature, and experimental techniques. My work ranges from digital art to photography and mixed media, often incorporating elements of transformation and dreamlike qualities.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="border border-purple-900 p-3 rounded-lg bg-purple-900/20">
-                    <h3 className="text-purple-300 mb-2">Current Focus</h3>
-                    <ul className="space-y-2 text-sm text-purple-200">
+                  <div className="border border-theme-border p-3 rounded-lg bg-theme-accent-muted">
+                    <h3 className="text-theme-text-heading mb-2">Current Focus</h3>
+                    <ul className="space-y-2 text-sm text-theme-text">
                       <li>• Surreal Digital Art</li>
                       <li>• Nature Photography</li>
                       <li>• Mixed Media</li>
@@ -129,9 +130,9 @@ export default function Home() {
                     </ul>
                   </div>
 
-                  <div className="border border-purple-900 p-3 rounded-lg bg-purple-900/20">
-                    <h3 className="text-purple-300 mb-2">Connect</h3>
-                    <ul className="space-y-2 text-sm text-purple-200">
+                  <div className="border border-theme-border p-3 rounded-lg bg-theme-accent-muted">
+                    <h3 className="text-theme-text-heading mb-2">Connect</h3>
+                    <ul className="space-y-2 text-sm text-theme-text">
                       <li>• Instagram: @raywretch</li>
                       <li>• Email: wretchray@gmail.com</li>
                       <li>• Commissions: <b>Open</b></li>
@@ -140,39 +141,42 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Photoshop Raster & Vector</span>
-                  <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Photography</span>
-                  <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Mixed Media</span>
-                  <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Surreallism</span>
-                  <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Nature</span>
-                  <span className="bg-purple-900/30 text-purple-200 px-3 py-1 rounded-full text-sm">Experimentalism</span>
+                  <span className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm">Photoshop Raster & Vector</span>
+                  <span className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm">Photography</span>
+                  <span className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm">Mixed Media</span>
+                  <span className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm">Surreallism</span>
+                  <span className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm">Nature</span>
+                  <span className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm">Experimentalism</span>
                 </div>
 
                 {/* Latest Work Section */}
-                <div className="bg-purple-900/30 border border-purple-900 p-3 rounded-lg">
-                  <h3 className="text-lg sm:text-xl text-purple-300 mb-2">Latest Work</h3>
+                <div className="bg-theme-accent-muted border border-theme-border p-3 rounded-lg">
+                  <h3 className="text-lg sm:text-xl text-theme-text-heading mb-2">Latest Work</h3>
                   <div className="flex flex-col gap-3 text-sm">
-                    <div className="flex items-center gap-2 text-purple-200">
+                    <div className="flex items-center gap-2 text-theme-text">
                       <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                       <span className="truncate">New: {blogPosts[0].title}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-purple-200">
+                    <div className="flex items-center gap-2 text-theme-text">
                       <span>📊</span>
                       <span>Gallery Updated: 4 New Pieces</span>
                     </div>
                   </div>
                 </div>
+
+                {/* Theme switcher – floating within Welcome */}
+                <ThemeSwitcher />
               </div>
             </div>
 
             {/* Sidebar */}
             <div className="space-y-6">
               {/* Post Board */}
-              <div className="border border-purple-900 p-4 bg-black/90 rounded-lg">
-                <h3 className="text-lg sm:text-xl mb-4 text-purple-300">Post Board</h3>
+              <div className="border border-theme-border p-4 bg-theme-card rounded-lg">
+                <h3 className="text-lg sm:text-xl mb-4 text-theme-text-heading">Post Board</h3>
                 <ul className="space-y-2">
                   {blogPosts.map(post => (
-                    <li key={post.id} className="hover:text-purple-100 cursor-pointer">
+                    <li key={post.id} className="hover:text-theme-text-heading cursor-pointer">
                       <Link href={`/blog/${post.id}`} className="block truncate">
                         {post.title}
                       </Link>
@@ -182,33 +186,33 @@ export default function Home() {
               </div>
 
               {/* Updates Bar */}
-              <div className="border border-purple-900 p-4 bg-black/90 rounded-lg">
-                <h3 className="text-lg sm:text-xl mb-4 text-purple-300">Updates</h3>
+              <div className="border border-theme-border p-4 bg-theme-card rounded-lg">
+                <h3 className="text-lg sm:text-xl mb-4 text-theme-text-heading">Updates</h3>
                 <div className="space-y-3">
                   <div className="flex items-start gap-2">
-                    <span className="text-purple-300">•</span>
-                    <p className="text-sm text-purple-200">New blog post: {blogPosts[0].title}</p>
+                    <span className="text-theme-text-heading">•</span>
+                    <p className="text-sm text-theme-text">New blog post: {blogPosts[0].title}</p>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="text-purple-300">•</span>
-                    <p className="text-sm text-purple-200">New Flyer Work Added to the Gallery</p>
+                    <span className="text-theme-text-heading">•</span>
+                    <p className="text-sm text-theme-text">New Flyer Work Added to the Gallery</p>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="text-purple-300">•</span>
-                    <p className="text-sm text-purple-200">New Solo Project in the works</p>
+                    <span className="text-theme-text-heading">•</span>
+                    <p className="text-sm text-theme-text">New Solo Project in the works</p>
                   </div>
                 </div>
               </div>
 
               {/* Contact Section */}
-              <div className="border border-purple-900 p-4 bg-black/90">
-                <h3 className="text-xl mb-4 text-purple-300">Get in Touch</h3>
-                <p className="text-sm text-purple-200 mb-4">
+              <div className="border border-theme-border p-4 bg-theme-card">
+                <h3 className="text-xl mb-4 text-theme-text-heading">Get in Touch</h3>
+                <p className="text-sm text-theme-text mb-4">
                   Interested in commissions or collaborations? I&apos;d love to hear from you.
                 </p>
                 <Link 
                   href="/about"
-                  className="block w-full bg-purple-900/50 hover:bg-purple-900/70 text-purple-200 py-2 px-4 rounded transition-colors duration-200 text-center"
+                  className="block w-full bg-theme-accent-muted hover:bg-theme-card-hover text-theme-text py-2 px-4 rounded transition-colors duration-200 text-center"
                 >
                   Contact Me
                 </Link>
@@ -216,12 +220,12 @@ export default function Home() {
             </div>
 
             {/* Featured Artworks */}
-            <div className="md:col-span-3 border border-purple-900 p-4 mt-4 bg-black/90">
+            <div className="md:col-span-3 border border-theme-border p-4 mt-4 bg-theme-card">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl text-purple-300">Featured Artworks</h3>
+                <h3 className="text-xl text-theme-text-heading">Featured Artworks</h3>
                 <Link 
                   href="/gallery"
-                  className="text-purple-200 hover:text-purple-100 transition-colors duration-200 flex items-center gap-2"
+                  className="text-theme-text hover:text-theme-text-heading transition-colors duration-200 flex items-center gap-2"
                 >
                   See More
                   <svg 
@@ -249,12 +253,12 @@ export default function Home() {
           </div>
 
           {/* Latest Blog Posts Section */}
-          <div className="mt-8 border border-purple-900 p-4 bg-black/90 rounded-lg">
+          <div className="mt-8 border border-theme-border p-4 bg-theme-card rounded-lg">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-              <h3 className="text-lg sm:text-xl text-purple-300">Latest Blog Posts</h3>
+              <h3 className="text-lg sm:text-xl text-theme-text-heading">Latest Blog Posts</h3>
               <Link 
                 href="/blog"
-                className="text-purple-200 hover:text-purple-100 transition-colors duration-200 flex items-center gap-2"
+                className="text-theme-text hover:text-theme-text-heading transition-colors duration-200 flex items-center gap-2"
               >
                 View All Posts
                 <svg 

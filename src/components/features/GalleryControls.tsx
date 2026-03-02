@@ -64,11 +64,11 @@ export default function GalleryControls({ artworks, onFilterChange, isGridView, 
           placeholder="Search artworks..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full bg-slate-900/50 border border-purple-900 rounded-lg px-4 py-2 text-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="w-full bg-theme-accent-muted border border-theme-border rounded-lg px-4 py-2 text-purple-200 focus:outline-none focus:ring-2 focus:ring-theme-accent"
         />
         {isLoading && (
           <div className="absolute right-3 top-1/2 -translate-y-1/2">
-            <div className="w-4 h-4 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
+            <div className="w-4 h-4 border-2 border-theme-accent border-t-transparent rounded-full animate-spin" />
           </div>
         )}
       </div>
@@ -82,8 +82,8 @@ export default function GalleryControls({ artworks, onFilterChange, isGridView, 
             className={`px-3 py-1 rounded-full text-sm transition-colors ${
               (category === 'All' && !selectedCategory) || 
               (category.toLowerCase() === selectedCategory?.toLowerCase())
-                ? 'bg-purple-500 text-white'
-                : 'bg-purple-900/30 text-purple-200 hover:bg-purple-900/50'
+                ? 'bg-theme-accent text-white'
+                : 'bg-theme-accent-muted text-theme-text hover:bg-theme-card-hover'
             }`}
           >
             {category}
@@ -99,8 +99,8 @@ export default function GalleryControls({ artworks, onFilterChange, isGridView, 
             onClick={() => toggleTag(tag)}
             className={`px-3 py-1 rounded-full text-sm transition-colors ${
               selectedTags.includes(tag)
-                ? 'bg-purple-500 text-white'
-                : 'bg-purple-900/30 text-purple-200 hover:bg-purple-900/50'
+                ? 'bg-theme-accent text-white'
+                : 'bg-theme-accent-muted text-theme-text hover:bg-theme-card-hover'
             }`}
           >
             {tag}
@@ -112,7 +112,7 @@ export default function GalleryControls({ artworks, onFilterChange, isGridView, 
       <div className="flex justify-end">
         <button
           onClick={() => onViewChange(!isGridView)}
-          className="p-2 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-colors"
+          className="p-2 rounded-lg bg-theme-accent-muted hover:bg-theme-card-hover transition-colors"
         >
           {isGridView ? (
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

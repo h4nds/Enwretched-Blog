@@ -225,28 +225,28 @@ export default function MessagesAdmin() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-slate-950 text-purple-200 font-mono flex items-center justify-center">
+      <div className="min-h-screen bg-theme-page text-theme-text font-mono flex items-center justify-center">
         <div className="max-w-md w-full p-8">
-          <div className="border border-purple-900 p-8 bg-black/90 rounded-lg">
-            <h1 className="text-3xl font-bold text-purple-300 mb-6 text-center">Admin Login</h1>
+          <div className="border border-theme-border p-8 bg-theme-card rounded-lg">
+            <h1 className="text-3xl font-bold text-theme-text-heading mb-6 text-center">Admin Login</h1>
             <form onSubmit={handleLogin} className="space-y-4">
               <div>
-                <label className="block text-purple-300 mb-2">Password</label>
+                <label className="block text-theme-text-heading mb-2">Password</label>
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 bg-purple-900/30 border border-purple-900 rounded-lg text-purple-200 focus:outline-none focus:border-purple-400"
+                  className="w-full px-4 py-3 bg-theme-accent-muted border border-theme-border rounded-lg text-theme-text focus:outline-none focus:border-theme-accent"
                   required
                   placeholder="Enter admin password"
                 />
-                <p className="text-xs text-purple-400 mt-2">
+                <p className="text-xs text-theme-text-muted mt-2">
                   Set ADMIN_PASSWORD in .env.local for production
                 </p>
               </div>
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-purple-900/50 hover:bg-purple-900/70 text-purple-200 rounded-lg transition-colors"
+                className="w-full px-6 py-3 bg-theme-accent-muted hover:bg-theme-card-hover text-theme-text rounded-lg transition-colors"
               >
                 Login
               </button>
@@ -258,7 +258,7 @@ export default function MessagesAdmin() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
+    <div className="min-h-screen bg-theme-page text-theme-text font-mono">
       <Header />
       
       <main className="container mx-auto px-4 py-8">
@@ -266,8 +266,8 @@ export default function MessagesAdmin() {
           {/* Header */}
           <div className="mb-8 flex justify-between items-start">
             <div>
-              <h1 className="text-4xl font-bold text-purple-300 mb-2">Message Dashboard</h1>
-              <p className="text-purple-400">Manage client inquiries and commission requests</p>
+              <h1 className="text-4xl font-bold text-theme-text-heading mb-2">Message Dashboard</h1>
+              <p className="text-theme-text-muted">Manage client inquiries and commission requests</p>
             </div>
             <button
               onClick={handleLogout}
@@ -279,38 +279,38 @@ export default function MessagesAdmin() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <div className="border border-purple-900 p-4 bg-black/90 rounded-lg">
-              <div className="text-purple-400 text-sm mb-1">Total Messages</div>
-              <div className="text-2xl font-bold text-purple-300">{counts.total}</div>
+            <div className="border border-theme-border p-4 bg-theme-card rounded-lg">
+              <div className="text-theme-text-muted text-sm mb-1">Total Messages</div>
+              <div className="text-2xl font-bold text-theme-text-heading">{counts.total}</div>
             </div>
-            <div className="border border-purple-900 p-4 bg-black/90 rounded-lg">
-              <div className="text-purple-400 text-sm mb-1">Unread</div>
+            <div className="border border-theme-border p-4 bg-theme-card rounded-lg">
+              <div className="text-theme-text-muted text-sm mb-1">Unread</div>
               <div className="text-2xl font-bold text-yellow-400">{counts.unread}</div>
             </div>
-            <div className="border border-purple-900 p-4 bg-black/90 rounded-lg">
-              <div className="text-purple-400 text-sm mb-1">Showing</div>
-              <div className="text-2xl font-bold text-purple-300">{filteredMessages.length}</div>
+            <div className="border border-theme-border p-4 bg-theme-card rounded-lg">
+              <div className="text-theme-text-muted text-sm mb-1">Showing</div>
+              <div className="text-2xl font-bold text-theme-text-heading">{filteredMessages.length}</div>
             </div>
           </div>
 
           {/* Filters and Search */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <div className="relative">
-              <FaSearch className="absolute left-3 top-3 text-purple-400" />
+              <FaSearch className="absolute left-3 top-3 text-theme-text-muted" />
               <input
                 type="text"
                 placeholder="Search messages..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-purple-900/30 border border-purple-900 rounded-lg text-purple-200 placeholder-purple-400 focus:outline-none focus:border-purple-400"
+                className="w-full pl-10 pr-4 py-3 bg-theme-accent-muted border border-theme-border rounded-lg text-theme-text placeholder-theme-text-muted focus:outline-none focus:border-theme-accent"
               />
             </div>
             <div className="relative">
-              <FaFilter className="absolute left-3 top-3 text-purple-400" />
+              <FaFilter className="absolute left-3 top-3 text-theme-text-muted" />
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value as any)}
-                className="w-full pl-10 pr-4 py-3 bg-purple-900/30 border border-purple-900 rounded-lg text-purple-200 focus:outline-none focus:border-purple-400 appearance-none"
+                className="w-full pl-10 pr-4 py-3 bg-theme-accent-muted border border-theme-border rounded-lg text-theme-text focus:outline-none focus:border-theme-accent appearance-none"
               >
                 <option value="all">All Messages</option>
                 <option value="unread">Unread</option>
@@ -329,14 +329,14 @@ export default function MessagesAdmin() {
           {/* Messages List */}
           {loading ? (
             <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-400 mx-auto"></div>
-              <p className="text-purple-400 mt-4">Loading messages...</p>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-theme-accent mx-auto"></div>
+              <p className="text-theme-text-muted mt-4">Loading messages...</p>
             </div>
           ) : filteredMessages.length === 0 ? (
-            <div className="border border-purple-900 p-12 bg-black/90 rounded-lg text-center">
-              <FaEnvelope className="text-6xl text-purple-400 mx-auto mb-4 opacity-50" />
-              <p className="text-purple-300 text-lg">No messages found</p>
-              <p className="text-purple-400 text-sm mt-2">
+            <div className="border border-theme-border p-12 bg-theme-card rounded-lg text-center">
+              <FaEnvelope className="text-6xl text-theme-text-muted mx-auto mb-4 opacity-50" />
+              <p className="text-theme-text-heading text-lg">No messages found</p>
+              <p className="text-theme-text-muted text-sm mt-2">
                 {searchTerm ? 'Try adjusting your search' : 'All caught up!'}
               </p>
             </div>
@@ -345,37 +345,37 @@ export default function MessagesAdmin() {
               {filteredMessages.map((message) => (
                 <div
                   key={message._id}
-                  className={`border rounded-lg p-6 bg-black/90 transition-all ${
+                  className={`border rounded-lg p-6 bg-theme-card transition-all ${
                     message.status === 'unread'
                       ? 'border-yellow-600 bg-yellow-900/10'
                       : message.status === 'archived'
-                      ? 'border-purple-900 opacity-60'
-                      : 'border-purple-900'
+                      ? 'border-theme-border opacity-60'
+                      : 'border-theme-border'
                   }`}
                 >
                   <div className="flex justify-between items-start mb-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-xl font-bold text-purple-300">{message.name}</h3>
+                        <h3 className="text-xl font-bold text-theme-text-heading">{message.name}</h3>
                         {message.status === 'unread' && (
                           <span className="px-2 py-1 bg-yellow-600 text-yellow-100 text-xs rounded-full">
                             New
                           </span>
                         )}
                         {message.status === 'archived' && (
-                          <span className="px-2 py-1 bg-purple-600 text-purple-100 text-xs rounded-full">
+                          <span className="px-2 py-1 bg-theme-accent text-theme-text-heading text-xs rounded-full">
                             Archived
                           </span>
                         )}
                       </div>
                       <a
                         href={`mailto:${message.email}`}
-                        className="text-purple-400 hover:text-purple-300 transition-colors"
+                        className="text-theme-text-muted hover:text-theme-text-heading transition-colors"
                       >
                         {message.email}
                       </a>
-                      <p className="text-purple-300 font-semibold mt-2">{message.subject}</p>
-                      <p className="text-purple-400 text-sm mt-1">
+                      <p className="text-theme-text-heading font-semibold mt-2">{message.subject}</p>
+                      <p className="text-theme-text-muted text-sm mt-1">
                         {formatDate(message.timestamp)}
                       </p>
                     </div>
@@ -383,19 +383,19 @@ export default function MessagesAdmin() {
                       {message.status === 'unread' && (
                         <button
                           onClick={() => updateMessageStatus(message._id, 'read')}
-                          className="p-2 bg-purple-900/50 hover:bg-purple-900/70 rounded-lg transition-colors"
+                          className="p-2 bg-theme-accent-muted hover:bg-theme-card-hover rounded-lg transition-colors"
                           title="Mark as read"
                         >
-                          <FaEnvelopeOpen className="text-purple-300" />
+                          <FaEnvelopeOpen className="text-theme-text-heading" />
                         </button>
                       )}
                       {message.status !== 'archived' && (
                         <button
                           onClick={() => updateMessageStatus(message._id, 'archived')}
-                          className="p-2 bg-purple-900/50 hover:bg-purple-900/70 rounded-lg transition-colors"
+                          className="p-2 bg-theme-accent-muted hover:bg-theme-card-hover rounded-lg transition-colors"
                           title="Archive"
                         >
-                          <FaArchive className="text-purple-300" />
+                          <FaArchive className="text-theme-text-heading" />
                         </button>
                       )}
                       <button
@@ -407,8 +407,8 @@ export default function MessagesAdmin() {
                       </button>
                     </div>
                   </div>
-                  <div className="mt-4 p-4 bg-purple-900/10 rounded-lg">
-                    <p className="text-purple-200 whitespace-pre-wrap">{message.message}</p>
+                  <div className="mt-4 p-4 bg-theme-accent-muted rounded-lg">
+                    <p className="text-theme-text whitespace-pre-wrap">{message.message}</p>
                   </div>
                 </div>
               ))}

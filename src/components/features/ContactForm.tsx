@@ -70,8 +70,8 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="border border-purple-900 p-8 bg-black/90 rounded-lg">
-      <h2 className="text-2xl font-bold text-purple-300 mb-8 text-center">Send Me a Message</h2>
+    <div className="border border-theme-border p-8 bg-theme-card rounded-lg">
+      <h2 className="text-2xl font-bold text-theme-text-heading mb-8 text-center">Send Me a Message</h2>
       
       {submitStatus.type && (
         <div className={`mb-4 p-3 rounded-lg text-center ${
@@ -86,7 +86,7 @@ export default function ContactForm() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="relative">
-            <FaUser className="absolute left-3 top-3 text-purple-400" />
+            <FaUser className="absolute left-3 top-3 text-theme-text-muted" />
             <input
               type="text"
               name="name"
@@ -94,12 +94,12 @@ export default function ContactForm() {
               onChange={handleInputChange}
               placeholder="Your Name"
               required
-              className="w-full pl-10 pr-4 py-3 bg-purple-900/30 border border-purple-900 rounded-lg text-purple-200 placeholder-purple-400 focus:outline-none focus:border-purple-400 transition-colors"
+              className="w-full pl-10 pr-4 py-3 bg-theme-accent-muted border border-theme-border rounded-lg text-theme-text placeholder-theme-text-muted focus:outline-none focus:border-theme-accent transition-colors"
             />
           </div>
           
           <div className="relative">
-            <FaEnvelope className="absolute left-3 top-3 text-purple-400" />
+            <FaEnvelope className="absolute left-3 top-3 text-theme-text-muted" />
             <input
               type="email"
               name="email"
@@ -107,20 +107,20 @@ export default function ContactForm() {
               onChange={handleInputChange}
               placeholder="Your Email"
               required
-              className="w-full pl-10 pr-4 py-3 bg-purple-900/30 border border-purple-900 rounded-lg text-purple-200 placeholder-purple-400 focus:outline-none focus:border-purple-400 transition-colors"
+              className="w-full pl-10 pr-4 py-3 bg-theme-accent-muted border border-theme-border rounded-lg text-theme-text placeholder-theme-text-muted focus:outline-none focus:border-theme-accent transition-colors"
             />
           </div>
         </div>
 
         <div className="relative">
-          <FaComment className="absolute left-3 top-3 text-purple-400" />
+          <FaComment className="absolute left-3 top-3 text-theme-text-muted" />
           <input
             type="text"
             name="subject"
             value={formData.subject}
             onChange={handleInputChange}
             placeholder="Subject (optional)"
-            className="w-full pl-10 pr-4 py-3 bg-purple-900/30 border border-purple-900 rounded-lg text-purple-200 placeholder-purple-400 focus:outline-none focus:border-purple-400 transition-colors"
+            className="w-full pl-10 pr-4 py-3 bg-theme-accent-muted border border-theme-border rounded-lg text-theme-text placeholder-theme-text-muted focus:outline-none focus:border-theme-accent transition-colors"
           />
         </div>
 
@@ -132,18 +132,18 @@ export default function ContactForm() {
             placeholder="Your Message"
             required
             rows={6}
-            className="w-full px-4 py-3 bg-purple-900/30 border border-purple-900 rounded-lg text-purple-200 placeholder-purple-400 focus:outline-none focus:border-purple-400 transition-colors resize-none"
+            className="w-full px-4 py-3 bg-theme-accent-muted border border-theme-border rounded-lg text-theme-text placeholder-theme-text-muted focus:outline-none focus:border-theme-accent transition-colors resize-none"
           />
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-purple-900/50 hover:bg-purple-900/70 disabled:bg-purple-900/30 disabled:cursor-not-allowed text-purple-200 rounded-lg transition-colors duration-200 mt-4"
+          className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-theme-accent-muted hover:bg-theme-card-hover disabled:bg-theme-accent-muted disabled:cursor-not-allowed text-theme-text rounded-lg transition-colors duration-200 mt-4"
         >
           {isSubmitting ? (
             <>
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-purple-200"></div>
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-theme-border"></div>
               Sending...
             </>
           ) : (

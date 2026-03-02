@@ -328,13 +328,13 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
   }, [filteredArtworks]);
 
   return (
-    <div className="min-h-screen text-purple-200 font-mono relative bg-slate-950">
+    <div className="min-h-screen text-theme-text font-mono relative bg-theme-page">
       <div className="relative z-10">
         <Header />
         <main className="container mx-auto px-4 md:px-6 lg:px-8 py-6">
           <div className="mb-8">
-            <h1 className="text-2xl md:text-3xl font-bold text-purple-300 mb-3 md:mb-4">Gallery</h1>
-            <p className="text-sm md:text-base text-purple-200">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images, please feel free to contact me for any Work more information. *Still Adding*</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-theme-text-heading mb-3 md:mb-4">Gallery</h1>
+            <p className="text-sm md:text-base text-theme-text">Explore my complete collection of artworks, from digital pieces to photography and mixed media. Click on any artwork to view details and additional images, please feel free to contact me for any Work more information. (Always Updating)</p>
           </div>
           <GalleryControls 
             artworks={allArtworks}
@@ -354,12 +354,12 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
           {/* Wallpapers Download Section */}
           {wallpapers && wallpapers.length > 0 && (
             <section className="mt-12 mb-8">
-              <h2 className="text-xl md:text-2xl font-semibold text-purple-300 mb-4 text-center">Wallpaper Collection</h2>
+              <h2 className="text-xl md:text-2xl font-semibold text-theme-text-heading mb-4 text-center">Wallpaper Collection</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {wallpapers.map((filename) => (
                   <div
                     key={filename}
-                    className="border border-purple-300 p-4 bg-slate-900/20 rounded-lg text-purple-200 flex flex-col items-center aspect-video"
+                    className="border border-theme-border p-4 bg-slate-900/20 rounded-lg text-theme-text flex flex-col items-center aspect-video"
                     style={{ cursor: 'pointer' }}
                     onClick={() => setPreview(filename)}
                   >
@@ -372,11 +372,11 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
-                    <h4 className="text-lg mb-2 text-purple-300 truncate w-full text-center">{filename.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ')}</h4>
+                    <h4 className="text-lg mb-2 text-theme-text-heading truncate w-full text-center">{filename.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ')}</h4>
                     <a
                       href={`/wallpapers/${filename}`}
                       download
-                      className="inline-block px-4 py-2 bg-purple-700 text-white rounded hover:bg-purple-600 transition"
+                      className="inline-block px-4 py-2 bg-theme-accent text-white rounded hover:opacity-90 transition"
                       onClick={e => e.stopPropagation()}
                     >
                       Download
@@ -396,7 +396,7 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
                     onClick={e => e.stopPropagation()}
                   >
                     <button
-                      className="absolute top-2 right-2 text-purple-300 hover:text-white text-2xl font-bold z-10"
+                      className="absolute top-2 right-2 text-theme-text-heading hover:text-white text-2xl font-bold z-10"
                       onClick={() => setPreview(null)}
                       aria-label="Close preview"
                     >
@@ -413,7 +413,7 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
                   <a
                     href={`/wallpapers/${preview}`}
                     download
-                    className="inline-block px-6 py-2 bg-purple-700 text-white rounded hover:bg-purple-600 transition mt-8 z-10"
+                    className="inline-block px-6 py-2 bg-theme-accent text-white rounded hover:opacity-90 transition mt-8 z-10"
                   >
                     Download
                   </a>
@@ -427,24 +427,24 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
               <button
                 onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
-                className="px-3 md:px-4 py-2 text-sm md:text-base rounded-lg bg-purple-900/30 hover:bg-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-3 md:px-4 py-2 text-sm md:text-base rounded-lg bg-theme-accent-muted hover:bg-theme-card-hover disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Previous
               </button>
-              <span className="text-sm md:text-base text-purple-200">
+              <span className="text-sm md:text-base text-theme-text">
                 Page {currentPage} of {totalPages}
               </span>
               <button
                 onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                 disabled={currentPage === totalPages}
-                className="px-3 md:px-4 py-2 text-sm md:text-base rounded-lg bg-purple-900/30 hover:bg-purple-900/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-3 md:px-4 py-2 text-sm md:text-base rounded-lg bg-theme-accent-muted hover:bg-theme-card-hover disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Next
               </button>
             </div>
           )}
         </main>
-        <footer className="border-t border-purple-900 p-4 mt-6 md:mt-8 bg-black/90">
+        <footer className="border-t border-theme-border p-4 mt-6 md:mt-8 bg-theme-card">
           <div className="container mx-auto text-center text-sm md:text-base">
             <p>©Ray Wretch 2025 - All Rights Reserved</p>
           </div>

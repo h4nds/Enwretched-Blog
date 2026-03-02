@@ -35,7 +35,7 @@ export default function AboutClient() {
   });
 
   return (
-    <div className="min-h-screen text-purple-200 font-mono relative bg-slate-950">
+    <div className="min-h-screen text-theme-text font-mono relative bg-theme-page">
       {/* Removed background image and overlay */}
       <div className="relative z-10">
         <StructuredData data={personSchema} />
@@ -43,38 +43,38 @@ export default function AboutClient() {
       
       <main className="container mx-auto p-4">
         <div className="max-w-3xl mx-auto">
-          <div className="mb-8 border border-purple-900 p-6 rounded-lg bg-black/90 hover:bg-black/95 transition-colors text-center">
-            <h1 className="text-3xl font-bold text-purple-300 mb-4">About Me</h1>
-            <p className="text-purple-200">I like to explore many fields of Art and Design ranging from mediums in Graphic Design to Full Stack Web Development, but to assign a label, I am a Student, aspiring Web Designer, and Art Director.</p>
+          <div className="mb-8 border border-theme-border p-6 rounded-lg bg-theme-card hover:bg-theme-card-hover transition-colors text-center">
+            <h1 className="text-3xl font-bold text-theme-text-heading mb-4">About Me</h1>
+            <p className="text-theme-text">I like to explore many fields of Art and Design ranging from mediums in Graphic Design to Full Stack Web Development, but to assign a label, I am a Student, aspiring Web Designer, and Art Director.</p>
           </div>
           
-          <section className="mb-8 border border-purple-900 p-6 rounded-lg bg-black/90 hover:bg-black/95 transition-colors text-center">
-            <p className="text-purple-200 mb-4">
+          <section className="mb-8 border border-theme-border p-6 rounded-lg bg-theme-card hover:bg-theme-card-hover transition-colors text-center">
+            <p className="text-theme-text mb-4">
               I am a multidisciplinary artist exploring the intersections of digital art, photography, and mixed media. 
               My work often delves into surreal landscapes, experimental compositions, and the relationship between 
               nature and digital manipulation.
             </p>
           </section>
 
-          <section className="mb-8 border border-purple-900 p-6 rounded-lg bg-black/90 hover:bg-black/95 transition-colors text-center">
-            <h2 className="text-2xl font-semibold text-purple-300 mb-4">Experience</h2>
+          <section className="mb-8 border border-theme-border p-6 rounded-lg bg-theme-card hover:bg-theme-card-hover transition-colors text-center">
+            <h2 className="text-2xl font-semibold text-theme-text-heading mb-4">Experience</h2>
             <div className="space-y-4">
-              <div className="hover:bg-purple-900/20 p-4 rounded-lg transition-colors">
-                <h3 className="text-xl text-purple-300">Digital Art & Photography</h3>
-                <p className="text-purple-200">
+              <div className="hover:bg-theme-accent-muted p-4 rounded-lg transition-colors">
+                <h3 className="text-xl text-theme-text-heading">Digital Art & Photography</h3>
+                <p className="text-theme-text">
                   Specializing in digital manipulation, photography, and mixed media compositions. 
                   My work ranges from surreal landscapes to experimental digital art.
                 </p>
               </div>
-              <div className="hover:bg-purple-900/20 p-4 rounded-lg transition-colors">
-                <h3 className="text-xl text-purple-300">Client Work</h3>
-                <p className="text-purple-200 mb-4">
+              <div className="hover:bg-theme-accent-muted p-4 rounded-lg transition-colors">
+                <h3 className="text-xl text-theme-text-heading">Client Work</h3>
+                <p className="text-theme-text mb-4">
                   Experience in creating album artwork, promotional materials, and custom digital art 
                   for musicians and creative projects.
                 </p>
                 <div className="space-y-3 text-sm">
-                  <div className="border-t border-purple-900/30 pt-3">
-                    <h4 className="text-purple-300 font-semibold mb-2">Services Offered:</h4>
+                  <div className="border-t border-theme-border/30 pt-3">
+                    <h4 className="text-theme-text-heading font-semibold mb-2">Services Offered:</h4>
                     <ul className="space-y-2">
                       <li>• Album Artwork & Cover Design</li>
                       <li>• Social Media Graphics & Banners</li>
@@ -83,8 +83,8 @@ export default function AboutClient() {
                       <li>• Brand Identity Design</li>
                     </ul>
                   </div>
-                  <div className="border-t border-purple-900/30 pt-3">
-                    <h4 className="text-purple-300 font-semibold mb-2">What to Expect:</h4>
+                  <div className="border-t border-theme-border/30 pt-3">
+                    <h4 className="text-theme-text-heading font-semibold mb-2">What to Expect:</h4>
                     <ul className="space-y-2">
                       <li>• Personalized Consultation</li>
                       <li>• Multiple Design Revisions</li>
@@ -93,9 +93,9 @@ export default function AboutClient() {
                       <li>• Professional Communication</li>
                     </ul>
                   </div>
-                  <div className="border-t border-purple-900/30 pt-3">
-                    <h4 className="text-purple-300 font-semibold mb-2">Pricing:</h4>
-                    <p className="text-purple-200">
+                  <div className="border-t border-theme-border/30 pt-3">
+                    <h4 className="text-theme-text-heading font-semibold mb-2">Pricing:</h4>
+                    <p className="text-theme-text">
                       Custom quotes based on project scope. Will be given upon Commision pitch.
                     </p>
                   </div>
@@ -104,12 +104,12 @@ export default function AboutClient() {
             </div>
           </section>
 
-          <section className="mb-8 border border-purple-900 p-6 rounded-lg bg-black/90 hover:bg-black/95 transition-colors text-center">
-            <h2 className="text-2xl font-semibold text-purple-300 mb-4">Technical Skills & Tools</h2>
+          <section className="mb-8 border border-theme-border p-6 rounded-lg bg-theme-card hover:bg-theme-card-hover transition-colors text-center">
+            <h2 className="text-2xl font-semibold text-theme-text-heading mb-4">Technical Skills & Tools</h2>
             <div className="space-y-4">
-              <div className="hover:bg-purple-900/20 p-4 rounded-lg transition-colors">
-                <h3 className="text-xl text-purple-300 mb-3">Web Development</h3>
-                <p className="text-purple-200 mb-3">
+              <div className="hover:bg-theme-accent-muted p-4 rounded-lg transition-colors">
+                <h3 className="text-xl text-theme-text-heading mb-3">Web Development</h3>
+                <p className="text-theme-text mb-3">
                   Full-stack development with modern technologies
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
@@ -139,22 +139,22 @@ export default function AboutClient() {
                   </div>
                 </div>
               </div>
-              <div className="hover:bg-purple-900/20 p-4 rounded-lg transition-colors">
-                <h3 className="text-xl text-purple-300 mb-3">Design & Creative Software</h3>
-                <p className="text-purple-200 mb-3">
+              <div className="hover:bg-theme-accent-muted p-4 rounded-lg transition-colors">
+                <h3 className="text-xl text-theme-text-heading mb-3">Design & Creative Software</h3>
+                <p className="text-theme-text mb-3">
                   Professional tools for digital art and design
                 </p>
                 <div className="flex flex-wrap justify-center gap-2">
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">Adobe Photoshop</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">Adobe Illustrator</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">Adobe Premiere Pro</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">Figma</span>
-                  <span className="px-3 py-1 bg-purple-900/30 rounded-full text-sm">Canva</span>
+                  <span className="px-3 py-1 bg-theme-accent-muted rounded-full text-sm">Adobe Photoshop</span>
+                  <span className="px-3 py-1 bg-theme-accent-muted rounded-full text-sm">Adobe Illustrator</span>
+                  <span className="px-3 py-1 bg-theme-accent-muted rounded-full text-sm">Adobe Premiere Pro</span>
+                  <span className="px-3 py-1 bg-theme-accent-muted rounded-full text-sm">Figma</span>
+                  <span className="px-3 py-1 bg-theme-accent-muted rounded-full text-sm">Canva</span>
                 </div>
               </div>
-              <div className="hover:bg-purple-900/20 p-4 rounded-lg transition-colors">
-                <h3 className="text-xl text-purple-300 mb-3">Other Tools & Technologies</h3>
-                <p className="text-purple-200 mb-3">
+              <div className="hover:bg-theme-accent-muted p-4 rounded-lg transition-colors">
+                <h3 className="text-xl text-theme-text-heading mb-3">Other Tools & Technologies</h3>
+                <p className="text-theme-text mb-3">
                   Additional skills and platforms
                 </p>
                 <div className="flex flex-wrap justify-center gap-6">
@@ -183,28 +183,28 @@ export default function AboutClient() {
             </div>
           </section>
 
-          <section id="contact" className="mb-8 border border-purple-900 p-6 rounded-lg bg-black/90 hover:bg-black/95 transition-colors text-center">
-            <h2 className="text-2xl font-semibold text-purple-300 mb-4">Contact</h2>
-            <p className="text-purple-200 mb-6">
+          <section id="contact" className="mb-8 border border-theme-border p-6 rounded-lg bg-theme-card hover:bg-theme-card-hover transition-colors text-center">
+            <h2 className="text-2xl font-semibold text-theme-text-heading mb-4">Contact</h2>
+            <p className="text-theme-text mb-6">
               I&apos;m always interested in new collaborations and creative projects. 
               Feel free to reach out for commissions, exhibitions, or just to say hello.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 justify-items-center mb-8">
               <button 
                 onClick={handleEmailClick}
-                className="relative flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-colors"
+                className="relative flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-theme-accent-muted hover:bg-theme-card-hover transition-colors"
               >
                 <FaEnvelope className="text-xl" />
                 <span>Email</span>
                 {showCopied && (
-                  <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-purple-900 text-purple-200 px-2 py-1 rounded text-sm whitespace-nowrap">
+                  <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-theme-accent-muted text-theme-text px-2 py-1 rounded text-sm whitespace-nowrap">
                     Email copied!
                   </span>
                 )}
               </button>
               <a 
                 href="https://instagram.com/raywretch" 
-                className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-colors"
+                className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-theme-accent-muted hover:bg-theme-card-hover transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -213,7 +213,7 @@ export default function AboutClient() {
               </a>
               <a 
                 href="https://github.com/raywretch" 
-                className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-colors"
+                className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-theme-accent-muted hover:bg-theme-card-hover transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -228,7 +228,7 @@ export default function AboutClient() {
         </div>
       </main>
 
-      <footer className="border-t border-purple-900 p-4 mt-8 bg-black/90 text-center">
+      <footer className="border-t border-theme-border p-4 mt-8 bg-theme-card text-center">
         <div className="container mx-auto">
           <p>©Ray Wretch 2024 - All Rights Reserved</p>
         </div>

@@ -28,13 +28,13 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="border-t border-purple-900 bg-black/90 backdrop-blur-sm">
+    <footer className="border-t border-theme-border bg-theme-card backdrop-blur-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="text-center">
-          <p className="text-purple-200">© EnWretched 2025 - All Rights Reserved</p>
+          <p className="text-theme-text">© EnWretched 2025 - All Rights Reserved</p>
           <div className="mt-2">
-            <span className="inline-block bg-purple-900 text-purple-100 px-3 py-1 rounded-full text-sm">
-              Visitors: {(visitorCount ?? 0).toLocaleString()}
+            <span className="inline-block bg-theme-accent-muted text-theme-text-heading px-3 py-1 rounded-full text-sm transition-all duration-500">
+              Unique visitors: {(visitorCount ?? 0).toLocaleString()}
             </span>
           </div>
         </div>

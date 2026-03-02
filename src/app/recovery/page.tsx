@@ -33,7 +33,7 @@ What I love most about this piece is how it invites interpretation. Some people 
   `.trim();
 
   return (
-    <div className="min-h-screen bg-slate-950 text-purple-200 font-mono">
+    <div className="min-h-screen bg-theme-page text-theme-text font-mono">
       <Header />
       
       <main className="container mx-auto px-4 py-8 mb-16">
@@ -41,7 +41,7 @@ What I love most about this piece is how it invites interpretation. Some people 
           {/* Back Link */}
           <Link 
             href="/gallery" 
-            className="inline-flex items-center gap-2 text-purple-200 hover:text-purple-100 transition-colors duration-200 group"
+            className="inline-flex items-center gap-2 text-theme-text hover:text-theme-text-heading transition-colors duration-200 group"
           >
             <span className="group-hover:-translate-x-1 transition-transform duration-200">←</span>
             <span>Back to Gallery</span>
@@ -49,7 +49,7 @@ What I love most about this piece is how it invites interpretation. Some people 
 
           {/* Hero Image Section - Glassmorphism Card */}
           <div className="relative w-full rounded-2xl overflow-hidden">
-            <div className="backdrop-blur-xl bg-slate-900/30 border border-purple-900/30 rounded-2xl p-6 shadow-2xl">
+            <div className="backdrop-blur-xl bg-slate-900/30 border border-theme-border rounded-2xl p-6 shadow-2xl">
               <div 
                 className="relative w-full aspect-[4/3] rounded-lg overflow-hidden cursor-pointer group"
                 onClick={() => setExpandedImage(true)}
@@ -72,16 +72,16 @@ What I love most about this piece is how it invites interpretation. Some people 
           </div>
 
           {/* Metadata Section - Transparent Card */}
-          <div className="backdrop-blur-xl bg-slate-900/30 border border-purple-900/30 rounded-2xl p-6 shadow-xl">
+          <div className="backdrop-blur-xl bg-slate-900/30 border border-theme-border rounded-2xl p-6 shadow-xl">
             <div className="space-y-4">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-purple-300 mb-2 bg-gradient-to-r from-purple-300 to-purple-200 bg-clip-text text-transparent">
+                <h1 className="text-4xl md:text-5xl font-bold text-theme-text-heading mb-2 bg-gradient-to-r from-theme-text-heading to-theme-text bg-clip-text text-transparent">
                   {artwork.title}
                 </h1>
-                <p className="text-purple-400 text-sm">{artwork.year}</p>
+                <p className="text-theme-text-muted text-sm">{artwork.year}</p>
               </div>
 
-              <p className="text-purple-200 leading-relaxed text-lg">
+              <p className="text-theme-text leading-relaxed text-lg">
                 {artwork.description}
               </p>
 
@@ -89,7 +89,7 @@ What I love most about this piece is how it invites interpretation. Some people 
                 {artwork.tags.map(tag => (
                   <span 
                     key={tag} 
-                    className="backdrop-blur-sm bg-purple-900/40 border border-purple-800/30 text-purple-200 px-4 py-2 rounded-full text-sm font-medium shadow-lg"
+                    className="backdrop-blur-sm bg-theme-accent-muted border border-theme-border text-theme-text px-4 py-2 rounded-full text-sm font-medium shadow-lg"
                   >
                     {tag}
                   </span>
@@ -99,12 +99,12 @@ What I love most about this piece is how it invites interpretation. Some people 
           </div>
 
           {/* Story Section - Transparent Card */}
-          <div className="backdrop-blur-xl bg-slate-900/30 border border-purple-900/30 rounded-2xl p-8 shadow-xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-purple-300 mb-6">
+          <div className="backdrop-blur-xl bg-slate-900/30 border border-theme-border rounded-2xl p-8 shadow-xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-theme-text-heading mb-6">
               The Story Behind Recovery
             </h2>
             <div className="prose prose-invert max-w-none">
-              <div className="text-purple-200 leading-relaxed space-y-4 text-lg">
+              <div className="text-theme-text leading-relaxed space-y-4 text-lg">
                 {storyContent.split('\n').map((line, index) => {
                   if (line.trim()) {
                     return (
@@ -132,7 +132,7 @@ What I love most about this piece is how it invites interpretation. Some people 
             className="relative w-full max-w-6xl h-full max-h-[90vh] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="backdrop-blur-xl bg-slate-900/20 border border-purple-900/20 rounded-2xl p-4 shadow-2xl">
+            <div className="backdrop-blur-xl bg-theme-accent-muted border border-theme-border rounded-2xl p-4 shadow-2xl">
               <Image
                 src={artwork.imageUrl}
                 alt={artwork.title}
@@ -143,7 +143,7 @@ What I love most about this piece is how it invites interpretation. Some people 
               />
             </div>
             <button 
-              className="absolute top-4 right-4 text-purple-200 hover:text-purple-100 text-3xl font-bold p-3 backdrop-blur-sm bg-black/50 hover:bg-black/70 rounded-full transition-colors duration-200 shadow-lg"
+              className="absolute top-4 right-4 text-theme-text hover:text-theme-text-heading text-3xl font-bold p-3 backdrop-blur-sm bg-black/50 hover:bg-black/70 rounded-full transition-colors duration-200 shadow-lg"
               onClick={(e) => {
                 e.stopPropagation();
                 setExpandedImage(false);

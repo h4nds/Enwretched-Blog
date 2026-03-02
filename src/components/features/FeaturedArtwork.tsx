@@ -51,11 +51,11 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
       aria-label={hasDedicatedPage ? `View ${artwork.title} story` : 'Expand image'}
     >
         {isLoading && (
-          <div className="absolute inset-0 bg-purple-900/20 animate-pulse" />
+          <div className="absolute inset-0 bg-theme-accent-muted animate-pulse" />
         )}
         {error ? (
-          <div className="absolute inset-0 flex items-center justify-center bg-purple-900/20">
-            <span className="text-purple-300">Image not available</span>
+          <div className="absolute inset-0 flex items-center justify-center bg-theme-accent-muted">
+            <span className="text-theme-text-heading">Image not available</span>
           </div>
         ) : (
           <>
@@ -79,7 +79,7 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
                   <button
                     key={index}
                     className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentImageIndex ? 'bg-purple-300' : 'bg-purple-900'
+                      index === currentImageIndex ? 'bg-theme-accent' : 'bg-theme-accent-muted'
                     }`}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -104,7 +104,7 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
   );
 
   return (
-    <div className="border border-purple-900 p-4 bg-slate-900/20">
+    <div className="border border-theme-border p-4 bg-theme-accent-muted">
       {imageContent}
       {isExpanded && (
         <div 
@@ -127,7 +127,7 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
             {images.length > 1 && (
               <>
                 <button 
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-200 hover:text-purple-100 p-3 rounded-full bg-black/70 text-2xl font-bold"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-theme-text hover:text-theme-text-heading p-3 rounded-full bg-black/70 text-2xl font-bold"
                   onClick={(e) => {
                     e.stopPropagation();
                     prevImage();
@@ -136,7 +136,7 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
                   ←
                 </button>
                 <button 
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-purple-200 hover:text-purple-100 p-3 rounded-full bg-black/70 text-2xl font-bold"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-theme-text hover:text-theme-text-heading p-3 rounded-full bg-black/70 text-2xl font-bold"
                   onClick={(e) => {
                     e.stopPropagation();
                     nextImage();
@@ -147,7 +147,7 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
               </>
             )}
             <button 
-              className="absolute top-4 right-4 text-purple-200 hover:text-purple-100 text-3xl font-bold p-2"
+              className="absolute top-4 right-4 text-theme-text hover:text-theme-text-heading text-3xl font-bold p-2"
               onClick={(e) => {
                 e.stopPropagation();
                 setIsExpanded(false);
@@ -160,13 +160,13 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
       )}
       {hasDedicatedPage ? (
         <Link href={artworkLink!}>
-          <h4 className="text-lg mb-2 text-purple-300 hover:text-purple-200 transition-colors">{artwork.title}</h4>
+          <h4 className="text-lg mb-2 text-theme-text-heading hover:text-theme-text transition-colors">{artwork.title}</h4>
           <p className="text-sm mb-2">{artwork.description}</p>
           <div className="text-xs">Created: {artwork.createdAt}</div>
         </Link>
       ) : (
         <>
-          <h4 className="text-lg mb-2 text-purple-300">{artwork.title}</h4>
+          <h4 className="text-lg mb-2 text-theme-text-heading">{artwork.title}</h4>
           <p className="text-sm mb-2">{artwork.description}</p>
           <div className="text-xs">Created: {artwork.createdAt}</div>
         </>
