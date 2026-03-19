@@ -34,7 +34,7 @@ export default function Footer() {
           <p className="text-theme-text">© EnWretched 2025 - All Rights Reserved</p>
           <div className="mt-2">
             <span className="inline-block bg-theme-accent-muted text-theme-text-heading px-3 py-1 rounded-full text-sm transition-all duration-500">
-              Unique visitors: {(visitorCount ?? 0).toLocaleString()}
+              visitors: {(visitorCount ?? 0).toLocaleString()}
             </span>
           </div>
         </div>
