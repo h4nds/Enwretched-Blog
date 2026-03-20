@@ -8,8 +8,10 @@ export default function NewsTicker() {
         <span className="text-theme-text-muted">•</span>
         <span className="mx-6 text-theme-text-heading font-medium">Student art work will be added to the gallery soon!</span>
         <span className="text-theme-text-muted">•</span>
-        <span className="mx-6 text-theme-text-heading font-medium">New Themes now Available!</span>
+        <span className="mx-6 text-theme-text-heading font-medium">Forum well under construction</span>
+        <span className="text-theme-text-muted">•</span>
+        <span className="mx-6 text-theme-text-heading font-medium">New themes now available!</span>
       </div>
     </div>
   );
-} 
+}
