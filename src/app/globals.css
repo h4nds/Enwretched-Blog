@@ -68,6 +68,32 @@
   --theme-accent-muted: rgba(29, 205, 159, 0.3);
 }
 
+/* Crimson / ritual — high contrast on near-black */
+[data-theme="corruption"] {
+  --theme-bg-page: #0c0408;
+  --theme-text: #fecdd3;
+  --theme-text-heading: #fb7185;
+  --theme-text-muted: #9f1239;
+  --theme-border: #881337;
+  --theme-card: rgba(30, 10, 18, 0.92);
+  --theme-card-hover: rgba(50, 15, 28, 0.96);
+  --theme-accent: #e11d48;
+  --theme-accent-muted: rgba(190, 18, 60, 0.28);
+}
+
+/* Deep blue / midnight — cool counterpart to Enwretched purple */
+[data-theme="void"] {
+  --theme-bg-page: #020617;
+  --theme-text: #cbd5e1;
+  --theme-text-heading: #7aa6a3;
+  --theme-text-muted: #64748b;
+  --theme-border: #1e3a5f;
+  --theme-card: rgba(15, 23, 42, 0.92);
+  --theme-card-hover: rgba(30, 41, 59, 0.96);
+  --theme-accent: #2c6078;
+  --theme-accent-muted: rgba(0, 0, 0, 0.22);
+}
+
 [data-theme="mirrors"] .bg-theme-card {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);

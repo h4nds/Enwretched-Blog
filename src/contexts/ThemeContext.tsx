@@ -1,17 +1,20 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import {
+  THEME_IDS,
+  THEME_LABELS,
+  type ThemeId,
+} from "@/constants/themes";
 
 export const THEME_STORAGE_KEY = "enwretched_theme";
 
-export type ThemeId = "enwretched" | "mirrors" | "mono" | "ember";
+export type { ThemeId };
 
-const THEMES: { id: ThemeId; label: string }[] = [
-  { id: "enwretched", label: "Enwretched" },
-  { id: "mirrors", label: "Mirrors" },
-  { id: "mono", label: "Mono" },
-  { id: "ember", label: "Green" },
-];
+const THEMES: { id: ThemeId; label: string }[] = THEME_IDS.map((id) => ({
+  id,
+  label: THEME_LABELS[id],
+}));
 
 type ThemeContextValue = {
   theme: ThemeId;
@@ -27,7 +30,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const stored = localStorage.getItem(THEME_STORAGE_KEY);
-    if (stored && THEMES.some((t) => t.id === stored)) {
+    if (stored && THEME_IDS.includes(stored as ThemeId)) {
       setThemeState(stored as ThemeId);
       document.documentElement.setAttribute("data-theme", stored);
     }

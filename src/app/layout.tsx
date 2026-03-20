@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, Cinzel, Cormorant_Garamond } from "next/font/g
 import "./globals.css";
 import PerformanceOptimizer from "@/components/seo/PerformanceOptimizer";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { THEME_IDS } from "@/constants/themes";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -132,7 +133,7 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem("enwretched_theme")||"enwretched";document.documentElement.setAttribute("data-theme",t);})();`,
+            __html: `(function(){var a=${JSON.stringify([...THEME_IDS])};var k="enwretched_theme";var t=localStorage.getItem(k)||"enwretched";if(a.indexOf(t)<0)t="enwretched";document.documentElement.setAttribute("data-theme",t);})();`,
           }}
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />

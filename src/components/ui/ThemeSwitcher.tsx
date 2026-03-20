@@ -8,6 +8,8 @@ const themePreview: Record<ThemeId, { bg: string; label: string }> = {
   mirrors: { bg: "bg-white/10 backdrop-blur", label: "Mirrors" },
   mono: { bg: "bg-stone-600", label: "Mono" },
   ember: { bg: "bg-emerald-600", label: "Green" },
+  corruption: { bg: "bg-rose-700", label: "Corruption" },
+  void: { bg: "bg-sky-600", label: "Void" },
 };
 
 export default function ThemeSwitcher() {

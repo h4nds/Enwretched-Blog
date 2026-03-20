@@ -162,6 +162,8 @@ function HeaderThemeSwitcher() {
     mirrors: "bg-sky-200",
     mono: "bg-stone-400",
     ember: "bg-emerald-500",
+    corruption: "bg-rose-600",
+    void: "bg-sky-500",
   };
 
   return (
