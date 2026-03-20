@@ -130,3 +130,27 @@ body {
 .animate-marquee {
   animation: marquee 20s linear infinite;
 }
+
+/* Home: subtle entrance — avoids “static wall” feel */
+@keyframes home-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-reveal {
+  animation: home-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -20,3 +20,13 @@ export const THEME_LABELS: Record<ThemeId, string> = {
   corruption: "Corruption",
   void: "Void",
 };
+
+/** Header logo art per theme (`public/images/sitelogos/`) */
+export const THEME_LOGO_SRC: Record<ThemeId, string> = {
+  enwretched: "/images/sitelogos/enwtch-purple.png",
+  mirrors: "/images/sitelogos/enwtch-clear.png",
+  mono: "/images/sitelogos/enwtch-mono.png",
+  ember: "/images/sitelogos/enwtch-green.png",
+  corruption: "/images/sitelogos/enwtch-red.png",
+  void: "/images/sitelogos/enwtch-blue.png",
+};

@@ -59,7 +59,10 @@ export default function Header() {
                   leaveFrom="opacity-100 translate-y-0 scale-100"
                   leaveTo="opacity-0 translate-y-1 scale-95"
                 >
-                  <Menu.Items className="header-menu-panel absolute right-0 mt-2 w-80 origin-top-right rounded-lg border border-theme-border bg-theme-card shadow-lg focus:outline-none">
+                  <Menu.Items
+                    anchor={{ to: "bottom end", gap: 13, offset: 6.5 }}
+                    className="header-menu-panel absolute w-80 origin-top-right rounded-lg border border-theme-border bg-theme-card shadow-lg focus:outline-none"
+                  >
                     <div className="py-2">
                       {navLinks.map((link) => (
                         <Menu.Item key={link.href}>

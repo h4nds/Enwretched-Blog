@@ -16,4 +16,8 @@ export interface Artwork {
 
 export interface FeaturedArtworkProps {
   artwork: Artwork;
+  /** Merged onto the root card wrapper (e.g. grid column spans). */
+  className?: string;
+  /** First visible image LCP hint (home hero piece). */
+  imagePriority?: boolean;
 } 

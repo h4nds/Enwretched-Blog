@@ -1,285 +1,435 @@
 "use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import Header from '@/components/layout/Header';
-import NewsTicker from '@/components/ui/NewsTicker';
-import FeaturedArtwork from '@/components/features/FeaturedArtwork';
-import BlogPost from '@/components/features/BlogPost';
-import Footer from '@/components/layout/Footer';
-import SplashScreen from '@/components/features/SplashScreen';
-import { Artwork } from '@/types/artwork';
-import { blogPosts } from '@/data/blogPosts';
-import Link from 'next/link';
+import { useState, useEffect, useCallback } from "react";
+import Header from "@/components/layout/Header";
+import NewsTicker from "@/components/ui/NewsTicker";
+import FeaturedArtwork from "@/components/features/FeaturedArtwork";
+import BlogPost from "@/components/features/BlogPost";
+import Footer from "@/components/layout/Footer";
+import SplashScreen from "@/components/features/SplashScreen";
+import { Artwork } from "@/types/artwork";
+import { blogPosts } from "@/data/blogPosts";
+import Link from "next/link";
 
 const featuredArtworks: Artwork[] = [
   {
-    id: '1',
-    title: 'Follow The Notes',
-    description: 'This surreal, dreamlike piece on a mysterious woman in white entering a reflective river, her spine-like laced in a cursed Tattoo suggesting transformation of self. The lush environment blends natural elements with modern touches like glowing windows and graffiti on ancient stones.',
+    id: "1",
+    title: "Follow The Notes",
+    description:
+      "This surreal, dreamlike piece on a mysterious woman in white entering a reflective river, her spine-like laced in a cursed Tattoo suggesting transformation of self. The lush environment blends natural elements with modern touches like glowing windows and graffiti on ancient stones.",
     images: [
       {
-        url: '/images/showcase/follow-the-notes.jpg',
-        alt: 'Follow The Notes - Main View',
-        isPrimary: true
-      }
+        url: "/images/showcase/follow-the-notes.jpg",
+        alt: "Follow The Notes - Main View",
+        isPrimary: true,
+      },
     ],
-    createdAt: '2024',
-    tags: ['surreal', 'digital', 'nature']
+    createdAt: "2024",
+    tags: ["surreal", "digital", "nature"],
   },
   {
-    id: '2',
-    title: 'Ten',
-    description: 'Mixed media piece curated orginally from a photograph i took of the waterside of a river in the woods with my partner.',
+    id: "2",
+    title: "Ten",
+    description:
+      "Mixed media piece curated orginally from a photograph i took of the waterside of a river in the woods with my partner.",
     images: [
       {
-        url: '/images/showcase/ten.jpg',
-        alt: 'Ten - Main View',
-        isPrimary: true
-      }
+        url: "/images/showcase/ten.jpg",
+        alt: "Ten - Main View",
+        isPrimary: true,
+      },
     ],
-    createdAt: '2024',
-    tags: ['mixed-media', 'photography', 'nature']
+    createdAt: "2024",
+    tags: ["mixed-media", "photography", "nature"],
   },
   {
-    id: '3',
-    title: '435 Hz',
-    description: 'This piece explores the intensity and distortion of sensory overload—especially sound. I wanted to capture what it feels like to be immersed in heavy bass, noise, and movement, rather than just show it. The image centers around abstracted figures and bursts of color that feel like they\'re both forming and dissolving at the same time.',
+    id: "3",
+    title: "435 Hz",
+    description:
+      "This piece explores the intensity and distortion of sensory overload—especially sound. I wanted to capture what it feels like to be immersed in heavy bass, noise, and movement, rather than just show it. The image centers around abstracted figures and bursts of color that feel like they're both forming and dissolving at the same time.",
     images: [
       {
-        url: '/images/showcase/435-hz.jpg',
-        alt: '435 Hz - Main View',
-        isPrimary: true
-      }
+        url: "/images/showcase/435-hz.jpg",
+        alt: "435 Hz - Main View",
+        isPrimary: true,
+      },
     ],
-    createdAt: '2025',
-    tags: ['abstract', 'digital', 'experimental']
+    createdAt: "2025",
+    tags: ["abstract", "digital", "experimental"],
   },
   {
-    id: '4',
-    title: 'Recovery',
-    description: 'This piece explores nature\'s quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.',
+    id: "4",
+    title: "Recovery",
+    description:
+      "This piece explores nature's quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.",
     images: [
       {
-        url: '/images/showcase/recovery.jpg',
-        alt: 'Recovery - Main View',
-        isPrimary: true
-      }
+        url: "/images/showcase/recovery.jpg",
+        alt: "Recovery - Main View",
+        isPrimary: true,
+      },
     ],
-    createdAt: '2024',
-    tags: ['nature', 'photography', 'surreal']
-  }
+    createdAt: "2024",
+    tags: ["nature", "photography", "surreal"],
+  },
+];
+
+function featuredGridClass(index: number): string {
+  if (index === 0) return "md:col-span-4";
+  if (index === 1) return "md:col-span-2";
+  return "md:col-span-3";
+}
+
+const skillTags = [
+  "Photoshop Raster & Vector",
+  "Photography",
+  "Mixed Media",
+  "Surrealism",
+  "Tattoo",
+  "Experimentalism",
 ];
 
 export default function Home() {
-  const [showSplash, setShowSplash] = useState(true); // Start with splash visible
+  const [showSplash, setShowSplash] = useState(true);
   const [isContentVisible, setIsContentVisible] = useState(false);
   const recentBlogPosts = blogPosts.slice(0, 3);
+  const sidebarPosts = blogPosts.slice(0, 6);
+  const latest = blogPosts[0];
 
   useEffect(() => {
-    // Check if splash has been shown this session
-    if (typeof window !== 'undefined') {
-      const splashShown = sessionStorage.getItem('splashShown');
+    if (typeof window !== "undefined") {
+      const splashShown = sessionStorage.getItem("splashShown");
       if (splashShown) {
-        // If splash was already shown, hide it immediately and show content
         setShowSplash(false);
         setIsContentVisible(true);
       }
-      // If splashShown is null, keep splash visible (default state)
     }
   }, []);
 
   const handleSplashComplete = useCallback(() => {
     setShowSplash(false);
-    setTimeout(() => {
-      setIsContentVisible(true);
-    }, 100);
-    if (typeof window !== 'undefined') {
-      sessionStorage.setItem('splashShown', 'true');
+    setTimeout(() => setIsContentVisible(true), 100);
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("splashShown", "true");
     }
   }, []);
 
   return (
     <div className="min-h-screen bg-theme-page text-theme-text font-mono">
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
-      
-      <div className={`transition-opacity duration-500 ${isContentVisible ? 'opacity-100' : 'opacity-0'}`}>
+
+      <div
+        className={`transition-opacity duration-500 ${isContentVisible ? "opacity-100" : "opacity-0"}`}
+      >
         <Header />
         <NewsTicker />
 
-        <main className="container mx-auto px-4 py-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Welcome section */}
-            <div className="md:col-span-2 border border-theme-border p-4 sm:p-6 bg-theme-card rounded-lg">
-              <div className="space-y-4">
-                <div>
-                  <h2 className="text-xl sm:text-2xl mb-3 text-theme-text-heading">Welcome...</h2>
-                  <p className="text-sm sm:text-base text-theme-text leading-relaxed">
-                    I&apos;m Ray Wretch, a Professional Graphic Designer, Digital Artist, exploring the intersection of surrealism, nature, and experimental techniques. My work ranges from digital art to photography and mixed media, often incorporating elements of transformation and dreamlike qualities.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="border border-theme-border p-3 rounded-lg bg-theme-accent-muted">
-                    <h3 className="text-theme-text-heading mb-2">Current Focus</h3>
-                    <ul className="space-y-2 text-sm text-theme-text">
-                      <li>• Surreal Digital Art</li>
-                      <li>• Nature Photography</li>
-                      <li>• Mixed Media</li>
-                      <li>• Digital Illustration</li>
-                    </ul>
-                  </div>
-
-                  <div className="border border-theme-border p-3 rounded-lg bg-theme-accent-muted">
-                    <h3 className="text-theme-text-heading mb-2">Connect</h3>
-                    <ul className="space-y-2 text-sm text-theme-text">
-                      <li>• Instagram: @raywretch</li>
-                      <li>• Email: wretchray@gmail.com</li>
-                      <li>• Commissions: <b>Open</b></li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  <span className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm">Photoshop Raster & Vector</span>
-                  <span className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm">Photography</span>
-                  <span className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm">Mixed Media</span>
-                  <span className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm">Surreallism</span>
-                  <span className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm">Nature</span>
-                  <span className="bg-theme-accent-muted text-theme-text px-3 py-1 rounded-full text-sm">Experimentalism</span>
-                </div>
-
-                {/* Latest Work Section */}
-                <div className="bg-theme-accent-muted border border-theme-border p-3 rounded-lg">
-                  <h3 className="text-lg sm:text-xl text-theme-text-heading mb-2">Latest Work</h3>
-                  <div className="flex flex-col gap-3 text-sm">
-                    <div className="flex items-center gap-2 text-theme-text">
-                      <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                      <span className="truncate">New: {blogPosts[0].title}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-theme-text">
-                      <span>📊</span>
-                      <span>Gallery Updated: 4 New Pieces</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
+        <main>
+          {/* Hero — breaks the “all boxes” grid */}
+          <section className="relative overflow-hidden border-b border-theme-border">
+            <div
+              className="pointer-events-none absolute inset-0 opacity-40"
+              aria-hidden
+            >
+              <div className="absolute -left-1/4 top-0 h-96 w-[70%] rounded-full bg-theme-accent-muted blur-3xl" />
+              <div className="absolute -right-1/4 bottom-0 h-64 w-1/2 rounded-full bg-theme-accent/20 blur-3xl" />
             </div>
-
-            {/* Sidebar */}
-            <div className="space-y-6">
-              {/* Post Board */}
-              <div className="border border-theme-border p-4 bg-theme-card rounded-lg">
-                <h3 className="text-lg sm:text-xl mb-4 text-theme-text-heading">Post Board</h3>
-                <ul className="space-y-2">
-                  {blogPosts.map(post => (
-                    <li key={post.id} className="hover:text-theme-text-heading cursor-pointer">
-                      <Link href={`/blog/${post.id}`} className="block truncate">
-                        {post.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Updates Bar */}
-              <div className="border border-theme-border p-4 bg-theme-card rounded-lg">
-                <h3 className="text-lg sm:text-xl mb-4 text-theme-text-heading">Updates</h3>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-2">
-                    <span className="text-theme-text-heading">•</span>
-                    <p className="text-sm text-theme-text">New blog post: {blogPosts[0].title}</p>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-theme-text-heading">•</span>
-                    <p className="text-sm text-theme-text">New Flyer Work Added to the Gallery</p>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-theme-text-heading">•</span>
-                    <p className="text-sm text-theme-text">New Solo Project in the works</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Contact Section */}
-              <div className="border border-theme-border p-4 bg-theme-card">
-                <h3 className="text-xl mb-4 text-theme-text-heading">Get in Touch</h3>
-                <p className="text-sm text-theme-text mb-4">
-                  Interested in commissions or collaborations? I&apos;d love to hear from you.
-                </p>
-                <Link 
-                  href="/about"
-                  className="block w-full bg-theme-accent-muted hover:bg-theme-card-hover text-theme-text py-2 px-4 rounded transition-colors duration-200 text-center"
-                >
-                  Contact Me
-                </Link>
-              </div>
-            </div>
-
-            {/* Featured Artworks */}
-            <div className="md:col-span-3 border border-theme-border p-4 mt-4 bg-theme-card">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl text-theme-text-heading">Featured Artworks</h3>
-                <Link 
+            <div
+              className="home-reveal relative mx-auto max-w-6xl px-4 py-12 md:py-16 lg:py-20"
+              style={{ animationDelay: "40ms" }}
+            >
+              <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.28em] text-theme-text-muted">
+                Graphic design · Digital art · Full-stack
+              </p>
+              <h1 className="font-cormorant text-4xl font-semibold leading-[1.05] text-theme-text-heading md:text-6xl lg:text-7xl">
+                Enwretched
+              </h1>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-theme-text md:text-lg">
+                I work at the intersection of{" "}
+                <span className="text-theme-text-heading">surrealism</span>,{" "}
+                <span className="text-theme-text-heading">nature</span>, and{" "}
+                <span className="text-theme-text-heading">experimental</span>{" "}
+                media—digital pieces, photography, and mixed work with a
+                dreamlike edge.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link
                   href="/gallery"
-                  className="text-theme-text hover:text-theme-text-heading transition-colors duration-200 flex items-center gap-2"
+                  className="inline-flex items-center justify-center rounded-full bg-theme-accent px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-black/20 transition hover:opacity-90"
                 >
-                  See More
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    className="h-4 w-4" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M9 5l7 7-7 7" 
-                    />
-                  </svg>
+                  View gallery
+                </Link>
+                <Link
+                  href="/blog"
+                  className="inline-flex items-center justify-center rounded-full border border-theme-border bg-theme-card/60 px-6 py-2.5 text-sm text-theme-text-heading backdrop-blur-sm transition hover:border-theme-accent/50 hover:bg-theme-accent-muted/40"
+                >
+                  Read the log
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center text-sm text-theme-text-muted underline-offset-4 transition hover:text-theme-text-heading hover:underline"
+                >
+                  Commissions open
                 </Link>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {featuredArtworks.map((artwork) => (
-                  <FeaturedArtwork key={artwork.id} artwork={artwork} />
+            </div>
+          </section>
+
+          <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+            <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+              {/* Main column */}
+              <div className="space-y-12 lg:col-span-7">
+                <section
+                  className="home-reveal border-l-2 border-theme-accent pl-6 md:pl-8"
+                  style={{ animationDelay: "120ms" }}
+                >
+                  <h2 className="font-cormorant text-2xl text-theme-text-heading md:text-3xl">
+                    About my practice
+                  </h2>
+                  <p className="mt-4 text-sm leading-relaxed text-theme-text md:text-base">
+                    Heyy I&apos;m Ray Wretch—a graphic designer and digital artist
+                    building tools and visuals with the same curiosity I bring
+                    to a canvas or a camera. This site is part portfolio, part
+                    blog: my process, client work, and experiments all live here
+                    together.
+                  </p>
+                </section>
+
+                <section
+                  className="home-reveal grid gap-4 sm:grid-cols-2"
+                  style={{ animationDelay: "200ms" }}
+                >
+                  <div className="rounded-2xl border border-theme-border/80 bg-theme-card/40 p-5 backdrop-blur-sm transition hover:border-theme-accent/30">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-theme-text-muted">
+                      Current focus
+                    </h3>
+                    <ul className="mt-3 space-y-2 text-sm text-theme-text">
+                      <li>Surreal digital art</li>
+                      <li>Nature photography</li>
+                      <li>Mixed media</li>
+                      <li>Digital illustration</li>
+                    </ul>
+                  </div>
+                  <div className="rounded-2xl border border-theme-border/80 bg-theme-card/40 p-5 backdrop-blur-sm transition hover:border-theme-accent/30">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-theme-text-muted">
+                      Connect
+                    </h3>
+                    <ul className="mt-3 space-y-2 text-sm text-theme-text">
+                      <li>
+                        Instagram:{" "}
+                        <span className="text-theme-text-heading">
+                          @raywretch
+                        </span>
+                      </li>
+                      <li>
+                        Email:{" "}
+                        <span className="text-theme-text-heading">
+                          wretchray@gmail.com
+                        </span>
+                      </li>
+                      <li>
+                        Commissions:{" "}
+                        <span className="font-semibold text-theme-text-heading">
+                          Open
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+
+                <section
+                  className="home-reveal flex flex-wrap gap-2"
+                  style={{ animationDelay: "280ms" }}
+                >
+                  {skillTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-theme-border/60 bg-theme-accent-muted/30 px-3 py-1 text-xs text-theme-text transition hover:border-theme-accent/40"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </section>
+
+                <section
+                  className="home-reveal flex flex-col gap-4 rounded-2xl border border-dashed border-theme-border/70 bg-gradient-to-br from-theme-accent-muted/25 to-transparent p-5 sm:flex-row sm:items-center sm:justify-between"
+                  style={{ animationDelay: "360ms" }}
+                >
+                  <div className="flex items-start gap-3">
+                    <span
+                      className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-emerald-400 animate-pulse"
+                      aria-hidden
+                    />
+                    <div>
+                      <p className="text-xs uppercase tracking-wider text-theme-text-muted">
+                        Latest on the blog
+                      </p>
+                      <Link
+                        href={`/blog/${latest.id}`}
+                        className="mt-1 block font-medium text-theme-text-heading hover:underline"
+                      >
+                        {latest.title}
+                      </Link>
+                    </div>
+                  </div>
+                  <Link
+                    href="/gallery"
+                    className="shrink-0 text-sm text-theme-text-muted hover:text-theme-text-heading"
+                  >
+                    Gallery always updating →
+                  </Link>
+                </section>
+              </div>
+
+              {/* Sidebar — timeline + posts, fewer stacked boxes */}
+              <aside
+                className="home-reveal space-y-8 lg:col-span-5"
+                style={{ animationDelay: "180ms" }}
+              >
+                <div>
+                  <h2 className="font-cormorant text-xl text-theme-text-heading md:text-2xl">
+                    Studio feed
+                  </h2>
+                  <p className="mt-1 text-xs text-theme-text-muted">
+                    Notes and posts—newest first.
+                  </p>
+                  <ul className="relative mt-6 space-y-0 border-l border-theme-border/80 pl-5">
+                    <li className="relative pb-6">
+                      <span className="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-theme-page bg-theme-accent" />
+                      <p className="text-xs uppercase tracking-wider text-theme-text-muted">
+                        Update
+                      </p>
+                      <p className="mt-1 text-sm text-theme-text">
+                        New blog:{" "}
+                        <Link
+                          href={`/blog/${latest.id}`}
+                          className="text-theme-text-heading hover:underline"
+                        >
+                          {latest.title}
+                        </Link>
+                      </p>
+                    </li>
+                    <li className="relative pb-6">
+                      <span className="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-theme-page bg-theme-text-muted" />
+                      <p className="text-sm text-theme-text">
+                        Flyer work added to the gallery.
+                      </p>
+                    </li>
+                    <li className="relative">
+                      <span className="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-theme-page bg-theme-text-muted" />
+                      <p className="text-sm text-theme-text">
+                        Solo project in progress.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="rounded-2xl border border-theme-border/80 bg-theme-card/30 p-5 backdrop-blur-sm">
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-theme-text-muted">
+                      Post board
+                    </h3>
+                    <Link
+                      href="/blog"
+                      className="text-xs text-theme-text-heading hover:underline"
+                    >
+                      All posts
+                    </Link>
+                  </div>
+                  <ul className="mt-4 space-y-2.5">
+                    {sidebarPosts.map((post) => (
+                      <li key={post.id}>
+                        <Link
+                          href={`/blog/${post.id}`}
+                          className="block text-sm text-theme-text transition hover:translate-x-0.5 hover:text-theme-text-heading"
+                        >
+                          {post.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="rounded-2xl border border-theme-accent/30 bg-theme-accent-muted/20 p-6 text-center">
+                  <p className="text-sm text-theme-text">
+                    Commissions or collabs? Say hi.
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-theme-accent py-3 text-sm font-semibold text-white transition hover:opacity-90"
+                  >
+                    Contact
+                  </Link>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          {/* Featured — bento-style grid */}
+          <section className="border-y border-theme-border bg-theme-accent-muted/15 py-12 md:py-16">
+            <div
+              className="home-reveal mx-auto max-w-6xl px-4"
+              style={{ animationDelay: "100ms" }}
+            >
+              <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-theme-text-muted">
+                    Selected work
+                  </p>
+                  <h2 className="mt-2 font-cormorant text-3xl text-theme-text-heading md:text-4xl">
+                    Featured artworks
+                  </h2>
+                </div>
+                <Link
+                  href="/gallery"
+                  className="inline-flex items-center gap-2 text-sm text-theme-text-heading transition hover:gap-3"
+                >
+                  Full gallery
+                  <span aria-hidden>→</span>
+                </Link>
+              </div>
+              <div className="grid grid-cols-1 gap-5 md:grid-cols-6">
+                {featuredArtworks.map((artwork, index) => (
+                  <FeaturedArtwork
+                    key={artwork.id}
+                    artwork={artwork}
+                    className={`rounded-2xl ${featuredGridClass(index)}`}
+                    imagePriority={index === 0}
+                  />
                 ))}
               </div>
             </div>
-          </div>
+          </section>
 
-          {/* Latest Blog Posts Section */}
-          <div className="mt-8 border border-theme-border p-4 bg-theme-card rounded-lg">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-              <h3 className="text-lg sm:text-xl text-theme-text-heading">Latest Blog Posts</h3>
-              <Link 
+          {/* Blog strip */}
+          <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+            <div
+              className="home-reveal mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center"
+              style={{ animationDelay: "80ms" }}
+            >
+              <h2 className="font-cormorant text-2xl text-theme-text-heading md:text-3xl">
+                Latest from the blog
+              </h2>
+              <Link
                 href="/blog"
-                className="text-theme-text hover:text-theme-text-heading transition-colors duration-200 flex items-center gap-2"
+                className="inline-flex items-center gap-2 text-sm text-theme-text-muted hover:text-theme-text-heading"
               >
-                View All Posts
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  className="h-4 w-4" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={6} 
-                    d="M9 5l7 7-7 7" 
-                  />
-                </svg>
+                View all
+                <span aria-hidden>→</span>
               </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {recentBlogPosts.map((post) => (
-                <BlogPost key={post.id} post={post} />
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {recentBlogPosts.map((post, i) => (
+                <div
+                  key={post.id}
+                  className="home-reveal"
+                  style={{ animationDelay: `${120 + i * 70}ms` }}
+                >
+                  <BlogPost post={post} />
+                </div>
               ))}
             </div>
-          </div>
+          </section>
         </main>
 
         <Footer />

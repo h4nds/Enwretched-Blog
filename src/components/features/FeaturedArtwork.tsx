@@ -6,7 +6,11 @@ import { useRouter } from 'next/navigation';
 import { FeaturedArtworkProps } from '@/types/artwork';
 import { useState } from 'react';
 
-export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
+export default function FeaturedArtwork({
+  artwork,
+  className = "",
+  imagePriority = false,
+}: FeaturedArtworkProps) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -63,6 +67,7 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
               src={currentImage.url}
               alt={currentImage.alt}
               fill
+              priority={imagePriority}
               className={`object-cover transition-all duration-300 ${
                 isLoading ? 'opacity-0' : 'opacity-100'
               } group-hover:scale-105`}
@@ -104,7 +109,9 @@ export default function FeaturedArtwork({ artwork }: FeaturedArtworkProps) {
   );
 
   return (
-    <div className="border border-theme-border p-4 bg-theme-accent-muted">
+    <div
+      className={`border border-theme-border p-4 bg-theme-accent-muted transition-all duration-300 hover:border-theme-accent/50 hover:shadow-lg hover:shadow-black/20 ${className}`.trim()}
+    >
       {imageContent}
       {isExpanded && (
         <div 
