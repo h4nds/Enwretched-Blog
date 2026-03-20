@@ -167,7 +167,7 @@ function HeaderThemeSwitcher() {
   };
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2" role="group" aria-label="Themes">
       {themes.map((t) => {
         const isActive = theme === t.id;
         return (
@@ -175,17 +175,16 @@ function HeaderThemeSwitcher() {
             key={t.id}
             type="button"
             onClick={() => setTheme(t.id)}
-            className={`flex items-center gap-2 rounded-md px-2.5 py-1.5 text-xs transition-all transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 focus:ring-offset-theme-page ${
-              isActive
-                ? "bg-theme-accent-muted text-theme-text-heading ring-1 ring-theme-accent"
-                : "bg-theme-accent-muted/50 text-theme-text hover:bg-theme-accent-muted"
+            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 focus:ring-offset-theme-page ${
+              isActive ? "ring-2 ring-theme-accent ring-offset-2 ring-offset-theme-page" : ""
             }`}
             aria-pressed={isActive}
-            aria-label={`Use ${t.label} theme`}
+            aria-label={`${t.label} theme`}
             title={t.label}
           >
-            <span className={`h-3 w-3 rounded-full ${dotClasses[t.id] ?? "bg-white/40"}`} />
-            <span>{t.label}</span>
+            <span
+              className={`h-5 w-5 rounded-full ${dotClasses[t.id] ?? "bg-white/40"} ${isActive ? "ring-2 ring-theme-border ring-offset-1 ring-offset-transparent" : ""}`}
+            />
           </button>
         );
       })}
