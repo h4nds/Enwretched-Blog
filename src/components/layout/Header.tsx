@@ -36,15 +36,15 @@ export default function Header() {
       className="border-b border-theme-border bg-theme-card sticky top-0 z-50"
     >
       {({ open }) => (
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex justify-between items-center relative">
+        <div className="container mx-auto max-w-full px-3 sm:px-4 py-2.5 sm:py-3">
+          <div className="flex min-w-0 justify-between items-center gap-2 relative">
             <Logo />
 
-            <div className="flex items-center gap-3">
+            <div className="flex shrink-0 items-center gap-2 sm:gap-3">
               {/* Desktop dropdown menu */}
               <Menu as="div" className="hidden md:block relative text-left">
                 <div>
-                  <Menu.Button className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-theme-text hover:text-theme-text-heading hover:bg-theme-accent-muted focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 focus:ring-offset-theme-page transition-colors">
+                  <Menu.Button className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-theme-text hover:text-theme-text-heading hover:bg-theme-accent-muted focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 focus:ring-offset-theme-page transition-colors touch-manipulation">
                     Menu
                     <span aria-hidden="true">▾</span>
                   </Menu.Button>
@@ -94,7 +94,7 @@ export default function Header() {
 
               {/* Mobile menu button */}
               <Disclosure.Button
-                className="md:hidden p-3 text-theme-text hover:text-theme-text-heading focus:outline-none focus:ring-2 focus:ring-theme-accent rounded-lg"
+                className="md:hidden inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 text-theme-text hover:text-theme-text-heading focus:outline-none focus:ring-2 focus:ring-theme-accent touch-manipulation"
                 aria-label="Toggle menu"
               >
                 <svg
@@ -133,7 +133,7 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={handleNavClick}
-                    className={`block px-4 py-3 text-sm transition-colors ${
+                    className={`flex min-h-[44px] items-center px-4 py-3 text-sm leading-snug transition-colors touch-manipulation ${
                       isActive(link.href)
                         ? "bg-theme-accent-muted text-theme-text-heading"
                         : "text-theme-text hover:bg-theme-accent-muted hover:text-theme-text-heading"
@@ -178,7 +178,7 @@ function HeaderThemeSwitcher() {
             key={t.id}
             type="button"
             onClick={() => setTheme(t.id)}
-            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 focus:ring-offset-theme-page ${
+            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-all hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 focus:ring-offset-theme-page touch-manipulation sm:h-8 sm:w-8 ${
               isActive ? "ring-2 ring-theme-accent ring-offset-2 ring-offset-theme-page" : ""
             }`}
             aria-pressed={isActive}

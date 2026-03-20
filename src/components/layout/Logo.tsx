@@ -37,13 +37,13 @@ export default function Logo() {
   const src = THEME_LOGO_SRC[theme];
 
   return (
-    <Link href="/" className="flex items-center">
+    <Link href="/" className="flex min-h-[44px] min-w-0 items-center touch-manipulation">
       <Image
         src={src}
         alt="EnWretched"
         width={180}
         height={60}
-        className="h-12 w-auto"
+        className="h-9 w-auto max-h-10 max-w-[min(160px,46vw)] sm:h-10 sm:max-h-11 sm:max-w-none md:h-12"
         priority
       />
     </Link>

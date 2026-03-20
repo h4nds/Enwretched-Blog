@@ -115,7 +115,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-theme-page text-theme-text font-mono">
+    <div className="min-h-screen-dvh min-w-0 overflow-x-clip bg-theme-page text-theme-text font-mono">
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
 
       <div
@@ -135,13 +135,13 @@ export default function Home() {
               <div className="absolute -right-1/4 bottom-0 h-64 w-1/2 rounded-full bg-theme-accent/20 blur-3xl" />
             </div>
             <div
-              className="home-reveal relative mx-auto max-w-6xl px-4 py-12 md:py-16 lg:py-20"
+              className="home-reveal relative mx-auto max-w-6xl px-3 py-10 sm:px-4 sm:py-12 md:py-16 lg:py-20"
               style={{ animationDelay: "40ms" }}
             >
-              <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.28em] text-theme-text-muted">
+              <p className="mb-3 text-balance text-[10px] font-medium uppercase tracking-[0.2em] text-theme-text-muted sm:text-[11px] sm:tracking-[0.28em]">
                 Graphic design · Digital art · Full-stack
               </p>
-              <h1 className="font-cormorant text-4xl font-semibold leading-[1.05] text-theme-text-heading md:text-6xl lg:text-7xl">
+              <h1 className="font-cormorant text-[2rem] font-semibold leading-[1.05] text-theme-text-heading min-[400px]:text-4xl md:text-6xl lg:text-7xl">
                 Enwretched
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-theme-text md:text-lg">
@@ -155,19 +155,19 @@ export default function Home() {
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Link
                   href="/gallery"
-                  className="inline-flex items-center justify-center rounded-full bg-theme-accent px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-black/20 transition hover:opacity-90"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-theme-accent px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-black/20 transition hover:opacity-90 touch-manipulation"
                 >
                   View gallery
                 </Link>
                 <Link
                   href="/blog"
-                  className="inline-flex items-center justify-center rounded-full border border-theme-border bg-theme-card/60 px-6 py-2.5 text-sm text-theme-text-heading backdrop-blur-sm transition hover:border-theme-accent/50 hover:bg-theme-accent-muted/40"
+                  className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-theme-border bg-theme-card/60 px-6 py-2.5 text-sm text-theme-text-heading backdrop-blur-sm transition hover:border-theme-accent/50 hover:bg-theme-accent-muted/40 touch-manipulation"
                 >
                   Read the log
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center text-sm text-theme-text-muted underline-offset-4 transition hover:text-theme-text-heading hover:underline"
+                  className="inline-flex min-h-[44px] items-center justify-center text-sm text-theme-text-muted underline-offset-4 transition hover:text-theme-text-heading hover:underline touch-manipulation"
                 >
                   Commissions open
                 </Link>
@@ -175,10 +175,10 @@ export default function Home() {
             </div>
           </section>
 
-          <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
-            <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+          <div className="mx-auto max-w-6xl px-3 py-10 sm:px-4 md:py-14">
+            <div className="grid min-w-0 gap-12 lg:grid-cols-12 lg:gap-14">
               {/* Main column */}
-              <div className="space-y-12 lg:col-span-7">
+              <div className="min-w-0 space-y-12 lg:col-span-7">
                 <section
                   className="home-reveal border-l-2 border-theme-accent pl-6 md:pl-8"
                   style={{ animationDelay: "120ms" }}
@@ -283,7 +283,7 @@ export default function Home() {
 
               {/* Sidebar — timeline + posts, fewer stacked boxes */}
               <aside
-                className="home-reveal space-y-8 lg:col-span-5"
+                className="home-reveal min-w-0 space-y-8 lg:col-span-5"
                 style={{ animationDelay: "180ms" }}
               >
                 <div>
@@ -368,7 +368,7 @@ export default function Home() {
           {/* Featured — bento-style grid */}
           <section className="border-y border-theme-border bg-theme-accent-muted/15 py-12 md:py-16">
             <div
-              className="home-reveal mx-auto max-w-6xl px-4"
+              className="home-reveal mx-auto max-w-6xl px-3 sm:px-4"
               style={{ animationDelay: "100ms" }}
             >
               <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
@@ -402,7 +402,7 @@ export default function Home() {
           </section>
 
           {/* Blog strip */}
-          <section className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+          <section className="mx-auto max-w-6xl px-3 py-12 sm:px-4 md:py-16">
             <div
               className="home-reveal mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center"
               style={{ animationDelay: "80ms" }}

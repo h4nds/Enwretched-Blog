@@ -29,7 +29,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-theme-border bg-theme-card backdrop-blur-sm">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto max-w-full px-3 py-4 sm:px-4">
         <div className="text-center">
           <p className="text-theme-text">© EnWretched 2025 - All Rights Reserved</p>
           <div className="mt-2">

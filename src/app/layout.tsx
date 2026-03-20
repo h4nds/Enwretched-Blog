@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Cinzel, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import PerformanceOptimizer from "@/components/seo/PerformanceOptimizer";
@@ -123,6 +123,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -140,7 +147,9 @@ export default function RootLayout({
         <link rel="icon" href="/images/showcase/deamon.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/images/showcase/deamon.png" />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${cormorant.variable} antialiased`}>
+      <body
+        className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${cormorant.variable} antialiased pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]`}
+      >
         <ThemeProvider>
           <PerformanceOptimizer
             preloadImages={['/images/showcase/deamon.png']}

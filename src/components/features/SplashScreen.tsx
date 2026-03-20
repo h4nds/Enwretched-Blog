@@ -46,7 +46,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
 
   return (
     <div 
-      className="fixed inset-0 z-50 bg-slate-950 transition-opacity duration-500"
+      className="fixed inset-0 z-50 bg-slate-950 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] transition-opacity duration-500"
       onClick={handleProceed}
       role="button"
       tabIndex={0}
@@ -96,8 +96,8 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
       )}
 
       {/* Content overlay */}
-      <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-purple-300 animate-pulse mb-12">
+      <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/30 px-4">
+        <h1 className="mb-8 max-w-full text-center text-4xl font-bold text-purple-300 animate-pulse min-[400px]:text-5xl md:mb-12 md:text-7xl lg:text-8xl">
           EnWretched
         </h1>
         {isLoading ? (
