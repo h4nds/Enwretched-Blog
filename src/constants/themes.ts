@@ -16,7 +16,7 @@ export const THEME_LABELS: Record<ThemeId, string> = {
   enwretched: "Enwretched",
   mirrors: "Mirrors",
   mono: "Mono",
-  ember: "Green",
+  ember: "Easy",
   corruption: "Corruption",
   void: "Void",
 };
