@@ -8,6 +8,13 @@ import { JSX, useState } from "react";
 import VideoPlayer from "@/components/features/VideoPlayer";
 import type { BlogPost } from "@/types/blog";
 
+/** Encode each path segment so filenames with spaces (e.g. `tattoo guns.jpg`) work with next/image. */
+function normalizeImageSrc(src: string): string {
+  if (!src.startsWith("/")) return src;
+  const segments = src.split("/").filter(Boolean);
+  return "/" + segments.map(encodeURIComponent).join("/");
+}
+
 export default function BlogArticleClient({ post }: { post: BlogPost }) {
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
 
@@ -69,12 +76,14 @@ export default function BlogArticleClient({ post }: { post: BlogPost }) {
                 {post.content.split("\n").map((line, index) => {
                   const imageMatch = line.trim().match(/!\[([^\]]*)\]\(([^)]+)\)/);
                   if (imageMatch) {
-                    const [, alt, src] = imageMatch;
+                    const [, alt, rawSrc] = imageMatch;
+                    const raw = rawSrc.trim();
+                    const src = normalizeImageSrc(raw);
                     return (
                       <div key={index} className="my-8 flex flex-col items-center">
                         <div
                           className="cursor-pointer group relative"
-                          onClick={() => setExpandedImage(src)}
+                          onClick={() => setExpandedImage(raw)}
                         >
                           <Image
                             src={src}
@@ -154,7 +163,7 @@ export default function BlogArticleClient({ post }: { post: BlogPost }) {
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={expandedImage}
+              src={normalizeImageSrc(expandedImage)}
               alt="Expanded view"
               width={1200}
               height={800}

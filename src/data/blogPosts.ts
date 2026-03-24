@@ -16,7 +16,7 @@ I've decided to use my prowess in sketching to start doing tattoos, if you know 
 
 Next there's the website, full stack updates, and progress I've made so far with my other projects. I've made 6 NEW THEMES, ranging from the classic enwretched, void, corruption
 
-![Enwretched logo](/images/sitelogos/enlogo.png)
+![Enwretched logo](/images/showcase/enlogo.png)
 
 
 I implemented themes for Kanadojo to get familiar with building themes for a TypeScript web app. It was a really fun process, and I am thinking of rotating themes throughout the year, kind of like a seasonal thing. Im also planning to overhaul the gallery after I sort out my best undergrad work to add and since ill be featuring programming, graphic design, photography, and other media, I think clearer differentiation between the types of work will be important. I like to stay organized. So I'm spanning these same changes to the gallery and the other pages, but I've already started thinking of making more sites to showcase and i cant wait to share how those shoot.
@@ -41,7 +41,7 @@ be safe work harrddd
       'Fullstack',
     ],
     author: 'Ray Wretch',
-    imageUrl: '/images/sitelogos/enlogo.png',
+    imageUrl: '/images/showcase/enlogo.png',
   },
 
   {
