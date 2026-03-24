@@ -4,6 +4,47 @@ import { BlogPost } from '@/types/blog';
 const posts: BlogPost[] = [
 
   {
+    id: '2026-03-21-ink-themes-drafts',
+    title: 'Practicing Practice',
+    content: `Hello my blog, to live is to suffer yes yes,
+
+life has been moving faster than my drafts folder, and I'm working on so many different projects at once, with also just like rotting in my room sometimes but this is a productive post so
+
+I've decided to use my prowess in sketching to start doing tattoos, if you know me personally its something I've always considered, but never really thought i had it in me since i never thought my own drawings were that cool, or at least professional enough for me to put on somebody's skin. But id always have it recommended to me whenever someone would catch me drawing, So. I've just went ahead and gotten all the gear i need to start actually getting ink on skin!! now i really just need to put in the practice, so lets see where this takes us
+
+![Tattoo gear and flash](/images/showcase/tattoo guns.jpg)
+
+Next there's the website, full stack updates, and progress I've made so far with my other projects. I've made 6 NEW THEMES, ranging from the classic enwretched, void, corruption
+
+![Enwretched logo](/images/sitelogos/enlogo.png)
+
+
+I implemented themes for Kanadojo to get familiar with building themes for a TypeScript web app. It was a really fun process, and I am thinking of rotating themes throughout the year, kind of like a seasonal thing. Im also planning to overhaul the gallery after I sort out my best undergrad work to add and since ill be featuring programming, graphic design, photography, and other media, I think clearer differentiation between the types of work will be important. I like to stay organized. So I'm spanning these same changes to the gallery and the other pages, but I've already started thinking of making more sites to showcase and i cant wait to share how those shoot.
+
+There is also the matter of the commission inquiry in my contact form not working properly, which I'm planning to have a fix for this week, i just need to figure out how to set up API keys, i have a really cool project in mind that id like to build in order for me to understand it better and then go ahead and use that experience from that side project into my actual website.
+
+Im really proud of the two side projects i decided to take up and build. Siizer my Image resizer tool is steadily underway to becoming a fully functional web based application, as of recent I've implemented presets that corresponds to the photo and video sizes that most big name social media apps use.
+
+i guess Thats as much as i have to cover for now. my next few posts should b fun so ima see you then
+
+be safe work harrddd
+
+- ray`,
+    excerpt: 'Tattoos, six themes, Siizer, and life outrunning the drafts folder',
+    createdAt: '2026-03-21',
+    tags: [
+      'Tattoos',
+      'Themes',
+      'Site Updates',
+      'Siizer',
+      'Side Projects',
+      'Fullstack',
+    ],
+    author: 'Ray Wretch',
+    imageUrl: '/images/sitelogos/enlogo.png',
+  },
+
+  {
     id: 'Side Project Time',
     title: 'Side Project Time',
     content: `Heyyyyyyy blog this is going to be a quick post about my side projects and what i've been working on lately.

@@ -1,6 +1,67 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
 import clientPromise from '@/lib/mongodb';
 import { verifyAdminSession, checkRateLimit } from '@/lib/auth';
+
+async function notifyContactByEmail(params: {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  ip: string;
+  timestamp: Date;
+}) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.warn(
+      'RESEND_API_KEY is not set; skipping contact email notification (message still saved).'
+    );
+    return;
+  }
+
+  const to = process.env.CONTACT_NOTIFY_EMAIL;
+  if (!to) {
+    console.warn(
+      'CONTACT_NOTIFY_EMAIL is not set; skipping contact email notification (message still saved).'
+    );
+    return;
+  }
+
+  const from =
+    process.env.RESEND_FROM ?? 'Contact <onboarding@resend.dev>';
+
+  const resend = new Resend(apiKey);
+  const text = [
+    'New contact form submission',
+    '',
+    `Name: ${params.name}`,
+    `Email: ${params.email}`,
+    `Subject: ${params.subject}`,
+    `IP: ${params.ip}`,
+    `Time: ${params.timestamp.toISOString()}`,
+    '',
+    'Message:',
+    params.message,
+  ].join('\n');
+
+  const { data, error } = await resend.emails.send({
+    from,
+    to,
+    replyTo: params.email,
+    subject: `[Contact] ${params.subject}`,
+    text,
+  });
+
+  if (error) {
+    console.error(
+      'Resend contact notification failed (message still saved):',
+      error.message,
+      error.name
+    );
+  } else {
+    console.log('Contact notification email sent:', data?.id ?? '(no id)');
+  }
+}
 
 export const dynamic = 'force-dynamic';
 
@@ -124,7 +185,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Store in MongoDB
-     let client;
+    let client;
     try {
       client = await clientPromise;
     } catch (dbError) {
@@ -138,21 +199,34 @@ export async function POST(request: NextRequest) {
     const db = client.db('enwretched');
     const contactsCollection = db.collection('contacts');
 
+    const resolvedSubject =
+      (typeof subject === 'string' && subject.trim()) || 'Contact Form Submission';
+    const ip =
+      request.headers.get('x-forwarded-for') ||
+      request.headers.get('x-real-ip') ||
+      'unknown';
+    const timestamp = new Date();
+
     const contactData = {
       name,
       email,
-      subject: subject || 'Contact Form Submission',
+      subject: resolvedSubject,
       message,
-      timestamp: new Date(),
-      ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
-      status: 'unread' // New messages start as unread
+      timestamp,
+      ip,
+      status: 'unread', // New messages start as unread
     };
 
     await contactsCollection.insertOne(contactData);
 
-    // Send email notification (you'll need to set up email service)
-    // For now, we'll just log it
-    console.log('New contact form submission:', contactData);
+    await notifyContactByEmail({
+      name,
+      email,
+      subject: resolvedSubject,
+      message,
+      ip,
+      timestamp,
+    });
 
     return NextResponse.json({ 
       success: true, 

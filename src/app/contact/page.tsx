@@ -3,7 +3,7 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ContactForm from '@/components/features/ContactForm';
-import { FaInstagram, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaInstagram, FaEnvelope, FaGithub } from 'react-icons/fa';
 import { useState } from 'react';
 
 export default function Contact() {
@@ -29,7 +29,7 @@ export default function Contact() {
           {/* Hero Section */}
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl font- text-theme-text-heading mb-6">
-              Commision Enquiry
+              Commission Enquiry
             </h1>
             <p className="text-xl md:text-2xl text-theme-text mb-8">
               we can work something out :3
@@ -149,6 +149,10 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div>
+              <p className="text-sm text-theme-text-muted mb-4 leading-relaxed">
+                For commissions, include project type, timeline or deadline, budget range, and any
+                reference links or inspiration so we can respond clearly.
+              </p>
               <ContactForm />
             </div>
           </div>
