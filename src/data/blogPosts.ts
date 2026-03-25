@@ -30,7 +30,7 @@ i guess Thats as much as i have to cover for now. my next few posts should b fun
 be safe work harrddd
 
 - ray`,
-    excerpt: 'Tattoos, six themes, Siizer, and life outrunning the drafts folder',
+    excerpt: 'busy work u hurd',
     createdAt: '2026-03-21',
     tags: [
       'Tattoos',
