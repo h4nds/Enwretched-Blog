@@ -41,7 +41,7 @@ be safe work harrddd
       'Fullstack',
     ],
     author: 'Ray Wretch',
-    imageUrl: '/images/showcase/enlogo.png',
+    imageUrl: '/images/showcase/fredo.jpg',
   },
 
   {
