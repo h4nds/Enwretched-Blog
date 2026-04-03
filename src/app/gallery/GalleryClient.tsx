@@ -343,11 +343,18 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
             onViewChange={setIsGridView}
           />
           {isGridView ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-              {currentArtworks.map((artwork) => (
-                <FeaturedArtwork key={artwork.id} artwork={artwork} />
-              ))}
-            </div>
+            <>
+              <h2 className="sr-only">Artworks in this gallery</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+                {currentArtworks.map((artwork) => (
+                  <FeaturedArtwork
+                    key={artwork.id}
+                    artwork={artwork}
+                    imageSizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px"
+                  />
+                ))}
+              </div>
+            </>
           ) : (
             <ArtworkList artworks={currentArtworks} />
           )}
@@ -372,7 +379,7 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
-                    <h4 className="text-lg mb-2 text-theme-text-heading truncate w-full text-center">{filename.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ')}</h4>
+                    <h3 className="text-lg mb-2 text-theme-text-heading truncate w-full text-center">{filename.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ')}</h3>
                     <a
                       href={`/wallpapers/${filename}`}
                       download

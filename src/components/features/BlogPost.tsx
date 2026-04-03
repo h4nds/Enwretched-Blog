@@ -23,7 +23,7 @@ export default function BlogPost({ post }: BlogPostProps) {
             />
           </div>
         )}
-        <h4 className="text-theme-text-heading mb-2">{post.title}</h4>
+        <h3 className="text-theme-text-heading mb-2">{post.title}</h3>
         <p className="text-sm text-theme-text mb-4">{post.excerpt}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {post.tags.map(tag => (

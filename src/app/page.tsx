@@ -80,6 +80,16 @@ function featuredGridClass(index: number): string {
   return "md:col-span-3";
 }
 
+function featuredImageSizes(index: number): string {
+  if (index === 0) {
+    return "(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 760px";
+  }
+  if (index === 1) {
+    return "(max-width: 768px) 100vw, (max-width: 1200px) 36vw, 400px";
+  }
+  return "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 520px";
+}
+
 const skillTags = [
   "Photoshop Raster & Vector",
   "Photography",
@@ -395,6 +405,7 @@ export default function Home() {
                     artwork={artwork}
                     className={`rounded-2xl ${featuredGridClass(index)}`}
                     imagePriority={index === 0}
+                    imageSizes={featuredImageSizes(index)}
                   />
                 ))}
               </div>

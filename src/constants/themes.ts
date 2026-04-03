@@ -1,6 +1,4 @@
-/**
- * Single source of truth for theme IDs (layout flash-prevention script + ThemeProvider).
- */
+
 export const THEME_IDS = [
   "enwretched",
   "mirrors",

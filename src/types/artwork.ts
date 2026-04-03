@@ -20,4 +20,6 @@ export interface FeaturedArtworkProps {
   className?: string;
   /** First visible image LCP hint (home hero piece). */
   imagePriority?: boolean;
+  /** Passed to next/image `sizes` so the optimizer matches rendered width (home bento vs gallery grid). */
+  imageSizes?: string;
 } 

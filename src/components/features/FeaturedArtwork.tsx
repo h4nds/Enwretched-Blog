@@ -10,6 +10,7 @@ export default function FeaturedArtwork({
   artwork,
   className = "",
   imagePriority = false,
+  imageSizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
 }: FeaturedArtworkProps) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
@@ -71,7 +72,7 @@ export default function FeaturedArtwork({
               className={`object-cover transition-all duration-300 ${
                 isLoading ? 'opacity-0' : 'opacity-100'
               } group-hover:scale-105`}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes={imageSizes}
               onLoad={() => setIsLoading(false)}
               onError={() => {
                 setIsLoading(false);
@@ -167,13 +168,13 @@ export default function FeaturedArtwork({
       )}
       {hasDedicatedPage ? (
         <Link href={artworkLink!}>
-          <h4 className="text-lg mb-2 text-theme-text-heading hover:text-theme-text transition-colors">{artwork.title}</h4>
+          <h3 className="text-lg mb-2 text-theme-text-heading hover:text-theme-text transition-colors">{artwork.title}</h3>
           <p className="text-sm mb-2">{artwork.description}</p>
           <div className="text-xs">Created: {artwork.createdAt}</div>
         </Link>
       ) : (
         <>
-          <h4 className="text-lg mb-2 text-theme-text-heading">{artwork.title}</h4>
+          <h3 className="text-lg mb-2 text-theme-text-heading">{artwork.title}</h3>
           <p className="text-sm mb-2">{artwork.description}</p>
           <div className="text-xs">Created: {artwork.createdAt}</div>
         </>
