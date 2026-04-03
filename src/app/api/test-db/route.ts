@@ -1,10 +1,19 @@
 import { NextResponse } from 'next/server';
-import clientPromise from '@/lib/mongodb';
+import { getMongoClient } from '@/lib/mongodb';
 
 export async function GET() {
   try {
     console.log('Attempting to connect to MongoDB...');
-    const client = await clientPromise;
+    const client = await getMongoClient();
+    if (!client) {
+      return NextResponse.json(
+        {
+          status: 'skipped',
+          message: 'MONGODB_URI is not set; MongoDB check skipped.',
+        },
+        { status: 503 }
+      );
+    }
     console.log('MongoDB client connected successfully');
     
     const db = client.db('enwretched');

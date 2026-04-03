@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import clientPromise from '@/lib/mongodb';
+import { getMongoClient } from '@/lib/mongodb';
 
 export const dynamic = 'force-dynamic';
 
@@ -25,8 +25,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Store in MongoDB
-    const client = await clientPromise;
+    const client = await getMongoClient();
+    if (!client) {
+      return NextResponse.json(
+        { error: 'Newsletter signup is temporarily unavailable.' },
+        { status: 503 }
+      );
+    }
     const db = client.db('enwretched');
     const newsletterCollection = db.collection('newsletter');
 

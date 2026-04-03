@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import clientPromise from '@/lib/mongodb';
+import { getMongoClient } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 import { verifyAdminSession } from '@/lib/auth';
 
@@ -42,7 +42,13 @@ export async function PATCH(
       );
     }
 
-    const client = await clientPromise;
+    const client = await getMongoClient();
+    if (!client) {
+      return NextResponse.json(
+        { error: 'Database is not configured.' },
+        { status: 503 }
+      );
+    }
     const db = client.db('enwretched');
     const contactsCollection = db.collection('contacts');
 
@@ -104,7 +110,13 @@ export async function DELETE(
       );
     }
 
-    const client = await clientPromise;
+    const client = await getMongoClient();
+    if (!client) {
+      return NextResponse.json(
+        { error: 'Database is not configured.' },
+        { status: 503 }
+      );
+    }
     const db = client.db('enwretched');
     const contactsCollection = db.collection('contacts');
 

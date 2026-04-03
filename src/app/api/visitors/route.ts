@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { headers, cookies } from 'next/headers';
-import clientPromise from '@/lib/mongodb';
+import { getMongoClient } from '@/lib/mongodb';
 
 const VISITED_COOKIE = 'enwretched_visited';
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
@@ -13,7 +13,10 @@ export async function GET() {
     const cookieStore = await cookies();
     const alreadyVisited = cookieStore.has(VISITED_COOKIE);
 
-    const client = await clientPromise;
+    const client = await getMongoClient();
+    if (!client) {
+      return NextResponse.json({ count: 0 });
+    }
     const db = client.db('enwretched');
     const visitorsCollection = db.collection('visitors');
 

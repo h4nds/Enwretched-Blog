@@ -26,7 +26,7 @@ const options = {
 let client: MongoClient | undefined;
 let clientPromise: Promise<MongoClient> | undefined;
 
-// Only create MongoDB connection if URI is provided
+// Only create MongoDB connection if URI is provided (no Promise.reject at module load — avoids build/tooling issues)
 if (uri) {
   if (process.env.NODE_ENV === 'development') {
     // In development mode, use a global variable so that the value
@@ -39,33 +39,39 @@ if (uri) {
       console.log('Creating new MongoDB client...');
       client = new MongoClient(uri, options);
       globalWithMongo._mongoClientPromise = client.connect()
-        .then(client => {
+        .then((connected) => {
           console.log('MongoDB client connected successfully');
-          return client;
+          return connected;
         })
-        .catch(error => {
+        .catch((error) => {
           console.error('MongoDB connection error:', error);
           throw error;
         });
     }
     clientPromise = globalWithMongo._mongoClientPromise;
   } else {
-    // In production mode, it's best to not use a global variable.
     client = new MongoClient(uri, options);
     clientPromise = client.connect()
-      .then(client => {
+      .then((connected) => {
         console.log('MongoDB client connected successfully');
-        return client;
+        return connected;
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('MongoDB connection error:', error);
         throw error;
       });
   }
 } else {
-  // If no MongoDB URI is provided, create a promise that rejects with a helpful error
   console.warn('MongoDB URI not found. MongoDB features will be disabled. Add MONGODB_URI to .env.local to enable.');
-  clientPromise = Promise.reject(new Error('MongoDB URI not configured. Please add MONGODB_URI to .env.local'));
 }
 
-export default clientPromise!; 
+/**
+ * Returns a connected client, or null when MONGODB_URI is not set.
+ * Avoids rejecting at module load (which broke `next build` and noisy tooling).
+ */
+export async function getMongoClient(): Promise<MongoClient | null> {
+  if (!clientPromise) {
+    return null;
+  }
+  return clientPromise;
+}

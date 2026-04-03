@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import clientPromise from '@/lib/mongodb';
+import { getMongoClient } from '@/lib/mongodb';
 import { verifyAdminSession, checkRateLimit } from '@/lib/auth';
 
 async function notifyContactByEmail(params: {
@@ -90,7 +90,13 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const client = await clientPromise;
+    const client = await getMongoClient();
+    if (!client) {
+      return NextResponse.json(
+        { error: 'Database is not configured.' },
+        { status: 503 }
+      );
+    }
     const db = client.db('enwretched');
     const contactsCollection = db.collection('contacts');
 
@@ -175,23 +181,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if MongoDB is configured
-    if (!process.env.MONGODB_URI) {
-      console.error('MONGODB_URI is not configured in environment variables');
+    const client = await getMongoClient();
+    if (!client) {
+      console.error('MONGODB_URI is not configured or database is unavailable');
       return NextResponse.json(
         { error: 'Server configuration error. Please contact the site administrator.' },
-        { status: 500 }
-      );
-    }
-
-    // Store in MongoDB
-    let client;
-    try {
-      client = await clientPromise;
-    } catch (dbError) {
-      console.error('MongoDB connection error:', dbError);
-      return NextResponse.json(
-        { error: 'Database connection failed. Please try again later.' },
         { status: 500 }
       );
     }
