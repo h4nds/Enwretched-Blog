@@ -11,8 +11,8 @@ export const THEME_IDS = [
 export type ThemeId = (typeof THEME_IDS)[number];
 
 export const THEME_LABELS: Record<ThemeId, string> = {
-  enwretched: "Enwretched",
-  mirrors: "Mirrors",
+  enwretched: "OG",
+  mirrors: "mirrors",
   mono: "Mono",
   ember: "easy",
   corruption: "Corruption",
