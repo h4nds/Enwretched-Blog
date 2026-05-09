@@ -1,135 +1,204 @@
 "use client";
 
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import Link from 'next/link';
-import NewsletterSignup from '@/components/features/NewsletterSignup';
-//TODO: Add forum page - start wireframes and backend 
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Link from "next/link";
+import NewsletterSignup from "@/components/features/NewsletterSignup";
+import {
+  BALLROOM_REPO_URL,
+  BALLROOM_STACK_SUMMARY,
+} from "@/constants/ballroom";
+
+function ProgressRow({
+  label,
+  status,
+  tone,
+}: {
+  label: string;
+  status: string;
+  tone: "done" | "active" | "planned";
+}) {
+  const statusClass =
+    tone === "done"
+      ? "text-emerald-400"
+      : tone === "active"
+        ? "text-amber-400"
+        : "text-theme-text-muted";
+  return (
+    <div className="flex justify-between items-center gap-3">
+      <span className="text-sm text-theme-text">{label}</span>
+      <span className={`shrink-0 text-sm ${statusClass}`}>{status}</span>
+    </div>
+  );
+}
 
 export default function Forum() {
   return (
     <div className="min-h-screen bg-theme-page text-theme-text font-mono">
       <Header />
-      
+
       <main className="container mx-auto p-4">
-        <div className="max-w-4xl mx-auto">
-          {/* Hero Section */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-8xl font-cormorant text-theme-text-heading mb-6">
-              Ballroom 
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-12 text-center">
+            <h1 className="mb-4 font-cormorant text-5xl text-theme-text-heading md:text-8xl">
+              Ballroom
             </h1>
-            <p className="text-xl md:text-2xl text-theme-text mb-8">
-              
+            <p className="mx-auto max-w-2xl text-lg text-theme-text md:text-xl">
+              {BALLROOM_STACK_SUMMARY} This site (
+              <span className="text-theme-text-heading">EnWretched</span>) is the
+              portfolio home;{" "}
+              <span className="text-theme-text-heading">Ballroom</span> is the
+              forum app repo where active development logs, issues, and code live.
             </p>
+            <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+              <a
+                href={BALLROOM_REPO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-theme-accent/40 bg-theme-accent-muted/40 px-6 py-3 text-sm font-semibold text-theme-text-heading transition hover:border-theme-accent hover:bg-theme-accent-muted/60"
+              >
+                ballroom on GitHub
+              </a>
+              <span className="text-xs text-theme-text-muted">
+                Same link as &ldquo;Forum progress&rdquo; in the footer
+              </span>
+            </div>
           </div>
 
-          {/* Coming Soon Content */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {/* Left Column */}
-            <div className="border border-theme-border p-6 bg-theme-card rounded-lg">
-              <h2 className="text-2xl font-bold text-theme-text-heading mb-4">What's Coming</h2>
+          <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="rounded-lg border border-theme-border bg-theme-card p-6">
+              <h2 className="mb-4 text-2xl font-bold text-theme-text-heading">
+                What&apos;s coming
+              </h2>
               <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <span className="text-theme-text-muted text-xl"></span>
-                  <div>
-                    <h3 className="text-theme-text-heading font-semibold">Artist Showcases</h3>
-                    <p className="text-theme-text text-sm">Share your work and get feedback from the community</p>
-                  </div>
+                <div>
+                  <h3 className="font-semibold text-theme-text-heading">
+                    Artist showcases
+                  </h3>
+                  <p className="text-sm text-theme-text">
+                    Share work and get feedback from the community.
+                  </p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-theme-text-muted text-xl"></span>
-                  <div>
-                    <h3 className="text-theme-text-heading font-semibold">Discussion Boards</h3>
-                    <p className="text-theme-text text-sm">Id like to have a place where people can discuss the project and share their thoughts</p>
-                  </div>
+                <div>
+                  <h3 className="font-semibold text-theme-text-heading">
+                    Discussion boards
+                  </h3>
+                  <p className="text-sm text-theme-text">
+                    Space to talk about the project and swap ideas—not wired into
+                    this Next.js site yet.
+                  </p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-theme-text-muted text-xl"></span>
-                  <div>
-                    <h3 className="text-theme-text-heading font-semibold">Collaborations</h3>
-                    <p className="text-theme-text text-sm">Connect with other people working on similar projects & end up as life long friends (hopefully)</p>
-                  </div>
+                <div>
+                  <h3 className="font-semibold text-theme-text-heading">
+                    Collaborations
+                  </h3>
+                  <p className="text-sm text-theme-text">
+                    Connect with people on similar builds and side projects.
+                  </p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-theme-text-muted text-xl"></span>
-                  <div>
-                    <h3 className="text-theme-text-heading font-semibold">Resources</h3>
-                    <p className="text-theme-text text-sm">Share tutorials, tools, and other resources for people making other projects  </p>
-                  </div>
+                <div>
+                  <h3 className="font-semibold text-theme-text-heading">
+                    Resources
+                  </h3>
+                  <p className="text-sm text-theme-text">
+                    Tutorials, tools, and references for people shipping their own
+                    things.
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Right Column */}
-            <div className="border border-theme-border p-6 bg-theme-card rounded-lg">
-              <h2 className="text-2xl font-bold text-theme-text-heading mb-4">Stay Updated</h2>
-              <p className="text-theme-text mb-6">
-                Be the first to know when the forum launches. Join our community of artists and creators.
+            <div className="rounded-lg border border-theme-border bg-theme-card p-6">
+              <h2 className="mb-4 text-2xl font-bold text-theme-text-heading">
+                Build status
+              </h2>
+              <p className="mb-6 text-sm text-theme-text">
+                High-level snapshot; the repo README is the source of truth for
+                setup (Vite on one port, Rails API proxied on{" "}
+                <code className="text-theme-text-heading">/api</code>
+                ).
               </p>
-              
+
               <div className="space-y-4">
-                <div className="bg-theme-accent-muted border border-theme-border p-4 rounded-lg">
-                  <h3 className="text-theme-text-heading font-semibold mb-2">Development Progress</h3>
+                <div className="rounded-lg border border-theme-border bg-theme-accent-muted/30 p-4">
+                  <h3 className="mb-3 font-semibold text-theme-text-heading">
+                    In the Ballroom repo
+                  </h3>
                   <div className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-theme-text">Backend Setup</span>
-                      <span className="text-green-400 text-sm">✓ Complete</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-theme-text">UI Design</span>
-                      <span className="text-yellow-400 text-sm">In Progress</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-theme-text">User Account/Authentication</span>
-                      <span className="text-gray-400 text-sm">Planned </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-theme-text">Beta Testing</span>
-                      <span className="text-gray-400 text-sm">Planned</span>
-                    </div>
+                    <ProgressRow
+                      label="Rails JSON API (backend)"
+                      status="In progress"
+                      tone="active"
+                    />
+                    <ProgressRow
+                      label="React + Vite client"
+                      status="In progress"
+                      tone="active"
+                    />
+                    <ProgressRow
+                      label="Auth wired end-to-end"
+                      status="Planned / iterating"
+                      tone="planned"
+                    />
+                    <ProgressRow
+                      label="Public beta / deploy story"
+                      status="Planned"
+                      tone="planned"
+                    />
                   </div>
                 </div>
 
-                <div className="bg-theme-accent-muted border border-theme-border p-4 rounded-lg">
-                  <h3 className="text-theme-text-heading font-semibold mb-2">Progress Tracker</h3>
-                  <p className="text-theme-text text-sm">Hopefully by the end of the year</p>
-                  <div className="mt-2 w-full bg-theme-accent-muted rounded-full h-2">
-                    <div className="bg-theme-accent h-2 rounded-full" style={{ width: '25%' }}></div>
-                  </div>
+                <div className="rounded-lg border border-theme-border bg-theme-accent-muted/30 p-4">
+                  <h3 className="mb-2 font-semibold text-theme-text-heading">
+                    Follow along
+                  </h3>
+                  <p className="text-sm text-theme-text">
+                    Commits and issues on GitHub are the real progress bar. This
+                    page stays a light overview so EnWretched doesn&apos;t pretend
+                    to host the forum yet.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center border border-theme-border p-8 bg-theme-card rounded-lg">
-            <h2 className="text-2xl font-bold text-theme-text-heading mb-4">In the meantime...</h2>
-            <p className="text-theme-text mb-6 max-w-2xl mx-auto">
-              May i interest you in my other projects perhaps?
+          <div className="rounded-lg border border-theme-border bg-theme-card p-8 text-center">
+            <h2 className="mb-4 text-2xl font-bold text-theme-text-heading">
+              In the meantime
+            </h2>
+            <p className="mx-auto mb-6 max-w-2xl text-theme-text">
+              More on this site while Ballroom ships.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
+            <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap">
+              <a
+                href={BALLROOM_REPO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg bg-theme-accent-muted px-6 py-3 text-theme-text transition-colors duration-200 hover:bg-theme-card-hover"
+              >
+                GitHub repo
+              </a>
+              <Link
                 href="/blog"
-                className="bg-theme-accent-muted hover:bg-theme-card-hover text-theme-text px-6 py-3 rounded-lg transition-colors duration-200"
+                className="rounded-lg bg-theme-accent-muted px-6 py-3 text-theme-text transition-colors duration-200 hover:bg-theme-card-hover"
               >
-                My Blog
+                Blog
               </Link>
-              <Link 
+              <Link
                 href="/gallery"
-                className="bg-theme-accent-muted hover:bg-theme-card-hover text-theme-text px-6 py-3 rounded-lg transition-colors duration-200"
+                className="rounded-lg bg-theme-accent-muted px-6 py-3 text-theme-text transition-colors duration-200 hover:bg-theme-card-hover"
               >
-                View Gallery
+                Gallery
               </Link>
-              <Link 
+              <Link
                 href="/contact"
-                className="bg-theme-accent-muted hover:bg-theme-card-hover text-theme-text px-6 py-3 rounded-lg transition-colors duration-200"
+                className="rounded-lg bg-theme-accent-muted px-6 py-3 text-theme-text transition-colors duration-200 hover:bg-theme-card-hover"
               >
-                Contact Me
+                Contact
               </Link>
             </div>
           </div>
 
-          {/* Newsletter Signup */}
           <div className="mt-12">
             <NewsletterSignup />
           </div>
@@ -139,4 +208,4 @@ export default function Forum() {
       <Footer />
     </div>
   );
-} 
+}

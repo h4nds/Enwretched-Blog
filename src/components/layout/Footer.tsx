@@ -6,9 +6,9 @@ import {
   FOOTER_SIGNAL_LINES,
   FOOTER_SIGNAL_ROTATE_MS,
 } from "@/constants/footerSignal";
+import { BALLROOM_REPO_URL } from "@/constants/ballroom";
 
 const SIGNAL_COUNT = FOOTER_SIGNAL_LINES.length;
-const BALLROOM_REPO_URL = "https://github.com/h4nds/Ballroom";
 
 export default function Footer() {
   const [index, setIndex] = useState(0);
