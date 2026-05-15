@@ -1,4 +1,3 @@
-
 export const THEME_IDS = [
   "enwretched",
   "mirrors",
@@ -19,7 +18,7 @@ export const THEME_LABELS: Record<ThemeId, string> = {
   void: "Void",
 };
 
-/** Header logo art per theme (`public/images/sitelogos/`) */
+
 export const THEME_LOGO_SRC: Record<ThemeId, string> = {
   enwretched: "/images/sitelogos/enwtch-purple.png",
   mirrors: "/images/sitelogos/enwtch-clear.png",

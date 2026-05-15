@@ -1,7 +1,48 @@
 import { BlogPost } from '@/types/blog';
 
-// Blog posts organized by year and month
+// da source
 const posts: BlogPost[] = [
+
+  {
+    id: '2026-05-15-ballroom-forum-progress',
+    title: 'Project updates',
+    content: `Hhhhhhhey, blog
+
+I have been juggling different projects (as per usual), but I can say have been making steady progress on the Ballroom forum, **3’s new instrumental EP cover (blog post on this soon)**, and more flash for my inventory.
+
+But starting with Ballroom, I needed to tighten up the routes and make sure everything stayed consistent and predictable with my variables, and Ruby on Rails is not an easy language to just jump into. I had to take the time to read a lot of the wiki and understand its tools and frameworks, but as a result, my wireframe turned out exactly how I imagined it. And I do plan to have the interactive sounds and themes off rip for launch too. However right now a wall im stuck at would be polishing the mobile layout and accessibility.
+
+![Ballroom forum wireframe](/images/blog/ballroom-forum-wireframe.png)
+
+This is the first time I have built any type of message board system, so I have been learning a lot about sorting, deciding on if i should design in mind of subforums or tagging. Im also looking into anonymous thread creation and interaction, along with user account onboarding and site wide user profile customization.
+
+But yea over the past few weeks I made a batch of smaller improvements on here. It hasnt been as much as I’d like, but i think its still meaningful progress.
+
+- Removed the deprecated visitor tracking API and related config.
+- Updated the footer component for clearer interaction and better styling.
+- Renamed a few theme labels to make them easier to understand.
+
+feel free to look through my pushes via my GitHub here
+
+[Enwretched-Blog](https://github.com/h4nds/Enwretched-Blog)
+
+And with the semester is finally ending again, I should be a lot more active with posts, writing, and artwork. I might also do shorter posts sometimes, since I occasionally just want to talk about random stuff like how i miss destiny 2 or how i how much i hate systemic corruption or share quick update pictures. There are no real rules here.
+
+ps
+
+I have also been making steady progress on my tattoo journey. I am planning a separate post for that, because I have a lot to share on that end.`,
+    excerpt: 'Rails routes, forum wireframes, and a handful of site fixes.',
+    createdAt: '2026-05-15',
+    tags: [
+      'Ballroom',
+      'Forum',
+      'Rails',
+      'Site Updates',
+      'Fullstack',
+    ],
+    author: 'Ray Wretch',
+    imageUrl: '/images/showcase/imageballroom-wireframe.png',
+  },
 
   {
     id: '2026-03-21-ink-themes-drafts',
