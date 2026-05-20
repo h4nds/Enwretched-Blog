@@ -8,11 +8,11 @@ const posts: BlogPost[] = [
     title: 'Project updates',
     content: `Hhhhhhhey, blog
 
-I have been juggling different projects (as per usual), but I can say have been making steady progress on the Ballroom forum, **3’s new instrumental EP cover (blog post on this soon)**, and more flash for my inventory.
+THIS IS MY CAT HER NAME IS VIIOLETTTT & hi yes i have been juggling different projects (as per usual), but I can say have been making steady progress on the Ballroom forum, **3’s new instrumental EP cover (blog post on this soon)**, and more flash for my inventory.
 
 But starting with Ballroom, I needed to tighten up the routes and make sure everything stayed consistent and predictable with my variables, and Ruby on Rails is not an easy language to just jump into. I had to take the time to read a lot of the wiki and understand its tools and frameworks, but as a result, my wireframe turned out exactly how I imagined it. And I do plan to have the interactive sounds and themes off rip for launch too. However right now a wall im stuck at would be polishing the mobile layout and accessibility.
 
-![Ballroom forum wireframe](/images/blog/ballroom-forum-wireframe.png)
+![Ballroom forum wireframe](/images/showcase/imagballroom-forum-wireframe.png)
 
 This is the first time I have built any type of message board system, so I have been learning a lot about sorting, deciding on if i should design in mind of subforums or tagging. Im also looking into anonymous thread creation and interaction, along with user account onboarding and site wide user profile customization.
 
@@ -41,7 +41,7 @@ I have also been making steady progress on my tattoo journey. I am planning a se
       'Fullstack',
     ],
     author: 'Ray Wretch',
-    imageUrl: '/images/showcase/imageballroom-wireframe.png',
+    imageUrl: '/images/showcase/viiiiibb.jpg',
   },
 
   {
