@@ -4,6 +4,39 @@ import { BlogPost } from '@/types/blog';
 const posts: BlogPost[] = [
 
   {
+    id: '2026-05-30-tattoo-journey-update',
+    title: 'Tatuuu',
+    content: `Man giving yourself a tattoo probably has to be one of the most humbling things you can ever do to yourself, the pain your enduring as you see the line your making go down your own skin is a really an experience, But its so satisfying to watch the ink go into skin.
+
+![the setupp](/images/showcase/tat1.jpg)
+
+I don't really understand everything fully but i do have the basics down for what i need personally to start tattoo on people. Id hope to start taking official commissions and booking in late June. I plan to have a separate website for the booking and viewing for my flash.
+
+id also like to give a huge shout out to [@1tussionex on ig](https://instagram.com/1tussionex) for really setting me up and showing me how to go about my line work and the equipment i need, etc. He's bee a really good mentor and he's a constant source of inspiration, totally try to book bro if you'd like a tattoo.
+
+but yeah so much more to come. As of late I've been really fixated on incorporating my newsprint flash onto digital work, something of a traditional stick-and-paste like design.
+
+![ts hurt so bad and its so horrible to look at but i love it idc *viewer discretion is advised haha*](/images/showcase/tat2.jpg)
+
+I do have 2 projects im finalizing for release for next week, ive just been having problems with my current assests as i reallly havent been enjoying using the same texture scans and presets from 2017. That shit just gets old, so ive been on much of a side quest trying to hunt down or create assets to add more *hmpf* to my work.
+
+But thats all for now,
+
+C u next posts`,
+    excerpt: 'Self-tattoo practice, late-June booking plans, and newsprint flash hitting digital work.',
+    createdAt: '2026-05-30',
+    tags: [
+      'Tattoos',
+      'Flash',
+      'Digital Art',
+      'Process',
+      'Commissions',
+    ],
+    author: 'Ray Wretch',
+    imageUrl: '/images/showcase/tat1.jpg',
+  },
+
+  {
     id: '2026-05-15-ballroom-forum-progress',
     title: 'Ballroom update',
     content: `Hhhhhhhey, blog
