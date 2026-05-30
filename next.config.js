@@ -100,6 +100,16 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/blog/Side Project Time',
+        destination: '/blog/2026-02-07-side-project-time',
+        permanent: true,
+      },
+      {
+        source: '/blog/Side%20Project%20Time',
+        destination: '/blog/2026-02-07-side-project-time',
+        permanent: true,
+      },
     ];
   },
 };

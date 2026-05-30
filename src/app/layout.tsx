@@ -4,6 +4,7 @@ import "./globals.css";
 import PerformanceOptimizer from "@/components/seo/PerformanceOptimizer";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { THEME_IDS } from "@/constants/themes";
+import { DEFAULT_DESCRIPTION, DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/constants/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     default: "EnWretched - Graphic Design & FullStack",
     template: "%s | EnWretched"
   },
-  description: "Portfolio and blog of Ray Wretch, a digital artist and aspiring web developer exploring fullstack development and experimental art.",
+  description: DEFAULT_DESCRIPTION,
   keywords: ["graphic design", "web development", "digital art", "portfolio", "fullstack", "experimental art"],
   authors: [{ name: "Ray Wretch" }],
   creator: "Ray Wretch",
@@ -47,20 +48,17 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://enwretched.com'), // Replace with your actual domain
-  alternates: {
-    canonical: '/',
-  },
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://enwretched.com',
+    url: SITE_URL,
     title: 'EnWretched - Graphic Design & FullStack',
-    description: 'Portfolio and blog of Ray Wretch, a digital artist and aspiring web developer exploring fullstack development and experimental art.',
-    siteName: 'EnWretched',
+    description: DEFAULT_DESCRIPTION,
+    siteName: SITE_NAME,
     images: [
       {
-        url: '/images/showcase/deamon.png',
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: 'EnWretched',
@@ -70,9 +68,9 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'EnWretched - Graphic Design & FullStack',
-    description: 'Portfolio and blog of Ray Wretch, a digital artist and aspiring web developer exploring fullstack development and experimental art.',
-    images: ['/images/showcase/deamon.png'],
-    creator: '@enwretched', // Replace with your Twitter handle
+    description: DEFAULT_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE],
+    creator: '@enwretched',
   },
   robots: {
     index: true,

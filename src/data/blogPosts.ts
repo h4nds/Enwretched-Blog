@@ -86,7 +86,7 @@ be safe work harrddd
   },
 
   {
-    id: 'Side Project Time',
+    id: '2026-02-07-side-project-time',
     title: 'Side Project Time',
     content: `Heyyyyyyy blog this is going to be a quick post about my side projects and what i've been working on lately.
 

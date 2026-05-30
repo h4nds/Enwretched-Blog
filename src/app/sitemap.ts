@@ -1,51 +1,61 @@
-import { MetadataRoute } from 'next'
-import { getBlogPosts } from '@/data/blogPosts'
+import { MetadataRoute } from 'next';
+import { getBlogPosts } from '@/data/blogPosts';
+import { SITE_URL } from '@/constants/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://enwretched.com'
-  const blogPosts = getBlogPosts()
-  
-  // Base pages
+  const blogPosts = getBlogPosts();
+
   const basePages = [
     {
-      url: baseUrl,
+      url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 1,
     },
     {
-      url: `${baseUrl}/gallery`,
+      url: `${SITE_URL}/gallery`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${SITE_URL}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/forum`,
+      url: `${SITE_URL}/forum`,
       lastModified: new Date(),
-      changeFrequency: 'daily' as const,
+      changeFrequency: 'weekly' as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${SITE_URL}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.5,
     },
-  ]
+    {
+      url: `${SITE_URL}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/recovery`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    },
+  ];
 
-  // Blog post pages
-  const blogPages = blogPosts.map(post => ({
-    url: `${baseUrl}/blog/${post.id}`,
+  const blogPages = blogPosts.map((post) => ({
+    url: `${SITE_URL}/blog/${encodeURIComponent(post.id)}`,
     lastModified: new Date(post.createdAt),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
-  }))
+  }));
 
-  return [...basePages, ...blogPages]
-} 
+  return [...basePages, ...blogPages];
+}
