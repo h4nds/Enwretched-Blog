@@ -5,7 +5,7 @@ const posts: BlogPost[] = [
 
   {
     id: '2026-05-15-ballroom-forum-progress',
-    title: 'Project updates',
+    title: 'Ballroom update',
     content: `Hhhhhhhey, blog
 
 THIS IS MY CAT HER NAME IS VIIOLETTTT & hi yes i have been juggling different projects (as per usual), but I can say have been making steady progress on the Ballroom forum, **3’s new instrumental EP cover (blog post on this soon)**, and more flash for my inventory.
