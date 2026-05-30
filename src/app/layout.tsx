@@ -107,7 +107,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
   },
   verification: {
-    google: 'cNcnRU_GseNmUZdbAes5DvHW-6BChIwAaJjmaxCBaKk',
+    google: 'ASAfoFhRa8qHg0iWY0UoNwp1Y3B0pyprPXLh8t_ALNU',
   },
   other: {
     'Content-Security-Policy': `
