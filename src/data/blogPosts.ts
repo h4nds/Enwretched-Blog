@@ -33,7 +33,7 @@ C u next posts`,
       'Commissions',
     ],
     author: 'Ray Wretch',
-    imageUrl: '/images/showcase/tat1.jpg',
+    imageUrl: '/images/showcase/banee.png',
   },
 
   {
