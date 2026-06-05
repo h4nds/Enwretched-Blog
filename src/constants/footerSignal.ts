@@ -1,8 +1,8 @@
 export const FOOTER_SIGNAL_LINES = [
   "Commissions open — say hi via Contact!!",
-  "Like my new signal eh?.",
+  "new work up liveee",
   "PICK A THEME ANY THEME!!",
-  "read my blog if you care",
+  "tattooooooooooooooss",
 ] as const;
 
 export const FOOTER_SIGNAL_LABEL = "Signal";

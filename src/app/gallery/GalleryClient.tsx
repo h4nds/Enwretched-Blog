@@ -294,6 +294,22 @@ const allArtworks: Artwork[] = [
     category: 'professional'
   },
 
+  {
+    id: '15',
+    title: 'Vein',
+    description: 'Mixed media work composed over three weeks, layering newsprint flash, digital texture, and hand-drawn scaned line work.',
+    images: [
+      {
+        url: '/images/showcase/the-blood.jpg',
+        alt: 'Vein - Main View',
+        isPrimary: true
+      },
+    ],
+    createdAt: '2026',
+    tags: ['Tattoos', 'Flash', 'Digital Art', 'Process', 'Commissions'],
+    category: 'personal'
+  },
+
 
 ];
 
