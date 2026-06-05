@@ -30,9 +30,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const stored = localStorage.getItem(THEME_STORAGE_KEY);
-    if (stored && THEME_IDS.includes(stored as ThemeId)) {
-      setThemeState(stored as ThemeId);
-      document.documentElement.setAttribute("data-theme", stored);
+    const themeId =
+      stored === "spotlight" ? "corruption" : stored;
+    if (themeId && THEME_IDS.includes(themeId as ThemeId)) {
+      setThemeState(themeId as ThemeId);
+      document.documentElement.setAttribute("data-theme", themeId);
+      if (stored === "spotlight") {
+        localStorage.setItem(THEME_STORAGE_KEY, "corruption");
+      }
     }
     setMounted(true);
   }, []);

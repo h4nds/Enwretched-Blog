@@ -149,16 +149,16 @@ export default function HomeClient() {
               style={{ animationDelay: "40ms" }}
             >
               <p className="mb-3 text-balance text-[10px] font-medium uppercase tracking-[0.2em] text-theme-text-muted sm:text-[11px] sm:tracking-[0.28em]">
-                Graphic design · Digital art · Full-stack
+                Graphic design · Tattoo · Full-stack
               </p>
               <h1 className="font-cormorant text-[2rem] font-semibold leading-[1.05] text-theme-text-heading min-[400px]:text-4xl md:text-6xl lg:text-7xl">
                 Enwretched
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-theme-text md:text-lg">
-                I work at the intersection of{" "}
-                <span className="text-theme-text-heading">surrealism</span>,{" "}
-                <span className="text-theme-text-heading">nature</span>, and{" "}
-                <span className="text-theme-text-heading">experimental</span>{" "}
+               currently working between The intersections of digital media and{" "}
+                <span className="text-theme-text-heading">Tatoo</span>,{" "}
+                <span className="text-theme-text-heading">Frontend Development</span>, and{" "}
+                <span className="text-theme-text-heading">Fundimental Desgin</span>{" "}
                 media—digital pieces, photography, and mixed work with a
                 dreamlike edge.
               </p>
@@ -190,24 +190,8 @@ export default function HomeClient() {
               {/* Main column */}
               <div className="min-w-0 space-y-12 lg:col-span-7">
                 <section
-                  className="home-reveal border-l-2 border-theme-accent pl-6 md:pl-8"
-                  style={{ animationDelay: "120ms" }}
-                >
-                  <h2 className="font-cormorant text-2xl text-theme-text-heading md:text-3xl">
-                    About my practice
-                  </h2>
-                  <p className="mt-4 text-sm leading-relaxed text-theme-text md:text-base">
-                    Heyy I&apos;m Ray Wretch—a graphic designer and digital artist
-                    building tools and visuals with the same curiosity I bring
-                    to a canvas or a camera. This site is part portfolio, part
-                    blog: my process, client work, and experiments all live here
-                    together.
-                  </p>
-                </section>
-
-                <section
                   className="home-reveal grid gap-4 sm:grid-cols-2"
-                  style={{ animationDelay: "200ms" }}
+                  style={{ animationDelay: "120ms" }}
                 >
                   <div className="rounded-2xl border border-theme-border/80 bg-theme-card/40 p-5 backdrop-blur-sm transition hover:border-theme-accent/30">
                     <h3 className="text-xs font-semibold uppercase tracking-wider text-theme-text-muted">
@@ -215,9 +199,9 @@ export default function HomeClient() {
                     </h3>
                     <ul className="mt-3 space-y-2 text-sm text-theme-text">
                       <li>Surreal digital art</li>
-                      <li>Nature photography</li>
+                      <li>Zerox Scanning</li>
                       <li>Mixed media</li>
-                      <li>Digital illustration</li>
+                      <li>Tattoo Design</li>
                     </ul>
                   </div>
                   <div className="rounded-2xl border border-theme-border/80 bg-theme-card/40 p-5 backdrop-blur-sm transition hover:border-theme-accent/30">
@@ -234,7 +218,7 @@ export default function HomeClient() {
                       <li>
                         Email:{" "}
                         <span className="text-theme-text-heading">
-                          wretchray@gmail.com
+                          enwretched@proton.me
                         </span>
                       </li>
                       <li>
@@ -249,7 +233,7 @@ export default function HomeClient() {
 
                 <section
                   className="home-reveal flex flex-wrap gap-2"
-                  style={{ animationDelay: "280ms" }}
+                  style={{ animationDelay: "200ms" }}
                 >
                   {skillTags.map((tag) => (
                     <span
@@ -263,7 +247,7 @@ export default function HomeClient() {
 
                 <section
                   className="home-reveal flex flex-col gap-4 rounded-2xl border border-dashed border-theme-border/70 bg-gradient-to-br from-theme-accent-muted/25 to-transparent p-5 sm:flex-row sm:items-center sm:justify-between"
-                  style={{ animationDelay: "360ms" }}
+                  style={{ animationDelay: "280ms" }}
                 >
                   <div className="flex items-start gap-3">
                     <span
@@ -322,13 +306,13 @@ export default function HomeClient() {
                     <li className="relative pb-6">
                       <span className="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-theme-page bg-theme-text-muted" />
                       <p className="text-sm text-theme-text">
-                        Flyer work added to the gallery.
+                        been playing alot of cs2 lately
                       </p>
                     </li>
                     <li className="relative">
                       <span className="absolute -left-[21px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-theme-page bg-theme-text-muted" />
                       <p className="text-sm text-theme-text">
-                        Solo project in progress.
+                        thinking of a new deck options (Antihero or Rasvett)
                       </p>
                     </li>
                   </ul>
@@ -362,7 +346,7 @@ export default function HomeClient() {
 
                 <div className="rounded-2xl border border-theme-accent/30 bg-theme-accent-muted/20 p-6 text-center">
                   <p className="text-sm text-theme-text">
-                    Commissions or collabs? Say hi.
+                    Commissions or collabs? Please reach out!!!!
                   </p>
                   <Link
                     href="/contact"

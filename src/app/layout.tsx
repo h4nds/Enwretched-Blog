@@ -138,7 +138,7 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var a=${JSON.stringify([...THEME_IDS])};var k="enwretched_theme";var t=localStorage.getItem(k)||"enwretched";if(a.indexOf(t)<0)t="enwretched";document.documentElement.setAttribute("data-theme",t);})();`,
+            __html: `(function(){var a=${JSON.stringify([...THEME_IDS])};var k="enwretched_theme";var t=localStorage.getItem(k)||"enwretched";if(t==="spotlight"){t="corruption";try{localStorage.setItem(k,t);}catch(e){}}if(a.indexOf(t)<0)t="enwretched";document.documentElement.setAttribute("data-theme",t);})();`,
           }}
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
