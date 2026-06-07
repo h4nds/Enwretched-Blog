@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Logo from "./Logo";
-import { Fragment, useEffect, useRef } from "react";
+import { Fragment } from "react";
 import { Menu, Transition, Disclosure } from "@headlessui/react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -46,18 +46,14 @@ function NavLink({
 function DesktopNavMenu() {
   const isActive = useIsActive();
   const pathname = usePathname();
-  const closeMenuRef = useRef<(() => void) | null>(null);
-
-  useEffect(() => {
-    closeMenuRef.current?.();
-  }, [pathname]);
 
   return (
-    <Menu as="div" className="hidden md:block relative text-left">
-      {({ open, close }) => {
-        closeMenuRef.current = close;
-
-        return (
+    <Menu
+      as="div"
+      key={pathname}
+      className="hidden md:block relative text-left"
+    >
+      {({ open, close }) => (
           <>
             <Menu.Button className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-theme-text hover:text-theme-text-heading hover:bg-theme-accent-muted focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 focus:ring-offset-theme-page transition-colors touch-manipulation">
               Menu
@@ -106,8 +102,7 @@ function DesktopNavMenu() {
               </Menu.Items>
             </Transition>
           </>
-        );
-      }}
+      )}
     </Menu>
   );
 }
@@ -116,18 +111,10 @@ function DesktopNavMenu() {
 function MobileNavMenu() {
   const isActive = useIsActive();
   const pathname = usePathname();
-  const closePanelRef = useRef<(() => void) | null>(null);
-
-  useEffect(() => {
-    closePanelRef.current?.();
-  }, [pathname]);
 
   return (
-    <Disclosure as="div" className="md:hidden">
-      {({ open, close }) => {
-        closePanelRef.current = close;
-
-        return (
+    <Disclosure as="div" key={pathname} className="md:hidden">
+      {({ open, close }) => (
           <>
             <Disclosure.Button
               className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 text-theme-text hover:text-theme-text-heading focus:outline-none focus:ring-2 focus:ring-theme-accent touch-manipulation"
@@ -189,8 +176,7 @@ function MobileNavMenu() {
               </Disclosure.Panel>
             </Transition>
           </>
-        );
-      }}
+      )}
     </Disclosure>
   );
 }
