@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FeaturedArtworkProps } from '@/types/artwork';
+import { normalizeImageSrc } from '@/lib/imagePath';
 import { useState } from 'react';
 
 export default function FeaturedArtwork({
@@ -65,7 +66,7 @@ export default function FeaturedArtwork({
         ) : (
           <>
             <Image
-              src={currentImage.url}
+              src={normalizeImageSrc(currentImage.url)}
               alt={currentImage.alt}
               fill
               priority={imagePriority}
@@ -125,7 +126,7 @@ export default function FeaturedArtwork({
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={currentImage.url}
+              src={normalizeImageSrc(currentImage.url)}
               alt={currentImage.alt}
               width={800}
               height={600}

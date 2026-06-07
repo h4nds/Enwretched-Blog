@@ -4,6 +4,11 @@ export interface ArtworkImage {
   isPrimary?: boolean;
 }
 
+export interface GalleryDocument {
+  title: string;
+  url: string;
+}
+
 export interface Artwork {
   id: string;
   title: string;
@@ -12,6 +17,17 @@ export interface Artwork {
   createdAt: string;
   tags: string[];
   category?: 'undergraduate' | 'professional' | 'personal';
+}
+
+export interface UndergraduateProject {
+  id: string;
+  title: string;
+  course: string;
+  period: string;
+  description: string;
+  tags: string[];
+  images: ArtworkImage[];
+  documents?: GalleryDocument[];
 }
 
 export interface FeaturedArtworkProps {

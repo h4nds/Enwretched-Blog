@@ -20,7 +20,7 @@ export default function GalleryControls({ artworks, onFilterChange, isGridView, 
   const allTags = Array.from(new Set(artworks.flatMap(artwork => artwork.tags)));
 
   // Get all unique categories from artworks
-  const categories = ['All', 'Undergraduate', 'Professional', 'Personal'];
+  const categories = ['All', 'Professional', 'Personal'];
 
   const toggleTag = (tag: string) => {
     setSelectedTags(prev => 

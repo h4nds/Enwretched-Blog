@@ -1,6 +1,7 @@
 "use client";
 
 import { Artwork } from '@/types/artwork';
+import { normalizeImageSrc } from '@/lib/imagePath';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -20,7 +21,7 @@ export default function ArtworkList({ artworks }: ArtworkListProps) {
           <>
             <div className={`relative w-32 h-32 flex-shrink-0 ${hasDedicatedPage ? 'group overflow-hidden rounded' : ''}`}>
               <Image
-                src={artwork.images[0].url}
+                src={normalizeImageSrc(artwork.images[0].url)}
                 alt={artwork.images[0].alt}
                 fill
                 className={`object-cover ${hasDedicatedPage ? 'group-hover:scale-110 transition-transform duration-300' : ''}`}
