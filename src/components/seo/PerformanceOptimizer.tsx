@@ -16,38 +16,47 @@ export default function PerformanceOptimizer({
   const performanceRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Performance monitoring
-    if (typeof window !== 'undefined' && 'performance' in window) {
-      // Monitor Core Web Vitals
-      const observer = new PerformanceObserver((list) => {
-        for (const entry of list.getEntries()) {
-          if (entry.entryType === 'largest-contentful-paint') {
-            console.log('LCP:', entry.startTime);
-          }
-          if (entry.entryType === 'first-input') {
-            const firstInput = entry as any;
-            console.log('FID:', firstInput.processingStart - firstInput.startTime);
-          }
-          if (entry.entryType === 'layout-shift') {
-            const layoutShift = entry as any;
-            console.log('CLS:', layoutShift.value);
-          }
-        }
-      });
-
-      observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
-
-      // Monitor page load time
-      window.addEventListener('load', () => {
-        const navigation = performance.getEntriesByType('navigation')[0] as any;
-        if (navigation) {
-          console.log('Page Load Time:', navigation.loadEventEnd - navigation.loadEventStart);
-          console.log('DOM Content Loaded:', navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart);
-        }
-      });
-
-      return () => observer.disconnect();
+    if (typeof window === "undefined" || !("PerformanceObserver" in window)) {
+      return;
     }
+
+    const observer = new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        if (entry.entryType === "largest-contentful-paint") {
+          console.log("LCP:", entry.startTime);
+        }
+        if (entry.entryType === "layout-shift") {
+          const layoutShift = entry as PerformanceEntry & { value?: number };
+          console.log("CLS:", layoutShift.value);
+        }
+      }
+    });
+
+    try {
+      observer.observe({ type: "largest-contentful-paint", buffered: true });
+      observer.observe({ type: "layout-shift", buffered: true });
+    } catch {
+      // Some browsers reject unsupported entry types — don't crash the app.
+    }
+
+    const onLoad = () => {
+      const navigation = performance.getEntriesByType("navigation")[0] as
+        | PerformanceNavigationTiming
+        | undefined;
+      if (navigation) {
+        console.log(
+          "Page Load Time:",
+          navigation.loadEventEnd - navigation.loadEventStart
+        );
+      }
+    };
+
+    window.addEventListener("load", onLoad);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("load", onLoad);
+    };
   }, []);
 
   // Add resource hints to document head

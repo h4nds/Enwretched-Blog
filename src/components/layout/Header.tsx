@@ -24,158 +24,131 @@ function useIsActive() {
   };
 }
 
-function NavLink({
-  href,
-  label,
-  onNavigate,
-  className,
-}: {
-  href: string;
-  label: string;
-  onNavigate: () => void;
-  className: string;
-}) {
-  return (
-    <Link href={href} onClick={onNavigate} className={className}>
-      {label}
-    </Link>
-  );
+function navLinkClass(active: boolean, base: string) {
+  return `${base} ${
+    active
+      ? "bg-theme-accent-muted text-theme-text-heading"
+      : "text-theme-text hover:bg-theme-accent-muted hover:text-theme-text-heading"
+  }`;
 }
 
-/** Desktop: Headless UI Menu (not nested inside Disclosure). */
+/** Desktop dropdown — Menu.Item must wrap Link directly (ref forwarding). */
 function DesktopNavMenu() {
   const isActive = useIsActive();
-  const pathname = usePathname();
 
   return (
-    <Menu
-      as="div"
-      key={pathname}
-      className="hidden md:block relative text-left"
-    >
-      {({ open, close }) => (
-          <>
-            <Menu.Button className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-theme-text hover:text-theme-text-heading hover:bg-theme-accent-muted focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 focus:ring-offset-theme-page transition-colors touch-manipulation">
-              Menu
-              <span aria-hidden="true">▾</span>
-            </Menu.Button>
+    <Menu as="div" className="hidden md:block relative text-left">
+      {({ close }) => (
+        <>
+          <Menu.Button className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-theme-text hover:text-theme-text-heading hover:bg-theme-accent-muted focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 focus:ring-offset-theme-page transition-colors touch-manipulation">
+            Menu
+            <span aria-hidden="true">▾</span>
+          </Menu.Button>
 
-            <Transition
-              show={open}
-              as={Fragment}
-              enter="transition ease-out duration-150"
-              enterFrom="opacity-0 translate-y-1 scale-95"
-              enterTo="opacity-100 translate-y-0 scale-100"
-              leave="transition ease-in duration-100"
-              leaveFrom="opacity-100 translate-y-0 scale-100"
-              leaveTo="opacity-0 translate-y-1 scale-95"
-            >
-              <Menu.Items
-                static
-                anchor={{ to: "bottom end", gap: 8, padding: 8 }}
-                className="header-menu-panel z-[60] w-80 origin-top-right rounded-lg border border-theme-border bg-theme-card shadow-lg focus:outline-none"
-              >
-                <div className="py-2">
-                  {navLinks.map((link) => (
-                    <Menu.Item key={link.href}>
-                      {({ active }) => (
-                        <NavLink
-                          href={link.href}
-                          label={link.label}
-                          onNavigate={close}
-                          className={`block px-4 py-2 text-sm transition-colors ${
-                            active || isActive(link.href)
-                              ? "bg-theme-accent-muted text-theme-text-heading"
-                              : "text-theme-text hover:bg-theme-accent-muted"
-                          }`}
-                        />
+          <Menu.Items
+            transition
+            anchor={{ to: "bottom end", gap: 8, padding: 8 }}
+            className="header-menu-panel z-[60] w-80 origin-top-right rounded-lg border border-theme-border bg-theme-card shadow-lg focus:outline-none transition duration-150 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
+          >
+            <div className="py-2">
+              {navLinks.map((link) => (
+                <Menu.Item key={link.href}>
+                  {({ focus }) => (
+                    <Link
+                      href={link.href}
+                      onClick={() => close()}
+                      className={navLinkClass(
+                        focus || isActive(link.href),
+                        "block px-4 py-2 text-sm transition-colors"
                       )}
-                    </Menu.Item>
-                  ))}
-                </div>
-                <div className="border-t border-theme-border px-4 py-3">
-                  <p className="mb-2 text-xs font-medium uppercase tracking-wide text-theme-text-muted">
-                    Themes
-                  </p>
-                  <HeaderThemeSwitcher />
-                </div>
-              </Menu.Items>
-            </Transition>
-          </>
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </Menu.Item>
+              ))}
+            </div>
+            <div className="border-t border-theme-border px-4 py-3">
+              <p className="mb-2 text-xs font-medium uppercase tracking-wide text-theme-text-muted">
+                Themes
+              </p>
+              <HeaderThemeSwitcher />
+            </div>
+          </Menu.Items>
+        </>
       )}
     </Menu>
   );
 }
 
-/** Mobile: Disclosure panel only (md and below). */
+/** Mobile hamburger panel. */
 function MobileNavMenu() {
   const isActive = useIsActive();
-  const pathname = usePathname();
 
   return (
-    <Disclosure as="div" key={pathname} className="md:hidden">
+    <Disclosure as="div" className="md:hidden">
       {({ open, close }) => (
-          <>
-            <Disclosure.Button
-              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 text-theme-text hover:text-theme-text-heading focus:outline-none focus:ring-2 focus:ring-theme-accent touch-manipulation"
-              aria-label="Toggle menu"
+        <>
+          <Disclosure.Button
+            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 text-theme-text hover:text-theme-text-heading focus:outline-none focus:ring-2 focus:ring-theme-accent touch-manipulation"
+            aria-label="Toggle menu"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden
-              >
-                {open ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </Disclosure.Button>
+              {open ? (
+                <path d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </Disclosure.Button>
 
-            <Transition
-              show={open}
-              as={Fragment}
-              enter="transition-all ease-out duration-150"
-              enterFrom="opacity-0 -translate-y-1"
-              enterTo="opacity-100 translate-y-0"
-              leave="transition-all ease-in duration-100"
-              leaveFrom="opacity-100 translate-y-0"
-              leaveTo="opacity-0 -translate-y-1"
+          <Transition
+            show={open}
+            as={Fragment}
+            enter="transition-all ease-out duration-150"
+            enterFrom="opacity-0 -translate-y-1"
+            enterTo="opacity-100 translate-y-0"
+            leave="transition-all ease-in duration-100"
+            leaveFrom="opacity-100 translate-y-0"
+            leaveTo="opacity-0 -translate-y-1"
+          >
+            <Disclosure.Panel
+              static
+              className="header-menu-panel absolute left-3 right-3 top-full z-[60] mt-2 rounded-lg border border-theme-border bg-theme-card shadow-lg sm:left-4 sm:right-4"
             >
-              <Disclosure.Panel
-                static
-                className="header-menu-panel absolute left-3 right-3 top-full z-[60] mt-2 rounded-lg border border-theme-border bg-theme-card shadow-lg sm:left-4 sm:right-4"
-              >
-                <div className="py-2">
-                  {navLinks.map((link) => (
-                    <NavLink
-                      key={link.href}
-                      href={link.href}
-                      label={link.label}
-                      onNavigate={close}
-                      className={`flex min-h-[44px] items-center px-4 py-3 text-sm leading-snug transition-colors touch-manipulation ${
-                        isActive(link.href)
-                          ? "bg-theme-accent-muted text-theme-text-heading"
-                          : "text-theme-text hover:bg-theme-accent-muted hover:text-theme-text-heading"
-                      }`}
-                    />
-                  ))}
-                </div>
-                <div className="border-t border-theme-border px-4 py-3">
-                  <p className="mb-2 text-xs font-medium uppercase tracking-wide text-theme-text-muted">
-                    Themes
-                  </p>
-                  <HeaderThemeSwitcher />
-                </div>
-              </Disclosure.Panel>
-            </Transition>
-          </>
+              <div className="py-2">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => close()}
+                    className={navLinkClass(
+                      isActive(link.href),
+                      "flex min-h-[44px] items-center px-4 py-3 text-sm leading-snug transition-colors touch-manipulation"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+              <div className="border-t border-theme-border px-4 py-3">
+                <p className="mb-2 text-xs font-medium uppercase tracking-wide text-theme-text-muted">
+                  Themes
+                </p>
+                <HeaderThemeSwitcher />
+              </div>
+            </Disclosure.Panel>
+          </Transition>
+        </>
       )}
     </Disclosure>
   );

@@ -22,11 +22,11 @@ export const undergraduateProjects: UndergraduateProject[] = [
   },
   {
     id: 'ug-3-in-2',
-    title: '3-in-2 Composition Studies',
+    title: '3rdPersons Instrumentals 2',
     course: 'Design Foundations',
-    period: 'Sophomore Year',
+    period: 'Upper Sophomore Year',
     description:
-      'Sequential layout exercises refining hierarchy, pacing, and visual balance across multi-panel compositions.',
+      'Sequential layout exercises refining hierarchy, pacing, and visual balance across multi-panel compositions for 3s instrumentals proj.',
     tags: ['Layout', 'Composition', 'Print'],
     images: [
       {
@@ -53,40 +53,6 @@ export const undergraduateProjects: UndergraduateProject[] = [
         url: showcasePath('Alone.jpg'),
         alt: 'Alone — final composite',
         isPrimary: true,
-      },
-    ],
-  },
-  {
-    id: 'ug-ai-awareness',
-    title: 'AI Awareness Print Campaign',
-    course: 'Advertising Design',
-    period: 'Junior Year',
-    description:
-      'Concept-to-print campaign addressing AI literacy through bold typographic warnings, mock advertisements, and finished print-ready layouts.',
-    tags: ['Advertising', 'Print', 'Concept'],
-    images: [
-      {
-        url: ug('Ai awareness proj/aI WARNING AD.png'),
-        alt: 'AI awareness — warning advertisement',
-        isPrimary: true,
-      },
-      {
-        url: ug('Ai awareness proj/print-ad-complete.png'),
-        alt: 'AI awareness — completed print ad',
-      },
-      {
-        url: ug('Ai awareness proj/offical mock2.png'),
-        alt: 'AI awareness — official mockup',
-      },
-      {
-        url: ug('Ai awareness proj/aiad2.png'),
-        alt: 'AI awareness — alternate layout',
-      },
-    ],
-    documents: [
-      {
-        title: 'Print Ad — Production PDF',
-        url: ug('Ai awareness proj/Aiadprint.pdf'),
       },
     ],
   },
