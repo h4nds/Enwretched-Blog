@@ -185,6 +185,22 @@ export const portfolioArtworks: Artwork[] = [
     tags: ['Tattoos', 'Flash', 'Digital Art', 'Process', 'Commissions'],
     category: 'personal',
   },
+  {
+    id: '16',
+    title: 'Solomn',
+    description:
+      'Completed personal composite, Digital Surface Painting, final export from an ongoing studio piece.',
+    images: [
+      {
+        url: '/images/showcase/solomn_complete.jpg',
+        alt: 'Solomn - Main View',
+        isPrimary: true,
+      },
+    ],
+    createdAt: '2026',
+    tags: ['personal', 'digital', 'photoshop', 'composite'],
+    category: 'personal',
+  },
 ];
 
 export function getSortedPortfolioArtworks(): Artwork[] {
