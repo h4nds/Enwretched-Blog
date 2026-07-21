@@ -4,6 +4,7 @@ import { Artwork } from '@/types/artwork';
 import { normalizeImageSrc } from '@/lib/imagePath';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CaseStudyDetails } from '@/components/features/GalleryProjectExtras';
 
 interface ArtworkListProps {
   artworks: Artwork[];
@@ -36,7 +37,16 @@ export default function ArtworkList({ artworks }: ArtworkListProps) {
               <h3 className={`text-xl font-bold text-theme-text-heading mb-2 ${hasDedicatedPage ? 'hover:text-theme-text transition-colors' : ''}`}>
                 {artwork.title}
               </h3>
+              {artwork.outcomeLine && (
+                <p className="text-xs text-theme-text-muted mb-2 border-l-2 border-theme-accent/60 pl-2 line-clamp-2">
+                  {artwork.outcomeLine}
+                </p>
+              )}
               <p className="text-sm text-theme-text mb-2 line-clamp-2">{artwork.description}</p>
+              <CaseStudyDetails
+                caseStudy={artwork.caseStudy}
+                documents={artwork.documents}
+              />
               <div className="flex flex-wrap gap-2">
                 {artwork.tags.map(tag => (
                   <span key={tag} className="px-2 py-1 bg-theme-accent-muted text-theme-text rounded-full text-xs">

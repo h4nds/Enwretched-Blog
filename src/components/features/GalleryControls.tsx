@@ -53,7 +53,7 @@ export default function GalleryControls({ artworks, onFilterChange, isGridView, 
 
     onFilterChange(filtered);
     setIsLoading(false);
-  }, [searchQuery, selectedTags, selectedCategory, artworks, onFilterChange]);
+  }, [searchQuery, selectedTags, selectedCategory, onFilterChange, artworks]);
 
   return (
     <div className="space-y-4 mb-8">

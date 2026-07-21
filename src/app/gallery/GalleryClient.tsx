@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Header from "@/components/layout/Header";
 import FeaturedArtwork from "@/components/features/FeaturedArtwork";
 import GalleryControls from "@/components/features/GalleryControls";
 import ArtworkList from "@/components/features/ArtworkList";
-import UndergraduateGallerySection from "@/components/features/UndergraduateGallerySection";
+import ProcessGallerySection from "@/components/features/ProcessGallerySection";
 import { getSortedPortfolioArtworks } from "@/data/portfolioArtworks";
 import { Artwork } from "@/types/artwork";
 import Image from "next/image";
@@ -17,7 +17,7 @@ interface GalleryClientProps {
 }
 
 export default function GalleryClient({ wallpapers }: GalleryClientProps) {
-  const sortedArtworks = getSortedPortfolioArtworks();
+  const sortedArtworks = useMemo(() => getSortedPortfolioArtworks(), []);
 
   const [filteredArtworks, setFilteredArtworks] =
     useState<Artwork[]>(sortedArtworks);
@@ -44,8 +44,8 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
               Gallery
             </h1>
             <p className="text-sm md:text-base text-theme-text max-w-3xl">
-              Selected personal and professional work.  Click any
-              piece to view details & additional images.
+              Personal work, client pieces, and case studies. Click a piece for
+              images; open case studies and PDFs on flagged projects.
             </p>
           </div>
 
@@ -59,14 +59,14 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
                   Selected work
                 </h2>
                 <p className="mt-1 text-xs text-theme-text-muted">
-                  Personal, client, and independent projects
+                  Personal, client, branding, and case studies
                 </p>
               </div>
               <a
-                href="#undergraduate-portfolio"
+                href="#gallery-process-work"
                 className="text-sm text-theme-text-muted underline-offset-4 transition hover:text-theme-text-heading hover:underline"
               >
-                Jump to undergraduate portfolio ↓
+                Process & earlier work ↓
               </a>
             </div>
 
@@ -116,7 +116,7 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
             )}
           </section>
 
-          <UndergraduateGallerySection />
+          <ProcessGallerySection />
 
           {wallpapers && wallpapers.length > 0 && (
             <section className="mt-16 border-t border-theme-border pt-12 mb-8">

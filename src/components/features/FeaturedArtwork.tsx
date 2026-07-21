@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FeaturedArtworkProps } from '@/types/artwork';
 import { normalizeImageSrc } from '@/lib/imagePath';
+import { CaseStudyDetails } from '@/components/features/GalleryProjectExtras';
 import { useState } from 'react';
 
 export default function FeaturedArtwork({
@@ -170,14 +171,32 @@ export default function FeaturedArtwork({
       {hasDedicatedPage ? (
         <Link href={artworkLink!}>
           <h3 className="text-lg mb-2 text-theme-text-heading hover:text-theme-text transition-colors">{artwork.title}</h3>
+          {artwork.outcomeLine && (
+            <p className="text-xs text-theme-text-muted mb-2 border-l-2 border-theme-accent/60 pl-2 leading-snug">
+              {artwork.outcomeLine}
+            </p>
+          )}
           <p className="text-sm mb-2">{artwork.description}</p>
-          <div className="text-xs">Created: {artwork.createdAt}</div>
+          <CaseStudyDetails
+            caseStudy={artwork.caseStudy}
+            documents={artwork.documents}
+          />
+          <div className="text-xs mt-2">Created: {artwork.createdAt}</div>
         </Link>
       ) : (
         <>
           <h3 className="text-lg mb-2 text-theme-text-heading">{artwork.title}</h3>
+          {artwork.outcomeLine && (
+            <p className="text-xs text-theme-text-muted mb-2 border-l-2 border-theme-accent/60 pl-2 leading-snug">
+              {artwork.outcomeLine}
+            </p>
+          )}
           <p className="text-sm mb-2">{artwork.description}</p>
-          <div className="text-xs">Created: {artwork.createdAt}</div>
+          <CaseStudyDetails
+            caseStudy={artwork.caseStudy}
+            documents={artwork.documents}
+          />
+          <div className="text-xs mt-2">Created: {artwork.createdAt}</div>
         </>
       )}
     </div>

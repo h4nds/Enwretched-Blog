@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import Logo from "./Logo";
-import { Fragment } from "react";
-import { Menu, Transition, Disclosure } from "@headlessui/react";
+import { useEffect, useState } from "react";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "@/contexts/ThemeContext";
 
@@ -32,113 +32,167 @@ function navLinkClass(active: boolean, base: string) {
   }`;
 }
 
-/** Desktop dropdown — Menu.Item must wrap Link directly (ref forwarding). */
+function NavLinksList({
+  isActive,
+  onNavigate,
+  linkClassName,
+}: {
+  isActive: (href: string) => boolean;
+  onNavigate?: () => void;
+  linkClassName: string;
+}) {
+  return (
+    <>
+      {navLinks.map((link) => {
+        const active = isActive(link.href);
+        return (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={onNavigate}
+            aria-current={active ? "page" : undefined}
+            className={navLinkClass(active, linkClassName)}
+          >
+            {link.label}
+          </Link>
+        );
+      })}
+    </>
+  );
+}
+
+/** Desktop dropdown — MenuItem renders as Next.js Link for reliable routing. */
 function DesktopNavMenu() {
   const isActive = useIsActive();
 
   return (
-    <Menu as="div" className="hidden md:block relative text-left">
-      {({ close }) => (
-        <>
-          <Menu.Button className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-theme-text hover:text-theme-text-heading hover:bg-theme-accent-muted focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 focus:ring-offset-theme-page transition-colors touch-manipulation">
-            Menu
-            <span aria-hidden="true">▾</span>
-          </Menu.Button>
+    <Menu as="div" className="relative hidden text-left md:block">
+      <MenuButton className="inline-flex min-h-[44px] items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-theme-text transition-colors hover:bg-theme-accent-muted hover:text-theme-text-heading focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 focus:ring-offset-theme-page touch-manipulation">
+        Menu
+        <span aria-hidden="true">▾</span>
+      </MenuButton>
 
-          <Menu.Items
-            transition
-            anchor={{ to: "bottom end", gap: 8, padding: 8 }}
-            className="header-menu-panel z-[60] w-80 origin-top-right rounded-lg border border-theme-border bg-theme-card shadow-lg focus:outline-none transition duration-150 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
-          >
-            <div className="py-2">
-              {navLinks.map((link) => (
-                <Menu.Item key={link.href}>
-                  {({ focus }) => (
-                    <Link
-                      href={link.href}
-                      onClick={() => close()}
-                      className={navLinkClass(
-                        focus || isActive(link.href),
-                        "block px-4 py-2 text-sm transition-colors"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  )}
-                </Menu.Item>
-              ))}
-            </div>
-            <div className="border-t border-theme-border px-4 py-3">
-              <p className="mb-2 text-xs font-medium uppercase tracking-wide text-theme-text-muted">
-                Themes
-              </p>
-              <HeaderThemeSwitcher />
-            </div>
-          </Menu.Items>
-        </>
-      )}
+      <MenuItems
+        transition
+        anchor={{ to: "bottom end", gap: 8, padding: 8 }}
+        className="header-menu-panel z-[60] w-80 origin-top-right rounded-lg border border-theme-border bg-theme-card shadow-lg focus:outline-none transition duration-150 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
+      >
+        <div className="py-2">
+          {navLinks.map((link) => (
+            <MenuItem
+              key={link.href}
+              as={Link}
+              href={link.href}
+              aria-current={isActive(link.href) ? "page" : undefined}
+              className={({ focus }) =>
+                navLinkClass(
+                  focus || isActive(link.href),
+                  "block px-4 py-2 text-sm transition-colors"
+                )
+              }
+            >
+              {link.label}
+            </MenuItem>
+          ))}
+        </div>
+        <div className="border-t border-theme-border px-4 py-3">
+          <p className="mb-2 text-xs font-medium uppercase tracking-wide text-theme-text-muted">
+            Themes
+          </p>
+          <HeaderThemeSwitcher />
+        </div>
+      </MenuItems>
     </Menu>
   );
 }
 
-/** Mobile hamburger panel. */
-function MobileNavMenu() {
+function MobileMenuButton({
+  open,
+  onToggle,
+}: {
+  open: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 text-theme-text hover:text-theme-text-heading focus:outline-none focus:ring-2 focus:ring-theme-accent touch-manipulation md:hidden"
+      aria-expanded={open}
+      aria-controls="mobile-nav-panel"
+      aria-label={open ? "Close menu" : "Open menu"}
+      onClick={onToggle}
+    >
+      <svg
+        className="h-6 w-6"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden
+      >
+        {open ? (
+          <path d="M6 18L18 6M6 6l12 12" />
+        ) : (
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        )}
+      </svg>
+    </button>
+  );
+}
+
+export default function Header() {
+  const pathname = usePathname();
   const isActive = useIsActive();
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
 
   return (
-    <Disclosure as="div" className="md:hidden">
-      {({ open, close }) => (
-        <>
-          <Disclosure.Button
-            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 text-theme-text hover:text-theme-text-heading focus:outline-none focus:ring-2 focus:ring-theme-accent touch-manipulation"
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden
-            >
-              {open ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </Disclosure.Button>
+    <header className="sticky top-0 z-50 border-b border-theme-border bg-theme-card">
+      <div className="container relative mx-auto max-w-full px-3 py-2.5 sm:px-4 sm:py-3">
+        <div className="flex min-w-0 items-center justify-between gap-2">
+          <Logo />
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <DesktopNavMenu />
+            <MobileMenuButton
+              open={mobileOpen}
+              onToggle={() => setMobileOpen((prev) => !prev)}
+            />
+          </div>
+        </div>
 
-          <Transition
-            show={open}
-            as={Fragment}
-            enter="transition-all ease-out duration-150"
-            enterFrom="opacity-0 -translate-y-1"
-            enterTo="opacity-100 translate-y-0"
-            leave="transition-all ease-in duration-100"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 -translate-y-1"
-          >
-            <Disclosure.Panel
-              static
-              className="header-menu-panel absolute left-3 right-3 top-full z-[60] mt-2 rounded-lg border border-theme-border bg-theme-card shadow-lg sm:left-4 sm:right-4"
+        {mobileOpen && (
+          <>
+            <button
+              type="button"
+              className="fixed inset-0 z-[55] cursor-default bg-black/20 md:hidden"
+              aria-label="Close menu"
+              onClick={() => setMobileOpen(false)}
+            />
+            <nav
+              id="mobile-nav-panel"
+              aria-label="Mobile"
+              className="header-menu-panel absolute inset-x-3 top-full z-[60] mt-2 max-h-[min(70dvh,28rem)] overflow-y-auto rounded-lg border border-theme-border bg-theme-card shadow-lg sm:inset-x-4"
             >
               <div className="py-2">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => close()}
-                    className={navLinkClass(
-                      isActive(link.href),
-                      "flex min-h-[44px] items-center px-4 py-3 text-sm leading-snug transition-colors touch-manipulation"
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+                <NavLinksList
+                  isActive={isActive}
+                  onNavigate={() => setMobileOpen(false)}
+                  linkClassName="flex min-h-[44px] items-center px-4 py-3 text-sm leading-snug transition-colors touch-manipulation"
+                />
               </div>
               <div className="border-t border-theme-border px-4 py-3">
                 <p className="mb-2 text-xs font-medium uppercase tracking-wide text-theme-text-muted">
@@ -146,25 +200,9 @@ function MobileNavMenu() {
                 </p>
                 <HeaderThemeSwitcher />
               </div>
-            </Disclosure.Panel>
-          </Transition>
-        </>
-      )}
-    </Disclosure>
-  );
-}
-
-export default function Header() {
-  return (
-    <header className="border-b border-theme-border bg-theme-card sticky top-0 z-50">
-      <div className="container relative mx-auto max-w-full px-3 sm:px-4 py-2.5 sm:py-3">
-        <div className="flex min-w-0 items-center justify-between gap-2">
-          <Logo />
-          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-            <DesktopNavMenu />
-            <MobileNavMenu />
-          </div>
-        </div>
+            </nav>
+          </>
+        )}
       </div>
     </header>
   );

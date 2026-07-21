@@ -7,72 +7,11 @@ import FeaturedArtwork from "@/components/features/FeaturedArtwork";
 import BlogPost from "@/components/features/BlogPost";
 import Footer from "@/components/layout/Footer";
 import SplashScreen from "@/components/features/SplashScreen";
-import { Artwork } from "@/types/artwork";
+import { getFeaturedArtworks } from "@/data/portfolioArtworks";
 import { blogPosts } from "@/data/blogPosts";
 import Link from "next/link";
 
-const featuredArtworks: Artwork[] = [
-  {
-    id: "1",
-    title: "Follow The Notes",
-    description:
-      "This surreal, dreamlike piece on a mysterious woman in white entering a reflective river, her spine-like laced in a cursed Tattoo suggesting transformation of self. The lush environment blends natural elements with modern touches like glowing windows and graffiti on ancient stones.",
-    images: [
-      {
-        url: "/images/showcase/follow-the-notes.jpg",
-        alt: "Follow The Notes - Main View",
-        isPrimary: true,
-      },
-    ],
-    createdAt: "2024",
-    tags: ["surreal", "digital", "nature"],
-  },
-  {
-    id: "2",
-    title: "Ten",
-    description:
-      "Mixed media piece curated orginally from a photograph i took of the waterside of a river in the woods with my partner.",
-    images: [
-      {
-        url: "/images/showcase/ten.jpg",
-        alt: "Ten - Main View",
-        isPrimary: true,
-      },
-    ],
-    createdAt: "2024",
-    tags: ["mixed-media", "photography", "nature"],
-  },
-  {
-    id: "3",
-    title: "435 Hz",
-    description:
-      "This piece explores the intensity and distortion of sensory overload—especially sound. I wanted to capture what it feels like to be immersed in heavy bass, noise, and movement, rather than just show it. The image centers around abstracted figures and bursts of color that feel like they're both forming and dissolving at the same time.",
-    images: [
-      {
-        url: "/images/showcase/435-hz.jpg",
-        alt: "435 Hz - Main View",
-        isPrimary: true,
-      },
-    ],
-    createdAt: "2025",
-    tags: ["abstract", "digital", "experimental"],
-  },
-  {
-    id: "4",
-    title: "Recovery",
-    description:
-      "This piece explores nature's quiet surrealism in untouched, mossy spaces that feel like portals. It captures a hidden spring deep in the forest, veiled in mist, with softened focus like a half-remembered dream.",
-    images: [
-      {
-        url: "/images/showcase/recovery.jpg",
-        alt: "Recovery - Main View",
-        isPrimary: true,
-      },
-    ],
-    createdAt: "2024",
-    tags: ["nature", "photography", "surreal"],
-  },
-];
+const featuredArtworks = getFeaturedArtworks(4);
 
 function featuredGridClass(index: number): string {
   if (index === 0) return "md:col-span-4";
@@ -156,9 +95,9 @@ export default function HomeClient() {
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-theme-text md:text-lg">
                currently working between The intersections of digital media and{" "}
-                <span className="text-theme-text-heading">Tatoo</span>,{" "}
+                <span className="text-theme-text-heading">Tattoo</span>,{" "}
                 <span className="text-theme-text-heading">Frontend Development</span>, and{" "}
-                <span className="text-theme-text-heading">Fundimental Desgin</span>{" "}
+                <span className="text-theme-text-heading">Fundamental Design</span>{" "}
                 media—digital pieces, photography, and mixed work with a
                 dreamlike edge.
               </p>

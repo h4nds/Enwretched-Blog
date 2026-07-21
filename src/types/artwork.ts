@@ -9,6 +9,15 @@ export interface GalleryDocument {
   url: string;
 }
 
+/** Agency-style summary: role · tools · outcome (one line on cards). */
+export interface CaseStudyNarrative {
+  problem: string;
+  insight: string;
+  concept: string;
+  execution: string;
+  outcome: string;
+}
+
 export interface Artwork {
   id: string;
   title: string;
@@ -17,17 +26,23 @@ export interface Artwork {
   createdAt: string;
   tags: string[];
   category?: 'undergraduate' | 'professional' | 'personal';
+  /** e.g. "Cover art, Photoshop — delivered for independent release." */
+  outcomeLine?: string;
+  documents?: GalleryDocument[];
+  caseStudy?: CaseStudyNarrative;
 }
 
 export interface UndergraduateProject {
   id: string;
   title: string;
-  course: string;
-  period: string;
   description: string;
   tags: string[];
   images: ArtworkImage[];
+  course?: string;
+  period?: string;
   documents?: GalleryDocument[];
+  outcomeLine?: string;
+  caseStudy?: CaseStudyNarrative;
 }
 
 export interface FeaturedArtworkProps {
