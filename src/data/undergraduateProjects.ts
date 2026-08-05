@@ -5,58 +5,6 @@ const ug = (path: string) => showcasePath(`undergrad/${path}`);
 
 export const undergraduateProjects: UndergraduateProject[] = [
   {
-    id: 'ug-knot-art',
-    title: 'Knot Art Poster',
-    course: 'Foundation Studio',
-    period: 'Freshman Year',
-    description:
-      'Introductory poster exploring knot forms, composition, and hand-rendered typography within a structured design framework.',
-    tags: ['Print Design', 'Typography', 'Foundation'],
-    images: [
-      {
-        url: ug('knot art poster final freshman yr.png'),
-        alt: 'Knot Art Poster — final print',
-        isPrimary: true,
-      },
-    ],
-  },
-  {
-    id: 'ug-3-in-2',
-    title: '3rdPersons Instrumentals 2',
-    course: 'Design Foundations',
-    period: 'Upper Sophomore Year',
-    description:
-      'Sequential layout exercises refining hierarchy, pacing, and visual balance across multi-panel compositions for 3s instrumentals proj.',
-    tags: ['Layout', 'Composition', 'Print'],
-    images: [
-      {
-        url: ug('3-in-2-again-complete.png'),
-        alt: '3-in-2 composition — final',
-        isPrimary: true,
-      },
-      {
-        url: ug('3-in-2-again-second-fix.png'),
-        alt: '3-in-2 composition — revision',
-      },
-    ],
-  },
-  {
-    id: 'ug-alone',
-    title: 'Alone',
-    course: 'Digital Imaging',
-    period: 'Sophomore Year',
-    description:
-      'A study of solitude and introspection through nature photography and digital compositing.',
-    tags: ['Photography', 'Surreal', 'Photoshop'],
-    images: [
-      {
-        url: showcasePath('Alone.jpg'),
-        alt: 'Alone — final composite',
-        isPrimary: true,
-      },
-    ],
-  },
-  {
     id: 'ug-oakley',
     title: 'Oakley Brand Extension',
     course: 'Oakley Design Class 1200',

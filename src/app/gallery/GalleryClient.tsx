@@ -5,7 +5,7 @@ import Header from "@/components/layout/Header";
 import FeaturedArtwork from "@/components/features/FeaturedArtwork";
 import GalleryControls from "@/components/features/GalleryControls";
 import ArtworkList from "@/components/features/ArtworkList";
-import ProcessGallerySection from "@/components/features/ProcessGallerySection";
+import UndergraduateGallerySection from "@/components/features/UndergraduateGallerySection";
 import { getSortedPortfolioArtworks } from "@/data/portfolioArtworks";
 import { Artwork } from "@/types/artwork";
 import Image from "next/image";
@@ -63,10 +63,10 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
                 </p>
               </div>
               <a
-                href="#gallery-process-work"
+                href="#undergraduate-portfolio"
                 className="text-sm text-theme-text-muted underline-offset-4 transition hover:text-theme-text-heading hover:underline"
               >
-                Process & earlier work ↓
+                Jump to undergraduate portfolio ↓
               </a>
             </div>
 
@@ -116,7 +116,7 @@ export default function GalleryClient({ wallpapers }: GalleryClientProps) {
             )}
           </section>
 
-          <ProcessGallerySection />
+          <UndergraduateGallerySection />
 
           {wallpapers && wallpapers.length > 0 && (
             <section className="mt-16 border-t border-theme-border pt-12 mb-8">
